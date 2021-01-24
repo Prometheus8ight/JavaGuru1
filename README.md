@@ -43,7 +43,7 @@ Please, follow next steps in order to publish your homework for personal review:
 
 ## Lesson History
 
-To be added
+* [Lesson 1](https://www.youtube.com/watch?v=WmvQCj46l18)
 
 ## Books
 
