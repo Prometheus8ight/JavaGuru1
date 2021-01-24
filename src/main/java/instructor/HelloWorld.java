@@ -6,5 +6,6 @@ public class HelloWorld {
         System.out.println("Hello World!");
         System.out.println("It is a great day today!");
         System.out.println("Yet another update");
+        System.out.println("It is sunday!");
     }
 }
