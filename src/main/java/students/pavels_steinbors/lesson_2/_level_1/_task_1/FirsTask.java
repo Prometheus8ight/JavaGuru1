@@ -1,6 +1,6 @@
 package students.pavels_steinbors.lesson_2._level_1._task_1;
 
-class FirstTask {
+class FirsTask {
 
     public static void main(String[] args) {
 
