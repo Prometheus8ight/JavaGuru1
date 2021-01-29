@@ -2,3 +2,4 @@
 
 Ctrl + K = Commit
 Ctrl + T = Update
+Ctrl + Shift + K = Push
