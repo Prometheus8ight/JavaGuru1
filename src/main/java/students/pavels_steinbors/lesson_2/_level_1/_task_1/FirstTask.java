@@ -1,7 +1,6 @@
 package students.pavels_steinbors.lesson_2._level_1._task_1;
 
-class FisrstTask {
-
+class FirstTask {
     public static void main(String[] args) {
 
         java.util.Scanner scanner = new java.util.Scanner(System.in);
