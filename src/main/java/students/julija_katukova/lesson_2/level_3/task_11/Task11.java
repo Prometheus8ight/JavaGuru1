@@ -1,6 +1,6 @@
-package students.julija_katukova.lesson_2.level_3.task_9;
+package students.julija_katukova.lesson_2.level_3.task_11;
 
-public class Task9 {
+public class Task11 {
     public static void main(String[] args) {
         System.out.println("Введите первое целое число:");
         System.out.println("Введите второе целое число:");
