@@ -16,10 +16,10 @@ public class Task_15 {
 
         if (oldIam == (30)) {
             System.out.println(" You're right sir!");
-        } // end of if-else
+        } // end of if
         else {
             System.out.println(" You didn't guess. ");
-        } // end of if
+        } // end of if-else
 
 
     }
