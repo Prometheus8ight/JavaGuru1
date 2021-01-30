@@ -1,4 +1,4 @@
-package students.julija_katukova.lesson_2.level_2.task_4;
+package students.julija_katukova.lesson_2.level_2.task_5;
 
 public class BankAccount {
     public static void main(String[] args) {
