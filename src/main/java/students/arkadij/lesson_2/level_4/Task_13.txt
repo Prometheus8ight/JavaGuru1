@@ -1,0 +1,35 @@
+Вот что у меня выводит в командной строке:
+javac -version\
+"javac" не является внутренней или внешней
+командой, исполняемой программой или пакетным файлом.
+
+Я начал копать дальше и нашёл его в JetBrains.
+Вот команда:
+cd C:\Program Files\JetBrains\JetBrains IntelliJ IDEA Ultimate 2020.1\jbr\bin
+
+C:\Program Files\JetBrains\JetBrains IntelliJ IDEA Ultimate 2020.1\jbr\bin>javac
+Usage: javac <options> <source files>
+where possible options include: ...................... and etc ...
+
+Соответственно когда вводил команду [ javac Main.java ] выдовало:
+C:\Program Files\JetBrains\JetBrains IntelliJ IDEA Ultimate 2020.1\jbr\bin>javac Main.java
+error: file not found: Main.java
+Usage: javac <options> <source files>
+use --help for a list of possible options
+
+Пришлось создать в корневой папке файл Main.java и написать в нём программу:
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+
+После посторался ещё раз ввести [ javac Main.java ], писал его аж три раза и вот результат:
+C:\Program Files\JetBrains\JetBrains IntelliJ IDEA Ultimate 2020.1\jbr\bin>javac Main.java
+
+C:\Program Files\JetBrains\JetBrains IntelliJ IDEA Ultimate 2020.1\jbr\bin>javac Main.java
+
+C:\Program Files\JetBrains\JetBrains IntelliJ IDEA Ultimate 2020.1\jbr\bin>javac Main.java
+
+РЕЗУЛЬТАТ = ничего нет, просто пусто. :D
+Закончил на этом.
