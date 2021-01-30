@@ -13,7 +13,7 @@ public class Average {
             number += scanner.nextDouble();
             counter++;
         }average = number / counter;
-        System.out.println(average);
+        System.out.println("Среднее арифмитическое: " + average);
         scanner.close();
     }
 }
