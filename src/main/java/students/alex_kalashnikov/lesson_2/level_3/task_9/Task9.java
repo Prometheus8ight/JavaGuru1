@@ -1,6 +1,6 @@
 package students.alex_kalashnikov.lesson_2.level_3.task_9;
 
-class task_9 {
+class Task9 {
 
     public static void main(String[] args) {
 

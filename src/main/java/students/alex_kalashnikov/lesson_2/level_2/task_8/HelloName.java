@@ -1,6 +1,6 @@
 package students.alex_kalashnikov.lesson_2.level_2.task_8;
 
-public class hello_name {
+class HelloName {
 
     public static void main(String[] args) {
 

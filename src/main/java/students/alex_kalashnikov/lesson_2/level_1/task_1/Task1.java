@@ -1,27 +1,28 @@
 package students.alex_kalashnikov.lesson_2.level_1.task_1;
 
-class task2 {
+class Task1 {
 
     public static void main(String[] args) {
 
         java.util.Scanner scanner = new java.util.Scanner(System.in);
         System.out.print("Enter a: ");
-        double a = scanner.nextDouble();
+        int a = scanner.nextInt();
 
         System.out.print("Enter b: ");
-        double b = scanner.nextDouble();
+        int b = scanner.nextInt();
 
-        double sum = a + b;
+        int sum = a + b;
         System.out.println("a + b = " + sum);
 
-        double sub = a - b;
+        int sub = a - b;
         System.out.println("a - b = " + sub);
 
-        double multi = a * b;
+        int multi = a * b;
         System.out.println("a * b = " + multi);
 
-        double div = a / b;
+        int div = a / b;
         System.out.println("a / b = " + div);
 
     }
+
 }
