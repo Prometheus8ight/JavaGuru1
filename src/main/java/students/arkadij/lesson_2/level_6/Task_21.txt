@@ -1,0 +1,5 @@
+У меня чутка другая привязка клавишь с Git.
+
+Ctrl + K = Commit
+Ctrl + T = Update
+Ctrl + Shift + K = Push
