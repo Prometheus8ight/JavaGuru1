@@ -4,16 +4,15 @@ package students.kate_br.lesson_2.level_7.task_28;
 
      public static void main(String[] args) {
 
-         int Number1 = 30;
-         int Number2 = 40;
+         int numberOne = 10;
+         int numberTwo = 20;
 
-         System.out.println(Number1 + Number2);
+         System.out.println("Number 1 =" + numberOne);
+         System.out.println("Number 2 =" + numberTwo);
 
-         int NumberOne = 10;
-         int NumberTwo = 20;
-         int sum = NumberOne + NumberTwo;
+         int sum = numberOne + numberTwo;
 
-         System.out.println(sum);
+         System.out.println("Sum =" + sum);
 
      }
 }
