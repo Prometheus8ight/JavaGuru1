@@ -13,8 +13,8 @@ class task_1 {
         // выведите на консоль полученные результаты сложения, вычитания, умножения и деления
 
         System.out.println("Addition: " + (firstNumber + secondNumber));
-        System.out.println("Subtraction: " +(firstNumber - secondNumber));
-        System.out.println("Multiplication: " +(firstNumber * secondNumber));
+        System.out.println("Subtraction: " + (firstNumber - secondNumber));
+        System.out.println("Multiplication: " + (firstNumber * secondNumber));
         System.out.println("Division: " + (firstNumber / secondNumber));
 
     }
