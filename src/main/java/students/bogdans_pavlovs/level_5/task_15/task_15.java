@@ -7,6 +7,7 @@ class task_15 {
 
         System.out.print("Type in your favourite number:  ");
         int favouriteNumber = scanner.nextInt();
+
         System.out.println("I see, " + favouriteNumber + " is a nice number!");
 
     }
