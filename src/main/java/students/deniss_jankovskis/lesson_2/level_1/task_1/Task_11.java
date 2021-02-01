@@ -1,6 +1,6 @@
 package students.deniss_jankovskis.lesson_2.level_1.task_1;
 
-public class Task_11 {
+class Task_11 {
 
     public static void main(String[] args) {
 
