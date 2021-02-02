@@ -1,4 +1,4 @@
-package students.deniss_jankovskis.lesson_2.level_1.task_1;
+package students.deniss_jankovskis.lesson_2.level_5.task_15;
 
 class Task_15 {
 

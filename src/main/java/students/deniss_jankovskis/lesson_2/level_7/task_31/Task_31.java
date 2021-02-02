@@ -1,4 +1,4 @@
-package students.deniss_jankovskis.lesson_2.level_1.task_1;
+package students.deniss_jankovskis.lesson_2.level_7.task_31;
 
 class Comment {
 
