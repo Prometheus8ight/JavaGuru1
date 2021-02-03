@@ -1,4 +1,4 @@
-package students.pavels_steinbors.lesson_2._level_2._task_8;
+package students.pavels_steinbors.lesson_2.level_2.task_8;
 
 class Name {
 

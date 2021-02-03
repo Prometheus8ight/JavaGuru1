@@ -1,4 +1,4 @@
-package students.pavels_steinbors.lesson_2._level_1._task_2;
+package students.pavels_steinbors.lesson_2.level_2.task_2;
 
 class TaskNumberTwo {
     public static void main(String[] args) {

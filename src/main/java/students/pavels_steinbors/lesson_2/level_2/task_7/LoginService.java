@@ -1,4 +1,4 @@
-package students.pavels_steinbors._lesson_2._level_2._task_7;
+package students.pavels_steinbors.lesson_2.level_2.task_7;
 
 class LoginService {
 

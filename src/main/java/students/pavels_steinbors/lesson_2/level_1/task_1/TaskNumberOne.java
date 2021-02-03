@@ -1,4 +1,4 @@
-package students.pavels_steinbors.lesson_2._level_1._task_1;
+package students.pavels_steinbors.lesson_2.level_1.task_1;
 
 class TaskNumberOne {
 
