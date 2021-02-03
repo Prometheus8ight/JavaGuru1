@@ -1,4 +1,4 @@
-package students.vitaly.porsev.lesson_2.level_2.task_7;
+package students.vitaly_porsev.lesson_2.level_2.task_7;
 
 class LoginService {
     public static void main(String[] args) {
