@@ -1,5 +1,4 @@
 package students.rodion_afanasjev.lesson_3.level_3.task_11;
-import students.rodion_afanasjev.lesson_3.level_3.task_11.Robot;
 
 public class RobotDemo {
 
