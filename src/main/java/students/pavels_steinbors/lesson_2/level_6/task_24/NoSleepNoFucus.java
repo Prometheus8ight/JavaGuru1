@@ -1,4 +1,4 @@
-package students.pavels_steinbors._lesson_2.level_6.task_24;
+package students.pavels_steinbors.lesson_2.level_6.task_24;
 
 class NoSleepNoFucus {
     public static void main(String[] args) {

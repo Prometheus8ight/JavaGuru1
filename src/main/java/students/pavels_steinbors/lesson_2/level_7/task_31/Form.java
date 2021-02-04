@@ -1,4 +1,4 @@
-package students.pavels_steinbors._lesson_2.level_7.task_31;
+package students.pavels_steinbors.lesson_2.level_7.task_31;
 
 class Form {
     public static void main(String[] args) {

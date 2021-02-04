@@ -1,4 +1,4 @@
-package students.pavels_steinbors._lesson_2.level_7.task_29;
+package students.pavels_steinbors.lesson_2.level_7.task_29;
 
 class CorrectDataTypes {
     public static void main(String[] args) {
