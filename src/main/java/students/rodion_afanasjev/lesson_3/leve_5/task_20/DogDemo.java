@@ -1,0 +1,12 @@
+package students.rodion_afanasjev.lesson_3.leve_5.task_20;
+
+public class DogDemo {
+
+    public static void main(String[] args) {
+
+        Dog myDog = new Dog("Barsik", 15);
+        myDog.voice();
+        myDog.happyBirthday();
+    }
+
+}
