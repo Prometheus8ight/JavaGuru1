@@ -9,14 +9,14 @@ public class Task_11 {
         java.util.Scanner scanner = new Scanner(System.in);
 
         System.out.println("Please, Enter the A value");
-        int a = scanner.nextInt();
+        double a = scanner.nextInt();
         System.out.println("Please, Enter the B value");
-        int b = scanner.nextInt();
+        double b = scanner.nextInt();
         System.out.println("Please, Enter the C value");
-        int c = scanner.nextInt();
+        double c = scanner.nextInt();
 
-        int d = (a + b + c) / 3;
+        double d = (a + b + c) / 3;
 
-        System.out.println("Average from A,B,C = " + (double) d);
+        System.out.println("Average from A,B,C = " + d);
     }
 }
