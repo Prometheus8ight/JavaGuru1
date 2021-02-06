@@ -1,6 +1,6 @@
 package students.bogdans_pavlovs.lesson_2.level_1.task_1;
 
-class task_1 {
+class Task1 {
     public static void main(String[] args) {
         java.util.Scanner scanner = new java.util.Scanner(System.in);
 
