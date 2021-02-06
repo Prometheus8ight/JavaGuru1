@@ -1,19 +1,25 @@
-package students.rodion_afanasjev.lesson_3.level_3.task_11;
+package students.bogdans_pavlovs.lesson_3.level_3.task_13;
 
-public class Robot {
+class Robot {
 
     String name;
 
+    Robot(String robotName) {
+        this.name = robotName;
+
+    }
+
     public void sayHello() {
+
         System.out.println("Hello!");
+
     }
 
     public void sayYourName() {
-        System.out.println("My name is " + this.name);
-    }
 
-    Robot(String robotName) {
-        this.name = robotName;
+        System.out.println("My name is " + this.name);
+
     }
 
 }
+
