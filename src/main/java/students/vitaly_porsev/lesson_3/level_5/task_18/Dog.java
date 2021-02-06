@@ -11,9 +11,5 @@ class Dog {
         System.out.println(this.name + " " + this.name + " " + this.name);
     }
 
-    public static void main(String[] args) {
-        Dog dog1 = new Dog("Lucky");
-        dog1.voice();
-    }
 }
 
