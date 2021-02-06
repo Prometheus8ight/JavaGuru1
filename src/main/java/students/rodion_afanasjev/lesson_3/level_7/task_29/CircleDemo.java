@@ -4,8 +4,8 @@ class CircleDemo {
 
     public static void main(String[] args) {
 
-        Circle math = new Circle();
-        double a = math.calculateArea(7.5);
+        Circle math = new Circle(7.5);
+        double a = math.calculateArea();
 
         System.out.println("Circle area = " + a);
 
