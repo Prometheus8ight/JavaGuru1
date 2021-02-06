@@ -8,6 +8,6 @@ class Circle {
     }
 
    double calculateArea(){
-        return 2 * Math.PI * this.radius;
+        return Math.PI * Math.pow(this.radius, 2);
     }
 }
