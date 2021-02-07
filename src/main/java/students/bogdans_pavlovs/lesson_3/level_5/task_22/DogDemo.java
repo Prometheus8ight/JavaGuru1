@@ -12,8 +12,7 @@ class DogDemo {
 
         dog1.voice();
 
-        dog1.newColor = "Black";
-        dog1.newColor();
+        dog1.changeColor("Brown");
 
         dog1.voice();
 
