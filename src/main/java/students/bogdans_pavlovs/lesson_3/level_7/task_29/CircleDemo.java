@@ -4,7 +4,7 @@ class CircleDemo {
 
     public static void main(String[] args) {
 
-        Circle circle1 = new Circle(8.62,3.141592654);
+        Circle circle1 = new Circle(8.62);
 
         circle1.circleArea();
 

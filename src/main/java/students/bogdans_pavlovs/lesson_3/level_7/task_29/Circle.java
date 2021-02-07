@@ -3,20 +3,23 @@ package students.bogdans_pavlovs.lesson_3.level_7.task_29;
 class Circle {
 
     double radius;
-    double area;
-    double pi;
 
-    Circle(double radius, double pi){
+    Circle(double radius){
         this.radius = radius;
-        this.pi = pi;
     }
 
-    void circleArea (){
+    //Методы: расчет площади (double calculateArea()).
 
-        area = radius * radius * pi;
+    double circleArea(){
+
+        double area = radius * radius * Math.PI;
         System.out.println("Radius = " + radius);
         System.out.println("Area = " + area);
+        return area;
 
     }
 
 }
+
+
+
