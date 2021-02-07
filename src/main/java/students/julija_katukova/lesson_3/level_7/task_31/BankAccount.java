@@ -15,7 +15,7 @@ class BankAccount {
     }
 
     String getMoney() {
-     //   Integer.toString(money);
+     //   Integer.toString(money); Контантин, какая разница между Integer.toString и String.valueOf?
         return String.valueOf(money);
     }
 
