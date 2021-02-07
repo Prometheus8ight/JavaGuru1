@@ -11,12 +11,11 @@ class BankAccount {
     }
 
     String getOwner() {
-        String owner = this.owner; //почти уверена, что можно было как-то проще
-        return owner;
+         return owner;
     }
 
     String getMoney() {
-        Integer.toString(this.money);
+     //   Integer.toString(money);
         return String.valueOf(money);
     }
 
