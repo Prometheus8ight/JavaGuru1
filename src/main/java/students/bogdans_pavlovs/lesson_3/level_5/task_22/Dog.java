@@ -5,7 +5,6 @@ class Dog {
     String name;
     int age;
     String color;
-    String newColor;
 
     void voice(){
         System.out.println("Name: " + name);
@@ -13,10 +12,8 @@ class Dog {
         System.out.println("Color: " + color);
     }
 
-    void newColor(){
-
-        color = newColor;
-
+    void changeColor(String newColor) {
+        this.color = newColor;
     }
 
 
