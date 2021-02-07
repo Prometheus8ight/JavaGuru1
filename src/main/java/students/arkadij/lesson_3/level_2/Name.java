@@ -5,7 +5,8 @@ public class Name {
     public static void main(String[] args) {
 
         String myName = "Archie";
-        System.out.println(myName);
+        String greetings = "Hey " + myName + ", how is going on?";
+        System.out.println(greetings);
 
     }
 }
