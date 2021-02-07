@@ -10,4 +10,8 @@ class Robot_2 {
         System.out.println("Hey there!");
     }
 
+    public void sayYourName(){
+        System.out.println("My name is ROBO.");
+    }
+
 }
