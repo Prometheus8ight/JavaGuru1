@@ -1,6 +1,6 @@
 package students.arkadij.lesson_3.level_2;
 
-public class Name {
+class Name {
 
     public static void main(String[] args) {
 
