@@ -1,6 +1,6 @@
 package students.arkadij.lesson_3.level_5;
 
-public class DogDemo {
+class DogDemo {
     public static void main(String[] args) {
 
         java.util.Scanner scanner = new java.util.Scanner(System.in);

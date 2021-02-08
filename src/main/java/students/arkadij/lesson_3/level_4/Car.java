@@ -1,6 +1,6 @@
 package students.arkadij.lesson_3.level_4;
 
-public class Car {
+class Car {
 
     String model;
 

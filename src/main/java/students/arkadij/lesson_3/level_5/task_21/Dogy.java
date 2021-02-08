@@ -1,6 +1,6 @@
 package students.arkadij.lesson_3.level_5.task_21;
 
-public class Dogy {
+class Dogy {
 
     String name;
     String color;

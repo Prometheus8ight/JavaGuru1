@@ -1,6 +1,6 @@
 package students.arkadij.lesson_3.level_5.task_20;
 
-public class Dog {
+class Dog {
 
     String name;
     int age;
