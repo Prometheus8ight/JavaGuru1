@@ -2,7 +2,7 @@ package students.arkadij.lesson_3.level_2;
 
 import java.util.Scanner;
 
-public class Console {
+class Console {
 
     public static void main(String[] args) {
 
