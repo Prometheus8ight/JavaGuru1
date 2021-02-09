@@ -22,8 +22,10 @@ package students.kate_br.lesson_3.level_5.task_20;
 
      void happyBirthday() {
 
+         this.age = this.age + 1;
+
          System.out.println("Happy Birthday, " + name);
-         System.out.println("Today you are " + (age + 1) + " years old");
+         System.out.println("Today you are " + (this.age + 1) + " years old");
          System.out.println("Congratulations, good girl!");
 
      }
