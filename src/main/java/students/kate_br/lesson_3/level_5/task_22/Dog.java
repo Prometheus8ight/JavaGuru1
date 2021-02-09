@@ -23,7 +23,9 @@ package students.kate_br.lesson_3.level_5.task_22;
 
      void changeColor(String newColor){
 
-         System.out.println("When " + this.name + " was a puppy she was a " + newColor + " color dog");
+         this.color = newColor;
+
+         System.out.println("When " + this.name + " was a puppy she was a " + this.color + " color dog");
      }
 
 
