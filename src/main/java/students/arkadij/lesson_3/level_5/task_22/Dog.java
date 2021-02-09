@@ -22,6 +22,7 @@ class Dog {
     }
 
     void changeColor(String newColor){
+        this.color = newColor;
         System.out.println("Now i've get a new color of my wool and it is colored in " + newColor + "!");
         System.out.println("So on i am " + name + ", " + age + " years old and from now i am colored to " + newColor + "!");
     }
