@@ -1,4 +1,4 @@
-package students.arkadij.lesson_3;
+package students.arkadij.lesson_3.level_1;
 
 class RobotDemo {
 
