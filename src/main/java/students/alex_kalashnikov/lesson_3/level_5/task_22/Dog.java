@@ -19,9 +19,7 @@ class Dog {
 
     void changeColour() {
 
-        colour = "зеленый";
-        System.out.println(name + " меняет цвет на " + colour + ".");
-        System.out.println(name + ", " + colour + ".");
+                System.out.println(name + ", " + colour + ".");
 
     }
 
