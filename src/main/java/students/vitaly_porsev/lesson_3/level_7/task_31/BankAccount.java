@@ -14,8 +14,8 @@ class BankAccount {
         return this.owner;
     }
 
-    int getMoney() {
-        return this.money;
+    String getMoney() {
+        return String.valueOf(this.money);
     }
 
 }
