@@ -15,6 +15,7 @@ class Dog {
     }
 
     void changeColor(String newColorDog) {
+        this.color = newColorDog;
         System.out.println("Suns izvārtījās dubļos, kļuva " + newColorDog);
         System.out.println(name + " pārvērtās par " + newColorDog + " suni.");
 
