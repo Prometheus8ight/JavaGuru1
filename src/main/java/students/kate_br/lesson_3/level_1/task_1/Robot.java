@@ -5,5 +5,5 @@ package students.kate_br.lesson_3.level_1.task_1;
      public void sayHello() {
          System.out.println("Hello!");
 
-
+     }
 }
