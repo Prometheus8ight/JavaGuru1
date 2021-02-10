@@ -10,12 +10,12 @@ class BankAccount {
         this.money = money;
     }
 
-    String getOwner() {
-        return this.owner;
+    String getOwner() { return this.owner;
     }
 
-    int getMoney() {
-        return this.money;
+    String getMoney() {
+        return String.valueOf(money); //Подсказка: число можно преобразовать в строку 😉
     }
+
 
 }
