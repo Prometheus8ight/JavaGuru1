@@ -1,4 +1,4 @@
-package students.rodion_afanasjev.lesson_4.level_4.task_12;
+package students.rodion_afanasjev.lesson_4.level_4.task_13;
 
 class Calculator {
 
@@ -18,4 +18,8 @@ class Calculator {
         return firstNumber / secondNumber;
     }
 
+    public boolean isEven(int number) {
+        return number % 2 == 0;
+
+    }
 }
