@@ -13,12 +13,10 @@ class Task5 {
         if ( num1 > num2 ) {
             System.out.println("The highest number is " + num1);
         }
-        else if ( num2 > num1) {
+        else {
             System.out.println("The highest number is " + num2);
         }
-        else {
-            System.out.println("Try again");
-        }
+
     }
 
 }
