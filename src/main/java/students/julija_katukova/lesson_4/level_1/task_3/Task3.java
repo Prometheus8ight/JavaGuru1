@@ -30,7 +30,7 @@ class Task3 {
             case 7:
                 System.out.println("Sunday");
             default:
-                System.out.println("Try again");
+                System.out.println("Try again"); // В случае, если введенное число было не от 1 до 7, а, например, 10
 
         }
 
