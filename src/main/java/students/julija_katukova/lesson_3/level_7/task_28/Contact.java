@@ -1,6 +1,6 @@
 package students.julija_katukova.lesson_3.level_7.task_28;
 
-public class Contact {
+class Contact {
     String name;
     String surname;
     String phoneNum;
