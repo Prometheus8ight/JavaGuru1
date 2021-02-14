@@ -5,7 +5,6 @@ class Dog {
     String name;
     String color;
     String voice;
-    String color2;
 
     Dog(String dogsName, String dogsColor, String dogsVoice) {
         this.name = dogsName;
@@ -26,9 +25,9 @@ class Dog {
     }
 
     void changeColor(String newColor) {
-        this.color2 = newColor;
+        this.color = newColor;
 
-        System.out.println("My dog's new color is " + this.color2);
+        System.out.println("My dog's new color is " + this.color);
 
     }
 }
