@@ -3,29 +3,30 @@ package students.rodion_afanasjev.lesson_4.level_6.task_17;
 class Stock {
 
     String name;
-    int actualPrice;
+    int currentPrice;
     int minPrice;
     int maxPrice;
 
-    public Stock(String name, int price){
+    public Stock(String name, int currentPrice){
         this.name = name;
-        this.actualPrice = price;
-        this.minPrice = price;
-        this.maxPrice = price;
+        this.currentPrice = currentPrice;
+        this.minPrice = currentPrice;
+        this.maxPrice = currentPrice;
     }
 
     public void updatePrice(int newPrice){
-        this.actualPrice = newPrice;
-        if (this.minPrice > newPrice) {
+        currentPrice = newPrice;
+        if (newPrice > maxPrice) {
+            maxPrice = newPrice;
+        }
+        else if (newPrice < minPrice) {
             minPrice = newPrice;
         }
-        else if (this.maxPrice < newPrice) {
-            this.maxPrice = newPrice;
-        }
+
     }
 
     public void getPriceInformation(){
-        System.out.println("Company: " + name + ", Current price: " + actualPrice
+        System.out.println("Company: " + name + ", Current price: " + currentPrice
                 + ", Min price: " + minPrice + ", Max price: " + maxPrice);
     }
 

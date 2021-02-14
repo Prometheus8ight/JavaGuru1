@@ -4,17 +4,11 @@ public class StockDemo {
 
     public static void main(String[] args) {
 
-        Stock google = new Stock("google",10);
-        google.getPriceInformation();
-
-        google.updatePrice(9);
-        google.updatePrice(68);
-        google.updatePrice(55);
-
-        google.getPriceInformation();
+        Stock netflix = new Stock("Netflix", 10);
+        netflix.getPriceInformation();
 
         StockTest stockTest = new StockTest();
-        stockTest.maxTest();
+        stockTest.updatePriceTest();
 
     }
 }
