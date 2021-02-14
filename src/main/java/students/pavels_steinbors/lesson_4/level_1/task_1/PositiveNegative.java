@@ -11,13 +11,13 @@ class PositiveNegative {
         System.out.println("Enter a number:");
         int number = input.nextInt();
 
-        if (number > 0)
+        if (number > 0) {
 
             System.out.println("Number is positive");
-
-        else if (number < 0)
+        }
+        else if (number < 0) {
 
             System.out.println("Number is negative");
-
+        }
     }
 }
