@@ -5,7 +5,7 @@ class CalculatorDemo {
     public static void main(String[] args) {
 
         Calculator calculator = new Calculator();
-        int maxNumber = calculator.maxOfThreeNumbers(0, 0,0);
+        int maxNumber = calculator.maxOfThreeNumbers(100, 100,100);
         System.out.println(maxNumber);
 
         CalculatorTest calculatorTest = new CalculatorTest();
