@@ -69,5 +69,33 @@ package students.kristine_paskevica_lesson_4.level_4;
                  System.out.println("Dalīšanas tests= FAIL");
          }
 
+            CalculatorTest calculatorTest = new CalculatorTest();  // veido jaunu objektu, lai notestētu pāra skaitļa noteikšanas metodi
+             calculatorTest.paraSkaitlis();
+         }
 
+     public void paraSkaitlis() {
+         int skaitlis = 10;
+         boolean expectedResult = true;
+         Calculator calculator = new Calculator();
+         boolean realResult = calculator.paraNepara(skaitlis);
+         if (realResult == expectedResult) {
+             System.out.println("Pāra skaitļa pārbaude ir precīza");
+         }  else {
+             System.out.println("Pāra skaitļa Pārbaude nav precīza");
+         }
+
+         CalculatorTest calculatorTest = new CalculatorTest();  // veido jaunu objektu, lai notestētu nepāra skaitļa noteikšanas metodi
+         calculatorTest.neparaSkaitlis();
+     }
+
+     public void neparaSkaitlis() {
+         int skaitlis = 11;
+         boolean expectedResult = true;
+         Calculator calculator = new Calculator();
+         boolean realResult = calculator.paraNepara(skaitlis);
+         if (realResult == expectedResult) {
+             System.out.println("Nepāra skaitļa pārbaude ir precīza");
+         }  else {
+             System.out.println("Nepāra skaitļa pārbaude nav precīza");
+         }
      }}

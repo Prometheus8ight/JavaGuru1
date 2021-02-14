@@ -16,4 +16,11 @@ class Calculator {
 
     public int dalishana(int pirmaisSk, int otraisSk) {
         return pirmaisSk / otraisSk;
-    }}
+    }
+    public boolean paraNepara(int ievadSkaitlis) {              //izveido metodi, kura pārbauda pāra vai nepāra sk
+        if (ievadSkaitlis % 2==0){
+            return ievadSkaitlis % 2 ==0;
+        }
+        else{
+            return false;
+        }}}

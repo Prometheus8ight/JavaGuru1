@@ -16,4 +16,7 @@ class CalculatorDemo {
 
         int dalijums = kalkulators.dalishana(30, 10);
         System.out.println("Divu veselu skaitļu dalījums ir: " + dalijums);
+
+        boolean paraNepa = kalkulators.paraNepara(32);
+        System.out.println("Ievadītais skaitlis ir pāra " + paraNepa);
     }}
