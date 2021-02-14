@@ -4,7 +4,7 @@ class BankAccount {
     String owner;
     int money;
 
-    BankAccount(String ownerFirstName,int moneyAmount) {
+    BankAccount(String ownerFirstName, int moneyAmount) {
         this.owner = ownerFirstName;
         this.money = moneyAmount;
     }
@@ -13,8 +13,8 @@ class BankAccount {
         return this.owner;
     }
 
-    int getMoney() {
-        return this.money;
+    String getMoney() {
+        return String.valueOf(this.money);
     }
-
 }
+
