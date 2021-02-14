@@ -5,16 +5,17 @@ public class LightColorDetectorDemo {
     public static void main(String[] args) {
 
         LightColorDetector lightColorDetector = new LightColorDetector();
-        lightColorDetector.detectColor(lightColorDetector.detect(700));
+        String color = lightColorDetector.detect(450);
+        System.out.println(color);
 
         LightColorDetectorTest lightColorDetectorTest = new LightColorDetectorTest();
-        lightColorDetectorTest.Violet();
-        lightColorDetectorTest.Blue();
-        lightColorDetectorTest.Green();
-        lightColorDetectorTest.Yellow();
-        lightColorDetectorTest.Orange();
-        lightColorDetectorTest.Red();
-        lightColorDetectorTest.Invisible();
+        lightColorDetectorTest.violet();
+        lightColorDetectorTest.blue();
+        lightColorDetectorTest.green();
+        lightColorDetectorTest.yellow();
+        lightColorDetectorTest.orange();
+        lightColorDetectorTest.red();
+        lightColorDetectorTest.invisible();
 
 
 

@@ -19,30 +19,4 @@ class LightColorDetector {
             return "Invisible Light";
         }
     }
-
-    public void detectColor(String waveLength) {
-        switch(waveLength){
-            case "Violet" :
-                System.out.println("Violet");
-                break;
-            case "Blue" :
-                System.out.println("Blue");
-                break;
-            case "Green" :
-                System.out.println("Green");
-                break;
-            case "Yellow" :
-                System.out.println("Yellow");
-                break;
-            case "Orange" :
-                System.out.println("Orange");
-                break;
-            case "Red" :
-                System.out.println("Red");
-                break;
-            case "Invisible Light" :
-                System.out.println("Invisible Light");
-
-        }
-    }
 }
