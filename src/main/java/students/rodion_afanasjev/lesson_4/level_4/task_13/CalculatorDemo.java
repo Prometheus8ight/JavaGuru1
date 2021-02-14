@@ -24,6 +24,7 @@ class CalculatorDemo {
         calculatorTest.sumDivideTest();
 
         System.out.println(calculatorTest.evenTest());
+        System.out.println(calculatorTest.notEvenTest());
 
     }
 

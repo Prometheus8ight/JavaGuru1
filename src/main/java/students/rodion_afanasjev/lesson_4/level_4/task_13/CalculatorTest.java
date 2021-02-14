@@ -65,4 +65,12 @@ class CalculatorTest {
         boolean realNumber = calculator.isEven(number);
         return realNumber == expected;
     }
+
+    public boolean notEvenTest() {
+        int number = 5;
+        boolean expected = false;
+        Calculator calculator = new Calculator();
+        boolean realNumber = calculator.isEven(number);
+        return realNumber == expected;
+    }
 }
