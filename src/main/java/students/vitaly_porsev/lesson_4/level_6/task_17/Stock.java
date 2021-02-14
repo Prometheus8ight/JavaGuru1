@@ -22,8 +22,8 @@ class Stock {
         }
     }
 
-    public void getPriceInformation() {
-        System.out.println("Текущая стоимость: " + this.currentValue + ". Минимальная стоимость: " + this.minimalValue
-                + ". Максимальная стоимость: " + this.maxValue + ".");
+    public String getPriceInformation() {
+        return "Текущая стоимость: " + this.currentValue + ". Минимальная стоимость: " + this.minimalValue
+                + ". Максимальная стоимость: " + this.maxValue + ".";
     }
 }
