@@ -1,4 +1,4 @@
-package students.rodion_afanasjev.lesson_4.level_4.task_12;
+package students.rodion_afanasjev.lesson_4.level_4.task_13;
 
 class CalculatorDemo {
 
@@ -14,11 +14,16 @@ class CalculatorDemo {
         int divide = calculator.sumDivide(20,10);
         System.out.println(divide);
 
+        boolean even = calculator.isEven(divide);
+        System.out.println(even);
+
         CalculatorTest calculatorTest = new CalculatorTest();
         calculatorTest.sumPlusTest();
         calculatorTest.sumMinusTest();
         calculatorTest.sumMultiplyTest();
         calculatorTest.sumDivideTest();
+
+        System.out.println(calculatorTest.evenTest());
 
     }
 

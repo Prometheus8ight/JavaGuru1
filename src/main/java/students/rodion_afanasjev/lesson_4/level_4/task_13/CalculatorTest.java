@@ -1,4 +1,4 @@
-package students.rodion_afanasjev.lesson_4.level_4.task_12;
+package students.rodion_afanasjev.lesson_4.level_4.task_13;
 
 class CalculatorTest {
 
@@ -57,5 +57,12 @@ class CalculatorTest {
             System.out.println("FAIL");
         }
     }
-
+    
+    public boolean evenTest() {
+        int number = 6;
+        boolean expected = true;
+        Calculator calculator = new Calculator();
+        boolean realNumber = calculator.isEven(number);
+        return realNumber == expected;
+    }
 }
