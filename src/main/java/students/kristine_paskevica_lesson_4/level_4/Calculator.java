@@ -17,10 +17,18 @@ class Calculator {
     public int dalishana(int pirmaisSk, int otraisSk) {
         return pirmaisSk / otraisSk;
     }
+
     public boolean paraNepara(int ievadSkaitlis) {              //izveido metodi, kura pārbauda pāra vai nepāra sk
-        if (ievadSkaitlis % 2==0){
-            return ievadSkaitlis % 2 ==0;
-        }
-        else{
+        if (ievadSkaitlis % 2 == 0) {
+            return ievadSkaitlis % 2 == 0;
+        } else {
             return false;
-        }}}
+        }}
+
+    public int lielSkaitlis(int pirmaisSk, int otraisSk) {      //izveido metodi, kura pārabuda kurš no 2 sk ir lielāks
+        if (pirmaisSk > otraisSk) {
+            return pirmaisSk;
+        } else {
+            return otraisSk;
+        }
+    }}
