@@ -10,6 +10,8 @@ class CalculatorTest {
         calculatorTest.multi1Test();
         calculatorTest.isEven1Test();
         calculatorTest.maxOfTwoNumbers1Test();
+        calculatorTest.maxOfTwoNumbers1Test1();
+        calculatorTest.maxOfTwoNumbers1Test2();
 
     }
 
@@ -25,6 +27,7 @@ class CalculatorTest {
             System.out.println("Sum test = FAIL");
         }
     }
+
     public void sub1Test() {
         int firstNumber = 10;
         int secondNumber = 5;
@@ -37,6 +40,7 @@ class CalculatorTest {
             System.out.println("Sum test = FAIL");
         }
     }
+
     public void div1Test() {
         int firstNumber = 10;
         int secondNumber = 5;
@@ -49,6 +53,7 @@ class CalculatorTest {
             System.out.println("Sum test = FAIL");
         }
     }
+
     public void multi1Test() {
         int firstNumber = 10;
         int secondNumber = 5;
@@ -61,6 +66,7 @@ class CalculatorTest {
             System.out.println("Sum test = FAIL");
         }
     }
+
     public void isEven1Test() {
         int number = 11;
         boolean expectedResult = false;
@@ -72,7 +78,42 @@ class CalculatorTest {
             System.out.println("Sum test = FAIL");
         }
     }
-    public void maxOfTwoNumbers1Test() {
 
+    public void maxOfTwoNumbers1Test() {
+        int firstNumber = 10;
+        int secondNumber = 5;
+        int expectedResult = 10;
+        Calculator calculator = new Calculator();
+        int realResult = calculator.maxOfTwoNumbers1(firstNumber, secondNumber);
+        if (realResult == expectedResult) {
+            System.out.println("Sum test = OK");
+        } else {
+            System.out.println("Sum test = FAIL");
+        }
+    }
+    public void maxOfTwoNumbers1Test1() {
+        int firstNumber = 5;
+        int secondNumber = 10;
+        int expectedResult = 10;
+        Calculator calculator = new Calculator();
+        int realResult = calculator.maxOfTwoNumbers1(firstNumber, secondNumber);
+        if (realResult == expectedResult) {
+            System.out.println("Sum test = OK");
+        } else {
+            System.out.println("Sum test = FAIL");
+        }
+    }
+
+    public void maxOfTwoNumbers1Test2() {
+        int firstNumber = 10;
+        int secondNumber = 10;
+        int expectedResult = 10;
+        Calculator calculator = new Calculator();
+        int realResult = calculator.maxOfTwoNumbers1(firstNumber, secondNumber);
+        if (realResult == expectedResult) {
+            System.out.println("Sum test = OK");
+        } else {
+            System.out.println("Sum test = FAIL");
+        }
     }
 }
