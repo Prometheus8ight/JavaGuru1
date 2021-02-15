@@ -21,7 +21,7 @@ class EqualOrNot {
 
             System.out.println("All numbers are equal!");
 
-        }else if (firstNumber != secondNumber && firstNumber != thirdNumber){
+        }else if (firstNumber != secondNumber && firstNumber != thirdNumber && secondNumber != thirdNumber){
 
             System.out.println("None of the numbers match!");
 
