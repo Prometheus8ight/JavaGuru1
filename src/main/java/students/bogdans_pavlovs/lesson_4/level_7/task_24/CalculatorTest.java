@@ -32,8 +32,9 @@ class CalculatorTest {
         int expectedResult = 75;
 
         Calculator calculator = new Calculator();
+        CalculatorTest calculatorTest = new CalculatorTest();
         int result = calculator.sum(firstNumber, secondNumber);
-        calculator.expectedResult1(result, expectedResult);
+        calculatorTest.expectedResult1(result, expectedResult);
     }
 
     public void subTest() {
@@ -42,8 +43,9 @@ class CalculatorTest {
         int expectedResult = 20;
 
         Calculator calculator = new Calculator();
+        CalculatorTest calculatorTest = new CalculatorTest();
         int result = calculator.sub(firstNumber, secondNumber);
-        calculator.expectedResult1(result, expectedResult);
+        calculatorTest.expectedResult1(result, expectedResult);
     }
 
     public void mulTest() {
@@ -52,8 +54,9 @@ class CalculatorTest {
         int expectedResult = 25;
 
         Calculator calculator = new Calculator();
+        CalculatorTest calculatorTest = new CalculatorTest();
         int result = calculator.mul(firstNumber, secondNumber);
-        calculator.expectedResult1(result, expectedResult);
+        calculatorTest.expectedResult1(result, expectedResult);
     }
 
     public void divTest() {
@@ -62,23 +65,45 @@ class CalculatorTest {
         int expectedResult = 5;
 
         Calculator calculator = new Calculator();
+        CalculatorTest calculatorTest = new CalculatorTest();
         int result = calculator.div(firstNumber, secondNumber);
-        calculator.expectedResult1(result, expectedResult);
+        calculatorTest.expectedResult1(result, expectedResult);
     }
 
     public void isEvenTest1() {
         boolean expectedResult = true;
         Calculator calculator = new Calculator();
+        CalculatorTest calculatorTest = new CalculatorTest();
         boolean result = calculator.isEven(40);
-        calculator.expectedResult2(result, expectedResult);
+        calculatorTest.expectedResult2(result, expectedResult);
     }
 
     public void isEvenTest2() {
         boolean expectedResult = false;
         Calculator calculator = new Calculator();
+        CalculatorTest calculatorTest = new CalculatorTest();
         boolean result = calculator.isEven(41);
-        calculator.expectedResult2(result, expectedResult);
+        calculatorTest.expectedResult2(result, expectedResult);
     }
+
+    public void expectedResult1(int result, int expectedResult){
+
+        if (result == expectedResult) {
+            System.out.println("Sub test = OK");
+        } else {
+            System.out.println("Sub test = FAIL");
+        }
+    }
+
+    public void expectedResult2(boolean result, boolean expectedResult){
+
+        if (result == expectedResult) {
+            System.out.println("isEven test = OK");
+        } else {
+            System.out.println("isEven test = FAIL");
+        }
+    }
+
 
 
 }

@@ -21,22 +21,4 @@ class Calculator {
         return number % 2 == 0;
     }
 
-    public void expectedResult1(int result, int expectedResult){
-
-        if (result == expectedResult) {
-            System.out.println("Sub test = OK");
-        } else {
-            System.out.println("Sub test = FAIL");
-        }
-    }
-
-    public void expectedResult2(boolean result, boolean expectedResult){
-
-        if (result == expectedResult) {
-            System.out.println("isEven test = OK");
-        } else {
-            System.out.println("isEven test = FAIL");
-        }
-    }
-
 }
