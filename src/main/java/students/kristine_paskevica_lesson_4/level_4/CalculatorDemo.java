@@ -19,4 +19,7 @@ class CalculatorDemo {
 
         boolean paraNepa = kalkulators.paraNepara(32);
         System.out.println("Ievadītais skaitlis ir pāra " + paraNepa);
+
+        int maksimalSkaitlis = kalkulators.maksSkaitlis(30, 20, 45);
+        System.out.println("Vislielākais no visiem trīs skaitļiem ir: " + maksimalSkaitlis);
     }}

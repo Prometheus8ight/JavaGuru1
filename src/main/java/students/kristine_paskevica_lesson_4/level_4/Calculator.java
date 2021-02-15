@@ -23,7 +23,8 @@ class Calculator {
             return ievadSkaitlis % 2 == 0;
         } else {
             return false;
-        }}
+        }
+    }
 
     public int lielSkaitlis(int pirmaisSk, int otraisSk) {      //izveido metodi, kura pārabuda kurš no 2 sk ir lielāks
         if (pirmaisSk > otraisSk) {
@@ -31,4 +32,17 @@ class Calculator {
         } else {
             return otraisSk;
         }
-    }}
+    }
+
+    public int maksSkaitlis(int pirmaisSk, int otraisSk, int tresaisSk){
+        if (pirmaisSk > otraisSk && pirmaisSk > tresaisSk) {
+            return pirmaisSk;
+        }else if (otraisSk > pirmaisSk && otraisSk > tresaisSk){
+            return otraisSk;
+        }
+        else{
+            return tresaisSk;
+            }
+        }
+    }
+

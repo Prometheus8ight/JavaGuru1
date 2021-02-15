@@ -101,22 +101,23 @@ package students.kristine_paskevica_lesson_4.level_4;
 
          CalculatorTest calculatorTest = new CalculatorTest();  // veido jaunu objektu, lai notestētu nepāra skaitļa noteikšanas metodi
          calculatorTest.pirmaisSkLiel();
-        }
-     public void pirmaisSkLiel(){
+     }
+
+     public void pirmaisSkLiel() {
          int skaitlis1 = 11;
          int skaitlis2 = 9;
          int expectedResult = 11;
          Calculator calculator = new Calculator();
          int realResult = calculator.lielSkaitlis(skaitlis1, skaitlis2);
-         if (realResult == expectedResult){
+         if (realResult == expectedResult) {
              System.out.println("Pirmais skaitlis ir lielāks - precīza pārbaude");
-         }
-         else{
+         } else {
              System.out.println("Pirmais skaitlis ir lielāks - neprecīza pārbaude");
          }
          CalculatorTest calculatorTest = new CalculatorTest();  // veido jaunu objektu, lai notestētu nepāra skaitļa noteikšanas metodi
          calculatorTest.otraisSkLiel();
      }
+
      public void otraisSkLiel() {
          int skaitlis1 = 11;
          int skaitlis2 = 12;
@@ -132,14 +133,122 @@ package students.kristine_paskevica_lesson_4.level_4;
          CalculatorTest calculatorTest = new CalculatorTest();
          calculatorTest.vienadi();
      }
-         public void vienadi(){
-             int expectedResult = 50;
-             Calculator calculator = new Calculator();
-             int realResult = calculator.lielSkaitlis(50, 50);
-             if (realResult == expectedResult) {
-                 System.out.println("Vienādu skaitļu pārbaude ir precīza");
-             } else {
-                 System.out.println("Vienādu skaitļu pārbaude nav precīza");
-             }
 
- }}
+     public void vienadi() {
+         int expectedResult = 50;
+         Calculator calculator = new Calculator();
+         int realResult = calculator.lielSkaitlis(50, 50);
+         if (realResult == expectedResult) {
+             System.out.println("Vienādu skaitļu pārbaude ir precīza");
+         } else {
+             System.out.println("Vienādu skaitļu pārbaude nav precīza");
+         }
+         CalculatorTest calculatorTest = new CalculatorTest();
+         calculatorTest.pirmaisLiel();
+     }
+
+     public void pirmaisLiel() {
+         int skaitlis1 = 20;
+         int skaitlis2 = 10;
+         int skaitlis3 = 5;
+         int expectedResult = 20;
+         Calculator calculator = new Calculator();
+         int realResult = calculator.maksSkaitlis(skaitlis1, skaitlis2, skaitlis3);
+         if (realResult == expectedResult) {
+             System.out.println("Pirmais skaitlis ir lielāks - pārbaude ir precīza");
+         } else {
+             System.out.println("Pirmais skaitlis ir lielāks - pārbaude nav precīza");
+         }
+         CalculatorTest calculatorTest = new CalculatorTest();
+         calculatorTest.otraisLiel();
+     }
+
+     public void otraisLiel() {
+         int skaitlis1 = 10;
+         int skaitlis2 = 20;
+         int skaitlis3 = 5;
+         int expectedResult = 20;
+         Calculator calculator = new Calculator();
+         int realResult = calculator.maksSkaitlis(skaitlis1, skaitlis2, skaitlis3);
+         if (realResult == expectedResult) {
+             System.out.println("Otrais skaitlis ir lielāks - pārbaude ir precīza");
+         } else {
+             System.out.println("Otrais skaitlis ir lielāks - pārbaude nav precīza");
+         }
+
+        CalculatorTest calculatorTest = new CalculatorTest();
+        calculatorTest.tresaisLiel();
+    }
+    public void tresaisLiel(){
+        int skaitlis1 = 10;
+        int skaitlis2 = 20;
+        int skaitlis3 = 50;
+        int expectedResult = 50;
+        Calculator calculator = new Calculator();
+        int realResult = calculator.maksSkaitlis(skaitlis1, skaitlis2, skaitlis3);
+        if (realResult == expectedResult) {
+            System.out.println("Trešais skaitlis ir lielāks - pārbaude ir precīza");
+        } else {
+            System.out.println("Trešais skaitlis ir lielāks - pārbaude nav precīza");
+ }
+        CalculatorTest calculatorTest = new CalculatorTest();
+        calculatorTest.pirmieDiviLiel();
+    }
+     public void pirmieDiviLiel(){
+         int skaitlis1 = 20;
+         int skaitlis2 = 20;
+         int skaitlis3 = 50;
+         int expectedResult = 20;
+         Calculator calculator = new Calculator();
+         int realResult = calculator.maksSkaitlis(skaitlis1, skaitlis2, skaitlis3);
+         if (realResult == expectedResult) {
+             System.out.println("Pirmie 2 skaitļi ir lielāki - pārbaude ir precīza");
+         } else {
+             System.out.println("Pirmie 2 skaitļi ir lielāki - pārbaude nav precīza");
+         }
+         CalculatorTest calculatorTest = new CalculatorTest();
+         calculatorTest.otraisTresaisSk();
+     }
+     public void otraisTresaisSk(){
+         int skaitlis1 = 20;
+         int skaitlis2 = 50;
+         int skaitlis3 = 50;
+         int expectedResult = 50;
+         Calculator calculator = new Calculator();
+         int realResult = calculator.maksSkaitlis(skaitlis1, skaitlis2, skaitlis3);
+         if (realResult == expectedResult) {
+             System.out.println("Pēdējie 2 skaitļi ir lielāki - pārbaude ir precīza");
+         } else {
+             System.out.println("Pēdējie 2 skaitļi ir lielāki - pārbaude nav precīza");
+         }
+         CalculatorTest calculatorTest = new CalculatorTest();
+         calculatorTest.pirmieUNTresais();
+     }
+     public void pirmieUNTresais(){
+         int skaitlis1 = 20;
+         int skaitlis2 = 10;
+         int skaitlis3 = 20;
+         int expectedResult = 20;
+         Calculator calculator = new Calculator();
+         int realResult = calculator.maksSkaitlis(skaitlis1, skaitlis2, skaitlis3);
+         if (realResult == expectedResult) {
+             System.out.println("Pirmais un trešais skaitlis ir lielāki - pārbaude ir precīza");
+         } else {
+             System.out.println("Pirmais un trešais skaitlis ir lielāki - pārbaude nav precīza");
+         }
+         CalculatorTest calculatorTest = new CalculatorTest();
+         calculatorTest.visiVien();
+     }
+     public void visiVien(){
+         int skaitlis1 = 20;
+         int skaitlis2 = 20;
+         int skaitlis3 = 20;
+         int expectedResult = 20;
+         Calculator calculator = new Calculator();
+         int realResult = calculator.maksSkaitlis(skaitlis1, skaitlis2, skaitlis3);
+         if (realResult == expectedResult) {
+             System.out.println("Visi skaitļi ir vienādi - pārbaude ir precīza");
+         } else {
+             System.out.println("Visi skaitļi ir vienādi - pārbaude nav precīza");
+         }
+     }}
