@@ -36,10 +36,9 @@ class Stock {
 
 
     //Получить информацию об акции
-    public void getPriceInformation(){
+    String getPriceInformation(){
 
-        System.out.println
-                ("Name: " + stockName + " Current Price: " + currentPrice + " Min Price: " + minPrice + " Max Price: " + maxPrice);
+        return "Name: " + stockName + " Current Price: " + currentPrice + " Min Price: " + minPrice + " Max Price: " + maxPrice;
 
     }
 

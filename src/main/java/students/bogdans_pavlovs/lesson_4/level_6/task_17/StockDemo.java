@@ -6,14 +6,18 @@ class StockDemo {
 
         Stock gameStop = new Stock("GME", 5);
 
-        gameStop.getPriceInformation();
+        String priceInformation = gameStop.getPriceInformation();
+        System.out.println(priceInformation);
 
         gameStop.updatePrice(20);
         gameStop.updatePrice(17);
         gameStop.updatePrice(4);
         gameStop.updatePrice(16);
 
-        gameStop.getPriceInformation();
+        priceInformation = gameStop.getPriceInformation();
+        System.out.println(priceInformation);
+
+
 
     }
 
