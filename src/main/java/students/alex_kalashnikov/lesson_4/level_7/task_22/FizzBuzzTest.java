@@ -50,7 +50,7 @@ class FizzBuzzTest {
 
     public void noneTest() {
         int number = 17;
-        String expectedResult = "" + number;           // не получается приравнять return "" + number == String expectedResult = "" + number
+        String expectedResult = "" + number;           // не получается приравнять return "" + number == String expectedResult = "" + number!!! хотя по логике там равные значения.
         FizzBuzz fizzBuzz = new FizzBuzz();
         String realResult = fizzBuzz.detect(number); {
             if (realResult == expectedResult) {
