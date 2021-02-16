@@ -13,15 +13,12 @@ class BankAccount {
     }
 
     String getOwner() {
-        return this.owner;
-
-
+        return owner;
     }
 
     String getMoney() {
-        return this.owner;
+        return String.valueOf(money);
     }
-
 
 }
 
