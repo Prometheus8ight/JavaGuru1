@@ -17,9 +17,7 @@ class Dog {
 
     void setVoice() {
         System.out.println("Гав-гав");
-        System.out.println(this.name);
-        System.out.println(this.name);
-        System.out.println(this.name);
+
     }
 
     void happyBirthday() {
