@@ -14,7 +14,7 @@ class Product {
     }
 
     double actualPrice() {
-        return regularPrice + regularPrice / discount;
+        return regularPrice - discount;
 
     }
 
