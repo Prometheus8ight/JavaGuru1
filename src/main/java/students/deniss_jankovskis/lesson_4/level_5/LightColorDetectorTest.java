@@ -56,7 +56,7 @@ class LightColorDetectorTest {
 
 
     public void check(String realResult, String expectedResult, String testName) {
-        if (expectedResult.equals(realResult)) { //нельзя expectedResult == realResult, потому что String?
+        if (realResult.equals(expectedResult)) {
             System.out.println(testName + " has passed!");
         }
         else {
