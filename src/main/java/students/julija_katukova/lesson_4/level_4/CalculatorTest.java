@@ -59,6 +59,15 @@ class CalculatorTest {
         } else {
             System.out.println("IsEven test = FAIL");
         }
+
+        number = 9;
+        expectedResult = false;
+        realResult = calculator.isEven(number);
+        if (realResult == expectedResult) {
+            System.out.println("IsEven test = OK");
+        } else {
+            System.out.println("IsEven test = FAIL");
+        }
     }
 
     public void maxOfTwoNumbers() {
