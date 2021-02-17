@@ -1,4 +1,4 @@
-package students.bogdans_pavlovs.lesson_4.level_7.task_25;
+package students.julija_katukova.lesson_4.level_7.task_25;
 
 class LightColorDetectorTest {
     public static void main(String[] args) {
@@ -12,68 +12,49 @@ class LightColorDetectorTest {
         lightColorDetector.testRed(620);
         lightColorDetector.testInvisible(760);
     }
-
     public void testViolet(int wavelength) {
-        String expectedResult = "Violet";
         LightColorDetector lightColorDetector = new LightColorDetector();
         String result = lightColorDetector.detect(wavelength);
-        LightColorDetectorTest lightColorDetectorTest = new LightColorDetectorTest();
-        lightColorDetectorTest.compareResult(result, expectedResult);
+        check(result, "Violet", "Violet");
     }
-
     public void testBlue(int wavelength) {
-        String expectedResult = "Blue";
         LightColorDetector lightColorDetector = new LightColorDetector();
         String result = lightColorDetector.detect(wavelength);
-        LightColorDetectorTest lightColorDetectorTest = new LightColorDetectorTest();
-        lightColorDetectorTest.compareResult(result, expectedResult);
+        check(result, "Blue", "Blue");
     }
-
     public void testGreen(int wavelength) {
-        String expectedResult = "Green";
         LightColorDetector lightColorDetector = new LightColorDetector();
         String result = lightColorDetector.detect(wavelength);
-        LightColorDetectorTest lightColorDetectorTest = new LightColorDetectorTest();
-        lightColorDetectorTest.compareResult(result, expectedResult);
+        check(result, "Green", "Green");
     }
-
     public void testYellow(int wavelength) {
-        String expectedResult = "Yellow";
         LightColorDetector lightColorDetector = new LightColorDetector();
         String result = lightColorDetector.detect(wavelength);
-        LightColorDetectorTest lightColorDetectorTest = new LightColorDetectorTest();
-        lightColorDetectorTest.compareResult(result, expectedResult);
+        check(result, "Yellow", "Yellow");
     }
-
     public void testOrange(int wavelength) {
-        String expectedResult = "Orange";
         LightColorDetector lightColorDetector = new LightColorDetector();
         String result = lightColorDetector.detect(wavelength);
-        LightColorDetectorTest lightColorDetectorTest = new LightColorDetectorTest();
-        lightColorDetectorTest.compareResult(result, expectedResult);
+        check(result, "Orange", "Orange");
     }
-
     public void testRed(int wavelength) {
-        String expectedResult = "Red";
         LightColorDetector lightColorDetector = new LightColorDetector();
         String result = lightColorDetector.detect(wavelength);
-        LightColorDetectorTest lightColorDetectorTest = new LightColorDetectorTest();
-        lightColorDetectorTest.compareResult(result, expectedResult);
+        check(result, "Red", "Red");
     }
-
     public void testInvisible(int wavelength) {
-        String expectedResult = "Invisible Light";
         LightColorDetector lightColorDetector = new LightColorDetector();
         String result = lightColorDetector.detect(wavelength);
-        LightColorDetectorTest lightColorDetectorTest = new LightColorDetectorTest();
-        lightColorDetectorTest.compareResult(result, expectedResult);
+        check(result, "Invisible Light", "Invisible Light");
     }
 
-    public void compareResult(String result, String expectedResult) {
-        if (result.equals(expectedResult)) {
-            System.out.println("LightColorDetector test - " + expectedResult + " = OK");
-        } else {
-            System.out.println("LightColorDetector test - " + expectedResult + " = FAIL");
+    public void check (String result, String expectedResult, String testName){
+        if(result.equals(expectedResult)) {
+            System.out.println("LightColorDetector test - " + testName + " = OK ");
+        }
+        else {
+            System.out.println("LightColorDetector test - Invisible Light = FAIL");
         }
     }
+
 }
