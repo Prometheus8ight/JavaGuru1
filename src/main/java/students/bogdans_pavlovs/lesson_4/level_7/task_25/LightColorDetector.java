@@ -20,18 +20,4 @@ class LightColorDetector {
             return "Invisible Light";
         }
     }
-    
-    public void resultCheck(int result){
-
-
-
-        if(result.equals("Green")) {
-            System.out.println("LightColorDetector test - Green = OK");
-        } else {
-            System.out.println("LightColorDetector test - Green = FAIL");
-        }
-        
-    }
-    
-    
 }
