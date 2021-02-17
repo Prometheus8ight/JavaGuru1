@@ -16,7 +16,7 @@ class IntegerMaxDemo {
         System.out.print("Enter third integer: ");
         int intThird = scanner.nextInt();
 
-        int x = test.max1(intSecond,intThird);
+        int x = test.max(intSecond,intThird);
         int result = test.max(intFirst,x);
         System.out.println(result);
 
