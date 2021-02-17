@@ -7,12 +7,12 @@ class Product {
 
     Product(String name)
     {this.name=name;}
+    double actualPrice(){ return regularPrice- (regularPrice*discount/100);}
 
     public void printInformation(){
+
         System.out.println("product name = "+ name+ "    product price = "+ regularPrice+" euro");
         System.out.println("discount = "+ discount+"%"+ "   summa = " +(regularPrice- (regularPrice*discount/100))+" euro");
     }
-
-   String getName(){return this.name;}
 
 }

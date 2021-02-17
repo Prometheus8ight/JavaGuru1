@@ -13,7 +13,7 @@ class Dog {
         System.out.println("Dog age = " + age);}
 
     public void changeColor(String newColor) {
-            // напишите тут команду сохранения нового цвета в свойство класса
+        this.color = newColor;
         System.out.println("Dog name = " + name);
         System.out.println("Dog new color = " + newColor);
 
