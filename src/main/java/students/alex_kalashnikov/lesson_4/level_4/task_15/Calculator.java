@@ -19,58 +19,30 @@ class Calculator {
     }
 
     public boolean isEven1(int number) {
-        if (number % 2 == 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return number % 2 == 0;
     }
+
 
     public int maxOfTwoNumbers1(int firstNumber, int secondNumber) {
         if (firstNumber > secondNumber) {
             return firstNumber;
-        }
-        else if (firstNumber < secondNumber) {
+        } else if (firstNumber < secondNumber) {
             return secondNumber;
-        }
-        else {
+        } else {
             return firstNumber = secondNumber;
         }
 
     }
 
-    public int maxOfThreeNumbers1(int firstNumber, int secondNumber, int thirdNumber) {
-        if (firstNumber > secondNumber && firstNumber > thirdNumber) {
-          return firstNumber;
+    public int maxOfThreeNumbers1(int x, int thirdNumber) {
+        if (x > thirdNumber) {
+            return x;
         }
-        else if (firstNumber > secondNumber && firstNumber == thirdNumber) {
-            return firstNumber = thirdNumber;
-        }
-        else if (firstNumber == secondNumber && firstNumber > thirdNumber) {
-            return firstNumber = secondNumber;
-        }
-        else if (secondNumber > firstNumber && secondNumber > thirdNumber) {
-            return secondNumber;
-        }
-        else if (secondNumber > firstNumber && secondNumber == thirdNumber) {
-            return secondNumber = thirdNumber;
-        }
-        else if (secondNumber == firstNumber && secondNumber > thirdNumber) {
-            return secondNumber = firstNumber;
-        }
-        else if (thirdNumber > firstNumber && thirdNumber > secondNumber) {
+        else if (x < thirdNumber) {
             return thirdNumber;
         }
-        else if (thirdNumber > firstNumber && thirdNumber == secondNumber) {
-            return thirdNumber = secondNumber;
-        }
-        else if (thirdNumber == firstNumber && thirdNumber > secondNumber) {
-            return thirdNumber = firstNumber;
-        }
         else {
-            return firstNumber = secondNumber = thirdNumber;
+            return x = thirdNumber;
         }
-
     }
-
 }

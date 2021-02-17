@@ -19,10 +19,6 @@ class Calculator {
     }
 
     public boolean isEven1(int number) {
-        if (number % 2 == 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return number % 2 == 0;
     }
 }
