@@ -7,8 +7,6 @@ class ArrayInt {
         int[] numbers = {15, -42, 2543};
 
         for (int i = 0; i < numbers.length; i++) {
-
-
             System.out.println("Index[" + i + "]: " + numbers[i]);
         }
     }
