@@ -20,10 +20,10 @@ class Task_9 {
 
         int c = scanner.nextInt();
 
-        if (a < b && a < c) {
+        if (a < b && b < c) {
             System.out.println("The number is increasing");
         }
-        else if (a > b && a > c) {
+        else if (a > b && b > c) {
             System.out.println("The number is decreasing");
         }
         else
