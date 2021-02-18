@@ -19,6 +19,8 @@ class Dog {
 
     void changeColour() {
 
+        colour = "зеленый"; // метод изменяет цвет параметра с рыжего на зеленый.
+
                 System.out.println(name + ", " + colour + ".");
 
     }
