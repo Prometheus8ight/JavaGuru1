@@ -9,13 +9,13 @@ class Array {
         System.out.println("Введите длину массива: ");
         int arrayLength = scanner.nextInt();
         int[] array = new int[arrayLength];
-        fillArray(array, arrayLength);
+        fillArray(array);
        return array;
    }
 
-    void fillArray(int[] array, int arrayLength){
+    void fillArray(int[] array){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите " + arrayLength + " чисел: ");
+        System.out.println("Введите " + array.length + " чисел: ");
         for(int i = 0; i < array.length; i++){
             array[i] = scanner.nextInt();
         }
