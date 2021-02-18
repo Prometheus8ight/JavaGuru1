@@ -5,11 +5,14 @@ package students.kate_br.lesson_3.level_7.task_29;
      double radius;
 
      Circle(double radius){
+
          this.radius = radius;
      }
 
-     void calculateArea(){
-         double pi = 3.14;
-         System.out.println("Circle area is " + (pi * (this.radius * this.radius)));
+     double calculateArea(){
+         double area = Math.PI * (this.radius * this.radius);
+         System.out.println(area);
+         return area;
+
      }
 }
