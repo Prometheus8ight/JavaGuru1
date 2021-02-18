@@ -9,17 +9,17 @@ class AverageArray {
      public static void main(String[] args) {
          Random random = new Random();
 
-         int[] num = new int[3];
+         double[] num = new double[3];
 
          for (int i = 0; i < num.length; i++){
-             num[i] = random.nextInt();
+             num[i] = random.nextInt(4);
          }
 
          for (int i = 0; i < num.length; i++){
              System.out.println(num[i]);
          }
 
-         int sum = 0;
+         double sum = 0.0;
          for (int i = 0; i < num.length; i++){
              sum += num[i];
          }
