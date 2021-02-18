@@ -11,8 +11,8 @@ class Stock {
     Stock(String companyName, int currentPrice) {
         this.companyName = companyName;
         this.currentPrice = currentPrice;
-        this.minPrice = minPrice;
-        this.maxPrice = maxPrice;
+        this.minPrice = currentPrice;
+        this.maxPrice = currentPrice;
 
     }
 
