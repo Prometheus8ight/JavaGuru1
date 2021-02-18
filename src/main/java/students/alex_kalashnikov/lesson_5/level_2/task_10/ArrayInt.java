@@ -4,7 +4,7 @@ class ArrayInt {
 
     public static void main(String[] args) {
 
-        int[] numbers = {(int) (Math.random() * 100), (int) (Math.random() * 100), (int) (Math.random() * 100)};
+        int[] numbers = {15, -42, 2543};
 
         for (int i = 0; i < numbers.length; i++) {
 
