@@ -1,6 +1,6 @@
-package students.alex_kalashnikov.lesson_5.level_4.task_27;
+package students.alex_kalashnikov.lesson_5.level_4.task_28;
 
-class ArrayInt {
+class ArrayIntMin {
 
     public static void main(String[] args) {
 
@@ -16,15 +16,15 @@ class ArrayInt {
             System.out.println("Index [" + i + "]: " + arrayInt[i]);
         }
 
-        int max = arrayInt[0];
+        int min = arrayInt[0];
 
         for (int i = 0; i < arrayInt.length; i++) {
-            if (arrayInt[i] > max) {
-                max = arrayInt[i];
+            if (arrayInt[i] < min) {
+                min = arrayInt[i];
             }
         }
 
-        System.out.println("Max number in Array is: " + max);
+        System.out.println("Min number in Array is: " + min);
 
     }
 
