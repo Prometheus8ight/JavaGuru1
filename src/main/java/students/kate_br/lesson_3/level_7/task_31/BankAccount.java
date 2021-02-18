@@ -3,10 +3,12 @@ package students.kate_br.lesson_3.level_7.task_31;
  class BankAccount {
 
      String owner;
-     String money;
+     int money;
 
      BankAccount(String owner, int money){
          this.owner = owner;
+         this.money = money;
+
 
 
      }
@@ -16,7 +18,8 @@ package students.kate_br.lesson_3.level_7.task_31;
      }
 
      String getMoney(){
-         return this.money;
+
+         return String.valueOf(money);
      }
 
 
