@@ -5,26 +5,19 @@ class StockDemo {
     public static void main(String[] args) {
 
         Stock google = new Stock("GOOG", 10);
+        google.finalCurrentPrice = google.currentPrice;
         google.minPrice = google.currentPrice;
         google.maxPrice = google.currentPrice;
         String priceInformation = google.getPriceInformation();
         {
             System.out.println(priceInformation);
         }
-        google.currentPrice = 12;
-        google.currentPrice = google.updatePrice();
 
-        google.currentPrice = 5;
-        google.currentPrice = google.updatePrice();
-
-        google.currentPrice = 7;
-        google.currentPrice = google.updatePrice();
-
-        google.currentPrice = 99;
-        google.currentPrice = google.updatePrice();
-
-        google.currentPrice = 77;
-        google.currentPrice = google.updatePrice();
+        google.updatePrice(12);
+        google.updatePrice(5);
+        google.updatePrice(7);
+        google.updatePrice(99);
+        google.updatePrice(77);
 
 
         priceInformation = google.getPriceInformation(); {
