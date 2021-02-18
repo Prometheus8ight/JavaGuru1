@@ -1,5 +1,6 @@
 package students.kate_br.lesson_5.level_2.task_11;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 class Input {
@@ -20,9 +21,8 @@ class Input {
          numbers[1] = b;
          numbers[2] = c;
 
-         System.out.println("First number is " + numbers[0]);
-         System.out.println("Second number is " + numbers[1]);
-         System.out.println("Third number is " + numbers[2]);
+         System.out.println(Arrays.toString(numbers));
+
 
 
      }
