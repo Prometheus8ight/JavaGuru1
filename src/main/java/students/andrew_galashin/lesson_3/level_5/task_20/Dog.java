@@ -4,11 +4,12 @@ import java.util.Scanner;
 
 class Dog {
     String name;
+    int age;
 
 
-    Dog(String dogName) {
+    Dog(String dogName, int dogAge) {
         this.name = dogName;
-
+        this.age = dogAge;
 
     }
 
@@ -16,10 +17,11 @@ class Dog {
 
 
     public void voice () {
-        System.out.println(this.name + " " + this.name + " " + this.name + " ");
+        System.out.println(this.name + " " + this.age);
     }
     void happyBirthday() {
 
+        this.age = this.age + 1;
 
     }
 
