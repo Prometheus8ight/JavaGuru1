@@ -6,7 +6,7 @@ class DogDemo {
 
         Dog firstDog = new Dog("Шарик","рыжий");
         firstDog.voice();
-        firstDog.changeColour();
+        firstDog.changeColour("зеленый");
 
     }
 
