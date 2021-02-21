@@ -15,12 +15,13 @@ package students.kate_br.lesson_4.level_6.task_17;
              maxPrice = newPrice;
          } else if (newPrice < minPrice) {
              minPrice = newPrice;
-         }else if (currentPrice < newPrice){
+         }else {
              currentPrice = newPrice;
          }
 
-
      }
+
+
 
      Stock(String name, int currentPrice) {
 
@@ -42,5 +43,6 @@ package students.kate_br.lesson_4.level_6.task_17;
      }
 
  }
+
 
 
