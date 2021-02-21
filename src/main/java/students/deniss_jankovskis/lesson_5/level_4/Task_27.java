@@ -10,17 +10,16 @@ class Task_27 {
         int[] foo = new int[10];
         Random random = new Random();
         int[] randomNumbers = new int[10];
-        for (int i = 0; i < foo.length; i++) {
+        for (int i = 0; i < 10; i++) {
             foo[i] = random.nextInt(100);
         }
+        System.out.println("Random numbers: " + Arrays.toString(foo));
 
         int largestNumber = foo[0];
-        for (int i = 0; i < foo.length; i++) {
+        for (int i = 0; i < 10; i++) {
             if(foo[i] > largestNumber)
                 largestNumber = foo[i];
         }
-
-        System.out.println("Random numbers: " + Arrays.toString(foo));
         System.out.println("The largest number is: " + largestNumber);
 
 
