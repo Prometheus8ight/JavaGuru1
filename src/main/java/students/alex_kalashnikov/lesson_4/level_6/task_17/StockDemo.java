@@ -5,7 +5,6 @@ class StockDemo {
     public static void main(String[] args) {
 
         Stock google = new Stock("GOOG", 10);
-        google.finalCurrentPrice = google.currentPrice;
         google.minPrice = google.currentPrice;
         google.maxPrice = google.currentPrice;
         String priceInformation = google.getPriceInformation();

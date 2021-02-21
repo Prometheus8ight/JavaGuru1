@@ -6,7 +6,6 @@ class Stock {
     int currentPrice;
     int minPrice;
     int maxPrice;
-    int finalCurrentPrice;
 
     Stock(String stockName, int currentPrice) {
         this.name = stockName;
@@ -14,7 +13,7 @@ class Stock {
     }
 
     void updatePrice(int currentPrice) {
-        finalCurrentPrice = currentPrice;
+        this.currentPrice = currentPrice;
         if (currentPrice < minPrice) {
             minPrice = currentPrice;
         } else if (currentPrice > maxPrice) {
@@ -23,7 +22,7 @@ class Stock {
     }
 
     String getPriceInformation() {
-        return "Company = " + name + ", " + "Current price = " + finalCurrentPrice + ", " + "Max price = " + maxPrice + ", " + "Min price = " + minPrice + ".";
+        return "Company = " + name + ", " + "Current price = " + currentPrice + ", " + "Max price = " + maxPrice + ", " + "Min price = " + minPrice + ".";
     }
 
 }
