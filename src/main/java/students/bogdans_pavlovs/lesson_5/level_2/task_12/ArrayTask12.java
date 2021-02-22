@@ -10,9 +10,11 @@ class ArrayTask12 {
 
         Random generator = new Random();
 
-        numbers[0] = generator.nextInt(99);
-        numbers[1] = generator.nextInt(99);
-        numbers[2] = generator.nextInt(99);
+        for(int i = 0; i < numbers.length; i++){
+
+            numbers[i] = generator.nextInt(99);
+
+        }
 
         System.out.print("Generator chose: " + numbers[0] + ", " + numbers[1] + ", " + numbers [2]);
 

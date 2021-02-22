@@ -20,15 +20,19 @@ class ArrayTask15 {
 
         Random generator = new Random();
 
-        numbers[0] = generator.nextInt(97);
-        numbers[1] = generator.nextInt(97);
-        numbers[2] = generator.nextInt(97);
+        for(int i = 0; i < numbers.length; i++){
+
+            numbers[i] = generator.nextInt(99);
+        }
+
 
         System.out.println("Current values: " + numbers[0] + ", " + numbers[1] + ", " + numbers [2]);
 
-        numbers[0] = numbers[0] + 2;
-        numbers[1] = numbers[1] + 2;
-        numbers[2] = numbers[2] + 2;
+        for(int i = 0; i < numbers.length; i++){
+
+            numbers[i] = numbers[i] + 2;
+
+        }
 
         System.out.println("New values: " + numbers[0] + ", " + numbers[1] + ", " + numbers [2]);
 

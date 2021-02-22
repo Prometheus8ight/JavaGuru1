@@ -20,9 +20,10 @@ class ArraysTask11 {
 
         System.out.println("Enter three integers: ");
 
-        numbers[0] = prompter.nextInt();
-        numbers[1] = prompter.nextInt();
-        numbers[2] = prompter.nextInt();
+        for (int i = 0; i < numbers.length; i++){
+
+            numbers[i] = prompter.nextInt();
+        }
 
         System.out.print("You chose: " + numbers[0] + ", " + numbers[1] + ", " + numbers [2]);
 

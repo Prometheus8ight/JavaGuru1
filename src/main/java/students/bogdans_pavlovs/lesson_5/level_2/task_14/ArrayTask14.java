@@ -10,9 +10,10 @@ class ArrayTask14 {
 
         Random generator = new Random();
 
-        numbers[0] = generator.nextInt(99);
-        numbers[1] = generator.nextInt(99);
-        numbers[2] = generator.nextInt(99);
+        for (int i = 0; i < numbers.length; i++){
+
+            numbers[i] = generator.nextInt(999);
+        }
 
         int arraySum = numbers[0] + numbers[1] + numbers[2];
         double arrayAvg = (double) arraySum / numbers.length;
