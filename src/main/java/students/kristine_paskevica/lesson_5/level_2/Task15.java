@@ -16,7 +16,7 @@ class Task15 {
         }
         System.out.println("Masīva šūnās glabājas šādas 3 vērtības: " + Arrays.toString(masivs));
 
-        for(int i = 0; i< 3;i++){
+        for(int i = 0; i < masivs.length; i++){
             masivs[i]=masivs[i]+2;
             //palielina katru vērtību 2 reizes
         }
