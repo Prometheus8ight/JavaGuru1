@@ -12,11 +12,11 @@ class Task14 {
 
          Random genereSkaitlus = new Random();
 
-         for (int i = 0; i < 3; i++) {
+         for (int i = 0; i < masivs.length; i++) {
              masivs[i] = genereSkaitlus.nextInt();
              //aizpilda ar nejaušiem veseliem skaitļiem katra masīva šūnu
 
-             sum = sum + masivs[i];
+             sum += masivs[i];
              //saskaita visu 3 skaitļus
              avg = sum / 3;
              //aprēķina vidējo
