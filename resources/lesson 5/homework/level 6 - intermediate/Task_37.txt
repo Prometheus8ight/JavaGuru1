@@ -6,5 +6,4 @@ class Arrays {
     public int findMin(int[] array) {
         // Напишите реализацию !!!
     }
-
 }
