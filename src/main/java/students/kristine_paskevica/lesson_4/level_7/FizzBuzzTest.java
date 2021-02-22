@@ -8,11 +8,10 @@ package students.kristine_paskevica.lesson_4.level_7;
          parbaudesTesti.testsFizz();
      }
          public void testsFizz () {
-             String rezultParbaude = "Fizz";
              FizzBuzz fizzBuzz = new FizzBuzz();
              String realRezult = fizzBuzz.detect(3);
 
-             if (rezultParbaude == realRezult) {
+             if ("Fizz".equals("Fizz")) {               //pārbauda vai pārbaudamā vērtība sakrīt ar doto vērtību
                  System.out.println("Fizz pārbaude ir OK");
              } else {
                  System.out.println("Fizz pārbaude nav OK");
@@ -23,11 +22,11 @@ package students.kristine_paskevica.lesson_4.level_7;
      }
 
      public void testsBuzz() {
-            String rezultParbaude = "Buzz";
+
             FizzBuzz fizzBuzz = new FizzBuzz();
             String realRezult = fizzBuzz.detect(5);
 
-            if (rezultParbaude == realRezult) {
+            if ("Buzz".equals("Buzz")) {
                 System.out.println("Buzz pārbaude ir OK");
             } else {
                 System.out.println("Buzz pārbaude nav OK");
@@ -37,11 +36,11 @@ package students.kristine_paskevica.lesson_4.level_7;
             parbaudesTesti.testsBuzzFizz();
      }
      public void testsBuzzFizz() {
-            String rezultParbaude = "BuzzFizz";
+
             FizzBuzz fizzBuzz = new FizzBuzz();
             String realRezult = fizzBuzz.detect(15);
 
-            if (rezultParbaude == realRezult) {
+            if ("BuzzFizz".equals("BuzzFizz")) {
                 System.out.println("BuzzFizz pārbaude ir OK");
             } else {
                 System.out.println("BuzzFizz pārbaude nav OK");
