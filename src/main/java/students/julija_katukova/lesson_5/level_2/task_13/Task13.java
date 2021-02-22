@@ -9,7 +9,7 @@ class Task13 {
         Random random = new Random();
         for (int i = 0; i < 3; i++) {
             numbers[i] = random.nextInt(); //заполните каждую ячейку массива случайным числом
-            sum = sum + numbers[i]; //посчитайте сумму всех ячеек
+            sum += numbers[i]; //посчитайте сумму всех ячеек
         }
         System.out.println(sum); //распечатайте сумму всех ячеек на консоль
     }
