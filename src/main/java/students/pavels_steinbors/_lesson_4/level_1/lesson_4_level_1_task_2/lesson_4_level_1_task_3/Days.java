@@ -1,4 +1,4 @@
-package students.pavels_steinbors.lesson_4_level_1_task_3;
+package students.pavels_steinbors._lesson_4.level_1.lesson_4_level_1_task_2.lesson_4_level_1_task_3;
 
 import java.util.Scanner;
 
