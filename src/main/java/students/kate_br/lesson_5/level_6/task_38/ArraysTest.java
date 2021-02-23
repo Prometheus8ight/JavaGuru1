@@ -42,7 +42,7 @@ package students.kate_br.lesson_5.level_6.task_38;
          int[] array = {5, 10, 15};
          int realResult = arrays.findMin(array);
 
-         if (realResult == expectedResult){
+         if (expectedResult > realResult){
              System.out.println("Test OK");
          }else {
              System.out.println("Test FAIL");
