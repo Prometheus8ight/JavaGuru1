@@ -8,7 +8,7 @@ class ArraysDemo {
         System.out.println("Masīvs veidosies no: " + elemSkaits.length + " elementiem");
         masivs.fillRandomly(elemSkaits);
         masivs.print(elemSkaits);
-        masivs.findMax(elemSkaits);
-        masivs.findMin(elemSkaits);
+        System.out.println("Masīva lielākais elements ir: " + masivs.findMax(elemSkaits));
+        System.out.println("Masīva mazākais elements ir: " + masivs.findMin(elemSkaits));
     }
 }
