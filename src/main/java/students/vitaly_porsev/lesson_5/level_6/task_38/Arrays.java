@@ -7,7 +7,7 @@ public class Arrays {
     }
 
     public int findMax(int[] array) {
-        int max = 0;
+        int max = array[0]; // да, вспомнил об этом, когда уже закоммитил))
         for(int num : array){
             if(num > max){
                 max = num;
