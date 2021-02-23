@@ -10,12 +10,20 @@ class ArrayMin {
          int[] num = new int[10];
          Random random = new Random();
 
-         for(int i = 0; i < 10; i++){
+         for(int i = 0; i < num.length; i++){
              num[i] = random.nextInt(11);
          }
 
+         int min = num[0];
+
+         for (int i = 0; i < num.length; i++){
+             if (num[i] < min){
+                 min = num[i];
+             }
+         }
+
          System.out.println(Arrays.toString(num));
-         System.out.print("Min number is: ");
-         System.out.println(Arrays.stream(num).min().getAsInt());
+         System.out.print("Min number is: " + min);
+
      }
 }
