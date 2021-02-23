@@ -5,7 +5,7 @@ import java.util.Arrays;
 class ArrayDemo {
     public static void main(String[] args) {
         Array array = new Array();
-        int[] newArray = array.makeArray();
+        int[] newArray = array.userArray();
         System.out.println(Arrays.toString(newArray));
     }
 }
