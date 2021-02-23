@@ -7,12 +7,16 @@ class Task28 {
     public static void main(String[] args) {
         int[] numbers = new int[7];//создайте массив произвольной длины
         Random random = new Random();
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < numbers.length; i++) {
             numbers[i] = random.nextInt(); //заполните массив случайными числами
         }
         System.out.println(Arrays.toString(numbers));//распечатайте на консоль все элементы массива
-        System.out.println(Arrays.stream(numbers).min().getAsInt()); // найдите наименьшее число в массиве и выведети его на консоль
-
+        int min = numbers[0];
+        for (int i = 0; i < numbers.length; i++) { //// найдите наименьшее число в массиве ! через чиклы !
+            if (numbers[i] < min) {
+                numbers[i] = min;
+            }
+        }
+        System.out.println(min); // выведети его на консоль
     }
-
 }
