@@ -4,14 +4,17 @@ import java.util.Scanner;
 
 class Array {
 
-   int[] makeArray(){
+   int[] userArray(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите длину массива: ");
-        int arrayLength = scanner.nextInt();
+        return makeArray(scanner.nextInt());
+   }
+
+    int[] makeArray(int arrayLength){
         int[] array = new int[arrayLength];
         fillArray(array);
-       return array;
-   }
+        return array;
+    }
 
     void fillArray(int[] array){
         Scanner scanner = new Scanner(System.in);
