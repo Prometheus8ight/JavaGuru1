@@ -7,6 +7,12 @@ class Arrays {
     }
 
     public static int findMax(int[] array) {
-        return java.util.Arrays.stream(array).max().getAsInt();
+        int max = array[0];
+        for (int j : array) {
+            if (j > max) {
+                max = j;
+            }
+        }
+      return max;
     }
 }
