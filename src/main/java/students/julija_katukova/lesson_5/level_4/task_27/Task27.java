@@ -11,7 +11,7 @@ class Task27 {
             numbers[i] = random.nextInt(); //заполните массив случайными числами
         }
         System.out.println(Arrays.toString(numbers)); //распечатайте на консоль все элементы массива
-        int max = 0;
+        int max = numbers[0];
         for (int number : numbers) { //найдите наибольшее число в массиве ! через циклы !
             if (number > max) {
                 max = number;
