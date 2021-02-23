@@ -5,10 +5,23 @@ class Arrays {
         return new int[length];
     }
     public static int findMax(int[] array) {
-        return java.util.Arrays.stream(array).max().getAsInt();
+        int max = array[0];
+        for (int j : array) {
+            if (j > max) {
+                max = j;
+            }
+        }
+        return max;
     }
-        public static int findMin(int[] array) {
-        return java.util.Arrays.stream(array).min().getAsInt();
+    public static int findMin(int[] array)
+    {
+        int min = array[0];
+        for (int j : array) {
+            if (j < min) {
+                min = j;
+            }
+        }
+        return min;
     }
 
 }
