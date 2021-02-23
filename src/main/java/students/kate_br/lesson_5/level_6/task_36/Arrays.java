@@ -7,7 +7,7 @@ package students.kate_br.lesson_5.level_6.task_36;
      }
 
      public int findMax(int[] array) {
-         int max = 0;
+         int max = array.length;
 
          for (int num : array) {
              if (num > max) {
