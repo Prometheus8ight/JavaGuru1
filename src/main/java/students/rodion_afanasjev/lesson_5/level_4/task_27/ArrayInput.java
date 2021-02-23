@@ -9,12 +9,16 @@ class ArrayInput {
         Random random = new Random();
         int[] numbers = new int[10];
 
+        int max = 0;
         for ( int i = 0; i < numbers.length; i++ ){
-            numbers[i] = random.nextInt(10);
+            numbers[i] = random.nextInt(20);
+            if ( numbers[i] > max){
+                max = numbers[i];
+            }
         }
 
         System.out.println(Arrays.toString(numbers));
-        System.out.println(Arrays.stream(numbers).max().getAsInt());
+        System.out.println(max);
 
     }
 }
