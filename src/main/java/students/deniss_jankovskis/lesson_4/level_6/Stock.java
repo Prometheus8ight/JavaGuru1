@@ -18,11 +18,14 @@ class Stock {
 
 
     public void updatePrice(int currentPrice) {
-        if (currentPrice > maxPrice) {
-            maxPrice = currentPrice;
-        }
         if (currentPrice < minPrice) {
             minPrice = currentPrice;
+            this.currentPrice = currentPrice;
+
+        }
+        if (currentPrice > maxPrice) {
+            maxPrice = currentPrice;
+
         }
 
     }
