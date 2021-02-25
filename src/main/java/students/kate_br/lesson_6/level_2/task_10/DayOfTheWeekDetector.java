@@ -1,6 +1,15 @@
 package students.kate_br.lesson_6.level_2.task_10;
 
+import java.util.Scanner;
+
 public class DayOfTheWeekDetector {
+
+    public int getDayNumberFromUser(){
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Input day numbers between 1 and 7: ");
+        return scanner.nextInt();
+    }
 
     public String findDayOfTheWeek(int dayNumber){
 

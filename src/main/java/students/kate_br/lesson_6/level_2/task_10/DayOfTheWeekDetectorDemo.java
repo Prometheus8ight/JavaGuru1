@@ -5,7 +5,8 @@ package students.kate_br.lesson_6.level_2.task_10;
      public static void main(String[] args) {
 
          DayOfTheWeekDetector detector = new DayOfTheWeekDetector();
-         String dayOfTheWeek = detector.findDayOfTheWeek(2);
+         int dayNumber = detector.getDayNumberFromUser();
+         String dayOfTheWeek = detector.findDayOfTheWeek(dayNumber);
          System.out.println(dayOfTheWeek);
 
      }
