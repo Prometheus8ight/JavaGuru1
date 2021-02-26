@@ -1,7 +1,5 @@
 package students.julija_katukova.lesson_6.level_3.task_14;
 
-import java.util.Arrays;
-
 class ArrayServiceTest {
     public static void main(String[] args) {
         ArrayServiceTest arrayServiceTest = new ArrayServiceTest();
