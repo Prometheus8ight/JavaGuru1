@@ -17,7 +17,7 @@ class Array {
     }
 
     void keepWorking(int[] array) {
-        sortArray(array);
+        userSortArray(array);
     }
 
     int[] makeArray(int arrayLength) {
@@ -34,21 +34,21 @@ class Array {
 
     }
 
-    void sortArray(int[] array) {
+    void userSortArray(int[] array) {
         Scanner scanner = new Scanner(System.in);
         Array method = new Array();
         System.out.println("Хотите отсортировать ваш массив по возрастанию? Введите \"да\" или \"нет\".");
         if (scanner.next().toLowerCase(Locale.ROOT).equals("да")) {
-            method.sort(array);
+            method.sortArray(array);
             System.out.println("Теперь ваш массив выглядит так: " + Arrays.toString(array));
-            searchIndex(array);
+            userSearchIndex(array);
         } else {
             System.out.println("Всего хорошего!");
         }
         scanner.close();
     }
 
-    void searchIndex(int[] array) {
+    void userSearchIndex(int[] array) {
         Scanner scanner = new Scanner(System.in);
         Array method = new Array();
         System.out.println("Желаете найти под каким индексом находится ваше число? Введите \"да\" или \"нет\".");
@@ -59,9 +59,10 @@ class Array {
         } else {
             System.out.println("Всего хорошего!");
         }
+        scanner.close();
     }
 
-    void sort(int[] array) {
+    void sortArray(int[] array) {
         int temp;
         for (int i = 1; i < array.length; i++) {
             for (int j = i; j > 0; j--) {
