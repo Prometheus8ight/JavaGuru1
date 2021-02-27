@@ -9,7 +9,7 @@ class Task_12 {
 
         Random random = new Random();
         int[] foo = new int[3];
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < foo.length; i++) {
             foo[i] = random.nextInt(10);
         }
 
