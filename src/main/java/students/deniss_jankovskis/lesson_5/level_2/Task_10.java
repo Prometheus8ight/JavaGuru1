@@ -11,8 +11,12 @@ class Task_10 {
         numbers[1] = 79;
         numbers[2] = 83;
 
-        System.out.println(Arrays.toString(numbers));
+        for (int i = 0; i < numbers.length; i++) {
 
+            System.out.println((numbers[i]));
+
+        }
 
     }
 }
+
