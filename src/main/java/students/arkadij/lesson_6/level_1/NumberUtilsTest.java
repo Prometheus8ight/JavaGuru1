@@ -1,6 +1,6 @@
 package students.arkadij.lesson_6.level_1;
 
-class NumberUtilsTest { // TASK #6
+class NumberUtilsTest { // TASK #6.
 
     public void isEvenTest(){
         NumberUtils numberUtils = new NumberUtils();

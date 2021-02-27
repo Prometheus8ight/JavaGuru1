@@ -1,6 +1,6 @@
 package students.arkadij.lesson_6.level_1;
 
-class WhileDefinition5 { // TASK #5
+class WhileDefinition5 { // TASK #5.
 
     public static void main(String[] args) {
         int i = 1;
