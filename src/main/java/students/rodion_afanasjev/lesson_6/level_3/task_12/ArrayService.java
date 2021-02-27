@@ -24,9 +24,9 @@ class ArrayService {
     }
 
     boolean replaceFirst(int[] array, int numberToReplace, int newNumber) {
-        for (int i : array) {
-            if (i == numberToReplace) {
-                i = newNumber;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == numberToReplace) {
+                array[i] = newNumber;
                 return true;
             }
         }
@@ -35,9 +35,9 @@ class ArrayService {
 
     int replaceAllNumbers(int[] array, int numberToReplace, int newNumber) {
         int replace = 0;
-        for (int i : array) {
-            if (i == numberToReplace) {
-                i = newNumber;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == numberToReplace) {
+                array[i] = newNumber;
                 replace++;
             }
         }
