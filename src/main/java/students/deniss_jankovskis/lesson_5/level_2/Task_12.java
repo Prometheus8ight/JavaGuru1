@@ -11,9 +11,9 @@ class Task_12 {
         int[] foo = new int[3];
         for (int i = 0; i < 3; i++) {
             foo[i] = random.nextInt(10);
-            System.out.println(Arrays.toString(foo));
-
         }
+
+        System.out.println(Arrays.toString(foo));
 
     }
 
