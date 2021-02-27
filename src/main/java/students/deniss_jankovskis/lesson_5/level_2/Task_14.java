@@ -9,17 +9,18 @@ class Task_14 {
 
         Random random = new Random();
         int[] foo = new int[3];
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < foo.length; i++) {
             foo[i] = random.nextInt(10);
+            System.out.println(Arrays.toString(foo));
 
         }
-        System.out.println(Arrays.toString(foo));
+
 
         int sum = 0;
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < foo.length; i++) {
             sum += foo[i];
+
         }
-        System.out.println("The sum of all numbers is " + sum);
 
         int average = sum / foo.length;
         System.out.println("Average value is " + average);
