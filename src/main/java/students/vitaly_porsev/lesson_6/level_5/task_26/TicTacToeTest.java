@@ -6,26 +6,37 @@ class TicTacToeTest {
         TicTacToeTest method = new TicTacToeTest();
         method.isDrawTestTrue();
         method.isDrawTestFalse();
+        method.isDrawTestFalseMinus1();
     }
 
-    void isDrawTestTrue(){
+    void isDrawTestTrue() {
         TicTacToe method = new TicTacToe();
         int[][] array = {
-                {1,1,0},
-                {0,0,1},
-                {1,0,1}
+                {1, 1, 0},
+                {0, 0, 1},
+                {1, 0, 1}
         };
         checkResult(method.isDrawPosition(array), "isDrawTestTrue");
     }
 
-    void isDrawTestFalse(){
+    void isDrawTestFalse() {
         TicTacToe method = new TicTacToe();
         int[][] array = {
-                {1,1,0},
-                {1,0,1},
-                {0,0,1}
+                {1, 1, 0},
+                {1, 0, 1},
+                {0, 0, 1}
         };
         checkFalseResult(method.isDrawPosition(array), "isDrawTestFalse");
+    }
+
+    void isDrawTestFalseMinus1() {
+        TicTacToe method = new TicTacToe();
+        int[][] array = {
+                {-1, 1, 0},
+                {1, 0, -1},
+                {0, 0, -1}
+        };
+        checkFalseResult(method.isDrawPosition(array), "isDrawTestFalseMinus1");
     }
 
     void checkResult(boolean isTrue, String testName) {
