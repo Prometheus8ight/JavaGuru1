@@ -1,4 +1,4 @@
-package students.deniss_jankovskis.level_5;
+package students.deniss_jankovskis.lesson_5.level_5;
 
 class ArraysTest {
 

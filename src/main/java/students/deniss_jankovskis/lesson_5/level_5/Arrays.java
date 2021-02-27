@@ -1,4 +1,4 @@
-package students.deniss_jankovskis.level_5;
+package students.deniss_jankovskis.lesson_5.level_5;
 
 import java.util.Random;
 
@@ -15,10 +15,14 @@ class Arrays {
         for (int i = 0; i < array.length; i++) {
             array[i] = random.nextInt();
         }
+        System.out.println(java.util.Arrays.toString(array));
     }
 
     public void print(int[] array) {
-        System.out.println(java.util.Arrays.toString(array));
+        for (int i = 0; i < array.length; i++) {
+            System.out.println(java.util.Arrays.toString(array));
+        }
+
     }
 
     public static int findMax(int[] array) {
