@@ -29,7 +29,7 @@ class ArrayServiceTest {
         int[] arr = {1,2,3,4,5,3,33,55};
         numbersToCheck(2,
                 arrayService.countOccurrences(arr, 3),
-                "Found two number in the array");
+                "Found two numbers in the array");
     }
 
     public void numbersCheckThree(){
