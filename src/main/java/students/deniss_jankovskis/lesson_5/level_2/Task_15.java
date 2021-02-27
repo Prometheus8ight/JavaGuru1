@@ -9,14 +9,14 @@ class Task_15 {
 
         Random random = new Random();
         int[] foo = new int[3];
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < foo.length; i++) {
             foo[i] = random.nextInt(10);
 
         }
         System.out.println(Arrays.toString(foo));
 
-        for (int i = 0; i < 3; i++) {
-            foo[i] = foo[i] * 2;
+        for (int i = 0; i < foo.length; i++) {
+            foo[i] = foo[i] + 2;
             System.out.println(foo[i]);
         }
 
