@@ -38,10 +38,14 @@ public class TicTacToe {
 
     public int[][] createField(){
         int[][] field = new int[3][3];
+        fillField(field);
+        return field;
+    }
+
+    private void fillField(int[][] field){
         for (int[] ints : field) {
             Arrays.fill(ints, -1);
         }
-        return field;
     }
 
     public Move getNextMove() {
