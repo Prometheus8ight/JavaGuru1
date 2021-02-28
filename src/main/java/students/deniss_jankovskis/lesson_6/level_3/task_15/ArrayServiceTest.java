@@ -1,4 +1,4 @@
-package students.deniss_jankovskis.lesson_6.task_15;
+package students.deniss_jankovskis.lesson_6.level_3.task_15;
 
 
 public class ArrayServiceTest {
