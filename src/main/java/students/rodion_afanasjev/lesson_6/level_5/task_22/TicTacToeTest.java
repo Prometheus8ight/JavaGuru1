@@ -1,7 +1,5 @@
 package students.rodion_afanasjev.lesson_6.level_5.task_22;
 
-import java.util.Arrays;
-
 class TicTacToeTest {
 
     public static void main(String[] args) {
@@ -10,6 +8,9 @@ class TicTacToeTest {
         ticTacToeTest.firstLaneTrueTest();
         ticTacToeTest.secondLaneTrueTest();
         ticTacToeTest.thirdLaneTrueTest();
+        ticTacToeTest.firstLaneFalseTest();
+        ticTacToeTest.secondLaneFalseTest();
+        ticTacToeTest.thirdLaneFalseTest();
 
     }
 
@@ -29,6 +30,24 @@ class TicTacToeTest {
         TicTacToe ticTacToe = new TicTacToe();
         int[][] array = {{-1, -1, -1}, {-1, -1, -1}, {1, 1, 1}};
         condition(ticTacToe.isWinPositionForHorizontals(array, 1), "thirdLaneTrueTest");
+    }
+
+    void firstLaneFalseTest() {
+        TicTacToe ticTacToe = new TicTacToe();
+        int[][] array = {{1, 1, -1}, {-1, -1, -1}, {-1, -1, -1}};
+        condition(!ticTacToe.isWinPositionForHorizontals(array, 1), "firstLaneFalseTest");
+    }
+
+    void secondLaneFalseTest() {
+        TicTacToe ticTacToe = new TicTacToe();
+        int[][] array = {{-1, -1, -1}, {1, -1, 1}, {1, -1, -1}};
+        condition(!ticTacToe.isWinPositionForHorizontals(array, 1), "secondLaneFalseTest");
+    }
+
+    void thirdLaneFalseTest() {
+        TicTacToe ticTacToe = new TicTacToe();
+        int[][] array = {{-1, -1, -1}, {-1, -1, -1}, {0, 0, 1}};
+        condition(!ticTacToe.isWinPositionForHorizontals(array, 0), "thirdLaneFalseTest");
     }
 
     void condition(boolean condition, String testName) {
