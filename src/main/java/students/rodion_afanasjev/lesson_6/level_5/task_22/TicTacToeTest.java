@@ -5,15 +5,15 @@ class TicTacToeTest {
     public static void main(String[] args) {
 
         TicTacToeTest ticTacToeTest = new TicTacToeTest();
-        ticTacToeTest.horizontalWinCondition(new int[][]{{0, 0, 0}, {-1, -1, -1}, {-1, -1, -1}}, 0);
-        ticTacToeTest.horizontalWinCondition(new int[][]{{1, 1, 1}, {-1, -1, -1}, {-1, -1, -1}}, 1);
+        ticTacToeTest.horizontalWinConditionTest(new int[][]{{0, 0, 0}, {-1, -1, -1}, {-1, -1, -1}}, 0);
+        ticTacToeTest.horizontalWinConditionTest(new int[][]{{1, 1, 1}, {-1, -1, -1}, {-1, -1, -1}}, 1);
 
     }
 
-    public void horizontalWinCondition(int[][] field, int playerToCheck) {
+    public void horizontalWinConditionTest(int[][] field, int playerToCheck) {
         TicTacToe ticTacToe = new TicTacToe();
         boolean realResult = ticTacToe.isWinPositionForHorizontals(field, playerToCheck);
-        condition(realResult, "horizontalWinCondition");
+        condition(realResult, "horizontalWinConditionTest");
     }
 
     public void condition(boolean condition, String testName) {
