@@ -5,9 +5,15 @@ class ArrayService {
     boolean contains(int[] arr, int numberToSearch) {
 
         for (int i = 0; i < arr.length; i++) {
-            return true;
-        }
-        return false;
 
+            if (arr[i] == numberToSearch) {
+                return true;
+            }
+        }
+
+        return false;
     }
+
+
 }
+
