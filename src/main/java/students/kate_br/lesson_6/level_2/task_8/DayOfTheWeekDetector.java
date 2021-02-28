@@ -1,5 +1,6 @@
 package students.kate_br.lesson_6.level_2.task_8;
 
+
 import java.util.Scanner;
 
 class DayOfTheWeekDetector {
@@ -16,24 +17,23 @@ class DayOfTheWeekDetector {
         switch (dayNumber) {
 
             case 1:
-                System.out.println("Monday");
+                return "Monday";
             case 2:
-                System.out.println("Tuesday");
+                return "Tuesday";
             case 3:
-                System.out.println("Wednesday");
+                return "Wednesday";
             case 4:
-                System.out.println("Thursday");
+                return "Thursday";
             case 5:
-                System.out.println("Friday");
+                return "Friday";
             case 6:
-                System.out.println("Saturday");
+                return "Saturday";
             case 7:
-                System.out.println("Sunday");
+                return "Sunday";
             default:
-                System.out.println("Not correct day number!");
+                return "Not correct day number";
 
         }
 
-        return findDayOfTheWeek(dayNumber);
     }
 }
