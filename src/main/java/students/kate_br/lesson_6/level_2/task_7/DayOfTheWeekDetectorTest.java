@@ -42,67 +42,67 @@ class DayOfTheWeekDetectorTest {
         }
     }
 
-    public void wednesdayTest(int day){
+    public void wednesdayTest(int day) {
 
         String expectedResult = "Wednesday";
         DayOfTheWeekDetector detector = new DayOfTheWeekDetector();
         String realResult = detector.findDayOfTheWeek(day);
 
-        if (realResult == expectedResult){
+        if (realResult == expectedResult) {
             System.out.println("Test OK");
-        }else {
+        } else {
             System.out.println("Test FAIL");
         }
     }
 
-    public void thursdayTest(int day){
+    public void thursdayTest(int day) {
 
         String expectedResult = "Thursday";
         DayOfTheWeekDetector detector = new DayOfTheWeekDetector();
         String realResult = detector.findDayOfTheWeek(day);
 
-        if (realResult == expectedResult){
+        if (realResult == expectedResult) {
             System.out.println("Test OK");
-        }else {
+        } else {
             System.out.println("Test FAIL");
         }
     }
 
-    public void fridayTest(int day){
+    public void fridayTest(int day) {
 
         String expectedResult = "Friday";
         DayOfTheWeekDetector detector = new DayOfTheWeekDetector();
         String realResult = detector.findDayOfTheWeek(day);
 
-        if (realResult == expectedResult){
+        if (realResult == expectedResult) {
             System.out.println("Test OK");
-        }else {
+        } else {
             System.out.println("Test FAIL");
         }
     }
 
-    public void saturdayTest(int day){
+    public void saturdayTest(int day) {
 
         String expectedResult = "Saturday";
         DayOfTheWeekDetector detector = new DayOfTheWeekDetector();
         String realResult = detector.findDayOfTheWeek(day);
 
-        if (realResult == expectedResult){
+        if (realResult == expectedResult) {
             System.out.println("Test OK");
-        }else {
+        } else {
             System.out.println("Test FAIL");
         }
     }
 
-    public void sundayTest(int day){
+    public void sundayTest(int day) {
 
         String expectedResult = "Sunday";
         DayOfTheWeekDetector detector = new DayOfTheWeekDetector();
         String realResult = detector.findDayOfTheWeek(day);
 
-        if (realResult == expectedResult){
+        if (realResult == expectedResult) {
             System.out.println("Test OK");
-        }else {
+        } else {
             System.out.println("Test FAIL");
         }
     }
