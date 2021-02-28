@@ -17,24 +17,6 @@ class TwoDimensionalArray {
         System.out.println(Arrays.deepToString(array));
     }
 
-    /*
-        public void printArray(int[][] array) {
-
-            for (int j = 0; j < array.length; j++) {
-                int i = 0;
-
-                for (i = 0; i < array.length; i++) {
-
-                    //    for (i = 0; j < array.length; i++) {
-
-                }
-
-                System.out.print(array[i][j]);
-            }
-
-    //    }
-
-    */
     public void sum(int[][] array) {
         int sum = 0;
         for (int j = 0; j < array.length; j++) {
