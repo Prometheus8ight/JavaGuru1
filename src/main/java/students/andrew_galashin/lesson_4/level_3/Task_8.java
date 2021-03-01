@@ -17,7 +17,7 @@ class Task_8 {
 
 
                 boolean equal = x==y && y==a;
-                boolean different = x!=y&& y!=a;
+                boolean different = x!=y && y!=a && x!=a;
 
                     if (equal) {
                         System.out.println("All numbers are equal");
