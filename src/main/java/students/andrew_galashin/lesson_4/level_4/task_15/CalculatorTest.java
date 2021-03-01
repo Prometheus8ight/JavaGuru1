@@ -93,7 +93,7 @@ class CalculatorTest {
         int secondNumber = 10;
         int expectedResult = 20;
             Calculator calculator = new Calculator();
-                int realResult = calculator.highestOfTwo(firstNumber, secondNumber);
+                int realResult = calculator.max(firstNumber, secondNumber);
                     if (realResult == expectedResult) {
                         System.out.println("Highest of two test 1 is OK");
         }       else {
@@ -107,7 +107,7 @@ class CalculatorTest {
         int secondNumber = 20;
         int expectedResult = 20;
             Calculator calculator = new Calculator();
-                int realResult = calculator.highestOfTwo(firstNumber, secondNumber);
+                int realResult = calculator.max(firstNumber, secondNumber);
                     if (realResult == expectedResult) {
                         System.out.println("Highest of two test 2 is OK");
         }           else {
@@ -121,7 +121,7 @@ class CalculatorTest {
         int secondNumber = 20;
         int expectedResult = 20;
             Calculator calculator = new Calculator();
-                int realResult = calculator.highestOfTwo(firstNumber, secondNumber);
+                int realResult = calculator.max(firstNumber, secondNumber);
                     if (realResult == expectedResult) {
                         System.out.println("Highest of two test 3 is OK");
         }           else {
@@ -134,7 +134,7 @@ class CalculatorTest {
         int thirdNumber = 7;
         int expectedResult = 10;
         Calculator calculator = new Calculator();
-        int realResult = calculator.highestOfThree(firstNumber, secondNumber, thirdNumber);
+        int realResult = calculator.max(firstNumber, secondNumber);
         if (realResult == expectedResult){
             System.out.println("Highest of three test 4 is OK");
         } else {
@@ -149,7 +149,7 @@ class CalculatorTest {
         int thirdNumber = 10;
         int expectedResult = 10;
         Calculator calculator = new Calculator();
-        int realResult = calculator.highestOfThree(firstNumber, secondNumber, thirdNumber);
+        int realResult = calculator.max(firstNumber, secondNumber);
         if (realResult == expectedResult){
             System.out.println("Highest of three test 5 is OK");
         } else {
@@ -164,7 +164,7 @@ class CalculatorTest {
         int thirdNumber = 10;
         int expectedResult = 10;
         Calculator calculator = new Calculator();
-        int realResult = calculator.highestOfThree(firstNumber, secondNumber, thirdNumber);
+        int realResult = calculator.max(firstNumber, secondNumber);
         if (realResult == expectedResult){
             System.out.println("Highest of three test 6 is OK");
         } else {
@@ -179,7 +179,7 @@ class CalculatorTest {
         int thirdNumber = 10;
         int expectedResult = 10;
         Calculator calculator = new Calculator();
-        int realResult = calculator.highestOfThree(firstNumber, secondNumber, thirdNumber);
+        int realResult = calculator.max(firstNumber, secondNumber);
         if (realResult == expectedResult){
             System.out.println("Highest of three test 7 is OK");
         } else {
