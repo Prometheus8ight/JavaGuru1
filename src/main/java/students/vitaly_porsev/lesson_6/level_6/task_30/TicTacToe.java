@@ -11,7 +11,6 @@ public class TicTacToe {
             printFieldToConsole(field);
             Move move0 = getNextMove();
             field[move0.getX()][move0.getY()] = 0;
-            //printFieldToConsole(field);
             if (isWin(field, 0)) {
                 System.out.println("Player 0 WIN!");
                 break;
@@ -24,7 +23,6 @@ public class TicTacToe {
             printFieldToConsole(field);
             Move move1 = getNextMove();
             field[move1.getX()][move1.getY()] = 1;
-            //printFieldToConsole(field);
             if (isWin(field, 1)) {
                 System.out.println("Player 1 WIN!");
                 break;
