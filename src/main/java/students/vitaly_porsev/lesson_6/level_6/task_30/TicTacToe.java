@@ -50,9 +50,18 @@ public class TicTacToe {
 
     public Move getNextMove() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите два числа координат (от 0 до 2): ");
-        int x = scanner.nextInt();
-        int y = scanner.nextInt();
+        boolean isTrue = false;
+        int x;
+        int y;
+        do {
+            System.out.println("Введите два числа координат (от 0 до 2): ");
+            x = scanner.nextInt();
+            y = scanner.nextInt();
+            if(x >= 0 && x <=2){
+                isTrue = true;
+            }
+        }
+        while(!isTrue);
         return new Move(x, y);
     }
 
