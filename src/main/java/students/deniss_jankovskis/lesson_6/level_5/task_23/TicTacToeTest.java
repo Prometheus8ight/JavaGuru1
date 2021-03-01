@@ -5,21 +5,35 @@ class TicTacToeTest {
     public static void main(String[] args) {
 
         TicTacToeTest test = new TicTacToeTest();
-        test.winHorizontalTest(new int[][]{{1, 0, 1}, {1, 1, 0}, {0, 0, 0}}, 0);
-        test.lostHorizontalTest(new int[][]{{1, 0, 0}, {-1, 1, 1}, {1, 0, 1}}, 1);
+        test.winHorizontalTest1(new int[][]{{1, 0, 1}, {1, 1, 0}, {0, 0, 0}}, 0);
+        test.winHorizontalTest2(new int[][]{{0, 1, -1}, {-1, -1, 0}, {1, 0, 0}}, 1);
+        test.lostHorizontalTest(new int[][]{{1, 0, 0}, {-1, 1, 1}, {1, 0, 1}}, 0);
+        test.lostHorizontalTest2(new int[][]{{-1, 1, 0}, {1, 0, -1}, {1, 1, 1}}, 1);
 
     }
 
-    public void winHorizontalTest(int[][] field, int playerToCheck) {
+    public void winHorizontalTest1(int[][] field, int playerToCheck) {
         TicTacToe ticTacToe = new TicTacToe();
         boolean realResult = ticTacToe.checkWinPositionForVerticals(field, playerToCheck);
         checkTestResult(realResult, "Horizontal Test Win");
+    }
+
+    public void winHorizontalTest2(int[][] field, int playerToCheck) {
+        TicTacToe ticTacToe = new TicTacToe();
+        boolean realResult = ticTacToe.checkWinPositionForVerticals(field, playerToCheck);
+        checkTestResult(realResult, "Horizontal Test Win 2");
     }
 
     public void lostHorizontalTest(int[][] field, int playerToCheck) {
         TicTacToe ticTacToe = new TicTacToe();
         boolean realResult = ticTacToe.checkWinPositionForVerticals(field, playerToCheck);
         checkTestResult(realResult, "Horizontal Test Lost");
+    }
+
+    public void lostHorizontalTest2(int[][] field, int playerToCheck) {
+        TicTacToe ticTacToe = new TicTacToe();
+        boolean realResult = ticTacToe.checkWinPositionForVerticals(field, playerToCheck);
+        checkTestResult(realResult, "Horizontal Test Lost 2");
     }
 
 
