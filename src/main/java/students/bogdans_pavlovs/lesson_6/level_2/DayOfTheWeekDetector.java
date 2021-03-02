@@ -13,19 +13,16 @@ class DayOfTheWeekDetector {
 
     public String findDayOfTheWeek(int dayNumber) {
 
-        String weekDay;
+        return switch (dayNumber) {
+            case 1 -> "Monday";
+            case 2 -> "Tuesday";
+            case 3 -> "Wednesday";
+            case 4 -> "Thursday";
+            case 5 -> "Friday";
+            case 6 -> "Saturday";
+            case 7 -> "Sunday";
+            default -> "Not correct day number";
+        };
 
-        switch (dayNumber) {
-            case 1 -> weekDay = "Monday";
-            case 2 -> weekDay = "Tuesday";
-            case 3 -> weekDay = "Wednesday";
-            case 4 -> weekDay = "Thursday";
-            case 5 -> weekDay = "Friday";
-            case 6 -> weekDay = "Saturday";
-            case 7 -> weekDay = "Sunday";
-            default -> weekDay = "Not correct day number";
-        }
-
-        return weekDay;
     }
 }
