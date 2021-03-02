@@ -6,7 +6,7 @@ class ArrayServiceDemo {
 
         ArrayService object = new ArrayService();
 
-        int[] array = object.create(20);
+        int[] array = object.create(10);
         object.fillRandomly(array);
 
         for (int i = 0; i < array.length; i++) {

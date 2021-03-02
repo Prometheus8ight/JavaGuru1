@@ -15,10 +15,8 @@ class ArrayServiceDemo {
 
         System.out.println("==============");
 
-        object.countOccurrences(array,2);
-
-        System.out.println("Occurrences of Integer X in Array are: " + object.amount);
-
+        System.out.println("Occurrences of Integer X in Array are: " + object.countOccurrences(array,2));
+        System.out.println("Occurrences of Integer X in Array are: " + object.countOccurrences(array,2));
     }
 
 }
