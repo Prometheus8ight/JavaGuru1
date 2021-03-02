@@ -15,16 +15,13 @@ class ArrayServiceDemo {
 
         System.out.println("==============");
 
-        object.replaceFirst(array,2,-5);
-
-        System.out.println("Number was found and replaced: " + object.replaced);
+        System.out.println("Number was found and replaced: " + object.replaceFirst(array,2,-5));
 
         System.out.println("==============");
 
         for (int i = 0; i < array.length; i++) {
             System.out.println("Index [" + i + "]: " + array[i]);
         }
-
     }
 
 }

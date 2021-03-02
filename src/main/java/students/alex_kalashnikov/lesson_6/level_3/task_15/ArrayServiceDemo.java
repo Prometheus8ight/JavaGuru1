@@ -15,9 +15,7 @@ class ArrayServiceDemo {
 
         System.out.println("==============");
 
-        object.replaceAll(array, 2, -5);
-
-        System.out.println("Integer was found and replaced: " + object.replaced);
+        System.out.println("Integer was found and replaced: " + object.replaceAll(array,2,-5));
 
         System.out.println("==============");
 

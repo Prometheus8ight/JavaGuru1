@@ -2,7 +2,7 @@ package students.alex_kalashnikov.lesson_6.level_3.task_15;
 
 class ArrayService {
 
-    boolean replaced;
+
 
     public int[] create(int length) {
         return new int[length];
@@ -16,6 +16,7 @@ class ArrayService {
     }
 
     boolean replaceAll(int[] array, int numberToReplace, int newNumber) {
+        boolean replaced = false;
         for (int i = 0; i < array.length; i++) {
             if (array[i] == numberToReplace) {
                 array[i] = newNumber;
