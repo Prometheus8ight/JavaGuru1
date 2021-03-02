@@ -25,7 +25,11 @@ class TwoDimensionalArray {
 
         for (int i = 0; i < array.length; i++) {
 
-            array[i][i] = fillArray.nextInt();
+            for(int j = 0; j < array.length; j++) {
+
+                array[i][j] = fillArray.nextInt();
+
+            }
 
             return;
 
@@ -41,7 +45,11 @@ class TwoDimensionalArray {
 
         for (int i = 0; i < array.length; i++) {
 
-            sum += array[i][i];
+            for (int j = 0; j < array.length; j++){
+
+                sum += array[i][j];
+
+            }
 
         }
 
