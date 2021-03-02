@@ -1,6 +1,7 @@
 package students.kristine_paskevica.lesson_6.level_1;
 
 class NumberUtilTest {
+
     public static void main(String[] args) {
 
         NumberUtilTest parbTests = new NumberUtilTest();
@@ -35,3 +36,4 @@ class NumberUtilTest {
         }
     }
 }
+

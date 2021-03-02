@@ -7,3 +7,4 @@ class NumberUtils {
         return number % 2 == 0;
     }
 }
+
