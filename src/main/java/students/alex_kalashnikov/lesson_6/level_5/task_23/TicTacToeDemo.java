@@ -4,7 +4,6 @@ class TicTacToeDemo {
 
     public static void main(String[] args) {
 
-
         TicTacToe newGame = new TicTacToe();
 
         int[][] array = newGame.create(3);
@@ -18,15 +17,9 @@ class TicTacToeDemo {
         array[2][1] = 1;
         array[2][2] = 0;
 
-        newGame.isWinPositionForHorizontals(array,0);
-
-        System.out.println(newGame.isWinPositionForHorizontals(array,1));
-        System.out.println(newGame.isWinPositionForVerticals(array,1));
-
-
+        System.out.println("Win for Horizontal: " + newGame.isWinPositionForHorizontals(array,1));
+        System.out.println("Win for Vertical: " + newGame.isWinPositionForVerticals(array,1));
 
     }
-
-
 
 }

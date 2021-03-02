@@ -2,7 +2,6 @@ package students.alex_kalashnikov.lesson_6.level_5.task_24;
 
 class TicTacToe {
 
-
     public int[][] create(int length) {
         return new int[length][length];
     }
@@ -37,33 +36,31 @@ class TicTacToe {
             }
         }
         return hit;
-
     }
 
     public boolean isWinPositionForDiagonals(int[][] field, int playerToCheck) {
-
-        boolean hit = false;
-        boolean hit1 = false;
+        boolean hit = false; // тест на победу для первая диагонали
+        boolean hit1 = false; // тест на победу для второй диагонали
         int j = 0;
         int k = 0;
-        int numberOfHit = 0;
-        int numberOfHit1 = 0;
+        int numberOfHits = 0;
+        int numberOfHits1 = 0;
 
-        for (int i = 0; i < field.length; i++) {                    // для одной диагонали
+        for (int i = 0; i < field.length; i++) {    // для первой диагонали
             if (field[i][j] == playerToCheck) {
-                numberOfHit++;
+                numberOfHits++;
             }
             j++;
-            if (numberOfHit == 3) {
+            if (numberOfHits == 3) {
                 return hit = true;
             }
         }
-        for (int i = 2; i > -1; i--) {                              // для другой диагонали
+        for (int i = 2; i > -1; i--) {              // для второй диагонали
             if (field[k][i] == playerToCheck) {
-                numberOfHit1++;
+                numberOfHits1++;
             }
             k++;
-            if (numberOfHit1 == 3) {
+            if (numberOfHits1 == 3) {
                 return hit1 = true;
             }
         }

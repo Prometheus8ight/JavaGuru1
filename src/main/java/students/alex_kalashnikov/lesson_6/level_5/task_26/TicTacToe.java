@@ -2,7 +2,6 @@ package students.alex_kalashnikov.lesson_6.level_5.task_26;
 
 class TicTacToe {
 
-
     public int[][] create(int length) {
         return new int[length][length];
     }
@@ -10,13 +9,13 @@ class TicTacToe {
     public boolean isWinPositionForHorizontals(int[][] field, int playerToCheck) {
         boolean hit = false;
         for (int i = 0; i < field.length; i++) {
-            int numberOfHit = 0;
+            int numberOfHits = 0;
             for (int j = 0; j < field.length; j++) {
                 if (field[i][j] == playerToCheck) {
-                    numberOfHit++;
+                    numberOfHits++;
                 }
             }
-            if (numberOfHit == 3) {
+            if (numberOfHits == 3) {
                 return hit = true;
             }
         }
@@ -26,13 +25,13 @@ class TicTacToe {
     public boolean isWinPositionForVerticals(int[][] field, int playerToCheck) {
         boolean hit = false;
         for (int i = 0; i < field.length; i++) {
-            int numberOfHit = 0;
+            int numberOfHits = 0;
             for (int j = 0; j < field.length; j++) {
                 if (field[j][i] == playerToCheck) {
-                    numberOfHit++;
+                    numberOfHits++;
                 }
             }
-            if (numberOfHit == 3) {
+            if (numberOfHits == 3) {
                 return hit = true;
             }
         }
@@ -41,29 +40,28 @@ class TicTacToe {
     }
 
     public boolean isWinPositionForDiagonals(int[][] field, int playerToCheck) {
-
         boolean hit = false;
         boolean hit1 = false;
         int j = 0;
         int k = 0;
-        int numberOfHit = 0;
-        int numberOfHit1 = 0;
+        int numberOfHits = 0;
+        int numberOfHits1 = 0;
 
         for (int i = 0; i < field.length; i++) {                    // для одной диагонали
             if (field[i][j] == playerToCheck) {
-                numberOfHit++;
+                numberOfHits++;
             }
             j++;
-            if (numberOfHit == 3) {
+            if (numberOfHits == 3) {
                 return hit = true;
             }
         }
         for (int i = 2; i > -1; i--) {                              // для другой диагонали
             if (field[k][i] == playerToCheck) {
-                numberOfHit1++;
+                numberOfHits1++;
             }
             k++;
-            if (numberOfHit1 == 3) {
+            if (numberOfHits1 == 3) {
                 return hit1 = true;
             }
         }
@@ -71,18 +69,20 @@ class TicTacToe {
     }
 
     public boolean isWinPosition(int[][] field, int playerToCheck) {
-        return isWinPositionForHorizontals(field, playerToCheck) || isWinPositionForVerticals(field,playerToCheck) || isWinPositionForDiagonals(field,playerToCheck);
-
+        return isWinPositionForHorizontals(field, playerToCheck) || isWinPositionForVerticals(field, playerToCheck) || isWinPositionForDiagonals(field, playerToCheck);
     }
 
-    public boolean isDrawPosition(int[][] field, int playerToCheck) {
-        boolean drawPosition = true;
+    public boolean isDrawPosition(int[][] field) {
+        boolean drawPosition = false;
         for (int i = 0; i < field.length; i++) {
             for (int j = 0; j < field.length; j++) {
-                if (field[i][j] == -1 || isWinPosition(field,playerToCheck)) {
-                    return drawPosition = false;
+                if (field[i][j] == -1) {
+                    return drawPosition = true;
                 }
             }
+        }
+        if (!isWinPosition(field, 0) && !isWinPosition(field, 1)) {
+            return drawPosition = true;
         }
         return drawPosition;
     }
