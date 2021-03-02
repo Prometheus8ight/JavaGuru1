@@ -2,7 +2,7 @@ package students.Dmitry_Gr.lesson_6.level_5.Task_22;
 
 
 class TicTacToe {
-     boolean isWinPositionForHorizontals(int[][] field, int playerToCheck) {
+     public boolean isWinPositionForHorizontals(int[][] field, int playerToCheck) {
         boolean rows;
         for (int row = 0; row < field.length; row++) {
             rows= true;

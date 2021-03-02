@@ -1,7 +1,7 @@
 package students.Dmitry_Gr.lesson_6.level_5.Task_23;
 
  class TicTacToe {
-     boolean isWinPositionForVertical(int[][] field, int playerToCheck) {
+     public boolean isWinPositionForVertical(int[][] field, int playerToCheck) {
          boolean cols;
          for (int row = 0; row < field.length; row++) {
              cols= true;
