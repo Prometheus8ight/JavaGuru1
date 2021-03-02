@@ -1,6 +1,6 @@
 package students.Dmitry_Gr.lesson_6.level_5.Task_24;
 
-public class TicTacToe {
+class TicTacToe {
     public boolean isWinPositionForDiagonals(int[][] field, int playerToCheck) {
         boolean toright, toleft;
         toright = true;
