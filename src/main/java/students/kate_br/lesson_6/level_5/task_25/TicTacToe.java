@@ -4,36 +4,33 @@ class TicTacToe {
 
     public boolean isWinPosition(int[][] field, int playerToCheck) {
 
-        TicTacToe ticTacToe = new TicTacToe();
-        boolean isWinHorizontal = ticTacToe.isWinPositionForHorizontals(field, playerToCheck);
-        boolean isWinVertical = ticTacToe.isWinPositionForVerticals(field, playerToCheck);
-        boolean isWinDiagonal = ticTacToe.isWinPositionForDiagonals(field, playerToCheck);
+        boolean isWinHorizontal = isWinPositionForHorizontals(field, playerToCheck);
+        boolean isWinVertical = isWinPositionForVerticals(field, playerToCheck);
+        boolean isWinDiagonal = isWinPositionForDiagonals(field, playerToCheck);
         return isWinHorizontal || isWinVertical || isWinDiagonal;
     }
 
     public boolean isWinPositionForHorizontals(int[][] field, int playerToCheck) {
 
-        TicTacToe ticTacToe = new TicTacToe();
         return checkHorizontalPosition(field, playerToCheck);
     }
 
     public boolean isWinPositionForVerticals(int[][] field, int playerToCheck) {
 
-        TicTacToe ticTacToe = new TicTacToe();
         return checkVerticalPosition(field, playerToCheck);
     }
 
     public boolean isWinPositionForDiagonals(int[][] field, int playerToCheck) {
 
-        TicTacToe ticTacToe = new TicTacToe();
         return checkCornerDiagonals(field, playerToCheck);
     }
 
+
     public boolean checkHorizontalPosition(int[][] field, int playerToCheck) {
 
-        int count = 0;
 
         for (int i = 0; i < field.length; i++) {
+            int count = 0;
             for (int j = 0; j < field[i].length; j++) {
 
                 if (field[i][j] == playerToCheck) {
@@ -71,18 +68,16 @@ class TicTacToe {
 
     public boolean checkCornerDiagonals(int[][] field, int playerToCheck) {
 
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
 
-                if (field[0][0] == field[1][1] && field[1][1] == field[2][2]) {
-                    return true;
-                } else if (field[2][0] == field[1][1] && field[1][1] == field[0][2]) {
-                    return true;
+        if (field[0][0] == field[1][1] && field[1][1] == field[2][2]) {
+            return true;
+        } else if (field[2][0] == field[1][1] && field[1][1] == field[0][2]) {
+            return true;
 
-                }
-
-            }
         }
+
         return false;
     }
+
+
 }
