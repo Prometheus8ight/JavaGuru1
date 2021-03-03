@@ -28,8 +28,9 @@ class TicTacToe {
             printFieldToConsole(field);
             if (isVictoryInOneMovePosition(field, 1)) { //есть выигрыш в 1 ход - делаем этот ход автоматически
                 victoryInOneMove(field, 1);
+            /* не доработано - не проверять
             } else if (isVictoryInOneMovePosition(field, 0)) { //опотенет может выиграть в 1 ход - автоматически делаем ход экстренной защиты
-                urgentDefenseInOneMove(field, 1, 0);
+                urgentDefenseInOneMove(field, 1, 0); */
             } else {
                 randomMoveAI(field, 1); // делаем рандомный ход
             }
@@ -54,7 +55,7 @@ class TicTacToe {
             }
         }
     }
-
+/* Метод не доработан - не проверять
     public void urgentDefenseInOneMove(int[][] field, int playerToCheck, int opponent) {
         while (true) {
             Move move3 = getNextRandomMove();
@@ -65,7 +66,7 @@ class TicTacToe {
                 }
             }
         }
-    }
+    }*/
 
     public void victoryInOneMove(int[][] field, int playerToCheck) {
         while (true) {
