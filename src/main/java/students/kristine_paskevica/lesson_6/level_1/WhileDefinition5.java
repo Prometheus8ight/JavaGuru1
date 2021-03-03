@@ -9,4 +9,4 @@ package students.kristine_paskevica.lesson_6.level_1;
              i++;
          }
      }
-}
+ }

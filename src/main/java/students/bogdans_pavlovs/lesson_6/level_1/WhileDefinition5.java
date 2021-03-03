@@ -1,6 +1,7 @@
-package students.kristine_paskevica.lesson_6.level_1;
+package students.bogdans_pavlovs.lesson_6.level_1;
 
-class WhileDefinition1 {
+class WhileDefinition5 {
+
     public static void main(String[] args) {
         int i = 1;
         while (i <= 100) {
@@ -8,5 +9,5 @@ class WhileDefinition1 {
             i++;
         }
     }
-}
 
+}
