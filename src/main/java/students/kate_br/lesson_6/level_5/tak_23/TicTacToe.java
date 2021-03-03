@@ -15,7 +15,7 @@ class TicTacToe {
             int count = 0;
             for (int i = 0; i < field[j].length; i++) {
 
-                if (field[j][i] == playerToCheck) {
+                if (field[i][j] == playerToCheck) {
                     count++;
                 }
 
