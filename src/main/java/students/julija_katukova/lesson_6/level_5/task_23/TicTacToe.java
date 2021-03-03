@@ -2,8 +2,7 @@ package students.julija_katukova.lesson_6.level_5.task_23;
 
 class TicTacToe {
     public boolean isWinPositionForVerticals(int[][] field, int playerToCheck) {
-        TicTacToe ticTacToe = new TicTacToe();
-        return ticTacToe.checkForVerticals(field, playerToCheck);
+        return checkForVerticals(field, playerToCheck);
     }
 
     public boolean checkForVerticals(int[][] field, int playerToCheck) {
