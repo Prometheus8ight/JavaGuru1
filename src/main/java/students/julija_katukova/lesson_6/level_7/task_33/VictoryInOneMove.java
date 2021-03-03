@@ -3,8 +3,7 @@ package students.julija_katukova.lesson_6.level_7.task_33;
 public class VictoryInOneMove {
 
 
-
-    public boolean checkVictoryInOneMoveForHorizontals (int [][] field, int playerToCheck) {
+    public boolean checkVictoryInOneMoveForHorizontals(int[][] field, int playerToCheck) {
         for (int[] ints : field) {
             int count = 0;
             for (int anInt : ints) {
@@ -19,7 +18,7 @@ public class VictoryInOneMove {
         return false;
     }
 
-    public boolean checkVictoryInOneMoveForVerticals (int [][] field, int playerToCheck) {
+    public boolean checkVictoryInOneMoveForVerticals(int[][] field, int playerToCheck) {
         for (int i = 0; i < field.length; i++) {
             int count = 0;
             for (int j = 0; j < field[i].length; j++) {
@@ -34,7 +33,7 @@ public class VictoryInOneMove {
         return false;
     }
 
-    public boolean checkVictoryInOneMoveForDiagonals (int[][] field, int playerToCheck) {
+    public boolean checkVictoryInOneMoveForDiagonals(int[][] field, int playerToCheck) {
         boolean check1 = checkVictoryInOneMoveFromLeftCorner(field, playerToCheck);
         boolean check2 = checkVictoryInOneMoveFromRightCorner(field, playerToCheck);
         return check1 || check2;
