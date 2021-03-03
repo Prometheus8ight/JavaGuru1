@@ -1,11 +1,10 @@
 package students.julija_katukova.lesson_6.level_5.task_25;
 
 class TicTacToe {
-    public boolean isWinPosition(int[][] field, int playerToCheck){
-        TicTacToe ticTacToe = new TicTacToe();
-            boolean winHorizontals = ticTacToe.isWinPositionForHorizontals(field, playerToCheck);
-            boolean winVerticals = ticTacToe.isWinPositionForVerticals(field, playerToCheck);
-            boolean winDiagonals = ticTacToe.isWinPositionForDiagonals(field, playerToCheck);
+    public boolean isWinPosition(int[][] field, int playerToCheck) {
+        boolean winHorizontals = isWinPositionForHorizontals(field, playerToCheck);
+        boolean winVerticals = isWinPositionForVerticals(field, playerToCheck);
+        boolean winDiagonals = isWinPositionForDiagonals(field, playerToCheck);
         return winHorizontals || winVerticals || winDiagonals;
     }
 
@@ -60,7 +59,7 @@ class TicTacToe {
         return check1 || check2;
     }
 
-    public boolean fromLeftCorner(int[][] field, int playerToCheck){ //для диагонали слевого верхнего угла, в правый нижний угол
+    public boolean fromLeftCorner(int[][] field, int playerToCheck) { //для диагонали слевого верхнего угла, в правый нижний угол
         int count = 0;
         int j = 0;
         for (int[] ints : field) {
@@ -75,9 +74,9 @@ class TicTacToe {
         return false;
     }
 
-    public boolean fromRightCorner(int[][] field, int playerToCheck){ //для диагонали справого верхнего угла, в левый нижний угол
+    public boolean fromRightCorner(int[][] field, int playerToCheck) { //для диагонали справого верхнего угла, в левый нижний угол
         int count = 0;
-        int j = field.length-1;
+        int j = field.length - 1;
         for (int[] ints : field) {
             if (ints[j] == playerToCheck) {
                 count++;
