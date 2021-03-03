@@ -21,35 +21,35 @@ class StockTest {
 
 
         currentPrice = 12;
-        expectedResult = 10;
+        expectedResult = 12;
         stock.updatePrice(currentPrice);
         realResult = stock.minPrice;
         check(realResult, expectedResult, "Minimum price");
 
 
         currentPrice = 5;
-        expectedResult = 10;
+        expectedResult = 12;
         stock.updatePrice(currentPrice);
         realResult = stock.minPrice;
         check(realResult, expectedResult, "Minimum price");
 
 
         currentPrice = 7;
-        expectedResult = 10;
+        expectedResult = 12;
         stock.updatePrice(currentPrice);
         realResult = stock.minPrice;
         check(realResult, expectedResult, "Minimum price");
 
 
         currentPrice = 99;
-        expectedResult = 10;
+        expectedResult = 99;
         stock.updatePrice(currentPrice);
         realResult = stock.minPrice;
         check(realResult, expectedResult, "Minimum price");
 
 
         currentPrice = 77;
-        expectedResult = 10;
+        expectedResult = 99;
         stock.updatePrice(currentPrice);
         realResult = stock.minPrice;
         check(realResult, expectedResult, "Minimum price");
