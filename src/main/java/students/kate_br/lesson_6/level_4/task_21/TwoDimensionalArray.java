@@ -10,7 +10,9 @@ class TwoDimensionalArray {
         Random random = new Random();
 
         for (int i = 0; i < arr.length; i++) {
-            arr[i][i] = random.nextInt(11);
+            for (int j = 0; j < arr[i].length; j++){
+                arr[i][j] = random.nextInt(11);
+            }
 
         }
 
@@ -21,8 +23,10 @@ class TwoDimensionalArray {
         int sum = 0;
 
         for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++){
+                sum += arr[i][j];
+            }
 
-            sum += arr[i][i];
         }
 
         return sum;
