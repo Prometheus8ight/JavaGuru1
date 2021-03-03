@@ -2,8 +2,7 @@ package students.julija_katukova.lesson_6.level_5.task_24;
 
 class TicTacToe {
     public boolean isWinPositionForDiagonals(int[][] field, int playerToCheck) {
-        TicTacToe ticTacToe = new TicTacToe();
-        return ticTacToe.checkForDiagonals(field, playerToCheck);
+        return checkForDiagonals(field, playerToCheck);
     }
 
     public boolean checkForDiagonals(int[][] field, int playerToCheck) {
