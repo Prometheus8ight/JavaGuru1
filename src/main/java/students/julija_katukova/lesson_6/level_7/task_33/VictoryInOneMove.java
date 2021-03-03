@@ -2,6 +2,37 @@ package students.julija_katukova.lesson_6.level_7.task_33;
 
 public class VictoryInOneMove {
 
+    public void victoryInOneMove(int[][] field, int playerToCheck) {
+        TicTacToe ticTacToe = new TicTacToe();
+        while (true) {
+            Move move2 = ticTacToe.getNextRandomMove();
+            if (field[move2.getX()][move2.getY()] == -1) {
+                field[move2.getX()][move2.getY()] = playerToCheck;
+                if (ticTacToe.isWinPosition(field, playerToCheck)) {
+                    break;
+                }
+            }
+        }
+    }
+
+    public boolean isVictoryInOneMovePosition(int[][] field, int playerToCheck) {
+        boolean victoryInOneMoveForHorizontals = isVictoryInOneMoveForHorizontals(field, playerToCheck);
+        boolean victoryInOneMoveForVerticals = isVictoryInOneMoveForVerticals(field, playerToCheck);
+        boolean victoryInOneMoveForDiagonals = isVictoryInOneMoveForDiagonals(field, playerToCheck);
+        return victoryInOneMoveForHorizontals || victoryInOneMoveForVerticals || victoryInOneMoveForDiagonals;
+    }
+
+    public boolean isVictoryInOneMoveForHorizontals(int[][] field, int playerToCheck) {
+        return checkVictoryInOneMoveForHorizontals(field, playerToCheck);
+    }
+
+    public boolean isVictoryInOneMoveForVerticals(int[][] field, int playerToCheck) {
+        return checkVictoryInOneMoveForVerticals(field, playerToCheck);
+    }
+
+    public boolean isVictoryInOneMoveForDiagonals(int[][] field, int playerToCheck) {
+        return checkVictoryInOneMoveForDiagonals(field, playerToCheck);
+    }
 
     public boolean checkVictoryInOneMoveForHorizontals(int[][] field, int playerToCheck) {
         for (int[] ints : field) {
@@ -68,6 +99,4 @@ public class VictoryInOneMove {
         }
         return false;
     }
-
-
 }

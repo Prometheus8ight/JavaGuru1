@@ -55,22 +55,26 @@ class TicTacToe {
         }
     }
 
-    public void urgentDefenseInOneMove(int[][] field, int player, int opponent) {
+    public void urgentDefenseInOneMove(int[][] field, int playerToCheck, int opponent) {
         while (true) {
-            Move move2 = getNextRandomMove();
-            if (field[move2.getX()][move2.getY()] == -1 && isWinPosition(field, opponent)) {
-                field[move2.getX()][move2.getY()] = player;
-                break;
+            Move move3 = getNextRandomMove();
+            if (field[move3.getX()][move3.getY()] == -1) {
+                field[move3.getX()][move3.getY()] = playerToCheck;
+                if (!isVictoryInOneMovePosition(field, opponent)){
+                    break;
+                }
             }
         }
     }
 
-    public void victoryInOneMove(int[][] field, int player) {
+    public void victoryInOneMove(int[][] field, int playerToCheck) {
         while (true) {
             Move move2 = getNextRandomMove();
-            if (field[move2.getX()][move2.getY()] == -1 && isWinPosition(field, player)) {
-                field[move2.getX()][move2.getY()] = player;
-                break;
+            if (field[move2.getX()][move2.getY()] == -1) {
+                field[move2.getX()][move2.getY()] = playerToCheck;
+                if (isWinPosition(field, playerToCheck)) {
+                    break;
+                }
             }
         }
     }
@@ -128,33 +132,23 @@ class TicTacToe {
         return false;
     }
 
-    public boolean isVictoryInOneMove(int[][] field) {
-        boolean victoryInOneMoveFor0 = isVictoryInOneMovePosition(field, 0);
-        boolean victoryInOneMoveFor1 = isVictoryInOneMovePosition(field, 1);
-        return victoryInOneMoveFor0 || victoryInOneMoveFor1;
-    }
-
     public boolean isVictoryInOneMovePosition(int[][] field, int playerToCheck) {
-        TicTacToe ticTacToe = new TicTacToe();
-        boolean victoryInOneMoveForHorizontals = ticTacToe.isVictoryInOneMoveForHorizontals(field, playerToCheck);
-        boolean victoryInOneMoveForVerticals = ticTacToe.isVictoryInOneMoveForVerticals(field, playerToCheck);
-        boolean victoryInOneMoveForDiagonals = ticTacToe.isVictoryInOneMoveForDiagonals(field, playerToCheck);
+        boolean victoryInOneMoveForHorizontals = isVictoryInOneMoveForHorizontals(field, playerToCheck);
+        boolean victoryInOneMoveForVerticals = isVictoryInOneMoveForVerticals(field, playerToCheck);
+        boolean victoryInOneMoveForDiagonals = isVictoryInOneMoveForDiagonals(field, playerToCheck);
         return victoryInOneMoveForHorizontals || victoryInOneMoveForVerticals || victoryInOneMoveForDiagonals;
     }
 
     public boolean isVictoryInOneMoveForHorizontals(int[][] field, int playerToCheck) {
-        TicTacToe ticTacToe = new TicTacToe();
-        return ticTacToe.checkVictoryInOneMoveForHorizontals(field, playerToCheck);
+        return checkVictoryInOneMoveForHorizontals(field, playerToCheck);
     }
 
     public boolean isVictoryInOneMoveForVerticals(int[][] field, int playerToCheck) {
-        TicTacToe ticTacToe = new TicTacToe();
-        return ticTacToe.checkVictoryInOneMoveForVerticals(field, playerToCheck);
+        return checkVictoryInOneMoveForVerticals(field, playerToCheck);
     }
 
     public boolean isVictoryInOneMoveForDiagonals(int[][] field, int playerToCheck) {
-        TicTacToe ticTacToe = new TicTacToe();
-        return ticTacToe.checkVictoryInOneMoveForDiagonals(field, playerToCheck);
+        return checkVictoryInOneMoveForDiagonals(field, playerToCheck);
     }
 
     public boolean checkVictoryInOneMoveForHorizontals(int[][] field, int playerToCheck) {
@@ -230,26 +224,22 @@ class TicTacToe {
     }
 
     public boolean isWinPosition(int[][] field, int playerToCheck) {
-        TicTacToe ticTacToe = new TicTacToe();
-        boolean winHorizontals = ticTacToe.isWinPositionForHorizontals(field, playerToCheck);
-        boolean winVerticals = ticTacToe.isWinPositionForVerticals(field, playerToCheck);
-        boolean winDiagonals = ticTacToe.isWinPositionForDiagonals(field, playerToCheck);
+        boolean winHorizontals = isWinPositionForHorizontals(field, playerToCheck);
+        boolean winVerticals = isWinPositionForVerticals(field, playerToCheck);
+        boolean winDiagonals = isWinPositionForDiagonals(field, playerToCheck);
         return winHorizontals || winVerticals || winDiagonals;
     }
 
     public boolean isWinPositionForHorizontals(int[][] field, int playerToCheck) {
-        TicTacToe ticTacToe = new TicTacToe();
-        return ticTacToe.checkForHorizontals(field, playerToCheck);
+        return checkForHorizontals(field, playerToCheck);
     }
 
     public boolean isWinPositionForVerticals(int[][] field, int playerToCheck) {
-        TicTacToe ticTacToe = new TicTacToe();
-        return ticTacToe.checkForVerticals(field, playerToCheck);
+        return checkForVerticals(field, playerToCheck);
     }
 
     public boolean isWinPositionForDiagonals(int[][] field, int playerToCheck) {
-        TicTacToe ticTacToe = new TicTacToe();
-        return ticTacToe.checkForDiagonals(field, playerToCheck);
+        return checkForDiagonals(field, playerToCheck);
     }
 
     public boolean checkForHorizontals(int[][] field, int playerToCheck) {
