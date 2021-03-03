@@ -4,7 +4,7 @@ class TicTacToe {
 
     public boolean isDrawPosition(int[][] field) {
 
-        return !isWin(field) || !isDraw(field);
+        return !isWin(field) && !isDraw(field);
     }
 
     public boolean isDraw(int[][] field) {
