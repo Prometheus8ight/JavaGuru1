@@ -8,14 +8,11 @@ class Task_14 {
 
 
         int[] randomize = new int[3];
-        for (int i = 0; i < randomize.length; i++ ) {
-            randomize[i] = random.nextInt(10);
-        }
         int sum = 0;
-        for (int i = 0; i < randomize.length; i++){
-            sum += randomize[i];
+        for (int i = 0; i < randomize.length; i++ ) {
+            randomize[i] = random.nextInt();
+            sum = sum + randomize[i];
         }
-
 
             int avarage = sum/ randomize.length;
                 System.out.println(Arrays.toString(randomize));

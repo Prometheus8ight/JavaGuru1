@@ -9,7 +9,7 @@ class Task_12 {
 
             int[] randomize = new int[3];
         for (int i = 0; i < randomize.length; i++ ) {
-            randomize[i] = random.nextInt(1000000000);
+            randomize[i] = random.nextInt();
         }
             System.out.println(Arrays.toString(randomize));
     }
