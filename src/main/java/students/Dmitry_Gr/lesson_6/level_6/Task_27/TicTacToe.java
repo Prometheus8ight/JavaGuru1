@@ -57,8 +57,8 @@ public class TicTacToe {
     }
 
     public boolean isWinPosition(int[][] field, int playerToCheck) {
-        return isWinPositionForHorizontals(field, playerToCheck) &&
-                isWinPositionForVertical(field, playerToCheck) &&
+        return isWinPositionForHorizontals(field, playerToCheck) ||
+                isWinPositionForVertical(field, playerToCheck) ||
                 isWinPositionForDiagonals(field, playerToCheck);
     }
 
@@ -92,23 +92,23 @@ public class TicTacToe {
     }
 
     boolean isCellValid(int x, int y) {
-        if (x <= 0 || y <= 0 || x > 3 || y > 3)
-            return false;
-        return true;
+        if (x >= 0 && x <=2 && y >= 0 && y <= 2) return true;
+        return false;
     }
 
     public void printFieldToConsole(int[][] field) {
         for (int row = 0; row < field.length; row++) {
             for (int col = 0; col < field[row].length; col++) {
                 System.out.print(field[row][col] + " ");
-                System.out.println();
             }
+            System.out.println();
         }
     }
     public void play() {
         int[][] field = createField();
+        printFieldToConsole(field);
         while(true) {
-            printFieldToConsole(field);
+            System.out.println("Player 0 make move!");
             Move move0 = getNextMove();
             field[move0.getX()][move0.getY()] = SIGN_O;
             printFieldToConsole(field);
@@ -121,7 +121,7 @@ public class TicTacToe {
                 break;
             }
 
-            printFieldToConsole(field);
+            System.out.println("Player X make move!");
             Move move1 = getNextMove();
             field[move1.getX()][move1.getY()] = SIGN_X;
             printFieldToConsole(field);
