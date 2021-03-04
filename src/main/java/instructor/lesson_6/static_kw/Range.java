@@ -5,10 +5,10 @@ public class Range {
     int leftBound;
     int rightBound;
 
-    public Range() {
+    private Range() {
     }
 
-    public Range(int leftBound, int rightBound) {
+    private Range(int leftBound, int rightBound) {
         this.leftBound = leftBound;
         this.rightBound = rightBound;
     }

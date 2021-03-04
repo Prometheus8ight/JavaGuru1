@@ -4,9 +4,9 @@ import java.util.Arrays;
 
 class SlotGame {
 
-    int balance = 200;
-    SlotMachine slotMachine = new SlotMachine();
-    Prompter prompter = new Prompter();
+    private int balance = 200;
+    private SlotMachine slotMachine = new SlotMachine();
+    private Prompter prompter = new Prompter();
 
     void play() {
         while (balance > 0) {
@@ -39,7 +39,19 @@ class SlotGame {
 
     }
 
-    boolean isWin(String[] row) {
+    public int getBalance() {
+        return balance;
+    }
+
+    public void deposit(int amount) {
+        //
+    }
+
+    public void withdraw(int amount) {
+        //
+    }
+
+    private boolean isWin(String[] row) {
         return row[0].equals(row[1]) && row[1].equals(row[2]);
     }
 }

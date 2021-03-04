@@ -6,8 +6,11 @@ public class RangeDemo {
 
     public static void main(String[] args) {
 
-        Range r1 = new Range();
-        Range r2 = new Range(0, 5);
+//        Range r1 = new Range();
+//        Range r2 = new Range(0, 5);
+
+        Range r1 = Range.of(0, 0);
+        Range r2 = Range.of(0, 5);
 
         Range r3 = Range.ofLeftBound(10);
         Range r4 = Range.ofRightBound(15);
