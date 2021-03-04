@@ -73,18 +73,18 @@ class TicTacToe {
     }
 
     public boolean isDrawPosition(int[][] field) {
-        boolean drawPosition = false;
-        for (int i = 0; i < field.length; i++) {
-            for (int j = 0; j < field.length; j++) {
-                if (field[i][j] == -1) {
-                    return drawPosition = true;
+        if (isWinPosition(field, 0) || isWinPosition(field, 1)) {
+            return false;
+        } else {
+            for (int i = 0; i < field.length; i++) {
+                for (int j = 0; j < field.length; j++) {
+                    if (field[i][j] == -1) {
+                        return false;
+                    }
                 }
             }
+            return true;
         }
-        if (!isWinPosition(field, 0) && !isWinPosition(field, 1)) {
-            return drawPosition = true;
-        }
-        return drawPosition;
     }
 
 }

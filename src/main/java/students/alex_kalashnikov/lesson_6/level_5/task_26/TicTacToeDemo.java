@@ -8,7 +8,7 @@ class TicTacToeDemo {
 
         int[][] array = newGame.create(3);
         array[0][0] = 1;
-        array[0][1] = 1;
+        array[0][1] = 0;
         array[0][2] = 1;
         array[1][0] = 1;
         array[1][1] = 0;
