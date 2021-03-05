@@ -16,8 +16,6 @@ class WordService {
     private String mostFrequentWord(String[] arrayText) {
         String mostFrequentWord = null;
         int max = 0;
-        System.out.println(Arrays.toString(arrayText));
-
         for (int i = 0; i < (arrayText.length); i++) {
             for (int j = i + 1; j < (arrayText.length); j++) {
                 int count = 1;

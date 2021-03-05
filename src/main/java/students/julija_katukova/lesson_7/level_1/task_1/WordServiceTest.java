@@ -14,42 +14,36 @@ class WordServiceTest {
     public void text1(String text) {
         WordService wordService = new WordService();
         String realResult = wordService.findMostFrequentWord(text);
-        System.out.println(realResult);
         check(realResult, "apple", "Text Test1");
     }
 
     public void text2(String text) {
         WordService wordService = new WordService();
         String realResult = wordService.findMostFrequentWord(text);
-        System.out.println(realResult);
         check(realResult, "apple", "Text Test2");
     }
 
     public void text3(String text) {
         WordService wordService = new WordService();
         String realResult = wordService.findMostFrequentWord(text);
-        System.out.println(realResult);
         check(realResult, "grape", "Text Test3");
     }
 
     public void text4(String text) {
         WordService wordService = new WordService();
         String realResult = wordService.findMostFrequentWord(text);
-        System.out.println(realResult);
         check(realResult, "banana", "Text Test4");
     }
 
     public void text5(String text) {
         WordService wordService = new WordService();
         String realResult = wordService.findMostFrequentWord(text);
-        System.out.println(realResult);
         check(realResult, "banana", "Text Test5");
     }
 
     public void text6(String text) {
         WordService wordService = new WordService();
         String realResult = wordService.findMostFrequentWord(text);
-        System.out.println(realResult);
         check(realResult, "had", "Text Test6");
     }
 
