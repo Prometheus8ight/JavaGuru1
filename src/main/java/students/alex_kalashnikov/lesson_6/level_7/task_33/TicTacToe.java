@@ -93,21 +93,8 @@ class TicTacToe {
         int x = 0;
         int y = 0;
         while (checkField) {
-            if (computerHorizontal(field) == -1) {
-                x = (int) (Math.random() * 3);
-            }
-            else {
-                x = computerHorizontal(field);
-            }
+            x = (int) (Math.random() * 3);
             y = (int) (Math.random() * 3);
-            if (computerVertical(field) == -1) {
-                x = (int) (Math.random() * 3);
-                y = (int) (Math.random() * 3);
-            }
-            else {
-                x = (int) (Math.random() * 3);
-                y = computerVertical(field);
-            }
             if (field[x][y].equals(".")) {
                 checkField = false;
             }
@@ -215,12 +202,13 @@ class TicTacToe {
     public void play() {
         String[][] field = createField();
         while (true) {
+            System.out.println("========");
             printFieldToConsole(field);
             Move move0 = getFromKeyboard(field, "0");
             field[move0.getX()][move0.getY()] = "0";
 //            printFieldToConsole(field);
             if (isWinPosition(field, "0")) {
-                System.out.println("Player 0 WIN!");
+                System.out.println("YOU WIN!");
                 break;
             }
             if (isDrawPosition(field)) {
@@ -233,7 +221,7 @@ class TicTacToe {
             field[move1.getX()][move1.getY()] = "X";
             printFieldToConsole(field);
             if (isWinPosition(field, "X")) {
-                System.out.println("Player 1 WIN!");
+                System.out.println("Computer WINS!");
                 break;
             }
             if (isDrawPosition(field)) {
