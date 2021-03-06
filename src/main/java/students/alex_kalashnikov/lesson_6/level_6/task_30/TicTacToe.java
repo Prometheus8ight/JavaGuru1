@@ -12,16 +12,16 @@ class TicTacToe {
         return array;
     }
 
-    public Move getFromKeyboard(String[][] field, String playerToCheck) { // запрашивает числа X и Y от 0 до 2
+    public Move getFromKeyboard(String[][] field, String playerToCheck) { // запрашивает координаты ячейки [X,Y] - числа от 0 до 2
         boolean checkX = true; // проверяет число X
         boolean checkY = true;  // проверяет число Y
-        boolean checkField = true;// проверяет был ли уже ход в ячейке массива [X,Y]
+        boolean checkField = true;// проверяет был ли уже ход в ячейке [X,Y] массива
         int x = 0;
         int y = 0;
-        while (checkField) { // если в ячейке был ход, то запускает цикл заново, пока игрок не заведет координаты ячейки со значением -1
+        while (checkField) { // если в ячейке был ход, то запускает цикл заново, пока игрок не заведет координаты ячейки со значением "."
             while (checkX) { // если число правильное, то прерывает цикл
                 java.util.Scanner scanner = new java.util.Scanner(System.in);
-                System.out.print("Player " + playerToCheck + " enter X: ");
+                System.out.print("Player " + playerToCheck + " enter X (0 - 2): ");
                 x = scanner.nextInt();
                 if (x == 0 || x == 1 || x == 2) {
                     checkX = false;
@@ -31,7 +31,7 @@ class TicTacToe {
             }
             while (checkY) { // если число правильное, то прерывает цикл
                 java.util.Scanner scanner = new java.util.Scanner(System.in);
-                System.out.print("Player " + playerToCheck + " enter Y: ");
+                System.out.print("Player " + playerToCheck + " enter Y (0 - 2): ");
                 y = scanner.nextInt();
                 if (y == 0 || y == 1 || y == 2) {
                     checkY = false;
@@ -40,7 +40,7 @@ class TicTacToe {
                 }
             }
             if (field[x][y] == "0" || field[x][y] == "X") {
-                System.out.println("Field already moved!!!");
+                System.out.println("This cell already moved!!! Please, reenter!");
                 checkX = true;
                 checkY = true;
             } else {
