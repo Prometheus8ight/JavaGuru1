@@ -13,10 +13,10 @@ class Task9 {
         int number2 = scanner.nextInt();
         int number3 = scanner.nextInt();
 
-        if (number1 > number2 && number2 > number3 ) {
+        if (number1 < number2 && number2 < number3 ) {
             System.out.println("increasing");}
 
-        else if (number1 < number2 && number2<number3) {
+        else if (number1 > number2 && number2 > number3) {
             System.out.println("decreasing");
         }
 

@@ -13,10 +13,10 @@ class Task_8 {
         int number2 = scanner.nextInt();
         int number3 = scanner.nextInt();
 
-        if (number1 == number2 && number3 == number2 ) {
+        if (number1 == number2 && number3 == number2&& number1 == number3  ) {
             System.out.println("All numbers are equal");}
 
-        else if (number1 != number2 && number2!=number3) {
+        else if (number1 != number2 && number2!=number3&&number1 != number3 ) {
             System.out.println("All numbers are different");
         }
 
