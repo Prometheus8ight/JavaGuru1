@@ -37,7 +37,6 @@ public class PowerCalculatorTest {
     public void test5() {
         PowerCalculator powerCalculator = new PowerCalculator();
         int realResult = powerCalculator.raiseNumberInPower(-3, -5);
-        System.out.println(realResult);
         check(realResult, 0, "Test5");
     }
 
