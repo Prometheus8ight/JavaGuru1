@@ -54,32 +54,38 @@ class TicTacToe {
         int row = -1;
         for (int i = 0; i < field.length; i++) {
             int numberOfMoves = 0;
-            if (field[0][i] == "X") {
-                numberOfMoves++;
+            for (int j = 0; j < field.length; j++) {
+                if (field[i][j] == "X") {
+                    numberOfMoves++;
+                    System.out.println("Horizontal " + numberOfMoves);
+                }
                 if (numberOfMoves == 2) {
-                    row = 0;
+                    row = i;
+                    break;
                 }
             }
         }
-        for (int i = 0; i < field.length; i++) {
-            int numberOfMoves = 0;
-            if (field[1][i] == "X") {
-                numberOfMoves++;
-                if (numberOfMoves == 2) {
-                    row = 1;
-                }
-            }
-        }
-        for (int i = 0; i < field.length; i++) {
-            int numberOfMoves = 0;
-            if (field[2][i] == "X") {
-                numberOfMoves++;
-                if (numberOfMoves == 2) {
-                    row = 2;
-                }
-            }
-        }
+        System.out.println("ROW: "+ row);
         return row;
+    }
+
+    public int computerVertical(String[][] field) {
+        int column = -1;
+        for (int i = 0; i < field.length; i++) {
+            int numberOfMoves = 0;
+            for (int j = 0; j < field.length; j++) {
+                if (field[j][i].equals("X")) {
+                    numberOfMoves++;
+                    System.out.println("Vertical " + numberOfMoves);
+                }
+                if (numberOfMoves == 2) {
+                    column = i;
+                    break;
+                }
+            }
+        }
+        System.out.println("COLUMN: " + column);
+        return column;
     }
 
     public Move computer(String[][] field, String playerToCheck) {  // компьютер генерирует случайный ход в незанятой ячейке
@@ -89,13 +95,20 @@ class TicTacToe {
         while (checkField) {
             if (computerHorizontal(field) == -1) {
                 x = (int) (Math.random() * 3);
-                y = (int) (Math.random() * 3);
             }
             else {
                 x = computerHorizontal(field);
+            }
+            y = (int) (Math.random() * 3);
+            if (computerVertical(field) == -1) {
+                x = (int) (Math.random() * 3);
                 y = (int) (Math.random() * 3);
             }
-            if (field[x][y] == ".") {
+            else {
+                x = (int) (Math.random() * 3);
+                y = computerVertical(field);
+            }
+            if (field[x][y].equals(".")) {
                 checkField = false;
             }
         }
