@@ -7,27 +7,27 @@ class TicTacToeTest {
         TicTacToeTest test = new TicTacToeTest();
 
         //Horizontal Win Tests
-        test.HorizontalTest1();
-        test.HorizontalTest2();
-        test.HorizontalTest3();
-        test.HorizontalTest4();
-        test.HorizontalTest5();
-        test.HorizontalTest6();
-        test.HorizontalFailTest();
+        test.horizontalTest1();
+        test.horizontalTest2();
+        test.horizontalTest3();
+        test.horizontalTest4();
+        test.horizontalTest5();
+        test.horizontalTest6();
+        test.horizontalFailTest();
 
         //Vertical Win Tests
-        test.VerticalTest1();
-        test.VerticalTest2();
-        test.VerticalTest3();
-        test.VerticalTest4();
-        test.VerticalTest5();
-        test.VerticalTest6();
-        test.VerticalFailTest();
+        test.verticalTest1();
+        test.verticalTest2();
+        test.verticalTest3();
+        test.verticalTest4();
+        test.verticalTest5();
+        test.verticalTest6();
+        test.verticalFailTest();
 
         //Diagonal Win Test
-        test.DiagonalTest1();
-        test.DiagonalTest2();
-        test.DiagonalFailTest();
+        test.diagonalTest1();
+        test.diagonalTest2();
+        test.diagonalFailTest();
 
         //Is Winning Test
         test.isWinPositionTest();
@@ -43,7 +43,7 @@ class TicTacToeTest {
     }
 
 
-    public void HorizontalTest1(){
+    public void horizontalTest1(){
 
         TicTacToe ticTacToe = new TicTacToe();
         int[][] arr = {{1, 1, 1}, {0, -1, 0}, {-1, -1, 1}};
@@ -52,7 +52,7 @@ class TicTacToeTest {
 
     }
 
-    public void HorizontalTest2(){
+    public void horizontalTest2(){
 
         TicTacToe ticTacToe = new TicTacToe();
         int[][] arr = {{0, -1, 0}, {1, 1, 1}, {-1, -1, 1}};
@@ -61,7 +61,7 @@ class TicTacToeTest {
 
     }
 
-    public void HorizontalTest3(){
+    public void horizontalTest3(){
 
         TicTacToe ticTacToe = new TicTacToe();
         int[][] arr = {{0, -1, 0}, {-1, -1, 1}, {1, 1, 1}};
@@ -70,7 +70,7 @@ class TicTacToeTest {
 
     }
 
-    public void HorizontalTest4(){
+    public void horizontalTest4(){
 
         TicTacToe ticTacToe = new TicTacToe();
         int[][] arr = {{0, 0, 0}, {0, -1, 0}, {-1, -1, 1}};
@@ -79,7 +79,7 @@ class TicTacToeTest {
 
     }
 
-    public void HorizontalTest5(){
+    public void horizontalTest5(){
 
         TicTacToe ticTacToe = new TicTacToe();
         int[][] arr = {{0, -1, 0}, {0, 0, 0}, {-1, -1, 1}};
@@ -88,7 +88,7 @@ class TicTacToeTest {
 
     }
 
-    public void HorizontalTest6(){
+    public void horizontalTest6(){
 
         TicTacToe ticTacToe = new TicTacToe();
         int[][] arr = {{0, -1, 0}, {-1, -1, 1}, {0, 0, 0}};
@@ -97,7 +97,7 @@ class TicTacToeTest {
 
     }
 
-    public void HorizontalFailTest(){
+    public void horizontalFailTest(){
 
         TicTacToe ticTacToe = new TicTacToe();
         int[][] arr = {{-1, -1, -1}, {1, 1, 1}, {-1, -1, -1}};
@@ -106,7 +106,7 @@ class TicTacToeTest {
 
     }
 
-    public void VerticalTest1(){
+    public void verticalTest1(){
 
         TicTacToe ticTacToe = new TicTacToe();
         int[][] arr = {
@@ -118,7 +118,7 @@ class TicTacToeTest {
 
     }
 
-    public void VerticalTest2(){
+    public void verticalTest2(){
 
         TicTacToe ticTacToe = new TicTacToe();
         int[][] arr = {
@@ -130,7 +130,7 @@ class TicTacToeTest {
 
     }
 
-    public void VerticalTest3(){
+    public void verticalTest3(){
 
         TicTacToe ticTacToe = new TicTacToe();
         int[][] arr = {
@@ -142,7 +142,7 @@ class TicTacToeTest {
 
     }
 
-    public void VerticalTest4(){
+    public void verticalTest4(){
 
         TicTacToe ticTacToe = new TicTacToe();
         int[][] arr = {
@@ -154,7 +154,7 @@ class TicTacToeTest {
 
     }
 
-    public void VerticalTest5(){
+    public void verticalTest5(){
 
         TicTacToe ticTacToe = new TicTacToe();
         int[][] arr = {
@@ -166,7 +166,7 @@ class TicTacToeTest {
 
     }
 
-    public void VerticalTest6(){
+    public void verticalTest6(){
 
         TicTacToe ticTacToe = new TicTacToe();
         int[][] arr = {
@@ -178,7 +178,7 @@ class TicTacToeTest {
 
     }
 
-    public void VerticalFailTest(){
+    public void verticalFailTest(){
 
         TicTacToe ticTacToe = new TicTacToe();
         int[][] arr = {
@@ -190,7 +190,7 @@ class TicTacToeTest {
 
     }
 
-    public void DiagonalTest1(){
+    public void diagonalTest1(){
 
         TicTacToe ticTacToe = new TicTacToe();
         int[][] arr = {
@@ -202,7 +202,7 @@ class TicTacToeTest {
 
     }
 
-    public void DiagonalTest2(){
+    public void diagonalTest2(){
 
         TicTacToe ticTacToe = new TicTacToe();
         int[][] arr = {
@@ -214,7 +214,7 @@ class TicTacToeTest {
 
     }
 
-    public void DiagonalFailTest(){
+    public void diagonalFailTest(){
 
         TicTacToe ticTacToe = new TicTacToe();
         int[][] arr = {
