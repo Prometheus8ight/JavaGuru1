@@ -6,8 +6,9 @@ class WordServiceDemo {
 
         WordService wordService = new WordService();
         String text = "Three black dogs, playing with two black toys, while other black dogs watching at them, dogs for test";
-        String duplicate = wordService.findMostFrequentWord(text);
-        System.out.println(wordService.print(duplicate));
+        String testText = "";
+        System.out.println(wordService.mostFrequentWord(text));
+        System.out.println(wordService.mostFrequentWord(testText));
 
     }
 

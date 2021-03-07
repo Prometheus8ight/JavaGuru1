@@ -2,16 +2,23 @@ package students.rodion_afanasjev.lesson_7.level_1.task_1;
 
 class WordService {
 
-    String findMostFrequentWord(String text) {
-        text = lowerCase(text);
+    public String mostFrequentWord(String text){
         String[] words = stringArray(text);
+        return findMostFrequentWord(words);
+    }
+
+    private String[] stringArray(String text){
+        return text.toLowerCase().split(" ");
+    }
+
+    private String findMostFrequentWord(String[] text) {
 
         int value2 = 0;
         int index = 0;
-        for (int i = 0; i < words.length; i++) {
+        for (int i = 0; i < text.length; i++) {
             int value1 = 0;
-            for (int j = i + 1; j < words.length; j++) {
-                if (words[i].equals(words[j])) {
+            for (int j = i + 1; j < text.length; j++) {
+                if (text[i].equals(text[j])) {
                     value1++;
                     if (value1 > value2) {
                         value2 = value1;
@@ -20,19 +27,7 @@ class WordService {
                 }
             }
         }
-        return "Most frequent word is: " + words[index];
-    }
-
-    String print(String text) {
-        return text;
-    }
-
-    String[] stringArray(String text) {
-        return text.split(" ");
-    }
-
-    String lowerCase(String text) {
-        return text.toLowerCase();
+        return "Most frequent word is: " + text[index];
     }
 
 }
