@@ -25,9 +25,9 @@ class Stock {
         }
     }
 
-    public void getPriceInformation() {
-        System.out.println("Company: " + name + ", Current price = " + price + ", Min Price = "
-                + minPrice + ", Max Price = " + maxPrice);
+    public String getPriceInformation() {
+        return "Company: " + name + ", Current price = " + price + ", Min Price = "
+                + minPrice + ", Max Price = " + maxPrice;
     }
 }
 
@@ -36,10 +36,12 @@ class StockDemo {
     public static void main(String[] args) {
 
         Stock stock = new Stock("Apricot", 10);
-        stock.getPriceInformation();
+        String priceInfo = stock.getPriceInformation();
+        System.out.println(priceInfo);
         stock.updatePrice(15);
         stock.updatePrice(7);
         stock.updatePrice(14);
-        stock.getPriceInformation();
+        priceInfo = stock.getPriceInformation();
+        System.out.println(priceInfo);
     }
 }
