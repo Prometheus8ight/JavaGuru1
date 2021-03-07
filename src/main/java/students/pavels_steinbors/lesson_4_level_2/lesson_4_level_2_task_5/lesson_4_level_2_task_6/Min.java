@@ -1,14 +1,14 @@
-package students.pavels_steinbors.lesson_4_level_2_task_5;
+package students.pavels_steinbors.lesson_4_level_2.lesson_4_level_2_task_5.lesson_4_level_2_task_6;
 
 import java.util.Scanner;
 
-class Max {
+class Min {
 
     public static void main(String[] args) {
 
         int a;
         int b;
-        int max;
+        int min;
 
         Scanner scanner = new Scanner(System.in);
 
@@ -17,13 +17,15 @@ class Max {
         System.out.println("Введите второе целое число: ");
         b = scanner.nextInt();
 
-        max = a;
-        if (b > a) {
-            max = b;
+        min = a;
+        if (b < a) {
+            min = b;
         }
 
-        System.out.println("Наибольшее из двух чисел: " + max);
+        System.out.println("Наименьшее из двух чисел: " + min);
 
     }
 
+
 }
+
