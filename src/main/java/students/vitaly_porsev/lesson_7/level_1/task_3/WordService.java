@@ -11,7 +11,7 @@ class WordService {
         for (int i = 0; i < array.length; i++) {
             int max1 = 0;
             for (int j = 0; j < array.length; j++) {
-                if (array[i].toLowerCase(Locale.ROOT).equals(array[j].toLowerCase())) {
+                if (array[i].equals(array[j])) {
                     max1++;
                     if (max1 > max2) {
                         max2 = max1;
@@ -23,7 +23,7 @@ class WordService {
         return "Cлово, которое в тексте встречается больше всего раз - " + array[index] + ".";
     }
 
-    public String[] makeStringArray(String text) {
-        return text.split("[, . '-]+");
+   private String[] makeStringArray(String text) {
+        return text.toLowerCase(Locale.ROOT).split("[, . '-]+");
     }
 }
