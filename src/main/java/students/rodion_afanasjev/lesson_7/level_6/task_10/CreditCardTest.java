@@ -13,31 +13,34 @@ class CreditCardTest {
         creditCardTest.creditLimitFalseTest();
         creditCardTest.debtTrueTest();
         creditCardTest.debtFalseTest();
+
     }
 
     void depositTest(){
         CreditCard creditCard = new CreditCard("123 456 789",1234);
         int expectedResult = 150;
-        creditCard.setBalance(100);
-        creditCard.deposit(1234, 50);
+        int debt = creditCard.getDebt();
+        int creditLimit = creditCard.getCreditLimit();
+        creditCard.deposit(1234, 100);
         int realResult = creditCard.getBalance();
         equalCheck(realResult,expectedResult,"depositTest");
+        System.out.println("Balance: " + realResult + ", " + "Debt: " + debt + ", " + "Credit limit : " + creditLimit + ".");
     }
 
     void withdrawTest(){
         CreditCard creditCard = new CreditCard("123 456 789",1234);
         int expectedResult = 50;
-        creditCard.setBalance(100);
+        int debt = creditCard.getDebt();
+        int creditLimit = creditCard.getCreditLimit();
         creditCard.withdraw(1234,50);
         int realResult = creditCard.getBalance();
         equalCheck(realResult,expectedResult,"withdrawTest");
+        System.out.println("Balance: " + realResult + ", " + "Debt: " + debt + ", " + "Credit limit : " + creditLimit + ".");
     }
 
     void debtTrueTest(){
         CreditCard creditCard = new CreditCard("123 456 789",1234);
-        int expectedResult = 400;
-        creditCard.setDebt(200); // задолжность
-        creditCard.setBalance(100); // баланс
+        int expectedResult = 550;
         creditCard.deposit(1234, 500); // депозит
         int realResult = creditCard.getBalance();
         equalCheck(realResult,expectedResult,"debtTrueTest");
@@ -46,8 +49,6 @@ class CreditCardTest {
     void debtFalseTest(){
         CreditCard creditCard = new CreditCard("123 456 789",1234);
         int expectedResult = 150;
-        creditCard.setDebt(200); // задолжность
-        creditCard.setBalance(100); // баланс
         creditCard.deposit(1234, 500); // депозит
         int realResult = creditCard.getBalance();
         notEqualCheck(realResult,expectedResult,"debtFalseTest");
@@ -56,8 +57,6 @@ class CreditCardTest {
     void creditLimitTrueTest(){
         CreditCard creditCard = new CreditCard("123 456 789",1234);
         int expectedResult = 0;
-        creditCard.setCreditLimit(50);
-        creditCard.setBalance(100);
         creditCard.withdraw(1234,150);
         int realResult = creditCard.getBalance();
         equalCheck(realResult,expectedResult,"creditLimitTrueTest");
@@ -65,9 +64,7 @@ class CreditCardTest {
 
     void creditLimitFalseTest(){
         CreditCard creditCard = new CreditCard("123 456 789",1234);
-        int expectedResult = 0;
-        creditCard.setCreditLimit(10);
-        creditCard.setBalance(100);
+        int expectedResult = 50;
         creditCard.withdraw(1234,150);
         int realResult = creditCard.getBalance();
         notEqualCheck(realResult,expectedResult,"creditLimitFalseTest");
@@ -76,8 +73,7 @@ class CreditCardTest {
     void pinTrueTest(){
         CreditCard creditCard = new CreditCard("123 456 789",1234);
         int expectedResult = 150;
-        creditCard.setBalance(100);
-        creditCard.deposit(1234, 50);
+        creditCard.deposit(1234, 100);
         int realResult = creditCard.getBalance();
         equalCheck(realResult,expectedResult,"pinTrueTest");
     }
@@ -85,8 +81,7 @@ class CreditCardTest {
     void pinFalseTest(){
         CreditCard creditCard = new CreditCard("123 456 789",1244);
         int expectedResult = 150;
-        creditCard.setBalance(100);
-        creditCard.deposit(1234, 50);
+        creditCard.deposit(1234, 100);
         int realResult = creditCard.getBalance();
         notEqualCheck(realResult,expectedResult,"pinFalseTest");
     }
