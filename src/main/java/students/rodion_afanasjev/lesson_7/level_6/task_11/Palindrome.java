@@ -2,7 +2,11 @@ package students.rodion_afanasjev.lesson_7.level_6.task_11;
 
 class Palindrome {
 
-    boolean isPalindrome(String text) {
+    public boolean palindrome(String text){
+        return isPalindrome(text);
+    }
+
+    private boolean isPalindrome(String text) {
         text = lowerCase(text);
         String[] letter = letterArray(text);
 
@@ -16,12 +20,12 @@ class Palindrome {
         return true;
     }
 
-    String[] letterArray(String text) {
+    private String[] letterArray(String text) {
         return text.split("");
     }
 
-    String lowerCase(String text) {
-        return text.toLowerCase();
+    private String lowerCase(String text) {
+        return text.replaceAll("\\p{Punct}", "").replaceAll("\\s+", "").toLowerCase();
     }
 
 }
