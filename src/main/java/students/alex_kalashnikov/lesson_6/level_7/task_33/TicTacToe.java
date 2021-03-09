@@ -40,7 +40,7 @@ class TicTacToe {
                 }
             }
             if (field[x][y] == "0" || field[x][y] == "X") {
-                System.out.println("This cell already moved!!! Please, reenter!");
+                System.out.println("This cell already occupied!!! Please, reenter!");
                 checkX = true;
                 checkY = true;
             } else {
@@ -50,22 +50,25 @@ class TicTacToe {
         return new Move(x, y);
     }
 
+    /*======================================= начало секции ИИ ====================================================== */
+
     public int computerHorizontal(String[][] field) {
         int row = -1;
         for (int i = 0; i < field.length; i++) {
             int numberOfMoves = 0;
+            int emptyField = 0;
             for (int j = 0; j < field.length; j++) {
                 if (field[i][j] == "X") {
                     numberOfMoves++;
-                    System.out.println("Horizontal " + numberOfMoves);
                 }
-                if (numberOfMoves == 2) {
+                if (field[i][j] == ".") {
+                    emptyField++;
+                }
+                if (numberOfMoves == 2 && emptyField == 1) {
                     row = i;
-                    break;
                 }
             }
         }
-        System.out.println("ROW: "+ row);
         return row;
     }
 
@@ -73,35 +76,111 @@ class TicTacToe {
         int column = -1;
         for (int i = 0; i < field.length; i++) {
             int numberOfMoves = 0;
+            int emptyField = 0;
             for (int j = 0; j < field.length; j++) {
                 if (field[j][i].equals("X")) {
                     numberOfMoves++;
-                    System.out.println("Vertical " + numberOfMoves);
                 }
-                if (numberOfMoves == 2) {
+                if (field[j][i] == ".") {
+                    emptyField++;
+                }
+                if (numberOfMoves == 2 && emptyField == 1) {
                     column = i;
-                    break;
                 }
             }
         }
-        System.out.println("COLUMN: " + column);
         return column;
     }
 
-    public Move computer(String[][] field, String playerToCheck) {  // компьютер генерирует случайный ход в незанятой ячейке
+    public int computerDiagonalOne(String[][] field) {
+        int rowAndColumn = -1;
+        int numberOfMoves = 0;
+        int emptyField = 0;
+        for (int i = 0; i < field.length; i++) {
+            if (field[i][i].equals("X")) {
+                numberOfMoves++;
+            }
+            if (field[i][i] == ".") {
+                emptyField++;
+                rowAndColumn = i;
+            }
+        }
+        return rowAndColumn;
+    }
+
+    public int computerDiagonalTwo(String[][] field) {
+        int row = -1;
+        int numberOfMoves = 0;
+        int emptyField = 0;
+        int i = 0;
+        for (int j = 2; j > -1; j--) {
+            if (field[i][j].equals("X")) {
+                numberOfMoves++;
+            }
+            if (field[i][j] == ".") {
+                emptyField++;
+                row = i;
+            }
+            i++;
+        }
+        return row;
+    }
+
+    public Move computer(String[][] field) {
         boolean checkField = true;
         int x = 0;
         int y = 0;
-        while (checkField) {
-            x = (int) (Math.random() * 3);
-            y = (int) (Math.random() * 3);
-            if (field[x][y].equals(".")) {
-                checkField = false;
+
+        if (computerHorizontal(field) > -1) {
+            x = computerHorizontal(field);
+            while (checkField) {
+                y = (int) (Math.random() * 3);
+                if (field[x][y].equals(".")) {
+                    checkField = false;
+                }
+            }
+        }
+
+        if (computerVertical(field) > -1 && computerHorizontal(field) == -1) {
+            y = computerVertical(field);
+            while (checkField) {
+                x = (int) (Math.random() * 3);
+                if (field[x][y].equals(".")) {
+                    checkField = false;
+                }
+            }
+        }
+
+        if (computerDiagonalOne(field) > -1 && computerHorizontal(field) == -1 && computerVertical(field) == -1) {
+            x = computerDiagonalOne(field);
+            y = computerDiagonalOne(field);
+        }
+
+        if (computerDiagonalTwo(field) > -1 && computerHorizontal(field) == -1 && computerVertical(field) == -1 && computerDiagonalOne(field) == -1) {
+            x = computerDiagonalTwo(field);
+            switch (computerDiagonalTwo(field)) {
+                case 0:
+                    y = 2;
+                    break;
+                case 1:
+                    y = 1;
+                    break;
+                case 2:
+                    y = 0;
+            }
+        } else {
+            while (checkField) {
+                x = (int) (Math.random() * 3);
+                y = (int) (Math.random() * 3);
+                if (field[x][y].equals(".")) {
+                    checkField = false;
+                }
             }
         }
         return new Move(x, y);
     }
 
+    /*======================================= конец секции ИИ ======================================================= */
 
     public void printFieldToConsole(String[][] field) {
         for (int i = 0; i < field.length; i++) {
@@ -201,12 +280,10 @@ class TicTacToe {
 
     public void play() {
         String[][] field = createField();
+        printFieldToConsole(field);
         while (true) {
-            System.out.println("========");
-            printFieldToConsole(field);
             Move move0 = getFromKeyboard(field, "0");
             field[move0.getX()][move0.getY()] = "0";
-//            printFieldToConsole(field);
             if (isWinPosition(field, "0")) {
                 System.out.println("YOU WIN!");
                 break;
@@ -216,8 +293,7 @@ class TicTacToe {
                 break;
             }
 
-//            printFieldToConsole(field);
-            Move move1 = computer(field, "X");
+            Move move1 = computer(field);
             field[move1.getX()][move1.getY()] = "X";
             printFieldToConsole(field);
             if (isWinPosition(field, "X")) {
