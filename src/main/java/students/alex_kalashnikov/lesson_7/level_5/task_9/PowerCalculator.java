@@ -2,7 +2,7 @@ package students.alex_kalashnikov.lesson_7.level_5.task_9;
 
 class PowerCalculator {
 
-    public double raiseToThePositivePower(double number, int power) {
+    private double raiseToThePositivePower(double number, int power) {
         double result = number;
         while (power != 1) {
             result = result * number;
@@ -11,7 +11,7 @@ class PowerCalculator {
         return result;
     }
 
-    public double raiseToTheNegativePower(double number, int power) {
+    private double raiseToTheNegativePower(double number, int power) {
         double result = number;
         while (power != -1) {
             result = (result * number);
@@ -20,7 +20,7 @@ class PowerCalculator {
         return 1 / result;
     }
 
-    public double raiseToZeroPower() {
+    private double raiseToZeroPower() {
         return 1;
     }
 
