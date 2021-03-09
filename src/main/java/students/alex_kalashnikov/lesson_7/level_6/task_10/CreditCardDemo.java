@@ -12,6 +12,13 @@ class CreditCardDemo {
         newCreditCard.withdrawal();
         newCreditCard.showBalance();
         newCreditCard.showIndebtedness();
+        newCreditCard.deposit();
+        newCreditCard.deposit();
+        newCreditCard.showBalance();
+        newCreditCard.showIndebtedness();
+        newCreditCard.withdrawal();
+        newCreditCard.showBalance();
+        newCreditCard.showIndebtedness();
 
     }
 

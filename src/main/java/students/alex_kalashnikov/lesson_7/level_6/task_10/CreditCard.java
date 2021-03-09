@@ -67,15 +67,15 @@ class CreditCard {
     }
 
     void deposit() {
-        boolean x = true;
         checkPin();
         System.out.println("Please enter money amount you wish to deposit: ");
         int deposit = enterAmount();
-        int netDeposit = deposit - indebtedness;
-        if (netDeposit < 0) {
-            netDeposit = 0;
+        if (deposit >= indebtedness) {
+            balance = balance + (deposit - indebtedness);
+            indebtedness = 0;
+        } else {
+            indebtedness = indebtedness - deposit;
         }
-        balance = balance + netDeposit;
     }
 
     void withdrawal() {
@@ -87,8 +87,8 @@ class CreditCard {
         } else if (withdrawal > balance + (creditLimit - indebtedness)) {
             System.out.println("Not enough money!");
             withdrawal = 0;
-        } else if (withdrawal > balance && withdrawal < balance + (creditLimit - indebtedness)) {
-            indebtedness = withdrawal - balance;
+        } else if (/*withdrawal >= balance &&*/ withdrawal <= balance + (creditLimit - indebtedness)) {
+            indebtedness = indebtedness + withdrawal - balance;
             balance = 0;
         } else {
             balance = balance - withdrawal;
