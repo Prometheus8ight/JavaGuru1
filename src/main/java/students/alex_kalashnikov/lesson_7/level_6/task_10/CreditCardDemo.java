@@ -5,6 +5,7 @@ class CreditCardDemo {
     public static void main(String[] args) {
 
         CreditCard newCreditCard = new CreditCard(4444-5555-6666-7777, 1234);
+
         newCreditCard.deposit();
         newCreditCard.showBalance();
         newCreditCard.setCreditLimit();

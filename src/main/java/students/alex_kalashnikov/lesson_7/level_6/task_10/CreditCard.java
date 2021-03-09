@@ -13,27 +13,33 @@ class CreditCard {
         this.pin = pin;
     }
 
-    boolean checkPin() {
-        boolean x = true;
-        while (x) {
-            int indicatedPin = enterPin();
+    private boolean checkPin() {
+        boolean attemptCheck = true;
+        int indicatedPin = 0;
+        int attemptCounter = 0;
+        do {
+            indicatedPin = enterPin();
             if (indicatedPin != pin) {
                 System.out.println("Wrong PIN! Please, reenter!");
-            } else {
-                x = false;
+                attemptCounter++;
+            }
+            if (attemptCounter == 3) {
+                attemptCheck = false;
+                break;
             }
         }
-        return true;
+        while (indicatedPin != pin);
+        return attemptCheck;
     }
 
-    int enterPin() {
+    private int enterPin() {
         java.util.Scanner scanner = new java.util.Scanner(System.in);
         System.out.print("Please, enter your PIN! ");
         int indicatedPin = scanner.nextInt();
         return indicatedPin;
     }
 
-    int enterAmount() {
+    private int enterAmount() {
         java.util.Scanner scanner = new java.util.Scanner(System.in);
         System.out.print("Please, enter money amount! ");
         int money = scanner.nextInt();
@@ -53,46 +59,50 @@ class CreditCard {
     }
 
     void setCreditLimit() {
-        boolean x = true;
-        while (x) {
+        int requestLimit = 0;
+        do {
             System.out.println("Please enter limit you wish to set: ");
-            int requestLimit = enterAmount();
+            requestLimit = enterAmount();
             if (requestLimit > 1000 || requestLimit < 0) {
                 System.out.println("Maximum limit is 1000! Please, enter amount from 0 to 1000!");
-            } else {
-                creditLimit = requestLimit;
-                x = false;
             }
         }
+        while (requestLimit > 1000 || requestLimit < 0);
+        creditLimit = requestLimit;
     }
 
     void deposit() {
-        checkPin();
-        System.out.println("Please enter money amount you wish to deposit: ");
-        int deposit = enterAmount();
-        if (deposit >= indebtedness) {
-            balance = balance + (deposit - indebtedness);
-            indebtedness = 0;
+        if (checkPin()) {
+            System.out.println("Please enter money amount you wish to deposit: ");
+            int deposit = enterAmount();
+            if (deposit >= indebtedness) {
+                balance = balance + (deposit - indebtedness);
+                indebtedness = 0;
+            } else {
+                indebtedness = indebtedness - deposit;
+            }
         } else {
-            indebtedness = indebtedness - deposit;
+            System.out.println("You had three incorrect PIN attempts! You are not allowed to deposit money!");
         }
     }
 
     void withdrawal() {
-        checkPin();
-        System.out.println("Please enter money amount you wish to withdraw: ");
-        int withdrawal = enterAmount();
-        if (withdrawal < 0) {
-            withdrawal = 0;
-        } else if (withdrawal > balance + (creditLimit - indebtedness)) {
-            System.out.println("Not enough money!");
-            withdrawal = 0;
-        } else if (/*withdrawal >= balance &&*/ withdrawal <= balance + (creditLimit - indebtedness)) {
-            indebtedness = indebtedness + withdrawal - balance;
-            balance = 0;
+        if (checkPin()) {
+            System.out.println("Please enter money amount you wish to withdraw: ");
+            int withdrawal = enterAmount();
+            if (withdrawal < 0) {
+                withdrawal = 0;
+            } else if (withdrawal > balance + (creditLimit - indebtedness)) {
+                System.out.println("Not enough money!");
+                withdrawal = 0;
+            } else if (/*withdrawal >= balance &&*/ withdrawal <= balance + (creditLimit - indebtedness)) {
+                indebtedness = indebtedness + withdrawal - balance;
+                balance = 0;
+            } else {
+                balance = balance - withdrawal;
+            }
         } else {
-            balance = balance - withdrawal;
+            System.out.println("You had three incorrect PIN attempts! You are not allowed to withdraw money!");
         }
     }
-
 }

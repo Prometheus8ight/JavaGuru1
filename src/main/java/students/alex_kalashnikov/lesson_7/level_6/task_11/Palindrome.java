@@ -12,23 +12,19 @@ class Palindrome {
         return Arrays.equals(arr, revertArr);
     }
 
-    public String create(String text) {
-        return text;
-    }
-
-    public String cleanText(String text) {
+    private String cleanText(String text) {
         String text1 = text.replaceAll("\\p{Punct}", "");
         String text2 = text1.replaceAll(" ", "");
         String textFinal = text2.toLowerCase(Locale.ROOT);
         return textFinal;
     }
 
-    public String[] createLetterArray(String cleanText) {      // создаем массив из слов
+    private String[] createLetterArray(String cleanText) {      // создаем массив из слов
         String[] words = cleanText.split("");
         return words;
     }
 
-    String[] revert(String[] letterArray) {
+    private String[] revert(String[] letterArray) {
         String[] revertArray = new String[letterArray.length];
         for (int i = 0; i < letterArray.length; i++) {
             revertArray[i] = letterArray[letterArray.length - i - 1];
