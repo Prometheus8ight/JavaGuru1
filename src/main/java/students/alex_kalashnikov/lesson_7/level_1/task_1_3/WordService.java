@@ -8,7 +8,7 @@ class WordService {
         return text;
     }
 
-    public String cleanText(String text) {                  // метод возвращает текст очищенный от знаков препинания (!,?,точка,запятая) и конвертирует заглавные буквы в маленькие, с пробелом между словами
+    private String cleanText(String text) {                  // метод возвращает текст очищенный от знаков препинания (!,?,точка,запятая) и конвертирует заглавные буквы в маленькие, с пробелом между словами
         String text1 = text.replaceAll("!", "");
         String text2 = text1.replaceAll("\\?", "");
         String text3 = text2.replaceAll("\\.", "");
@@ -17,13 +17,13 @@ class WordService {
         return textFinal;
     }
 
-    public String[] createWordsArray(String cleanText) {      // создаем массив из слов
+    private String[] createWordsArray(String cleanText) {      // создаем массив из слов
         String[] words = cleanText.split(" ");
         return words;
 
     }
 
-    public String[] createEqualWordsArray(String[] words) {  // создаем отдельный массив для слов, которые повторяются
+    private String[] createEqualWordsArray(String[] words) {  // создаем отдельный массив для слов, которые повторяются
         String[] equalWords = new String[words.length];
         for (int i = 0; i < words.length; i++) {
             for (int j = i; j < words.length; j++) {
@@ -35,7 +35,7 @@ class WordService {
         return equalWords;
     }
 
-    public String[] removeNullEqualWordsArray(String[] equalWords) { // убираем из значений незанятых ячеек значение NULL
+    private String[] removeNullEqualWordsArray(String[] equalWords) { // убираем из значений незанятых ячеек значение NULL
         for (int i = 0; i < equalWords.length; i++) {
             if (equalWords[i] == null) {
                 equalWords[i] = "";
@@ -44,7 +44,7 @@ class WordService {
         return equalWords;
     }
 
-    public String[] removeRepeatEqualWordsArray(String[] equalWordsWithoutNull) {  // убираем из массива повторения слов - должно остаться одно значение слова, которое повторяется в тексте
+    private String[] removeRepeatEqualWordsArray(String[] equalWordsWithoutNull) {  // убираем из массива повторения слов - должно остаться одно значение слова, которое повторяется в тексте
         for (int i = 0; i < equalWordsWithoutNull.length; i++) {
             for (int j = i; j < equalWordsWithoutNull.length; j++) {
                 if (i != j && equalWordsWithoutNull[i].equals(equalWordsWithoutNull[j])) {
@@ -55,7 +55,7 @@ class WordService {
         return equalWordsWithoutNull;
     }
 
-    public int[] countEqualWordsArray(String[] equalWordsFinal, String[] words) {  // создаем массив чисел, где каждая отдельная ячейка содержит кол-во совпадений слов из массива equalWords со словами в массиве Words
+    private int[] countEqualWordsArray(String[] equalWordsFinal, String[] words) {  // создаем массив чисел, где каждая отдельная ячейка содержит кол-во совпадений слов из массива equalWords со словами в массиве Words
         int[] count = new int[equalWordsFinal.length];
 
         for (int i = 0; i < equalWordsFinal.length; i++) {
@@ -68,7 +68,7 @@ class WordService {
         return count;
     }
 
-    public int max(int[] count) {  // возвращает максимальное значение в массиве count
+    private int max(int[] count) {  // возвращает максимальное значение в массиве count
         int max = count[0];
         for (int i = 0; i < count.length; i++) {
             if (count[i] > max) {
@@ -78,7 +78,7 @@ class WordService {
         return max;
     }
 
-    public int findIndexMax(int[] count, int max) { // находит номер ячейки в массиве count с максимальным значением
+    private int findIndexMax(int[] count, int max) { // находит номер ячейки в массиве count с максимальным значением
         int index = -1;
         for (int i = 0; i < count.length; i++) {
             if (count[i] == max) {
@@ -89,8 +89,15 @@ class WordService {
         return index;
     }
 
-    public String findMostFrequentWord(String[] equalWordsFinal, int index) { // возвращает слово в массиве equalWords, которое повторяется чаще всего
-        return equalWordsFinal[index];
+    public String findMostFrequentWord(String text) {// возвращает слово в массиве equalWords, которое повторяется чаще всего
+        String cleanText = cleanText(text);
+        String[] wordsArray = createWordsArray(cleanText);
+        String[] equalWordsArray = createEqualWordsArray(wordsArray);
+        String[] equalWordsArrayFinal = removeRepeatEqualWordsArray(removeNullEqualWordsArray(equalWordsArray));
+        int[] count = countEqualWordsArray(equalWordsArrayFinal,wordsArray);
+        int max = max(count);
+        int index = findIndexMax(count,max);
+        return equalWordsArrayFinal[index];
     }
 
 }
