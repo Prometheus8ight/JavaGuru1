@@ -4,7 +4,8 @@ class DefaultConstructorDemo {
 
     public static void main(String[] args) {
 
-        DefaultConstructor defaultConstructor = new DefaultConstructor("John",10);
+        DefaultConstructor defaultConstructor = new DefaultConstructor();
+        defaultConstructor.print();
 
     }
 
