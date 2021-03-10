@@ -1,14 +1,7 @@
 package students.deniss_jankovskis.lesson_6.level_5.task_24;
 
 class TicTacToe {
-
     public boolean isWinPositionForDiagonals(int[][] field, int playerToCheck) {
-
-        TicTacToe ticTacToe = new TicTacToe();
-        return ticTacToe.isWinPositionForDiagonals(field, playerToCheck);
-    }
-
-    public boolean checkWinPositionForDiagonals(int[][] field, int playerToCheck) {
 
         for (int i = 0; i < field.length; i++) {
             for (int j = 0; j < field.length; j++) {

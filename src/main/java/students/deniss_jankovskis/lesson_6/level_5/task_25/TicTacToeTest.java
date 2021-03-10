@@ -79,7 +79,7 @@ class TicTacToeTest {
         checkTestResult(realResult, "Diagonal Position Test 3");
     }
 
-    private void checkTestResult(boolean condition, String testName) {
+    public void checkTestResult(boolean condition, String testName) {
 
         if (condition) {
             System.out.println(testName + ": Test OK");

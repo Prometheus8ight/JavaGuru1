@@ -16,47 +16,46 @@ class TicTacToeTest {
     public void leftDiagonalTest1(int[][] field, int playerToCheck) {
 
         TicTacToe ticTacToe = new TicTacToe();
-        boolean realResult = ticTacToe.checkWinPositionForDiagonals(field, playerToCheck);
+        boolean realResult = ticTacToe.isWinPositionForDiagonals(field, playerToCheck);
         checkTestResult(realResult, "Left Diagonal Test 1");
     }
 
     public void leftDiagonalTest2(int[][] field, int playerToCheck) {
 
         TicTacToe ticTacToe = new TicTacToe();
-        boolean realResult = ticTacToe.checkWinPositionForDiagonals(field, playerToCheck);
+        boolean realResult = ticTacToe.isWinPositionForDiagonals(field, playerToCheck);
         checkTestResult(realResult, "Left Diagonal Test 2");
     }
 
     public void leftDiagonalTest3(int[][] field, int playerToCheck) {
 
         TicTacToe ticTacToe = new TicTacToe();
-        boolean realResult = ticTacToe.checkWinPositionForDiagonals(field, playerToCheck);
+        boolean realResult = ticTacToe.isWinPositionForDiagonals(field, playerToCheck);
         checkTestResult(realResult, "Left Diagonal Test 3");
     }
 
     public void rightDiagonalTest1(int[][] field, int playerToCheck) {
 
         TicTacToe ticTacToe = new TicTacToe();
-        boolean realResult = ticTacToe.checkWinPositionForDiagonals(field, playerToCheck);
+        boolean realResult = ticTacToe.isWinPositionForDiagonals(field, playerToCheck);
         checkTestResult(realResult, "Right Diagonal Test 1");
     }
 
     public void rightDiagonalTest2(int[][] field, int playerToCheck) {
 
         TicTacToe ticTacToe = new TicTacToe();
-        boolean realResult = ticTacToe.checkWinPositionForDiagonals(field, playerToCheck);
+        boolean realResult = ticTacToe.isWinPositionForDiagonals(field, playerToCheck);
         checkTestResult(realResult, "Right Diagonal Test 2");
     }
 
     public void rightDiagonalTest3(int[][] field, int playerToCheck) {
 
         TicTacToe ticTacToe = new TicTacToe();
-        boolean realResult = ticTacToe.checkWinPositionForDiagonals(field, playerToCheck);
+        boolean realResult = ticTacToe.isWinPositionForDiagonals(field, playerToCheck);
         checkTestResult(realResult, "Right Diagonal Test 3");
     }
 
-    private void checkTestResult(boolean condition, String testName) {
-
+    public void checkTestResult(boolean condition, String testName) {
         if (condition) {
             System.out.println(testName + ": Test OK");
         } else {

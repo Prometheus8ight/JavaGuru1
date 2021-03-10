@@ -12,19 +12,18 @@ class TicTacToeTest {
 
     public void winHorizontalTest(int[][] field, int playerToCheck) {
         TicTacToe ticTacToe = new TicTacToe();
-        boolean realResult = ticTacToe.checkForHorizontalPosition(field, playerToCheck);
+        boolean realResult = ticTacToe.isWinPositionForHorizontals(field, playerToCheck);
         checkTestResult(realResult, "Horizontal Test Win");
     }
 
     public void lostHorizontalTest(int[][] field, int playerToCheck) {
         TicTacToe ticTacToe = new TicTacToe();
-        boolean realResult = ticTacToe.checkForHorizontalPosition(field, playerToCheck);
+        boolean realResult = ticTacToe.isWinPositionForHorizontals(field, playerToCheck);
         checkTestResult(realResult, "Horizontal Test Lost");
     }
 
 
-    private void checkTestResult(boolean condition, String testName) {
-
+    public void checkTestResult(boolean condition, String testName) {
         if (condition) {
             System.out.println(testName + ": Test OK");
         } else {

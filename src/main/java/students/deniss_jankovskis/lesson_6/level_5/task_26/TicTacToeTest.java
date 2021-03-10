@@ -25,7 +25,7 @@ public class TicTacToeTest {
     }
 
 
-    private void checkTestResult(boolean realResult, boolean expectedResult, String testName) {
+    public void checkTestResult(boolean realResult, boolean expectedResult, String testName) {
         if (realResult == expectedResult) {
             System.out.println(testName + ": Test OK");
         } else {
