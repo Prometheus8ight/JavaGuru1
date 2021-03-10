@@ -15,43 +15,43 @@ class PowerCalculatorTest {
     }
 
 
-    public void powerCalculatorTest1() {
+    private void powerCalculatorTest1() {
         PowerCalculator calculator = new PowerCalculator();
         checkTestResult(16, calculator.power(2, 4), "PowerCalculator Test1");
     }
 
-    public void powerCalculatorTest2() {
+    private void powerCalculatorTest2() {
         PowerCalculator calculator = new PowerCalculator();
         checkTestResult(243, calculator.power(3, 5), "PowerCalculator Test2");
     }
 
-    public void powerCalculatorTest3() {
+    private void powerCalculatorTest3() {
         PowerCalculator calculator = new PowerCalculator();
         checkTestResult(1024, calculator.power(4, 5), "PowerCalculator Test3");
     }
 
-    public void powerCalculatorTest4() {
+    private void powerCalculatorTest4() {
         PowerCalculator calculator = new PowerCalculator();
         checkTestResult(15625, calculator.power(5, 6), "PowerCalculator Test4");
     }
 
-    public void powerCalculatorTest5() {
+    private void powerCalculatorTest5() {
         PowerCalculator calculator = new PowerCalculator();
         checkTestResult(46656, calculator.power(6, 6), "PowerCalculator Test5");
     }
 
-    public void powerCalculatorTest6() {
+    private void powerCalculatorTest6() {
         PowerCalculator calculator = new PowerCalculator();
         checkTestResult(343, calculator.power(7, 3), "PowerCalculator Test6");
     }
 
-    public void powerCalculatorTest7() {
+    private void powerCalculatorTest7() {
         PowerCalculator calculator = new PowerCalculator();
         checkTestResult(4096, calculator.power(8, 4), "PowerCalculator Test7");
     }
 
 
-    public void checkTestResult(int expectedResult, int realResult, String testName) {
+    private void checkTestResult(int expectedResult, int realResult, String testName) {
         if (expectedResult == realResult) {
             System.out.println(testName + " - has passed");
         } else {
