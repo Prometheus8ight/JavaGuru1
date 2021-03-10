@@ -24,7 +24,7 @@ public class WordServiceTest {
         checkStringArrayWord(arr, service.stringArrayWord(text), "StringArrayWordTest");
     }
 
-    public void checkFrequentWord(String expectedResult, String realResult, String testName) {
+    private void checkFrequentWord(String expectedResult, String realResult, String testName) {
         if (expectedResult.equals(realResult)) {
             System.out.println(testName + " has passed");
         } else {
@@ -32,7 +32,7 @@ public class WordServiceTest {
         }
     }
 
-    public void checkStringArrayWord(String[] expectedResult, String[] realResult, String testName) {
+    private void checkStringArrayWord(String[] expectedResult, String[] realResult, String testName) {
         if (Arrays.equals(expectedResult, expectedResult)) {
             System.out.println(testName + " has passed");
         } else {
