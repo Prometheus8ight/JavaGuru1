@@ -150,67 +150,37 @@ class TicTacToeAI {
                 y = (int) (Math.random() * 3);
                 checkField = checkEmptyField(field, x, y);
             }
-        }
-
-        if (computerVertical(field, "X") > -1 && computerHorizontal(field, "X") == -1) {
+        } else if (computerVertical(field, "X") > -1) {
             y = computerVertical(field, "X");
             while (checkField) {
                 x = (int) (Math.random() * 3);
                 checkField = checkEmptyField(field, x, y);
             }
-        }
-
-        if (computerDiagonalOne(field, "X") > -1 && computerHorizontal(field, "X") == -1
-                && computerVertical(field, "X") == -1) {
+        } else if (computerDiagonalOne(field, "X") > -1) {
             x = computerDiagonalOne(field, "X");
             y = computerDiagonalOne(field, "X");
             checkField = checkEmptyField(field, x, y);
-        }
-
-        if (computerDiagonalTwo(field, "X") > -1 && computerHorizontal(field, "X") == -1
-                && computerVertical(field, "X") == -1
-                && computerDiagonalOne(field, "X") == -1) {
+        } else if (computerDiagonalTwo(field, "X") > -1) {
             x = computerDiagonalTwo(field, "X");
             y = diagonalTwoSwitch(x);
             checkField = checkEmptyField(field, x, y);
-        }
-
-        if (computerDefenceHorizontal(field) > -1 && computerHorizontal(field, "X") == -1
-                && computerVertical(field, "X") == -1 && computerDiagonalOne(field, "X") == -1
-                && computerDiagonalTwo(field, "X") == -1) {
+        } else if (computerDefenceHorizontal(field) > -1) {
             x = computerDefenceHorizontal(field);
             while (checkField) {
                 y = (int) (Math.random() * 3);
                 checkField = checkEmptyField(field, x, y);
             }
-        }
-
-        if (computerDefenceVertical(field) > -1 && computerDefenceHorizontal(field) == -1
-                && computerHorizontal(field, "X") == -1 && computerVertical(field, "X") == -1
-                && computerDiagonalOne(field, "X") == -1
-                && computerDiagonalTwo(field, "X") == -1) {
+        } else if (computerDefenceVertical(field) > -1) {
             y = computerDefenceVertical(field);
             while (checkField) {
                 x = (int) (Math.random() * 3);
                 checkField = checkEmptyField(field, x, y);
             }
-        }
-
-        if (computerDefenceDiagonalOne(field) > -1 && computerDefenceVertical(field) == -1
-                && computerDefenceHorizontal(field) == -1
-                && computerHorizontal(field, "X") == -1 && computerVertical(field, "X") == -1
-                && computerDiagonalOne(field, "X") == -1
-                && computerDiagonalTwo(field, "X") == -1) {
+        } else if (computerDefenceDiagonalOne(field) > -1) {
             x = computerDefenceDiagonalOne(field);
             y = computerDefenceDiagonalOne(field);
             checkField = checkEmptyField(field, x, y);
-        }
-
-        if (computerDefenceDiagonalTwo(field) > -1 && computerDefenceDiagonalOne(field) == -1
-                && computerDefenceVertical(field) == -1 && computerDefenceHorizontal(field) == -1
-                && computerHorizontal(field, "X") == -1 && computerVertical(field, "X") == -1
-                && computerDiagonalOne(field, "X") == -1
-                && computerDiagonalTwo(field, "X") == -1) {
+        } else if (computerDefenceDiagonalTwo(field) > -1) {
             x = computerDefenceDiagonalTwo(field);
             y = diagonalTwoSwitch(x);
             checkField = checkEmptyField(field, x, y);
