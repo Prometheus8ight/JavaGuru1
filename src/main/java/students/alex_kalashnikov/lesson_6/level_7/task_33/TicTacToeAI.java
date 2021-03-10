@@ -113,7 +113,22 @@ class TicTacToeAI {
     }
 
     private static boolean checkEmptyField(String[][] field, int x, int y) {
-        return field[x][y].equals(".");
+        return !field[x][y].equals(".");
+    }
+
+    private static int diagonalTwoSwitch(int x) {
+        int y = 0;
+        switch (x) {
+            case 0:
+                y = 2;
+                break;
+            case 1:
+                y = 1;
+                break;
+            case 2:
+                y = 0;
+        }
+        return y;
     }
 
 
@@ -126,9 +141,7 @@ class TicTacToeAI {
             x = computerHorizontal(field, "X");
             while (checkField) {
                 y = (int) (Math.random() * 3);
-                if (field[x][y].equals(".")) {
-                    checkField = false;
-                }
+                checkField = checkEmptyField(field,x,y);
             }
         }
 
@@ -136,9 +149,7 @@ class TicTacToeAI {
             y = computerVertical(field, "X");
             while (checkField) {
                 x = (int) (Math.random() * 3);
-                if (field[x][y].equals(".")) {
-                    checkField = false;
-                }
+                checkField = checkEmptyField(field,x,y);
             }
         }
 
@@ -146,28 +157,15 @@ class TicTacToeAI {
                 && computerVertical(field, "X") == -1) {
             x = computerDiagonalOne(field, "X");
             y = computerDiagonalOne(field, "X");
-            if (field[x][y].equals(".")) {
-                checkField = false;
-            }
+            checkField = checkEmptyField(field,x,y);
         }
 
         if (computerDiagonalTwo(field, "X") > -1 && computerHorizontal(field, "X") == -1
                 && computerVertical(field, "X") == -1
                 && computerDiagonalOne(field, "X") == -1) {
             x = computerDiagonalTwo(field, "X");
-            switch (x) {
-                case 0:
-                    y = 2;
-                    break;
-                case 1:
-                    y = 1;
-                    break;
-                case 2:
-                    y = 0;
-            }
-            if (field[x][y].equals(".")) {
-                checkField = false;
-            }
+            y = diagonalTwoSwitch(x);
+            checkField = checkEmptyField(field,x,y);
         }
 
         if (computerDefenceHorizontal(field) > -1 && computerHorizontal(field, "X") == -1
@@ -176,9 +174,7 @@ class TicTacToeAI {
             x = computerDefenceHorizontal(field);
             while (checkField) {
                 y = (int) (Math.random() * 3);
-                if (field[x][y].equals(".")) {
-                    checkField = false;
-                }
+                checkField = checkEmptyField(field,x,y);
             }
         }
 
@@ -189,9 +185,7 @@ class TicTacToeAI {
             y = computerDefenceVertical(field);
             while (checkField) {
                 x = (int) (Math.random() * 3);
-                if (field[x][y].equals(".")) {
-                    checkField = false;
-                }
+                checkField = checkEmptyField(field,x,y);
             }
         }
 
@@ -202,10 +196,7 @@ class TicTacToeAI {
                 && computerDiagonalTwo(field, "X") == -1) {
             x = computerDefenceDiagonalOne(field);
             y = computerDefenceDiagonalOne(field);
-            if (field[x][y].equals(".")) {
-                checkField = false;
-
-            }
+            checkField = checkEmptyField(field,x,y);
         }
 
         if (computerDefenceDiagonalTwo(field) > -1 && computerDefenceDiagonalOne(field) == -1
@@ -214,26 +205,14 @@ class TicTacToeAI {
                 && computerDiagonalOne(field, "X") == -1
                 && computerDiagonalTwo(field, "X") == -1) {
             x = computerDefenceDiagonalTwo(field);
-            switch (computerDefenceDiagonalTwo(field)) {
-                case 0:
-                    y = 2;
-                    break;
-                case 1:
-                    y = 1;
-                    break;
-                case 2:
-                    y = 0;
+            y = diagonalTwoSwitch(x);
+            checkField = checkEmptyField(field,x,y);
             }
-            if (field[x][y].equals(".")) {
-                checkField = false;
-            }
-        } else {
+         else {
             while (checkField) {
                 x = (int) (Math.random() * 3);
                 y = (int) (Math.random() * 3);
-                if (field[x][y].equals(".")) {
-                    checkField = false;
-                }
+                checkField = checkEmptyField(field,x,y);
             }
         }
         return new Move(x, y);

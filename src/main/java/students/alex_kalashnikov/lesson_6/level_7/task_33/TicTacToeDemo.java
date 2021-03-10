@@ -11,7 +11,7 @@ class TicTacToeDemo {
     //    Move row = newGame.computer(arrayHorizontal);
     //    String[][] arrayVertical = new String[][] {{"0", "0", "X"}, {"X", "0", "."}, {".", "0", "X"}};
     //    Move column = newGame.computer(arrayVertical);
-        String[][] array = new String[][] {{"0", ".", "X"}, {".", "X", "."}, {".", "0", "."}};
+    //    String[][] array = new String[][] {{"0", ".", "X"}, {".", "X", "."}, {".", "0", "."}};
 
     /*    int row2 = newGame.computerHorizontal(array,"X");
         System.out.println("computerHorizontal: " + row2);

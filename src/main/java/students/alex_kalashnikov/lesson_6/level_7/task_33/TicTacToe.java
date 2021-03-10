@@ -50,9 +50,6 @@ class TicTacToe {
         return new Move(x, y);
     }
 
-    /*======================================= начало секции ИИ ====================================================== */
-
-
     public void printFieldToConsole(String[][] field) {
         for (int i = 0; i < field.length; i++) {
             System.out.print(field[0][i] + "  ");
