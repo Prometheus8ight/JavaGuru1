@@ -17,20 +17,21 @@ class CreditCard {
         return creditLimit;
     }
 
-    public void deposit(String pinCode, int amount) {
+    public boolean deposit(String pinCode, int amount) {
         if (!pinCode.equals(this.pinCode)) { //пин-коды не совпадают, операция должна быть отклонена
-            System.out.println("Incorrect PIN");
-        } else {
-            if (loanDebt == 0) {
-                balance = balance + amount;
-            }
-
-            if (loanDebt > 0) {
-                amount = amount - loanDebt;
-                loanDebt = 0; //полгасили задолжность внесением денег
-                balance = amount;
-            }
+            return false;
         }
+
+        if (loanDebt == 0) {
+            balance = balance + amount;
+        }
+
+        if (loanDebt > 0) {
+            amount = amount - loanDebt;
+            loanDebt = 0; //полгасили задолжность внесением денег
+            balance = amount;
+            }
+        return true;
     }
 
     public void withdraw(String pinCode, int amount) { //указывать пин-код и желаемую сумму
@@ -50,7 +51,7 @@ class CreditCard {
         }
     }
 
-    public String printCreditCardInformation(String cardNumber, String pinCode) {
+    public String getInformation(String cardNumber, String pinCode) {
         String a = "Card number = " + this.cardNumber + ", ";
         String b = "PIN = " + this.pinCode + ", ";
         String c = "Balance = " + this.balance + ", ";
