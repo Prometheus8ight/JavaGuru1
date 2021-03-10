@@ -2,7 +2,7 @@ package students.alex_kalashnikov.lesson_6.level_7.task_33;
 
 class TicTacToe {
 
-    public String[][] createField() {
+    private String[][] createField() {
         String[][] array = new String[3][3];
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < 3; j++) {
@@ -12,7 +12,7 @@ class TicTacToe {
         return array;
     }
 
-    public Move getFromKeyboard(String[][] field, String playerToCheck) { // запрашивает координаты ячейки [X,Y] - числа от 0 до 2
+    private Move getFromKeyboard(String[][] field, String playerToCheck) { // запрашивает координаты ячейки [X,Y] - числа от 0 до 2
         boolean checkX = true; // проверяет число X
         boolean checkY = true;  // проверяет число Y
         boolean checkField = true;// проверяет был ли уже ход в ячейке [X,Y] массива
@@ -50,7 +50,7 @@ class TicTacToe {
         return new Move(x, y);
     }
 
-    public void printFieldToConsole(String[][] field) {
+    private void printFieldToConsole(String[][] field) {
         for (int i = 0; i < field.length; i++) {
             System.out.print(field[0][i] + "  ");
         }
@@ -65,7 +65,7 @@ class TicTacToe {
         System.out.println(" ");
     }
 
-    public boolean isWinPositionForHorizontals(String[][] field, String playerToCheck) {
+    private boolean isWinPositionForHorizontals(String[][] field, String playerToCheck) {
         boolean hit = false;
         for (int i = 0; i < field.length; i++) {
             int numberOfHits = 0;
@@ -81,7 +81,7 @@ class TicTacToe {
         return hit;
     }
 
-    public boolean isWinPositionForVerticals(String[][] field, String playerToCheck) {
+    private boolean isWinPositionForVerticals(String[][] field, String playerToCheck) {
         boolean hit = false;
         for (int i = 0; i < field.length; i++) {
             int numberOfHits = 0;
@@ -97,7 +97,7 @@ class TicTacToe {
         return hit;
     }
 
-    public boolean isWinPositionForDiagonals(String[][] field, String playerToCheck) {
+    private boolean isWinPositionForDiagonals(String[][] field, String playerToCheck) {
         boolean hit = false;
         boolean hit1 = false;
         int j = 0;
@@ -126,11 +126,11 @@ class TicTacToe {
         return hit || hit1;
     }
 
-    public boolean isWinPosition(String[][] field, String playerToCheck) {
+    private boolean isWinPosition(String[][] field, String playerToCheck) {
         return isWinPositionForHorizontals(field, playerToCheck) || isWinPositionForVerticals(field, playerToCheck) || isWinPositionForDiagonals(field, playerToCheck);
     }
 
-    public boolean isDrawPosition(String[][] field) {
+    private boolean isDrawPosition(String[][] field) {
         if (isWinPosition(field, "0") || isWinPosition(field, "X")) {
             return false;
         } else {

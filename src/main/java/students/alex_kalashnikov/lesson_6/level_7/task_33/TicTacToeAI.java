@@ -2,6 +2,7 @@ package students.alex_kalashnikov.lesson_6.level_7.task_33;
 
 class TicTacToeAI {
 
+    //==========================Блок Нападение =======================================//
     // возвращает номер ряда, где два значения равны "X"
     private static int computerHorizontal(String[][] field, String playerToCheck) {
         int row = -1;
@@ -96,22 +97,28 @@ class TicTacToeAI {
         }
     }
 
+    //======================= Блок Оборона ===============================//
+    //возвращает номер ряда, где два значения равны "0"
     private static int computerDefenceHorizontal(String[][] field) {
         return computerHorizontal(field, "0");
     }
 
+    // возвращает номер колонки, где два значения равны "0"
     private static int computerDefenceVertical(String[][] field) {
         return computerVertical(field, "0");
     }
 
+    // возвращает номер ряда и колонки в диагонали 1, где два значения равны "0"
     private static int computerDefenceDiagonalOne(String[][] field) {
         return computerDiagonalOne(field, "0");
     }
 
+    // возвращает номер ряда в диагонали 2, где два значения равны "0"
     private static int computerDefenceDiagonalTwo(String[][] field) {
         return computerDiagonalTwo(field, "0");
     }
 
+    //=====================Вспомогательные методы===========================//
     private static boolean checkEmptyField(String[][] field, int x, int y) {
         return !field[x][y].equals(".");
     }
@@ -131,7 +138,7 @@ class TicTacToeAI {
         return y;
     }
 
-
+    //===============Определение координат для следующего хода=======================================================//
     private static Move findNextMoveCoordinates(String[][] field) {
         boolean checkField = true;
         int x = 0;
@@ -141,7 +148,7 @@ class TicTacToeAI {
             x = computerHorizontal(field, "X");
             while (checkField) {
                 y = (int) (Math.random() * 3);
-                checkField = checkEmptyField(field,x,y);
+                checkField = checkEmptyField(field, x, y);
             }
         }
 
@@ -149,7 +156,7 @@ class TicTacToeAI {
             y = computerVertical(field, "X");
             while (checkField) {
                 x = (int) (Math.random() * 3);
-                checkField = checkEmptyField(field,x,y);
+                checkField = checkEmptyField(field, x, y);
             }
         }
 
@@ -157,7 +164,7 @@ class TicTacToeAI {
                 && computerVertical(field, "X") == -1) {
             x = computerDiagonalOne(field, "X");
             y = computerDiagonalOne(field, "X");
-            checkField = checkEmptyField(field,x,y);
+            checkField = checkEmptyField(field, x, y);
         }
 
         if (computerDiagonalTwo(field, "X") > -1 && computerHorizontal(field, "X") == -1
@@ -165,7 +172,7 @@ class TicTacToeAI {
                 && computerDiagonalOne(field, "X") == -1) {
             x = computerDiagonalTwo(field, "X");
             y = diagonalTwoSwitch(x);
-            checkField = checkEmptyField(field,x,y);
+            checkField = checkEmptyField(field, x, y);
         }
 
         if (computerDefenceHorizontal(field) > -1 && computerHorizontal(field, "X") == -1
@@ -174,7 +181,7 @@ class TicTacToeAI {
             x = computerDefenceHorizontal(field);
             while (checkField) {
                 y = (int) (Math.random() * 3);
-                checkField = checkEmptyField(field,x,y);
+                checkField = checkEmptyField(field, x, y);
             }
         }
 
@@ -185,7 +192,7 @@ class TicTacToeAI {
             y = computerDefenceVertical(field);
             while (checkField) {
                 x = (int) (Math.random() * 3);
-                checkField = checkEmptyField(field,x,y);
+                checkField = checkEmptyField(field, x, y);
             }
         }
 
@@ -196,7 +203,7 @@ class TicTacToeAI {
                 && computerDiagonalTwo(field, "X") == -1) {
             x = computerDefenceDiagonalOne(field);
             y = computerDefenceDiagonalOne(field);
-            checkField = checkEmptyField(field,x,y);
+            checkField = checkEmptyField(field, x, y);
         }
 
         if (computerDefenceDiagonalTwo(field) > -1 && computerDefenceDiagonalOne(field) == -1
@@ -206,13 +213,12 @@ class TicTacToeAI {
                 && computerDiagonalTwo(field, "X") == -1) {
             x = computerDefenceDiagonalTwo(field);
             y = diagonalTwoSwitch(x);
-            checkField = checkEmptyField(field,x,y);
-            }
-         else {
+            checkField = checkEmptyField(field, x, y);
+        } else {
             while (checkField) {
                 x = (int) (Math.random() * 3);
                 y = (int) (Math.random() * 3);
-                checkField = checkEmptyField(field,x,y);
+                checkField = checkEmptyField(field, x, y);
             }
         }
         return new Move(x, y);
@@ -221,8 +227,5 @@ class TicTacToeAI {
     public static Move computer(String[][] field) {
         return findNextMoveCoordinates(field);
     }
-
-    /*======================================= конец секции ИИ ======================================================= */
-
 
 }
