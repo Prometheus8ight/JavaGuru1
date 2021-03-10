@@ -26,11 +26,10 @@ class TicTacToe {
             }
 
             printFieldToConsole(field);
-            if (isVictoryInOneMovePosition(field, 1)) { //есть выигрыш в 1 ход - делаем этот ход автоматически
+            if (isVictoryInOneMovePosition(field, 1, 0)) { //есть выигрыш в 1 ход - делаем этот ход автоматически
                 victoryInOneMove(field, 1);
-            /* не доработано - не проверять
-            } else if (isVictoryInOneMovePosition(field, 0)) { //опотенет может выиграть в 1 ход - автоматически делаем ход экстренной защиты
-                urgentDefenseInOneMove(field, 1, 0); */
+            } else if (isVictoryInOneMovePosition(field, 0, 1)) { //опотенет может выиграть в 1 ход - автоматически делаем ход экстренной защиты
+                urgentDefenseInOneMove(field, 1, 0);
             } else {
                 randomMoveAI(field, 1); // делаем рандомный ход
             }
@@ -55,18 +54,18 @@ class TicTacToe {
             }
         }
     }
-/* Метод не доработан - не проверять
+
     public void urgentDefenseInOneMove(int[][] field, int playerToCheck, int opponent) {
         while (true) {
             Move move3 = getNextRandomMove();
             if (field[move3.getX()][move3.getY()] == -1) {
                 field[move3.getX()][move3.getY()] = playerToCheck;
-                if (!isVictoryInOneMovePosition(field, opponent)){
+                if (!isVictoryInOneMovePosition(field, opponent, playerToCheck)) {
                     break;
                 }
             }
         }
-    }*/
+    }
 
     public void victoryInOneMove(int[][] field, int playerToCheck) {
         while (true) {
@@ -111,8 +110,8 @@ class TicTacToe {
 
     public Move getNextRandomMove() {
         Random random = new Random();
-        int x = random.nextInt(2); //заменили вместо ввода на использование рандомных значений для определения индекса элемента
-        int y = random.nextInt(2);
+        int x = random.nextInt(3); //заменили вместо ввода на использование рандомных значений для определения индекса элемента
+        int y = random.nextInt(3);
         Move move = new Move(x, y);
         return move;
     }
@@ -133,89 +132,63 @@ class TicTacToe {
         return false;
     }
 
-    public boolean isVictoryInOneMovePosition(int[][] field, int playerToCheck) {
-        boolean victoryInOneMoveForHorizontals = isVictoryInOneMoveForHorizontals(field, playerToCheck);
-        boolean victoryInOneMoveForVerticals = isVictoryInOneMoveForVerticals(field, playerToCheck);
-        boolean victoryInOneMoveForDiagonals = isVictoryInOneMoveForDiagonals(field, playerToCheck);
+    public boolean isVictoryInOneMovePosition(int[][] field, int playerToCheck, int opponent) {
+        boolean victoryInOneMoveForHorizontals = isVictoryInOneMoveForHorizontals(field, playerToCheck, opponent);
+        boolean victoryInOneMoveForVerticals = isVictoryInOneMoveForVerticals(field, playerToCheck, opponent);
+        boolean victoryInOneMoveForDiagonals = isVictoryInOneMoveForDiagonals(field, playerToCheck, opponent);
         return victoryInOneMoveForHorizontals || victoryInOneMoveForVerticals || victoryInOneMoveForDiagonals;
     }
 
-    public boolean isVictoryInOneMoveForHorizontals(int[][] field, int playerToCheck) {
-        return checkVictoryInOneMoveForHorizontals(field, playerToCheck);
+    public boolean isVictoryInOneMoveForHorizontals(int[][] field, int playerToCheck, int opponent) {
+        return checkVictoryInOneMoveForHorizontals(field, playerToCheck, opponent);
     }
 
-    public boolean isVictoryInOneMoveForVerticals(int[][] field, int playerToCheck) {
-        return checkVictoryInOneMoveForVerticals(field, playerToCheck);
+    public boolean isVictoryInOneMoveForVerticals(int[][] field, int playerToCheck, int opponent) {
+        return checkVictoryInOneMoveForVerticals(field, playerToCheck, opponent);
     }
 
-    public boolean isVictoryInOneMoveForDiagonals(int[][] field, int playerToCheck) {
-        return checkVictoryInOneMoveForDiagonals(field, playerToCheck);
+    public boolean isVictoryInOneMoveForDiagonals(int[][] field, int playerToCheck, int opponent) {
+        return checkVictoryInOneMoveForDiagonals(field, playerToCheck, opponent);
     }
 
-    public boolean checkVictoryInOneMoveForHorizontals(int[][] field, int playerToCheck) {
-        for (int[] ints : field) {
-            int count = 0;
-            for (int anInt : ints) {
-                if (anInt == playerToCheck) {
-                    count++;
-                }
-                if (count == (field.length - 1)) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-    public boolean checkVictoryInOneMoveForVerticals(int[][] field, int playerToCheck) {
+    public boolean checkVictoryInOneMoveForHorizontals(int[][] field, int playerToCheck, int opponent) {
         for (int i = 0; i < field.length; i++) {
-            int count = 0;
-            for (int j = 0; j < field[i].length; j++) {
-                if (field[j][i] == playerToCheck) {
-                    count++;
-                }
-                if (count == (field[i].length - 1)) {
-                    return true;
-                }
+            if (field[i][0] == playerToCheck && field[i][1] == playerToCheck && field[i][2] == opponent ||
+                    field[i][0] == playerToCheck && field[i][1] == opponent && field[i][2] == playerToCheck ||
+                    field[i][0] == opponent && field[i][1] == playerToCheck && field[i][2] == playerToCheck) {
+                return true;
             }
         }
         return false;
     }
 
-    public boolean checkVictoryInOneMoveForDiagonals(int[][] field, int playerToCheck) {
-        boolean check1 = checkVictoryInOneMoveFromLeftCorner(field, playerToCheck);
-        boolean check2 = checkVictoryInOneMoveFromRightCorner(field, playerToCheck);
+    public boolean checkVictoryInOneMoveForVerticals(int[][] field, int playerToCheck, int opponent) {
+        for (int i = 0; i < field.length; i++) {
+            if (field[0][i] == playerToCheck && field[1][i] == playerToCheck && field[2][i] == opponent ||
+                    field[0][i] == playerToCheck && field[1][i] == opponent && field[2][i] == playerToCheck ||
+                    field[0][i] == opponent && field[1][i] == playerToCheck && field[2][i] == playerToCheck) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean checkVictoryInOneMoveForDiagonals(int[][] field, int playerToCheck, int opponent) {
+        boolean check1 = checkVictoryInOneMoveFromLeftCorner(field, playerToCheck, opponent);
+        boolean check2 = checkVictoryInOneMoveFromRightCorner(field, playerToCheck, opponent);
         return check1 || check2;
     }
 
-    public boolean checkVictoryInOneMoveFromLeftCorner(int[][] field, int playerToCheck) { //для диагонали слевого верхнего угла, в правый нижний угол
-        int count = 0;
-        int j = 0;
-        for (int[] ints : field) {
-            if (ints[j] == playerToCheck) {
-                count++;
-            }
-            j++;
-            if (count == (field.length - 1)) {
-                return true;
-            }
-        }
-        return false;
+    public boolean checkVictoryInOneMoveFromLeftCorner(int[][] field, int playerToCheck, int opponent) { //для диагонали слевого верхнего угла, в правый нижний угол
+        return field[0][0] == playerToCheck && field[1][1] == playerToCheck && field[2][2] == opponent ||
+                field[0][0] == playerToCheck && field[1][1] == opponent && field[2][2] == playerToCheck ||
+                field[0][0] == opponent && field[1][1] == playerToCheck && field[2][2] == playerToCheck;
     }
 
-    public boolean checkVictoryInOneMoveFromRightCorner(int[][] field, int playerToCheck) { //для диагонали справого верхнего угла, в левый нижний угол
-        int count = 0;
-        int j = field.length - 1;
-        for (int[] ints : field) {
-            if (ints[j] == playerToCheck) {
-                count++;
-            }
-            j--;
-            if (count == (field.length - 1)) {
-                return true;
-            }
-        }
-        return false;
+    public boolean checkVictoryInOneMoveFromRightCorner(int[][] field, int playerToCheck, int opponent) { //для диагонали справого верхнего угла, в левый нижний угол
+        return field[0][2] == playerToCheck && field[1][1] == playerToCheck && field[2][0] == opponent ||
+                field[0][2] == playerToCheck && field[1][1] == opponent && field[2][0] == playerToCheck ||
+                field[0][2] == opponent && field[1][1] == playerToCheck && field[2][0] == playerToCheck;
     }
 
     public boolean isWin(int[][] field) {
