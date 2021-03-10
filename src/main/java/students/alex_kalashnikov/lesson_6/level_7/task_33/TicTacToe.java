@@ -52,13 +52,14 @@ class TicTacToe {
 
     /*======================================= начало секции ИИ ====================================================== */
 
-    public int computerHorizontal(String[][] field) {
+    // возвращает номер ряда, где два значения равны "X"
+    public int computerHorizontal(String[][] field, String playerToCheck) {
         int row = -1;
         for (int i = 0; i < field.length; i++) {
             int numberOfMoves = 0;
             int emptyField = 0;
             for (int j = 0; j < field.length; j++) {
-                if (field[i][j] == "X") {
+                if (field[i][j].equals(playerToCheck)) {
                     numberOfMoves++;
                 }
                 if (field[i][j] == ".") {
@@ -72,13 +73,14 @@ class TicTacToe {
         return row;
     }
 
-    public int computerVertical(String[][] field) {
+    // возвращает номер колонки, где два значения равны "X"
+    public int computerVertical(String[][] field, String playerToCheck) {
         int column = -1;
         for (int i = 0; i < field.length; i++) {
             int numberOfMoves = 0;
             int emptyField = 0;
             for (int j = 0; j < field.length; j++) {
-                if (field[j][i].equals("X")) {
+                if (field[j][i].equals(playerToCheck)) {
                     numberOfMoves++;
                 }
                 if (field[j][i] == ".") {
@@ -92,29 +94,40 @@ class TicTacToe {
         return column;
     }
 
-    public int computerDiagonalOne(String[][] field) {
+    // возвращает номер ряда и колонки в диагонали 1, где два значения равны "X"
+    public int computerDiagonalOne(String[][] field, String playerToCheck) {
+        boolean x = false;
         int rowAndColumn = -1;
         int numberOfMoves = 0;
         int emptyField = 0;
         for (int i = 0; i < field.length; i++) {
-            if (field[i][i].equals("X")) {
+            if (field[i][i].equals(playerToCheck)) {
                 numberOfMoves++;
             }
             if (field[i][i] == ".") {
                 emptyField++;
                 rowAndColumn = i;
             }
+            if (numberOfMoves == 2 && emptyField == 1) {
+                x = true;
+            }
         }
-        return rowAndColumn;
+        if (x) {
+            return rowAndColumn;
+        } else {
+            return -1;
+        }
     }
 
-    public int computerDiagonalTwo(String[][] field) {
+    // возвращает номер ряда в диагонали 2, где два значения равны "X"
+    public int computerDiagonalTwo(String[][] field, String playerToCheck) {
+        boolean x = false;
         int row = -1;
         int numberOfMoves = 0;
         int emptyField = 0;
         int i = 0;
         for (int j = 2; j > -1; j--) {
-            if (field[i][j].equals("X")) {
+            if (field[i][j].equals(playerToCheck)) {
                 numberOfMoves++;
             }
             if (field[i][j] == ".") {
@@ -122,17 +135,41 @@ class TicTacToe {
                 row = i;
             }
             i++;
+            if (numberOfMoves == 2 && emptyField == 1) {
+                x = true;
+            }
         }
-        return row;
+        if (x) {
+            return row;
+        } else {
+            return -1;
+        }
     }
+
+    public int computerDefenceHorizontal(String[][] field) {
+        return computerHorizontal(field, "0");
+    }
+
+    public int computerDefenceVertical(String[][] field) {
+        return computerVertical(field, "0");
+    }
+
+    public int computerDefenceDiagonalOne(String[][] field) {
+        return computerDiagonalOne(field, "0");
+    }
+
+    public int computerDefenceDiagonalTwo(String[][] field) {
+        return computerDiagonalTwo(field, "0");
+    }
+
 
     public Move computer(String[][] field) {
         boolean checkField = true;
         int x = 0;
         int y = 0;
 
-        if (computerHorizontal(field) > -1) {
-            x = computerHorizontal(field);
+        if (computerHorizontal(field, "X") > -1) {
+            x = computerHorizontal(field, "X");
             while (checkField) {
                 y = (int) (Math.random() * 3);
                 if (field[x][y].equals(".")) {
@@ -141,8 +178,8 @@ class TicTacToe {
             }
         }
 
-        if (computerVertical(field) > -1 && computerHorizontal(field) == -1) {
-            y = computerVertical(field);
+        if (computerVertical(field, "X") > -1 && computerHorizontal(field, "X") == -1) {
+            y = computerVertical(field, "X");
             while (checkField) {
                 x = (int) (Math.random() * 3);
                 if (field[x][y].equals(".")) {
@@ -151,14 +188,20 @@ class TicTacToe {
             }
         }
 
-        if (computerDiagonalOne(field) > -1 && computerHorizontal(field) == -1 && computerVertical(field) == -1) {
-            x = computerDiagonalOne(field);
-            y = computerDiagonalOne(field);
+        if (computerDiagonalOne(field, "X") > -1 && computerHorizontal(field, "X") == -1
+                && computerVertical(field, "X") == -1) {
+            x = computerDiagonalOne(field, "X");
+            y = computerDiagonalOne(field, "X");
+            if (field[x][y].equals(".")) {
+                checkField = false;
+            }
         }
 
-        if (computerDiagonalTwo(field) > -1 && computerHorizontal(field) == -1 && computerVertical(field) == -1 && computerDiagonalOne(field) == -1) {
-            x = computerDiagonalTwo(field);
-            switch (computerDiagonalTwo(field)) {
+        if (computerDiagonalTwo(field, "X") > -1 && computerHorizontal(field, "X") == -1
+                && computerVertical(field, "X") == -1
+                && computerDiagonalOne(field, "X") == -1) {
+            x = computerDiagonalTwo(field, "X");
+            switch (x) {
                 case 0:
                     y = 2;
                     break;
@@ -167,6 +210,68 @@ class TicTacToe {
                     break;
                 case 2:
                     y = 0;
+            }
+            if (field[x][y].equals(".")) {
+                checkField = false;
+            }
+        }
+
+        if (computerDefenceHorizontal(field) > -1 && computerHorizontal(field, "X") == -1
+                && computerVertical(field, "X") == -1 && computerDiagonalOne(field, "X") == -1
+                && computerDiagonalTwo(field, "X") == -1) {
+            x = computerDefenceHorizontal(field);
+            while (checkField) {
+                y = (int) (Math.random() * 3);
+                if (field[x][y].equals(".")) {
+                    checkField = false;
+                }
+            }
+        }
+
+        if (computerDefenceVertical(field) > -1 && computerDefenceHorizontal(field) == -1
+                && computerHorizontal(field, "X") == -1 && computerVertical(field, "X") == -1
+                && computerDiagonalOne(field, "X") == -1
+                && computerDiagonalTwo(field, "X") == -1) {
+            y = computerDefenceVertical(field);
+            while (checkField) {
+                x = (int) (Math.random() * 3);
+                if (field[x][y].equals(".")) {
+                    checkField = false;
+                }
+            }
+        }
+
+        if (computerDefenceDiagonalOne(field) > -1 && computerDefenceVertical(field) == -1
+                && computerDefenceHorizontal(field) == -1
+                && computerHorizontal(field, "X") == -1 && computerVertical(field, "X") == -1
+                && computerDiagonalOne(field, "X") == -1
+                && computerDiagonalTwo(field, "X") == -1) {
+            x = computerDefenceDiagonalOne(field);
+            y = computerDefenceDiagonalOne(field);
+            if (field[x][y].equals(".")) {
+                checkField = false;
+
+            }
+        }
+
+        if (computerDefenceDiagonalTwo(field) > -1 && computerDefenceDiagonalOne(field) == -1
+                && computerDefenceVertical(field) == -1 && computerDefenceHorizontal(field) == -1
+                && computerHorizontal(field, "X") == -1 && computerVertical(field, "X") == -1
+                && computerDiagonalOne(field, "X") == -1
+                && computerDiagonalTwo(field, "X") == -1) {
+            x = computerDefenceDiagonalTwo(field);
+            switch (computerDefenceDiagonalTwo(field)) {
+                case 0:
+                    y = 2;
+                    break;
+                case 1:
+                    y = 1;
+                    break;
+                case 2:
+                    y = 0;
+            }
+            if (field[x][y].equals(".")) {
+                checkField = false;
             }
         } else {
             while (checkField) {
@@ -227,7 +332,6 @@ class TicTacToe {
             }
         }
         return hit;
-
     }
 
     public boolean isWinPositionForDiagonals(String[][] field, String playerToCheck) {
