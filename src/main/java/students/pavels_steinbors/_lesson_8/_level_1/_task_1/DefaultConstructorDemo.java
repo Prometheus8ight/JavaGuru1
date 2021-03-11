@@ -4,7 +4,8 @@ class DefaultConstructorDemo {
 
     public static void main(String[] args) {
         DefaultConstructor human = new DefaultConstructor();
-        // Вызывается конструктор по умолчанию
+        // Создается дефолтный конструктор
         human.printInfo();
     }
+
 }
