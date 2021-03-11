@@ -51,10 +51,14 @@ class UserEntity {
     }
 
     void addUser(String[][] arr, String firstName, String surname, String idNumber) {
-        int clientNumber = generateClientNumber(arr);
-        arr[clientNumber][0] = setFirstName(firstName);
-        arr[clientNumber][1] = setSurname(surname);
-        arr[clientNumber][2] = setIdNumber(idNumber);
+        int userNumber = generateClientNumber(arr);
+        if (userNumber >= arr.length) {
+            System.out.println("No more room for users! Please increase Array's size");
+        } else {
+            arr[userNumber][0] = setFirstName(firstName);
+            arr[userNumber][1] = setSurname(surname);
+            arr[userNumber][2] = setIdNumber(idNumber);
+        }
     }
 
     String[][] findUserById(String[][] arr, String idNumber) {
@@ -142,7 +146,7 @@ class UserEntity {
     }
 
     void editUser(String[][] arr, String currentIdNumber, String newFirstName, String newSurname, String newIdNumber) {
-        int userNumber = findUserNumberUsingId(arr, idNumber);
+        int userNumber = findUserNumberUsingId(arr, currentIdNumber);
         arr[userNumber][0] = setFirstName(newFirstName);
         arr[userNumber][1] = setSurname(newSurname);
         arr[userNumber][2] = setIdNumber(newIdNumber);
