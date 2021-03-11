@@ -21,5 +21,4 @@ class DefaultConstructorV3 {
     public boolean getFemale() {
         return female;
     }
-
 }
