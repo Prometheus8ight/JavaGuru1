@@ -20,7 +20,7 @@ class TriangleTest {
 
     void testCalculateArea() {
         Triangle triangle1 = new Triangle("Triangle 1", 5.0);
-        double expectedResult = 12.5;
+        double expectedResult = 6.25 * Math.sqrt(3);
         double realResult = triangle1.calculateArea();
         test(expectedResult, realResult);
     }
