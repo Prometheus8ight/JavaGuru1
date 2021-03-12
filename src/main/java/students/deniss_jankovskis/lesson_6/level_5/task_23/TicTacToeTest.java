@@ -7,8 +7,10 @@ class TicTacToeTest {
         TicTacToeTest test = new TicTacToeTest();
         test.winVerticalsTest1(new int[][]{{0, -1, -1}, {0, -1, 1}, {0, 0, -1}}, 0);
         test.winVerticalsTest2(new int[][]{{1, 0, 1}, {1, 0, 1}, {-1, 0, -1}}, 0);
+        test.winVerticalsTest3(new int[][]{{1, 0, 1}, {1, 0, 1}, {1, 0, -1}}, 0);
         test.lostVerticalsTestTest1(new int[][]{{1, 0, 0}, {1, 0, 0}, {-1, 0, -1}}, 0);
         test.lostVerticalsTestTest2(new int[][]{{0, 1, -1}, {0, -1, 1}, {0, 1, -1}}, 0);
+        test.lostVerticalsTestTest2(new int[][]{{0, 0, -1}, {0, -1, 0}, {0, 1, -1}}, 0);
 
     }
 
@@ -24,6 +26,12 @@ class TicTacToeTest {
         checkTestResult(realResult, "Vertical Test Win 2");
     }
 
+    public void winVerticalsTest3(int[][] field, int playerToCheck) {
+        TicTacToe ticTacToe = new TicTacToe();
+        boolean realResult = ticTacToe.isWinPositionForVerticals(field, playerToCheck);
+        checkTestResult(realResult, "Vertical Test Win 3");
+    }
+
     public void lostVerticalsTestTest1(int[][] field, int playerToCheck) {
         TicTacToe ticTacToe = new TicTacToe();
         boolean realResult = ticTacToe.isWinPositionForVerticals(field, playerToCheck);
@@ -34,6 +42,12 @@ class TicTacToeTest {
         TicTacToe ticTacToe = new TicTacToe();
         boolean realResult = ticTacToe.isWinPositionForVerticals(field, playerToCheck);
         checkTestResult(realResult, "Vertical Test Lost 2");
+    }
+
+    public void lostVerticalsTestTest3(int[][] field, int playerToCheck) {
+        TicTacToe ticTacToe = new TicTacToe();
+        boolean realResult = ticTacToe.isWinPositionForVerticals(field, playerToCheck);
+        checkTestResult(realResult, "Vertical Test Lost 3");
     }
 
 

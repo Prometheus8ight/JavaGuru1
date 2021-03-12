@@ -37,9 +37,7 @@ class TicTacToe {
     }
 
     public boolean checkHorizontalPosition(int[][] field, int playerToCheck) {
-
         int count = 0;
-
         for (int i = 0; i < field.length; i++) {
             for (int j = 0; j < field[i].length; j++) {
                 if (field[i][j] == playerToCheck) {
@@ -55,15 +53,10 @@ class TicTacToe {
 
     public boolean checkVerticalPosition(int[][] field, int playerToCheck) {
 
-        for (int j = 0; j < field.length; j++) {
-            int count = 0;
-            for (int i = 0; i < field[j].length; i++) {
-                if (field[j][i] == playerToCheck) {
-                    count++;
-                }
-                if (count == field[j].length) {
-                    return true;
-                }
+        for (int j = 0; j < 3; j++) {
+            if (field[0][j] == playerToCheck && field[1][j] == playerToCheck
+                    && field[2][j] == playerToCheck) {
+                return true;
             }
         }
         return false;

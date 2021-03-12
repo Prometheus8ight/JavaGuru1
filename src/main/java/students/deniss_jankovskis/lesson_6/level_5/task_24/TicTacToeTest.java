@@ -5,11 +5,11 @@ class TicTacToeTest {
     public static void main(String[] args) {
 
         TicTacToeTest test = new TicTacToeTest();
-        test.leftDiagonalTest1(new int[][]{{0, 0, -1}, {0, -1, 0}, {-1, 1, 1}}, 1);
+        test.leftDiagonalTest1(new int[][]{{0, -1, 0}, {0, 0, 1}, {1, 0, 0}}, 0);
         test.leftDiagonalTest2(new int[][]{{0, 1, 1}, {1, 0, -1}, {1, 1, 0}}, 0);
         test.leftDiagonalTest3(new int[][]{{0, 1, 0}, {1, 0, 1}, {0, 1, 0}}, 0);
-        test.rightDiagonalTest1(new int[][]{{0, 0, -1}, {0, -1, 0}, {-1, 1, 1}}, 1);
-        test.rightDiagonalTest2(new int[][]{{1, 1, 1}, {1, 1, -1}, {1, 1, 0}}, 0);
+        test.rightDiagonalTest1(new int[][]{{0, 1, -1}, {0, 0, 1}, {-1, 1, 0}}, 0);
+        test.rightDiagonalTest2(new int[][]{{-1, -1, 0}, {0, 0, 1}, {0, 1, 0}}, 0);
         test.rightDiagonalTest3(new int[][]{{0, 1, -1}, {0, 0, 1}, {0, 1, 0}}, 0);
     }
 

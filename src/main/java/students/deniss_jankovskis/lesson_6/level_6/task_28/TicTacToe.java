@@ -11,10 +11,7 @@ class TicTacToe {
         int x = scanner.nextInt();
         System.out.println("Please enter Y for your move: ");
         int y = scanner.nextInt();
-
-        Move move = new Move(x, y);
-        return move;
+        return new Move(x, y);
     }
-
 
 }
