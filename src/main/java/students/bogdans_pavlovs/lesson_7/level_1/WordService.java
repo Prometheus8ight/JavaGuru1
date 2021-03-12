@@ -26,6 +26,7 @@ class WordService {
                     newMax++;
 
                     if (newMax > oldMax) {
+
                         oldMax = newMax;
                         word = i;
                     }

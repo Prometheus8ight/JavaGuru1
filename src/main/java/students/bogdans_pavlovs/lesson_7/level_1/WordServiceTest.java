@@ -1,7 +1,5 @@
 package students.bogdans_pavlovs.lesson_7.level_1;
 
-import java.util.Arrays;
-
 class WordServiceTest {
 
     public static void main(String[] args) {
@@ -15,8 +13,10 @@ class WordServiceTest {
     public void wordServiceTest(){
 
         WordService wordService = new WordService();
+
         String expectedResult = "Your word is: [ now ]";
         String realResult = wordService.findMostFrequentWord("NoW nOw Now??! Who wHo whO do wE HavE HeRe#$?");
+
         check(realResult, expectedResult, "Word Service Test");
 
     }
