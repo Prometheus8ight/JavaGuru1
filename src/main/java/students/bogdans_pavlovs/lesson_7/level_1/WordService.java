@@ -2,33 +2,26 @@ package students.bogdans_pavlovs.lesson_7.level_1;
 
 class WordService {
 
-    public String formatText(String text) {
+    private String[] splitAndFormat(String text){
 
-        String formattedText = text.replaceAll("\\p{Punct}","");
-        formattedText = formattedText.toLowerCase();
-
-        return formattedText;
+        return text.replaceAll("\\p{Punct}","").toLowerCase().split(" ");
 
     }
 
-    public String[] splitText(String newText){
+    public String findMostFrequentWord(String text) {
 
-        return newText.split(" ");
-
-    }
-
-    public String findMostFrequentWord(String[] text) {
+        String[] finalText = splitAndFormat(text);
 
         int oldMax = 0; // rip max
         int word = 0;
 
-        for (int i = 0; i < text.length; i++) {
+        for (int i = 0; i < finalText.length; i++) {
 
             int newMax = 0;
 
-            for (int j = 0; j < text.length; j++) {
+            for (int j = 0; j < finalText.length; j++) {
 
-                if (text[i].equals(text[j])) {
+                if (finalText[i].equals(finalText[j])) {
 
                     newMax++;
 
@@ -40,7 +33,7 @@ class WordService {
             }
         }
 
-        return "Your word is: [ " + text[word] + " ]";
+        return "Your word is: [ " + finalText[word] + " ]";
 
     }
 }
