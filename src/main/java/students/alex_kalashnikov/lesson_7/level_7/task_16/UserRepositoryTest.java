@@ -2,11 +2,11 @@ package students.alex_kalashnikov.lesson_7.level_7.task_16;
 
 import java.util.Arrays;
 
-class UserEntityTest {
+class UserRepositoryTest {
 
     public static void main(String[] args) {
 
-        UserEntityTest newObject = new UserEntityTest();
+        UserRepositoryTest newObject = new UserRepositoryTest();
         newObject.testAddUser();
         newObject.testFindUserById();
         newObject.testFindUsersByFirstName();
@@ -20,7 +20,7 @@ class UserEntityTest {
     }
 
     public String[][] createArr() {
-        UserEntity newObject = new UserEntity();
+        UserRepository newObject = new UserRepository();
         String[][] arr = newObject.createArray(10, 3);
         newObject.addUser(arr, "Vasily", "Pupkin", "1234");
         newObject.addUser(arr, "Janis", "Berzins", "5678");
@@ -41,7 +41,7 @@ class UserEntityTest {
     }
 
     public void testAddUser() {
-        UserEntity newObject = new UserEntity();
+        UserRepository newObject = new UserRepository();
         String[][] arr = createArr();
         String[][] expectedArr = {{"Vasily", "Pupkin", "1234"}, {"Janis", "Berzins", "5678"},
                 {"Janis", "Ozolins", "8765"}, {"John", "Smith", "0101"}, {"Juan", "Pedro", "0123"},
@@ -52,7 +52,7 @@ class UserEntityTest {
     }
 
     public void testFindUserById() {
-        UserEntity newObject = new UserEntity();
+        UserRepository newObject = new UserRepository();
         String[][] arr = createArr();
         String[][] expectedArr = {{"John", "Smith", "0101"}};
         String[][] realArr = newObject.findUserById(arr, "0101");
@@ -60,7 +60,7 @@ class UserEntityTest {
     }
 
     public void testFindUsersByFirstName() {
-        UserEntity newObject = new UserEntity();
+        UserRepository newObject = new UserRepository();
         String[][] arr = createArr();
         String[][] expectedArr = {{"John", "Smith", "0101"}, {"John", "Pupkin", "0987"}};
         String[][] realArr = newObject.findUserByFirstName(arr, "John");
@@ -68,7 +68,7 @@ class UserEntityTest {
     }
 
     public void testFindUsersBySurname() {
-        UserEntity newObject = new UserEntity();
+        UserRepository newObject = new UserRepository();
         String[][] arr = createArr();
         String[][] expectedArr = {{"Vasily", "Pupkin", "1234"}, {"John", "Pupkin", "0987"}};
         String[][] realArr = newObject.findUserBySurname(arr, "Pupkin");
@@ -76,7 +76,7 @@ class UserEntityTest {
     }
 
     public void testFindAllUsers() {
-        UserEntity newObject = new UserEntity();
+        UserRepository newObject = new UserRepository();
         String[][] arr = createArr();
         String[][] expectedArr = {{"Vasily", "Pupkin", "1234"}, {"Janis", "Berzins", "5678"},
                 {"Janis", "Ozolins", "8765"}, {"John", "Smith", "0101"}, {"Juan", "Pedro", "0123"},
@@ -86,7 +86,7 @@ class UserEntityTest {
     }
 
     public void testEditUser() {
-        UserEntity newObject = new UserEntity();
+        UserRepository newObject = new UserRepository();
         String[][] arr = createArr();
         String[][] expectedArr = {{"Vasily", "Pupkin", "1234"}, {"Janis", "Berzins", "5678"},
                 {"Janis", "Ozolins", "8765"}, {"Ivan", "Ivanov", "1111"}, {"Juan", "Pedro", "0123"},
@@ -97,7 +97,7 @@ class UserEntityTest {
     }
 
     public void testDeleteUser() {
-        UserEntity newObject = new UserEntity();
+        UserRepository newObject = new UserRepository();
         String[][] arr = createArr();
         String[][] expectedArr = {{"Vasily", "Pupkin", "1234"}, {"Janis", "Berzins", "5678"}, {"John", "Smith", "0101"}, {"Juan", "Pedro", "0123"},
                 {"John", "Pupkin", "0987"}, {"Kim", "Chen In", "5376"}};
@@ -107,7 +107,7 @@ class UserEntityTest {
     }
 
     public void testMultipleTasks() {
-        UserEntity newObject = new UserEntity();
+        UserRepository newObject = new UserRepository();
         String[][] arr = createArr();
         String[][] expectedArr = {{"Vasily", "Pupkin", "1234"}, {"Janis", "Berzins", "5678"},
                 {"John", "Smith", "0101"}, {"Juan", "Sanchez", "0123"},
@@ -121,7 +121,7 @@ class UserEntityTest {
     }
 
     public void testAddInfiniteUsers() {
-        UserEntity newObject = new UserEntity();
+        UserRepository newObject = new UserRepository();
         String[][] arr = createArr();
         String[][] expectedArr = {{"Vasily", "Pupkin", "1234"}, {"Janis", "Berzins", "5678"},
                 {"Janis", "Ozolins", "8765"}, {"John", "Smith", "0101"}, {"Juan", "Pedro", "0123"},
