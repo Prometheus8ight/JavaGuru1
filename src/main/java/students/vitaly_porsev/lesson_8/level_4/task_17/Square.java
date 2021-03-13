@@ -2,24 +2,27 @@ package students.vitaly_porsev.lesson_8.level_4.task_17;
 
 class Square extends Shape {
 
-    private double side;
+    private double sideA, sideB, SideC, SideD;
 
-    public Square(String title, double side) {
+    public Square(String title, double sideA) {
         super(title);
-        this.side = side;
+        this.sideA = sideA;
+        this.sideB = sideA;
+        this.SideC = sideA;
+        this.SideD = sideA;
     }
 
     @Override
     double calculateArea() {
-        return Math.pow(getSide(), 2);
+        return Math.pow(getSideA(), 2);
     }
 
     @Override
     double calculatePerimeter() {
-        return getSide() * 4;
+        return getSideA() * 4;
     }
 
-    public double getSide() {
-        return side;
+    public double getSideA() {
+        return sideA;
     }
 }

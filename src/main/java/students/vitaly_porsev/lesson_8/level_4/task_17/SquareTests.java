@@ -19,7 +19,6 @@ public class SquareTests {
         double expectedResult = 20.0;
         Square square = new Square("Square", 5);
         checkMethods(expectedResult, square.calculatePerimeter(), "checkSquarePerimeter");
-        System.out.println(square.calculatePerimeter());
     }
 
     void checkMethods(double expectedResult, double realResult, String testName){
