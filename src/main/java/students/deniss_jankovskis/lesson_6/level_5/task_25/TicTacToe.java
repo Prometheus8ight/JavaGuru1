@@ -3,10 +3,10 @@ package students.deniss_jankovskis.lesson_6.level_5.task_25;
 class TicTacToe {
 
     public boolean isWinPosition(int[][] field, int playerToCheck) {
-        TicTacToe ticTacToe = new TicTacToe();
-        boolean isWinHorizontal = ticTacToe.isWinPositionHorizontals(field, playerToCheck);
-        boolean isWinVertical = ticTacToe.isWinPositionVerticals(field, playerToCheck);
-        boolean isWinDiagonal = ticTacToe.isWinPositionDiagonals(field, playerToCheck);
+
+        boolean isWinHorizontal = isWinPositionForHorizontals(field, playerToCheck);
+        boolean isWinVertical = isWinPositionForVerticals(field, playerToCheck);
+        boolean isWinDiagonal = isWinPositionForDiagonals(field, playerToCheck);
         return isWinHorizontal || isWinVertical || isWinDiagonal;
     }
 
@@ -49,15 +49,15 @@ class TicTacToe {
     }
 
 
-    public boolean isWinPositionHorizontals(int[][] field, int playerToCheck) {
+    public boolean isWinPositionForHorizontals(int[][] field, int playerToCheck) {
         return checkWinHorizontalPosition(field, playerToCheck);
     }
 
-    public boolean isWinPositionVerticals(int[][] field, int playerToCheck) {
+    public boolean isWinPositionForVerticals(int[][] field, int playerToCheck) {
         return checkWinVerticalPosition(field, playerToCheck);
     }
 
-    public boolean isWinPositionDiagonals(int[][] field, int playerToCheck) {
+    public boolean isWinPositionForDiagonals(int[][] field, int playerToCheck) {
         return checkWinDiagonalPosition(field, playerToCheck);
     }
 
