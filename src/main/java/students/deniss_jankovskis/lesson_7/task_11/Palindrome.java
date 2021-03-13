@@ -22,7 +22,7 @@ class Palindrome {
         return newArr;
     }
 
-    public String[] reverseArr(String text) {
+    private String[] reverseArr(String text) {
 
         String[] arr = stringArray(text);
         String[] reverseArray = new String[0];
@@ -35,7 +35,7 @@ class Palindrome {
         return reverseArray;
     }
 
-    public String[] stringArray(String text) {
+    private String[] stringArray(String text) {
 
         return text.toLowerCase(Locale.ROOT).split("");
     }
