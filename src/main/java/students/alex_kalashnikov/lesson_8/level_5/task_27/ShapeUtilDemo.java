@@ -29,8 +29,8 @@ class ShapeUtilDemo {
         Shape triangle = shapeUtil.createRandomTriangle();
         double triangleArea = shapeUtil.calculateArea(triangle);
         double trianglePerimeter = shapeUtil.calculatePerimeter(triangle);
-        System.out.println("Triangle Area: " + rectangleArea);
-        System.out.println("Triangle Perimeter: " + rectanglePerimeter);
+        System.out.println("Triangle Area: " + triangleArea);
+        System.out.println("Triangle Perimeter: " + trianglePerimeter);
 
     }
 
