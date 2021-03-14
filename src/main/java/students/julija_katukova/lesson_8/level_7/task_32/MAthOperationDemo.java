@@ -19,7 +19,6 @@ class MAthOperationDemo {
 		MathOperation addition1 = new Addition(addition, subtraction);
 		System.out.println("Final Addition result = " + addition1.calculate());
 
-
 		// build and calculate: 2 * 5
 		Argument arg5 = new Argument(2);
 		Argument arg6 = new Argument(5);
@@ -40,15 +39,6 @@ class MAthOperationDemo {
 		MathOperation subtraction1 = new Subtraction(arg9, arg10);
 		MathOperation division1 = new Division(arg11, arg12);
 		MathOperation multiplication1 = new Multiplication(subtraction1, division1);
-		double realResult = multiplication1.calculate();
-		double expectedResult = 20.0;
 		System.out.println("Final Multiplication result = " + multiplication1.calculate());
-
-		if (realResult == expectedResult) {
-			System.out.println("Final Multiplication = OK");
-		} else {
-			System.out.println("Final Multiplication = FAIL");
-		}
 	}
-
 }
