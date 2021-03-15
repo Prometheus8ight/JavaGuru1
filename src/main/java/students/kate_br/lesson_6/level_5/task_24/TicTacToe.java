@@ -10,12 +10,7 @@ class TicTacToe {
 
     public boolean checkCornerDiagonals(int[][] field, int playerToCheck) {
 
-        if (field[0][0] == field[1][1] && field[1][1] == field[2][2]) {
-            return true;
-        } else if (field[2][0] == field[1][1] && field[1][1] == field[0][2]) {
-            return true;
-        }
-        return false;
+        return (field[0][0] == field[1][1] && field[1][1] == field[2][2]) || (field[2][0] == field[1][1] && field[1][1] == field[0][2]);
     }
 
 }
