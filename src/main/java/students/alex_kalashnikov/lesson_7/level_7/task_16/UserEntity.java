@@ -2,26 +2,42 @@ package students.alex_kalashnikov.lesson_7.level_7.task_16;
 
 class UserEntity {
 
-    private String idNumber;
+    private int idNumber;
     private String firstName;
     private String surname;
 
-    public static String setFirstName(String firstName) {
-        return firstName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public static String setSurname(String surname) {
-        return surname;
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
-    public static String setIdNumber(String idNumber) {
+    public int getIdNumber() {
         return idNumber;
     }
 
-    public UserEntity(String idNumber, String firstName, String surname) {
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public UserEntity(int idNumber, String firstName, String surname) {
         this.idNumber = idNumber;
         this.firstName = firstName;
         this.surname = surname;
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "ID number='" + idNumber + '\'' +
+                ", First Name='" + firstName + '\'' +
+                ", Surname='" + surname + '\'' +
+                '}';
+    }
 }
