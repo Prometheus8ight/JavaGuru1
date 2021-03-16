@@ -5,6 +5,7 @@ class UserEntity {
     private int idNumber;
     private String firstName;
     private String surname;
+    static int count = 1;
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
@@ -26,10 +27,11 @@ class UserEntity {
         return surname;
     }
 
-    public UserEntity(int idNumber, String firstName, String surname) {
-        this.idNumber = idNumber;
+    public UserEntity(String firstName, String surname) {
+        this.idNumber = count;
         this.firstName = firstName;
         this.surname = surname;
+        count++;
     }
 
     @Override

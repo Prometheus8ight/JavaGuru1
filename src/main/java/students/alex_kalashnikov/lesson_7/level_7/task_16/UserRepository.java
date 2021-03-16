@@ -2,10 +2,15 @@ package students.alex_kalashnikov.lesson_7.level_7.task_16;
 
 class UserRepository {
 
-    private UserEntity[] array = new UserEntity[10];
+    private int length = 10;
+    private UserEntity[] array = new UserEntity[length];
 
     void save(UserEntity entity) {
-        array[entity.getIdNumber() - 1] = entity;
+        if (entity.getIdNumber() - 1 < length) {
+            array[entity.getIdNumber() - 1] = entity;
+        } else {
+            System.out.println("Not enough space in repository!");
+        }
     }
 
     UserEntity findById(int idNumber) {
@@ -19,7 +24,11 @@ class UserRepository {
                 break;
             }
         }
-        return array[index];
+        if (index > -1) {
+            return array[index];
+        } else {
+            return null;
+        }
     }
 
     UserEntity[] findByFirstName(String firstName) {
@@ -43,7 +52,11 @@ class UserRepository {
                 j++;
             }
         }
-        return firstNameArr;
+        if (count == 0) {
+            return null;
+        } else {
+            return firstNameArr;
+        }
     }
 
     UserEntity[] findBySurname(String surname) {
@@ -67,7 +80,11 @@ class UserRepository {
                 j++;
             }
         }
-        return surnameArr;
+        if (count == 0) {
+            return null;
+        } else {
+            return surnameArr;
+        }
     }
 
     void delete(int idNumber) {
