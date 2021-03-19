@@ -53,22 +53,6 @@ class Book {
         return author;
     }
 
-    public boolean isBorrowed() {
-        return isBorrowed;
-    }
-
-    public boolean isReserved() {
-        return isReserved;
-    }
-
-    public User getUserId() {
-        return userId;
-    }
-
-    public Date getDueToDate() {
-        return dueToDate;
-    }
-
     @Override
     public String toString() {
         return "Book{" +
@@ -82,17 +66,18 @@ class Book {
                 '}';
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Book book = (Book) o;
-        return isBorrowed == book.isBorrowed && isReserved == book.isReserved && Objects.equals(id, book.id) && Objects.equals(title, book.title) && Objects.equals(author, book.author) && Objects.equals(userId, book.userId) && Objects.equals(dueToDate, book.dueToDate);
+        return Objects.equals(id, book.id) && Objects.equals(title, book.title) && Objects.equals(author, book.author);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, author, isBorrowed, isReserved, userId, dueToDate);
+        return Objects.hash(id, title, author);
     }
 }
 

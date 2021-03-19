@@ -8,12 +8,22 @@ class User {
     private String name;
     private String surname;
     private String email;
+    private int penalty;
 
-    public User(String userId, String name, String surname, String email) {
+    public User(String userId, String name, String surname, String email, int penalty) {
         this.userId = userId;
         this.name = name;
         this.surname = surname;
         this.email = email;
+        this.penalty = penalty;
+    }
+
+    public void setPenalty(int penalty) {
+        this.penalty = penalty;
+    }
+
+    public int getPenalty() {
+        return penalty;
     }
 
     public String getId() {
