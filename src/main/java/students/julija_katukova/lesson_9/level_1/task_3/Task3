@@ -1,0 +1,7 @@
+We cannot make private class.
+As soon as we try to use private or protected keyword while declaring an outer class compiler gives a compilation error saying
+“Illegal modifier for the class your_class_name; only public, abstract & final are permitted”.
+Access modifier "private" makes anything (field, class, method) accessible inside the entity (class or package) in which it is defined.
+Defining private access to the class will make it accessible inside the same package which "default" keyword already do for us.
+Therefore there is no benefit of defining a class private it will only make things ambiguous.
+
