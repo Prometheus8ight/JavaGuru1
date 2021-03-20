@@ -17,18 +17,28 @@ class LibraryBooksDemo {
         BooksRepository.getBook(3, "John Johnson", "john_j31@gmail.com");
 
         System.out.println("Show all books: \n" + Arrays.toString(BooksRepository.findAll()));
-        System.out.println("Show all users: \n" + Arrays.toString(UserRepository.findAllUsers()));
+        System.out.println("Show all users: \n" + Arrays.toString(UsersRepository.findAllUsers()));
 
         BooksRepository.reserveBook(2, "Janis Ozolins", "janis1234@yahoo.com");
         BooksRepository.returnBook(3);
 
         System.out.println("Show all books: \n" + Arrays.toString(BooksRepository.findAll()));
-        System.out.println("Show all users: \n" + Arrays.toString(UserRepository.findAllUsers()));
+        System.out.println("Show all users: \n" + Arrays.toString(UsersRepository.findAllUsers()));
 
         BooksRepository.cancelReservation(2);
 
         System.out.println("Show all books: \n" + Arrays.toString(BooksRepository.findAll()));
-        System.out.println("Show all users: \n" + Arrays.toString(UserRepository.findAllUsers()));
+        System.out.println("Show all users: \n" + Arrays.toString(UsersRepository.findAllUsers()));
+
+        BooksRepository.reserveBook(3, "Janis Berzins", "jb9876@gmail.com");
+
+        System.out.println("Show all books: \n" + Arrays.toString(BooksRepository.findAll()));
+        System.out.println("Show all users: \n" + Arrays.toString(UsersRepository.findAllUsers()));
+
+        BooksRepository.getBook(3, "Janis Berzins", "jb9876@gmail.com");
+
+        System.out.println("Show all books: \n" + Arrays.toString(BooksRepository.findAll()));
+        System.out.println("Show all users: \n" + Arrays.toString(UsersRepository.findAllUsers()));
 
     }
 

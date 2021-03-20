@@ -2,7 +2,7 @@ package students.alex_kalashnikov.lesson_8.level_7.task_31;
 
 import java.time.LocalDate;
 
-class UserLibrary {
+class LibraryUsers {
 
     private String userId;
     private String userName;
@@ -57,7 +57,7 @@ class UserLibrary {
         return count;
     }
 
-    public UserLibrary(String userName, String userAddress) {
+    public LibraryUsers(String userName, String userAddress) {
         this.userId = "User" + count;
         this.userName = userName;
         this.userAddress = userAddress;

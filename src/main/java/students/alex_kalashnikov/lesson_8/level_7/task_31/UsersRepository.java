@@ -2,21 +2,21 @@ package students.alex_kalashnikov.lesson_8.level_7.task_31;
 
 import java.time.LocalDate;
 
-class UserRepository {
+class UsersRepository {
 
     static private final int length = 10; // размер массива
-    static private final UserLibrary[] userArray = new UserLibrary[length]; // массив пользователей, которые взяли или зарезервировали книги в библиотеке
+    static private final LibraryUsers[] userArray = new LibraryUsers[length]; // массив пользователей, которые взяли или зарезервировали книги в библиотеке
 
     // добавляет пользователя взявшего книгу или сделавшего резервацию в массив
-    static void addUser(UserLibrary user) {
-        if (UserLibrary.getCount() - 1 < length) {
-            userArray[UserLibrary.getCount() - 1] = user;
+    static void addUser(LibraryUsers user) {
+        if (LibraryUsers.getCount() - 1 < length) {
+            userArray[LibraryUsers.getCount() - 1] = user;
         } else {
             System.out.println("Not enough space in user repository!");
         }
     }
 
-    // добавляет пользователя взявшего книгу или сделавшего резервацию в массив
+    // удаляет пользователя из массива
     static void deleteUser(int userIndex) {
         if (userIndex >= 0 && userIndex <= userArray.length) {
             userArray[userIndex] = null;
@@ -25,7 +25,7 @@ class UserRepository {
         }
     }
 
-    // возвращает значение индекса пользователя в массиве по ID
+    // возвращает значение индекса пользователя в массиве по номеру ID
     static int findUserById(String userId) {
         int index = -1;
         for (int i = 0; i < userArray.length; i++) {
@@ -40,8 +40,32 @@ class UserRepository {
         return index;
     }
 
-    // возвращает массив из всех пользователей
-    static UserLibrary[] findAllUsers() {
+    // возвращает значение индекса пользователя в массиве по номеру зарезервированной книги
+    static int findUserByBookId(int bookId) {
+        int index = -1;
+        for (int i = 0; i < userArray.length; i++) {
+            if (userArray[i] == null) {
+                continue;
+            }
+            if (userArray[i].getHasReservationBookId() == (bookId)) {
+                index = i;
+                break;
+            }
+        }
+        return index;
+    }
+
+
+
+
+
+    /*
+    возвращает массив из всех пользователей
+    (то есть в массиве будут все пользователи,
+    у которых на момент использования метода
+    есть книжки или сделана резервация.
+     */
+    static LibraryUsers[] findAllUsers() {
         int count = 0;
         for (int i = 0; i < userArray.length; i++) {
             if (userArray[i] == null) {
@@ -50,7 +74,7 @@ class UserRepository {
                 count++;
             }
         }
-        UserLibrary[] allUsersArr = new UserLibrary[count];
+        LibraryUsers[] allUsersArr = new LibraryUsers[count];
         int j = 0;
         for (int i = 0; i < userArray.length; i++) {
             if (userArray[i] == null) {
@@ -63,10 +87,10 @@ class UserRepository {
         return allUsersArr;
     }
 
-/* метод для ежедневного обновления данных по пользователям
-// (удаление просроченных резерваций, отправление напоминаний,
- выписывание штрафов в зависимости от срока просрочки)
- */
+    /* метод для ежедневного обновления данных по пользователям
+     (удаление просроченных резерваций, отправление напоминаний,
+     выписывание штрафов в зависимости от срока просрочки)
+     */
     static void manageUsersArray() {
         for (int i = 0; i < userArray.length; i++) {
             if (LocalDate.now().isAfter(userArray[i].getDateOfHanding().plusDays(2)) // если пользователь не забирает зарезервированную книгу, то резервация аннулируется (пользователь удаляется из массива)

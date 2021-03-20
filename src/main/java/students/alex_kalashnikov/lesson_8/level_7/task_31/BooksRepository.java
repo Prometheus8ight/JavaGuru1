@@ -84,58 +84,60 @@ class BooksRepository {
     //получение книги. При получении книги пользователь автоматически вносится в массив пользователей.
     static void getBook(int bookId, String userName, String userAddress) {
         LibraryBooks book = findById(bookId);
-        UserLibrary user = new UserLibrary(userName, userAddress);
+        LibraryUsers user = new LibraryUsers(userName, userAddress);
         if (!book.isNotAvailable() && book.isReservedForUser().equals("")) {
             book.setNotAvailable(true);
             book.setDateOfHanding(LocalDate.now());
             book.setUserId(user.getUserId());
             user.setHasBookId(bookId);
             user.setDateOfHanding(LocalDate.now());
-            UserRepository.addUser(user);
+            UsersRepository.addUser(user);
 
-        } else if (!book.isNotAvailable() && book.isReservedForUser().equals(user.getUserId())) {
+        } else if (!book.isNotAvailable() && !book.isReservedForUser().equals("")) {
             book.setNotAvailable(true);
             book.setDateOfHanding(LocalDate.now());
             book.setUserId(user.getUserId());
             book.setIsReservedForUser("");
             user.setHasBookId(bookId);
             user.setDateOfHanding(LocalDate.now());
-            user.setHasReservationBookId(0);
-            UserRepository.addUser(user);
+            UsersRepository.addUser(user);
+            UsersRepository.deleteUser(UsersRepository.findUserByBookId(bookId));
         } else {
             System.out.println("Book will be available at " + book.getDateOfHanding().plusDays(10));
         }
     }
 
-    // возврат книги
+    // возврат книги. При возвращении книги пользователь удаляется из массива пользователей
     static void returnBook(int bookId) {
         LibraryBooks book = findById(bookId);
-        int userIndex = UserRepository.findUserById(book.getUserId());
+        int userIndex = UsersRepository.findUserById(book.getUserId());
         if (book == null) {
             System.out.println("Wrong ID. Please check!");
-        } else if (!book.isReservedForUser().equals("")) {
-            book.setNotAvailable(false);
-            book.setDateOfHanding(null);
-            book.setUserId("");
-            UserRepository.deleteUser(userIndex);
         } else {
             book.setNotAvailable(false);
             book.setDateOfHanding(null);
             book.setUserId("");
-            UserRepository.deleteUser(userIndex);
+            UsersRepository.deleteUser(userIndex);
         }
     }
 
     // резервация на дату, когда книга будет доступна
     static void reserveBook(int bookId, String userName, String userAddress) {
         LibraryBooks book = findById(bookId);
-        UserLibrary user = new UserLibrary(userName, userAddress);
-        if (book.isReservedForUser().equals("")) {
+        LibraryUsers user = new LibraryUsers(userName, userAddress);
+        if (book.isReservedForUser().equals("") && book.isNotAvailable()) {
             book.setIsReservedForUser(user.getUserId());
             user.setHasReservationBookId(bookId);
-            user.setDateOfHanding(book.getDateOfHanding().plusDays(10));
-            UserRepository.addUser(user);
-        } else {
+            user.setDateOfHanding(book.getDateOfHanding().plusDays(10)); // 10 дней - срок на который можно взять книгу из библиотеки
+            UsersRepository.addUser(user);
+        }
+        else if (book.isReservedForUser().equals("") && !book.isNotAvailable()) {
+            book.setIsReservedForUser(user.getUserId());
+            user.setHasReservationBookId(bookId);
+            user.setDateOfHanding(LocalDate.now()); // 10 дней - срок на который можно взять книгу из библиотеки
+            UsersRepository.addUser(user);
+        }
+        else {
             System.out.println("Book is already reserved!");
         }
     }
@@ -143,12 +145,13 @@ class BooksRepository {
     // отменяет ранее сделанную резервацию
     static void cancelReservation(int bookId) {
         LibraryBooks book = findById(bookId);
-        int userIndex = UserRepository.findUserById(book.getUserId());
+//        LibraryUsers user = UsersRepository.findUserByBookId(bookId)
+        int userIndex = UsersRepository.findUserByBookId(bookId);
         if (book == null || book.isReservedForUser().equals("")) {
             System.out.println("Wrong ID. Please check!");
         } else {
             book.setIsReservedForUser("");
-            UserRepository.deleteUser(userIndex);
+            UsersRepository.deleteUser(userIndex);
         }
     }
 
