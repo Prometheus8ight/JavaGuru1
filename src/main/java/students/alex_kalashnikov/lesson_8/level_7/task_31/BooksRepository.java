@@ -4,8 +4,8 @@ import java.time.LocalDate;
 
 class BooksRepository {
 
-    static private final int length = 10;
-    static private LibraryBooks[] array = new LibraryBooks[length];
+    static private final int length = 10; // размер массива
+    static private LibraryBooks[] array = new LibraryBooks[length]; // массив книг в библиотеке
 
     // добавляет новую книгу в массив
     static void addBook(LibraryBooks book) {
@@ -144,7 +144,7 @@ class BooksRepository {
     static void cancelReservation(int bookId) {
         LibraryBooks book = findById(bookId);
         int userIndex = UserRepository.findUserById(book.getUserId());
-        if (book == null || book.isReservedForUser() == "") {
+        if (book == null || book.isReservedForUser().equals("")) {
             System.out.println("Wrong ID. Please check!");
         } else {
             book.setIsReservedForUser("");

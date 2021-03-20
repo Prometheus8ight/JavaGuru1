@@ -25,14 +25,14 @@ class UserRepository {
         }
     }
 
-    // возвращает значение индекса в массиве по ID
+    // возвращает значение индекса пользователя в массиве по ID
     static int findUserById(String userId) {
         int index = -1;
         for (int i = 0; i < userArray.length; i++) {
             if (userArray[i] == null) {
                 continue;
             }
-            if (userArray[i].getUserId() == userId) {
+            if (userArray[i].getUserId().equals(userId)) {
                 index = i;
                 break;
             }
