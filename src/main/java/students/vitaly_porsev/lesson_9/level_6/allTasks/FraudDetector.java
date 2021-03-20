@@ -2,7 +2,7 @@ package students.vitaly_porsev.lesson_9.level_6.allTasks;
 
 class FraudDetector {
 
-    FraudRule[] fraudRules;
+    private FraudRule[] fraudRules;
 
     public FraudDetector(FraudRule[] fraudRules) {
         this.fraudRules = fraudRules;
