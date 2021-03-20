@@ -1,15 +1,14 @@
 package students.alex_kalashnikov.lesson_8.level_7.task_31;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 class BooksRepository {
 
-    private final int length = 10;
-    private LibraryBooks[] array = new LibraryBooks[length];
+    static private final int length = 10;
+    static private LibraryBooks[] array = new LibraryBooks[length];
 
     // добавляет новую книгу в массив
-    void addBook(LibraryBooks book) {
+    static void addBook(LibraryBooks book) {
         if (book.getBookId() - 1 < length) {
             array[book.getBookId() - 1] = book;
         } else {
@@ -18,7 +17,7 @@ class BooksRepository {
     }
 
     // возвращает значение книги в массиве по ID
-    LibraryBooks findById(int bookId) {
+    static LibraryBooks findById(int bookId) {
         int index = -1;
         for (int i = 0; i < array.length; i++) {
             if (array[i] == null) {
@@ -37,7 +36,7 @@ class BooksRepository {
     }
 
     // возвращает массив из всех книг
-    LibraryBooks[] findAll() {
+    static LibraryBooks[] findAll() {
         int count = 0;
         for (int i = 0; i < array.length; i++) {
             if (array[i] == null) {
@@ -60,7 +59,7 @@ class BooksRepository {
     }
 
     // возвращает массив из всех доступных книг
-    LibraryBooks[] findAvailable() {
+    static LibraryBooks[] findAvailable() {
         int count = 0;
         for (int i = 0; i < array.length; i++) {
             if (array[i] == null || array[i].isNotAvailable() || array[i].isReservedForUser().equals("")) {
@@ -82,66 +81,75 @@ class BooksRepository {
         return availableBooksArr;
     }
 
-    //сдача книги
-    void getBook(int bookId, String userId) {
+    //получение книги. При получении книги пользователь автоматически вносится в массив пользователей.
+    static void getBook(int bookId, String userName, String userAddress) {
         LibraryBooks book = findById(bookId);
+        UserLibrary user = new UserLibrary(userName, userAddress);
         if (!book.isNotAvailable() && book.isReservedForUser().equals("")) {
             book.setNotAvailable(true);
             book.setDateOfHanding(LocalDate.now());
-            book.setUserId(userId);
-        } else if (!book.isNotAvailable() && book.isReservedForUser().equals(userId)) {
+            book.setUserId(user.getUserId());
+            user.setHasBookId(bookId);
+            user.setDateOfHanding(LocalDate.now());
+            UserRepository.addUser(user);
+
+        } else if (!book.isNotAvailable() && book.isReservedForUser().equals(user.getUserId())) {
             book.setNotAvailable(true);
             book.setDateOfHanding(LocalDate.now());
-            book.setUserId(userId);
+            book.setUserId(user.getUserId());
             book.setIsReservedForUser("");
+            user.setHasBookId(bookId);
+            user.setDateOfHanding(LocalDate.now());
+            user.setHasReservationBookId(0);
+            UserRepository.addUser(user);
         } else {
             System.out.println("Book will be available at " + book.getDateOfHanding().plusDays(10));
         }
     }
 
     // возврат книги
-    void returnBook(int bookId) {
+    static void returnBook(int bookId) {
         LibraryBooks book = findById(bookId);
+        int userIndex = UserRepository.findUserById(book.getUserId());
         if (book == null) {
             System.out.println("Wrong ID. Please check!");
         } else if (!book.isReservedForUser().equals("")) {
             book.setNotAvailable(false);
-            book.setDateOfHanding(LocalDate.now());
+            book.setDateOfHanding(null);
             book.setUserId("");
-            sendMessageToTheUser(book.isReservedForUser(), bookId);
+            UserRepository.deleteUser(userIndex);
         } else {
             book.setNotAvailable(false);
             book.setDateOfHanding(null);
             book.setUserId("");
+            UserRepository.deleteUser(userIndex);
         }
     }
 
-
     // резервация на дату, когда книга будет доступна
-    void reserveBook(int bookId, String userId) {
+    static void reserveBook(int bookId, String userName, String userAddress) {
         LibraryBooks book = findById(bookId);
+        UserLibrary user = new UserLibrary(userName, userAddress);
         if (book.isReservedForUser().equals("")) {
-            book.setIsReservedForUser(userId);
+            book.setIsReservedForUser(user.getUserId());
+            user.setHasReservationBookId(bookId);
+            user.setDateOfHanding(book.getDateOfHanding().plusDays(10));
+            UserRepository.addUser(user);
         } else {
             System.out.println("Book is already reserved!");
         }
     }
 
-    // рассылка оповещений читателям о сроке сдачи книги в библиотеку
-    void sendRemainder(LibraryBooks[] array) {
-        for (int i = 0; i < array.length; i++) {
-            if (LocalDate.now().isAfter(array[i].getDateOfHanding().plusDays(5))) {
-                System.out.println(array[i].getUserId() + " , you have to return book ID: " + array[i].getBookId() + " at " + array[i].getDateOfHanding());
-            }
+    // отменяет ранее сделанную резервацию
+    static void cancelReservation(int bookId) {
+        LibraryBooks book = findById(bookId);
+        int userIndex = UserRepository.findUserById(book.getUserId());
+        if (book == null || book.isReservedForUser() == "") {
+            System.out.println("Wrong ID. Please check!");
+        } else {
+            book.setIsReservedForUser("");
+            UserRepository.deleteUser(userIndex);
         }
-    }
-
-    // выписывание штрафов за вовремя не сданные книги
-
-
-
-    void sendMessageToTheUser(String userId, int bookId) {
-        System.out.println(userId + ", book " + bookId + " is now available! Please, take book within 2 days, or reservation will be canceled!");
     }
 
 }

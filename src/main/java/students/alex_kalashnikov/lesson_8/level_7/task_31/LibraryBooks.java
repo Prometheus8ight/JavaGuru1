@@ -10,8 +10,8 @@ class LibraryBooks {
     private boolean notAvailable;
     private String isReservedForUser;
     private LocalDate dateOfHanding;
-    private static int count = 1;
     private String userId;
+    private static int count = 1;
 
     public String getUserId() {
         return userId;
@@ -23,26 +23,6 @@ class LibraryBooks {
 
     public int getBookId() {
         return bookId;
-    }
-
-    public void setBookId(int idNumber) {
-        this.bookId = idNumber;
-    }
-
-    public String getBookName() {
-        return bookName;
-    }
-
-    public void setBookName(String bookName) {
-        this.bookName = bookName;
-    }
-
-    public String getAuthorName() {
-        return authorName;
-    }
-
-    public void setAuthorName(String authorName) {
-        this.authorName = authorName;
     }
 
     public boolean isNotAvailable() {
@@ -84,12 +64,13 @@ class LibraryBooks {
     public String toString() {
         return "Book{" +
                 "ID='" + bookId + '\'' +
-                ", Name='" + bookName + '\'' +
-                ", Author='" + authorName + '\'' +
-                ", Not Available='" + notAvailable + '\'' +
-                ", Is Reserved for User='" + isReservedForUser + '\'' +
-                ", Date Of Handing='" + dateOfHanding + '\'' +
-                ", UserID='" + userId + '\'' +
+                "|| Name='" + bookName + '\'' +
+                "|| Author='" + authorName + '\'' +
+                "|| Not Available='" + notAvailable + '\'' +
+                "|| Is Reserved for User='" + isReservedForUser + '\'' +
+                "|| Date Of Handing='" + dateOfHanding + '\'' +
+                "|| UserID='" + userId + '\'' +
                 '}' + "\n";
     }
+
 }
