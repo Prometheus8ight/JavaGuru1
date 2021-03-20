@@ -5,40 +5,42 @@ import java.util.Arrays;
 class LibraryBooksDemo {
 
     public static void main(String[] args) {
+        
+        Repository repository = new Repository();
 
-        BooksRepository.addBook(new LibraryBooks("Clean Code", "Robert Martin"));
-        BooksRepository.addBook(new LibraryBooks("Head First Java", "Kathy Sierra"));
-        BooksRepository.addBook(new LibraryBooks("Head First Design Patterns", "Eric Freeman"));
+        repository.addBook(new LibraryBooks("Clean Code", "Robert Martin"));
+        repository.addBook(new LibraryBooks("Head First Java", "Kathy Sierra"));
+        repository.addBook(new LibraryBooks("Head First Design Patterns", "Eric Freeman"));
 
-        System.out.println("Find book by ID number: \n" + BooksRepository.findById(3));
-        System.out.println("Show all books: \n" + Arrays.toString(BooksRepository.findAll()));
+        System.out.println("Find book by ID number: \n" + repository.findById(3));
+        System.out.println("Show all books: \n" + Arrays.toString(repository.findAll()));
 
-        BooksRepository.getBook(2, "Vasily Pupkin", "vasya1234@mail.ru");
-        BooksRepository.getBook(3, "John Johnson", "john_j31@gmail.com");
+        repository.getBook(2, "Vasily Pupkin", "vasya1234@mail.ru");
+        repository.getBook(3, "John Johnson", "john_j31@gmail.com");
 
-        System.out.println("Show all books: \n" + Arrays.toString(BooksRepository.findAll()));
-        System.out.println("Show all users: \n" + Arrays.toString(UsersRepository.findAllUsers()));
+        System.out.println("Show all books: \n" + Arrays.toString(repository.findAll()));
+        System.out.println("Show all users: \n" + Arrays.toString(repository.findAllUsers()));
 
-        BooksRepository.reserveBook(2, "Janis Ozolins", "janis1234@yahoo.com");
-        BooksRepository.returnBook(3);
+        repository.reserveBook(2, "Janis Ozolins", "janis1234@yahoo.com");
+        repository.returnBook(3);
 
-        System.out.println("Show all books: \n" + Arrays.toString(BooksRepository.findAll()));
-        System.out.println("Show all users: \n" + Arrays.toString(UsersRepository.findAllUsers()));
+        System.out.println("Show all books: \n" + Arrays.toString(repository.findAll()));
+        System.out.println("Show all users: \n" + Arrays.toString(repository.findAllUsers()));
 
-        BooksRepository.cancelReservation(2);
+        repository.cancelReservation(2);
 
-        System.out.println("Show all books: \n" + Arrays.toString(BooksRepository.findAll()));
-        System.out.println("Show all users: \n" + Arrays.toString(UsersRepository.findAllUsers()));
+        System.out.println("Show all books: \n" + Arrays.toString(repository.findAll()));
+        System.out.println("Show all users: \n" + Arrays.toString(repository.findAllUsers()));
 
-        BooksRepository.reserveBook(3, "Janis Berzins", "jb9876@gmail.com");
+        repository.reserveBook(3, "Janis Berzins", "jb9876@gmail.com");
 
-        System.out.println("Show all books: \n" + Arrays.toString(BooksRepository.findAll()));
-        System.out.println("Show all users: \n" + Arrays.toString(UsersRepository.findAllUsers()));
+        System.out.println("Show all books: \n" + Arrays.toString(repository.findAll()));
+        System.out.println("Show all users: \n" + Arrays.toString(repository.findAllUsers()));
 
-        BooksRepository.getBook(3, "Janis Berzins", "jb9876@gmail.com");
+        repository.getBook(3, "Janis Berzins", "jb9876@gmail.com");
 
-        System.out.println("Show all books: \n" + Arrays.toString(BooksRepository.findAll()));
-        System.out.println("Show all users: \n" + Arrays.toString(UsersRepository.findAllUsers()));
+        System.out.println("Show all books: \n" + Arrays.toString(repository.findAll()));
+        System.out.println("Show all users: \n" + Arrays.toString(repository.findAllUsers()));
 
     }
 
