@@ -8,7 +8,7 @@ class FraudDetector {
         this.fraudRules = fraudRules;
     }
 
-    boolean isFraud(FraudRule[] fraudRules, Transaction t) {
+    boolean isFraud(Transaction t) {
         for (FraudRule fraudRule : fraudRules) {
            if(fraudRule.isFraud(t)){
                return true;

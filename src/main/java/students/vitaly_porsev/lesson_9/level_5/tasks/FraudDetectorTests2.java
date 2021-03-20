@@ -17,57 +17,52 @@ class FraudDetectorTests2 {
     }
 
     void fraudRule1Test() {
-        FraudRule[] fraudRules = {new FraudRule1("noPokemon"), new FraudRule2("maxAmount"),
-                new FraudRule3("noSidney"), new FraudRule4("noJamaica"), new FraudRule5("noGermany&max1000")};
-        FraudDetector fraudDetector = new FraudDetector(fraudRules);
+        FraudDetector fraudDetector = new FraudDetector(new FraudRule[] {new FraudRule1("noPokemon"), new FraudRule2("maxAmount"),
+                new FraudRule3("noSidney"), new FraudRule4("noJamaica"), new FraudRule5("noGermany&max1000")});
         Trader trader = new Trader("Pokemon", "Tokyo", "Japan");
         Transaction transaction = new Transaction(trader, 1000);
-        checkTestsTrue(true, fraudDetector.isFraud(fraudRules, transaction), "fraudRule1Test");
+        checkTestsTrue(true, fraudDetector.isFraud(transaction), "fraudRule1Test");
     }
 
     void fraudRule2Test() {
-        FraudRule[] fraudRules = {new FraudRule1("noPokemon"), new FraudRule2("maxAmount"),
-                new FraudRule3("noSidney"), new FraudRule4("noJamaica"), new FraudRule5("noGermany&max1000")};
-        FraudDetector fraudDetector = new FraudDetector(fraudRules);
+        FraudDetector fraudDetector = new FraudDetector(new FraudRule[] {new FraudRule1("noPokemon"), new FraudRule2("maxAmount"),
+                new FraudRule3("noSidney"), new FraudRule4("noJamaica"), new FraudRule5("noGermany&max1000")});
+
         Trader trader = new Trader("Nikola", "Niznij-Novgorod", "Russia");
         Transaction transaction = new Transaction(trader, 1000001);
-        checkTestsTrue(true, fraudDetector.isFraud(fraudRules, transaction), "fraudRule2Test");
+        checkTestsTrue(true, fraudDetector.isFraud(transaction), "fraudRule2Test");
     }
 
     void fraudRule3Test() {
-        FraudRule[] fraudRules = {new FraudRule1("noPokemon"), new FraudRule2("maxAmount"),
-                new FraudRule3("noSidney"), new FraudRule4("noJamaica"), new FraudRule5("noGermany&max1000")};
-        FraudDetector fraudDetector = new FraudDetector(fraudRules);
+        FraudDetector fraudDetector = new FraudDetector(new FraudRule[] {new FraudRule1("noPokemon"), new FraudRule2("maxAmount"),
+                new FraudRule3("noSidney"), new FraudRule4("noJamaica"), new FraudRule5("noGermany&max1000")});
         Trader trader = new Trader("John", "Sidney", "Australia");
         Transaction transaction = new Transaction(trader, 300);
-        checkTestsTrue(true, fraudDetector.isFraud(fraudRules, transaction), "fraudRule3Test");
+        checkTestsTrue(true, fraudDetector.isFraud(transaction), "fraudRule3Test");
     }
 
     void fraudRule4Test() {
-        FraudRule[] fraudRules = {new FraudRule1("noPokemon"), new FraudRule2("maxAmount"),
-                new FraudRule3("noSidney"), new FraudRule4("noJamaica"), new FraudRule5("noGermany&max1000")};
-        FraudDetector fraudDetector = new FraudDetector(fraudRules);
+        FraudDetector fraudDetector = new FraudDetector(new FraudRule[] {new FraudRule1("noPokemon"), new FraudRule2("maxAmount"),
+                new FraudRule3("noSidney"), new FraudRule4("noJamaica"), new FraudRule5("noGermany&max1000")});
         Trader trader = new Trader("Adio", "Kingston", "Jamaica");
         Transaction transaction = new Transaction(trader, 1000);
-        checkTestsTrue(true, fraudDetector.isFraud(fraudRules, transaction), "fraudRule4Test");
+        checkTestsTrue(true, fraudDetector.isFraud(transaction), "fraudRule4Test");
     }
 
     void fraudRule5Test() {
-        FraudRule[] fraudRules = {new FraudRule1("noPokemon"), new FraudRule2("maxAmount"),
-                new FraudRule3("noSidney"), new FraudRule4("noJamaica"), new FraudRule5("noGermany&max1000")};
-        FraudDetector fraudDetector = new FraudDetector(fraudRules);
+        FraudDetector fraudDetector = new FraudDetector(new FraudRule[] {new FraudRule1("noPokemon"), new FraudRule2("maxAmount"),
+                new FraudRule3("noSidney"), new FraudRule4("noJamaica"), new FraudRule5("noGermany&max1000")});
         Trader trader = new Trader("Justus", "Chemnitz", "Germany");
         Transaction transaction = new Transaction(trader, 5000);
-        checkTestsTrue(true, fraudDetector.isFraud(fraudRules, transaction), "fraudRule5Test");
+        checkTestsTrue(true, fraudDetector.isFraud(transaction), "fraudRule5Test");
     }
 
     void fraudRuleFalseTest() {
-        FraudRule[] fraudRules = {new FraudRule1("noPokemon"), new FraudRule2("maxAmount"),
-                new FraudRule3("noSidney"), new FraudRule4("noJamaica"), new FraudRule5("noGermany&max1000")};
-        FraudDetector fraudDetector = new FraudDetector(fraudRules);
+        FraudDetector fraudDetector = new FraudDetector(new FraudRule[] {new FraudRule1("noPokemon"), new FraudRule2("maxAmount"),
+                new FraudRule3("noSidney"), new FraudRule4("noJamaica"), new FraudRule5("noGermany&max1000")});
         Trader trader = new Trader("Justus", "Chemnitz", "Germany");
         Transaction transaction = new Transaction(trader, 100);
-        checkTestFalse(false, fraudDetector.isFraud(fraudRules, transaction), "fraudRuleFalseTest");
+        checkTestFalse(false, fraudDetector.isFraud(transaction), "fraudRuleFalseTest");
     }
 
     void checkTestsTrue(boolean expectedResult, boolean realResult, String testName) {
