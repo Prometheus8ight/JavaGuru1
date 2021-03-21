@@ -1,4 +1,4 @@
-package main.java.students.julija_katukova.lesson_9.level_4;
+package students.julija_katukova.lesson_9.level_4;
 
 class Trader {
 
