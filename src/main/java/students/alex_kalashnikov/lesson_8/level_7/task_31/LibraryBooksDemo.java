@@ -18,23 +18,19 @@ class LibraryBooksDemo {
         repository.getBook(2, "Vasily Pupkin", "vasya1234@mail.ru");
         repository.getBook(3, "John Johnson", "john_j31@gmail.com");
 
-        System.out.println("Show all books: \n" + Arrays.toString(repository.findAll()));
         System.out.println("Show all users: \n" + Arrays.toString(repository.findAllUsers()));
 
         repository.reserveBook(2, "Janis Ozolins", "janis1234@yahoo.com");
         repository.returnBook(3);
 
-        System.out.println("Show all books: \n" + Arrays.toString(repository.findAll()));
         System.out.println("Show all users: \n" + Arrays.toString(repository.findAllUsers()));
 
         repository.cancelReservation(2);
 
-        System.out.println("Show all books: \n" + Arrays.toString(repository.findAll()));
         System.out.println("Show all users: \n" + Arrays.toString(repository.findAllUsers()));
 
         repository.reserveBook(3, "Janis Berzins", "jb9876@gmail.com");
 
-        System.out.println("Show all books: \n" + Arrays.toString(repository.findAll()));
         System.out.println("Show all users: \n" + Arrays.toString(repository.findAllUsers()));
 
         repository.getBook(3, "Janis Berzins", "jb9876@gmail.com");

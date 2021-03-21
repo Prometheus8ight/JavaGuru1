@@ -5,7 +5,7 @@ import java.time.LocalDate;
 class Repository {
 
     private final int length = 10; // размер массива
-    private LibraryBooks[] array = new LibraryBooks[length]; // массив книг в библиотеке
+    private final LibraryBooks[] array = new LibraryBooks[length]; // массив книг в библиотеке
     private final LibraryUsers[] userArray = new LibraryUsers[length]; // массив пользователей, которые взяли или зарезервировали книги в библиотеке
 
     //=========================== Методы для книг =====================================================================
@@ -21,24 +21,22 @@ class Repository {
 
     // возвращает значение книги в массиве по ID
     LibraryBooks findById(int bookId) {
-        LibraryBooks x = null;
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] == null) {
+        for (LibraryBooks libraryBooks : array) {
+            if (libraryBooks == null) {
                 continue;
             }
-            if (array[i].getBookId() == bookId) {
-                x = array[i];
-                break;
+            if (libraryBooks.getBookId() == bookId) {
+                return libraryBooks;
             }
         }
-        return x;
+        return null;
     }
 
     // возвращает массив из всех книг
     LibraryBooks[] findAll() {
         int count = 0;
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] == null) {
+        for (LibraryBooks libraryBooks : array) {
+            if (libraryBooks == null) {
                 continue;
             } else {
                 count++;
@@ -46,11 +44,11 @@ class Repository {
         }
         LibraryBooks[] allBooksArr = new LibraryBooks[count];
         int j = 0;
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] == null) {
+        for (LibraryBooks libraryBooks : array) {
+            if (libraryBooks == null) {
                 continue;
             } else {
-                allBooksArr[j] = array[i];
+                allBooksArr[j] = libraryBooks;
                 j++;
             }
         }
@@ -60,8 +58,8 @@ class Repository {
     // возвращает массив из всех доступных книг
     LibraryBooks[] findAvailable() {
         int count = 0;
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] == null || array[i].isNotAvailable() || array[i].isReservedForUser().equals("")) {
+        for (LibraryBooks libraryBooks : array) {
+            if (libraryBooks == null || libraryBooks.isNotAvailable() || libraryBooks.isReservedForUser().equals("")) {
                 continue;
             } else {
                 count++;
@@ -69,11 +67,11 @@ class Repository {
         }
         LibraryBooks[] availableBooksArr = new LibraryBooks[count];
         int j = 0;
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] == null || array[i].isNotAvailable() || array[i].isReservedForUser().equals("")) {
+        for (LibraryBooks libraryBooks : array) {
+            if (libraryBooks == null || libraryBooks.isNotAvailable() || libraryBooks.isReservedForUser().equals("")) {
                 continue;
             } else {
-                availableBooksArr[j] = array[i];
+                availableBooksArr[j] = libraryBooks;
                 j++;
             }
         }
@@ -102,7 +100,7 @@ class Repository {
             addUser(user);
             deleteUser(findUserByBookId(bookId));
         } else {
-            System.out.println("Book will be available at " + book.getDateOfHanding().plusDays(10));
+            System.out.println("Book will be available at " + book.getDateOfHanding().plusDays(10)); // 10 дней - срок на который можно взять книгу из библиотеки
         }
     }
 
@@ -132,7 +130,7 @@ class Repository {
         } else if (book.isReservedForUser().equals("") && !book.isNotAvailable()) {
             book.setIsReservedForUser(user.getUserId());
             user.setHasReservationBookId(bookId);
-            user.setDateOfHanding(LocalDate.now()); // 10 дней - срок на который можно взять книгу из библиотеки
+            user.setDateOfHanding(LocalDate.now());
             addUser(user);
         } else {
             System.out.println("Book is already reserved!");
@@ -142,7 +140,6 @@ class Repository {
     // отменяет ранее сделанную резервацию
     void cancelReservation(int bookId) {
         LibraryBooks book = findById(bookId);
-//        LibraryUsers user = UsersRepository.findUserByBookId(bookId)
         int userIndex = findUserByBookId(bookId);
         if (book == null || book.isReservedForUser().equals("")) {
             System.out.println("Wrong ID. Please check!");
@@ -174,32 +171,28 @@ class Repository {
 
     // возвращает значение индекса пользователя в массиве по номеру ID
     private int findUserById(String userId) {
-        int index = -1;
         for (int i = 0; i < userArray.length; i++) {
             if (userArray[i] == null) {
                 continue;
             }
             if (userArray[i].getUserId().equals(userId)) {
-                index = i;
-                break;
+                return i;
             }
         }
-        return index;
+        return -1;
     }
 
     // возвращает значение индекса пользователя в массиве по номеру зарезервированной книги
     private int findUserByBookId(int bookId) {
-        int index = -1;
         for (int i = 0; i < userArray.length; i++) {
             if (userArray[i] == null) {
                 continue;
             }
             if (userArray[i].getHasReservationBookId() == (bookId)) {
-                index = i;
-                break;
+                return i;
             }
         }
-        return index;
+        return -1;
     }
 
     /*
@@ -210,8 +203,8 @@ class Repository {
      */
     LibraryUsers[] findAllUsers() {
         int count = 0;
-        for (int i = 0; i < userArray.length; i++) {
-            if (userArray[i] == null) {
+        for (LibraryUsers libraryUsers : userArray) {
+            if (libraryUsers == null) {
                 continue;
             } else {
                 count++;
@@ -219,11 +212,11 @@ class Repository {
         }
         LibraryUsers[] allUsersArr = new LibraryUsers[count];
         int j = 0;
-        for (int i = 0; i < userArray.length; i++) {
-            if (userArray[i] == null) {
+        for (LibraryUsers libraryUsers : userArray) {
+            if (libraryUsers == null) {
                 continue;
             } else {
-                allUsersArr[j] = userArray[i];
+                allUsersArr[j] = libraryUsers;
                 j++;
             }
         }
@@ -242,22 +235,22 @@ class Repository {
                 userArray[i] = null;
             }
         }
-        for (int i = 0; i < userArray.length; i++) { // за 5 дней до даты возврата книги пользователю отправляется напоминание
-            if (userArray[i].getHasBookId() != 0
-                    && LocalDate.now().isAfter(userArray[i].getDateOfHanding().plusDays(5))) {
-                System.out.println(userArray[i].getUserName() + " , you have to return book ID: " + userArray[i].getHasBookId() + " at " + userArray[i].getDateOfHanding().plusDays(5));
+        for (LibraryUsers libraryUsers : userArray) { // за 5 дней до даты возврата книги пользователю отправляется напоминание
+            if (libraryUsers.getHasBookId() != 0
+                    && LocalDate.now().isAfter(libraryUsers.getDateOfHanding().plusDays(5))) {
+                System.out.println(libraryUsers.getUserName() + " , you have to return book ID: " + libraryUsers.getHasBookId() + " at " + libraryUsers.getDateOfHanding().plusDays(10));
             }
         }
-        for (int i = 0; i < userArray.length; i++) {
-            if (userArray[i].getHasBookId() != 0
-                    && LocalDate.now().isAfter(userArray[i].getDateOfHanding().plusDays(100))) { // если просрочка 90 дней, то штраф увеличивается до 100
-                userArray[i].setAccruedPenalty(100);
-            } else if (userArray[i].getHasBookId() != 0
-                    && LocalDate.now().isAfter(userArray[i].getDateOfHanding().plusDays(50))) { // если просрочка 40 дней, то штраф увеличивается до 50
-                userArray[i].setAccruedPenalty(50);
-            } else if (userArray[i].getHasBookId() != 0
-                    && LocalDate.now().isAfter(userArray[i].getDateOfHanding().plusDays(25))) { // если просрочка 15 дней, то штраф увеличивается до 25
-                userArray[i].setAccruedPenalty(25);
+        for (LibraryUsers libraryUsers : userArray) {
+            if (libraryUsers.getHasBookId() != 0
+                    && LocalDate.now().isAfter(libraryUsers.getDateOfHanding().plusDays(100))) { // если просрочка 90 дней, то штраф увеличивается до 100
+                libraryUsers.setAccruedPenalty(100);
+            } else if (libraryUsers.getHasBookId() != 0
+                    && LocalDate.now().isAfter(libraryUsers.getDateOfHanding().plusDays(50))) { // если просрочка 40 дней, то штраф увеличивается до 50
+                libraryUsers.setAccruedPenalty(50);
+            } else if (libraryUsers.getHasBookId() != 0
+                    && LocalDate.now().isAfter(libraryUsers.getDateOfHanding().plusDays(25))) { // если просрочка 15 дней, то штраф увеличивается до 25
+                libraryUsers.setAccruedPenalty(25);
             }
         }
     }
