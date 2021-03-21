@@ -1,4 +1,4 @@
-package main.java.students.julija_katukova.lesson_9.level_5;
+package students.julija_katukova.lesson_9.level_5;
 
 class FraudRule2Test {
     public static void main(String[] args) {
