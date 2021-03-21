@@ -9,7 +9,7 @@ class SafeDemo {
 
          Scanner scanner = new Scanner(System.in);
          System.out.print("Please enter pin: ");
-         safe.pinCode = scanner.next();
+         safe.pinCode = scanner.nextInt();
          System.out.println("Your account balance: " + safe.money);
 
 
