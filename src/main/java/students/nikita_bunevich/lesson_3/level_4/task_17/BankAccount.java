@@ -1,4 +1,4 @@
-package students.nikita_bunevich.lesson_3.task_17;
+package students.nikita_bunevich.lesson_3.level_4.task_17;
 
 class BankAccount {
     String ownerFirstName;

@@ -1,4 +1,4 @@
-package students.nikita_bunevich.lesson_3.task_16;
+package students.nikita_bunevich.lesson_3.level_4.task_16;
 
 class Car {
         String model;
