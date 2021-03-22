@@ -4,10 +4,18 @@ package students.kate_br.lesson_9.level_4.task_21;
 
      private String fullName;
      private String city;
+     private String country;
 
-     public Trader(String fullName, String city) {
+
+
+     public Trader(String fullName, String city, String country) {
          this.fullName = fullName;
          this.city = city;
+         this.country = country;
+     }
+
+     public String getCountry() {
+         return country;
      }
 
      public String getFullName() {
@@ -58,7 +66,7 @@ package students.kate_br.lesson_9.level_4.task_21;
              return true;
          }
 
-         if (t.getTrader().getCity().contains("Germany") && t.getAmount() > 1000){
+         if (t.getTrader().getCountry().contains("Germany") && t.getAmount() > 1000){
              return true;
          }
 

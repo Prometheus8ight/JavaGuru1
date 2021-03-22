@@ -13,28 +13,28 @@ public class FraudDetectorTest {
 
     public void fraudTest1(){
         FraudDetector detector = new FraudDetector();
-        Trader trader = new Trader("Mike", "Germany");
+        Trader trader = new Trader("Mike", "Berlin", "Germany");
         Transaction transaction = new Transaction(trader, 2000);
         checkTestResult(true, detector.isFraud(transaction), "Fraud first test: " );
     }
 
     public void fraudTest2(){
         FraudDetector detector = new FraudDetector();
-        Trader trader = new Trader("John", "Moscow");
+        Trader trader = new Trader("John", "Moscow", "Russia");
         Transaction transaction = new Transaction(trader, 900);
         checkTestResult(false, detector.isFraud(transaction), "Fraud second test: " );
     }
 
     public void fraudTest3(){
         FraudDetector detector = new FraudDetector();
-        Trader trader = new Trader("Pokemon", "Germany");
+        Trader trader = new Trader("Pokemon", "Dresden", "Germany");
         Transaction transaction = new Transaction(trader, 3000);
         checkTestResult(true, detector.isFraud(transaction), "Fraud third test: " );
     }
 
     public void fraudTest4(){
         FraudDetector detector = new FraudDetector();
-        Trader trader = new Trader("Pokemon", "Germany");
+        Trader trader = new Trader("Pokemon", "Dresden", "Germany");
         Transaction transaction = new Transaction(trader, 3000);
         checkTestResult(false, detector.isFraud(transaction), "Fraud fail test: " );
     }
