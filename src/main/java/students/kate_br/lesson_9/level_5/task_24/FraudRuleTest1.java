@@ -4,42 +4,42 @@ package students.kate_br.lesson_9.level_5.task_24;
 
      public static void main(String[] args) {
          FraudRuleTest1 test1 = new FraudRuleTest1();
-         test1.fraudCityTest();
-         test1.fraudCityFailTest();
-         test1.fraudCityTest2();
-         test1.fraudCityFailTest2();
+         test1.fraudTest();
+         test1.fraudFailTest();
+         test1.fraudTest2();
+         test1.fraudFailTest2();
      }
 
-     public void fraudCityTest(){
+     public void fraudTest(){
 
          Trader trader = new Trader("Pokemon", "Moscow", "Russia");
          Transaction transaction = new Transaction(trader, 1000);
          FraudRule1 rule1 = new FraudRule1("City fraud");
-         checkTestResult(true, rule1.isFraud(transaction), "Fraud city test: " );
+         checkTestResult(true, rule1.isFraud(transaction), "Fraud name test: " );
      }
 
-     public void fraudCityFailTest(){
+     public void fraudFailTest(){
 
          Trader trader = new Trader("Pokemon", "Moscow", "Russia");
          Transaction transaction = new Transaction(trader, 1000);
          FraudRule1 rule1 = new FraudRule1("City fraud");
-         checkTestResult(false, rule1.isFraud(transaction), "Fraud city fail test: " );
+         checkTestResult(false, rule1.isFraud(transaction), "Fraud city name test: " );
      }
 
-     public void fraudCityTest2(){
+     public void fraudTest2(){
 
          Trader trader = new Trader("Mike", "Moscow", "Russia");
          Transaction transaction = new Transaction(trader, 1000);
          FraudRule1 rule1 = new FraudRule1("City Fraud");
-         checkTestResult(false, rule1.isFraud(transaction), "Fraud city second test: ");
+         checkTestResult(false, rule1.isFraud(transaction), "Fraud name second test: ");
      }
 
-     public void fraudCityFailTest2(){
+     public void fraudFailTest2(){
 
          Trader trader = new Trader("Mike", "Moscow", "Russia");
          Transaction transaction = new Transaction(trader, 1000);
          FraudRule1 rule1 = new FraudRule1("City fraud");
-         checkTestResult(true, rule1.isFraud(transaction), "Fraud city fail second test: ");
+         checkTestResult(true, rule1.isFraud(transaction), "Fraud name fail second test: ");
      }
 
      private void checkTestResult(boolean expectedResult, boolean realResult, String testName){
