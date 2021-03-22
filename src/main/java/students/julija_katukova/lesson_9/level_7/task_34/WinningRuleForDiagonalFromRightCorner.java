@@ -2,8 +2,8 @@ package students.julija_katukova.lesson_9.level_7.task_34;
 
 class WinningRuleForDiagonalFromRightCorner extends WinningRule {
 
-    public WinningRuleForDiagonalFromRightCorner(String ruleName) {
-        super(ruleName);
+    public WinningRuleForDiagonalFromRightCorner() {
+        super("Winning Rule For Diagonals From Right Corner");
     }
 
     @Override

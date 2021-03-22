@@ -23,10 +23,10 @@ class EndOfGameDetector {
 
     private WinningRule[] initializeArray() {
         return new WinningRule[]{
-                new WinningRuleForVerticals("Winning Rule For Verticals"),
-                new WinningRuleForHorizontals("Winning Rule For Horizontals"),
-                new WinningRuleForDiagonalFromLeftCorner("Winning Rule For Diagonal From Left Corner"),
-                new WinningRuleForDiagonalFromRightCorner("Winning Rule For Diagonals From Right Corner")
+                new WinningRuleForVerticals(),
+                new WinningRuleForHorizontals(),
+                new WinningRuleForDiagonalFromLeftCorner(),
+                new WinningRuleForDiagonalFromRightCorner()
         };
     }
 }
