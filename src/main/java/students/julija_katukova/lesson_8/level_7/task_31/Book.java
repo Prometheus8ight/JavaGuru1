@@ -1,5 +1,6 @@
-package main.java.students.julija_katukova.lesson_8.level_7.task_31;
+package students.julija_katukova.lesson_8.level_7.task_31;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Objects;
 
@@ -11,7 +12,7 @@ class Book {
     private boolean isBorrowed;
     private boolean isReserved;
     private User userId;
-    private Date dueToDate;
+    private LocalDate dueToDate;
 
     Book(String id, String title, String author) {
         this.id = id;
@@ -19,7 +20,7 @@ class Book {
         this.author = author;
     }
 
-    Book(String id, String title, String author, boolean isBorrowed, boolean isReserved, User userId, Date dueToDate) {
+    Book(String id, String title, String author, boolean isBorrowed, boolean isReserved, User userId, LocalDate dueToDate) {
         this.id = id;
         this.title = title;
         this.author = author;
@@ -37,7 +38,7 @@ class Book {
         isReserved = reserved;
     }
 
-    public void setDueToDate(Date dueToDate) {
+    public void setDueToDate(LocalDate dueToDate) {
         this.dueToDate = dueToDate;
     }
 
