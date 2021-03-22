@@ -1,6 +1,6 @@
 package students.julija_katukova.lesson_9.level_6;
 
-public class FraudDetectorTest {
+class FraudDetectorTest {
 
     FraudRule[] fraudRules = {
             new FraudRule1("Trader Name Rule"),
