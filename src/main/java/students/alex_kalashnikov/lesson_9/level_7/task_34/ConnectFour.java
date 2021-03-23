@@ -1,8 +1,8 @@
 package students.alex_kalashnikov.lesson_9.level_7.task_34;
 
-class TicTacToe {
+class ConnectFour {
 
-    public String[][] createField() {
+    private String[][] createField() {
         String[][] array = new String[6][7];
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 7; j++) {
@@ -12,35 +12,23 @@ class TicTacToe {
         return array;
     }
 
-    public Move getFromKeyboard(String[][] field, String playerToCheck) { // запрашивает координаты ячейки [X,Y] - числа от 0 до 2
-//        boolean checkX = true; // проверяет число X
+    private Move getFromKeyboard(String[][] field, String playerToCheck) { // запрашивает координаты ячейки [X,Y]
         boolean checkY = true;  // проверяет число Y
         boolean checkField = true;// проверяет был ли уже ход в ячейке [X,Y] массива
         int x = 0;
         int y = 0;
-        while (checkField) { // если в ячейке был ход, то запускает цикл заново, пока игрок не заведет координаты ячейки со значением "."
-//            while (checkX) { // если число правильное, то прерывает цикл
-//                java.util.Scanner scanner = new java.util.Scanner(System.in);
-//                System.out.print("Player " + playerToCheck + " enter X (0 - 5): ");
-//                x = scanner.nextInt();
-//                if (x == 0 || x == 1 || x == 2 || x == 3 || x == 4 || x == 5) {
-//                    checkX = false;
-//                } else {
-//                    System.out.println("Wrong number! Please, reenter!");
-//                }
-//            }
+        while (checkField) { // если в колонке все поля заняты, то запускает цикл заново, пока игрок не выберет колонку со свободным полем "."
             while (checkY) { // если число правильное, то прерывает цикл
                 java.util.Scanner scanner = new java.util.Scanner(System.in);
                 System.out.print("Player " + playerToCheck + " enter Y (0 - 6): ");
                 y = scanner.nextInt();
-                if (y == 0 || y == 1 || y == 2 || y == 3 || y == 4 || y == 5 || y == 6) {
+                if (y >= 0 && y <= 6) {
                     checkY = false;
-
                 } else {
                     System.out.println("Wrong number! Please, reenter!");
                 }
             }
-            for (int i = 5; i > -1; i--) {
+            for (int i = 5; i > -1; i--) { // выбирает свободное поле с наибольшим индексом
                 if (field[i][y].equals(".")) {
                     x = i;
                     break;
@@ -48,7 +36,6 @@ class TicTacToe {
             }
             if (field[x][y].equals("0") || field[x][y].equals("X")) {
                 System.out.println("This cell already moved!!! Please, reenter!");
-//                checkX = true;
                 checkY = true;
             } else {
                 checkField = false;
@@ -57,22 +44,22 @@ class TicTacToe {
         return new Move(x, y);
     }
 
-    public void printFieldToConsole(String[][] field) {
+    private void printFieldToConsole(String[][] field) {
 
-        for (int i = 0; i < field.length; i++) {
+        for (String[] strings : field) {
             for (int j = 0; j < field[0].length; j++) {
-                System.out.print(field[i][j] + "  ");
+                System.out.print(strings[j] + "  ");
             }
             System.out.println(" ");
         }
     }
 
-    public boolean isWinPositionForHorizontals(String[][] field, String playerToCheck) {
+    private boolean isWinPositionForHorizontals(String[][] field, String playerToCheck) {
         boolean hit = false;
-        for (int i = 0; i < field.length; i++) {
+        for (String[] strings : field) {
             int numberOfHits = 0;
             for (int j = 0; j < field[0].length; j++) {
-                if (field[i][j].equals(playerToCheck)) {
+                if (strings[j].equals(playerToCheck)) {
                     numberOfHits++;
                 } else {
                     numberOfHits = 0;
@@ -85,12 +72,12 @@ class TicTacToe {
         return hit;
     }
 
-    public boolean isWinPositionForVerticals(String[][] field, String playerToCheck) {
+    private boolean isWinPositionForVerticals(String[][] field, String playerToCheck) {
         boolean hit = false;
         for (int i = 0; i < field[0].length; i++) {
             int numberOfHits = 0;
-            for (int j = 0; j < field.length; j++) {
-                if (field[j][i].equals(playerToCheck)) {
+            for (String[] strings : field) {
+                if (strings[i].equals(playerToCheck)) {
                     numberOfHits++;
                 } else {
                     numberOfHits = 0;
@@ -101,10 +88,9 @@ class TicTacToe {
             }
         }
         return hit;
-
     }
 
-    public boolean isWinPositionForDiagonals(String[][] field, String playerToCheck) {
+    private boolean isWinPositionForDiagonals(String[][] field, String playerToCheck) {
         boolean hit = false;
         int j = 0;
         int k = 0;
@@ -179,7 +165,7 @@ class TicTacToe {
         return hit;
     }
 
-    public boolean isWinPositionForDiagonals1(String[][] field, String playerToCheck) {
+    private boolean isWinPositionForDiagonals1(String[][] field, String playerToCheck) {
         boolean hit = false;
 
         int j = 3;
@@ -279,18 +265,20 @@ class TicTacToe {
         return hit;
     }
 
-
-    public boolean isWinPosition(String[][] field, String playerToCheck) {
-        return isWinPositionForHorizontals(field, playerToCheck) || isWinPositionForVerticals(field, playerToCheck) || isWinPositionForDiagonals(field, playerToCheck) || isWinPositionForDiagonals1(field, playerToCheck);
+    private boolean isWinPosition(String[][] field, String playerToCheck) {
+        return isWinPositionForHorizontals(field, playerToCheck)
+                || isWinPositionForVerticals(field, playerToCheck)
+                || isWinPositionForDiagonals(field, playerToCheck)
+                || isWinPositionForDiagonals1(field, playerToCheck);
     }
 
-    public boolean isDrawPosition(String[][] field) {
+    private boolean isDrawPosition(String[][] field) {
         if (isWinPosition(field, "0") || isWinPosition(field, "X")) {
             return false;
         } else {
-            for (int i = 0; i < field.length; i++) {
-                for (int j = 0; j < field.length; j++) {
-                    if (field[i][j] == ".") {
+            for (String[] strings : field) {
+                for (int j = 0; j < field[0].length; j++) {
+                    if (strings[j].equals(".")) {
                         return false;
                     }
                 }
@@ -305,7 +293,6 @@ class TicTacToe {
             printFieldToConsole(field);
             Move move0 = getFromKeyboard(field, "0");
             field[move0.getX()][move0.getY()] = "0";
-//            printFieldToConsole(field);
             if (isWinPosition(field, "0")) {
                 System.out.println("Player 0 WIN!");
                 printFieldToConsole(field);
@@ -319,7 +306,6 @@ class TicTacToe {
             printFieldToConsole(field);
             Move move1 = getFromKeyboard(field, "X");
             field[move1.getX()][move1.getY()] = "X";
-//            printFieldToConsole(field);
             if (isWinPosition(field, "X")) {
                 printFieldToConsole(field);
                 System.out.println("Player 1 WIN!");
