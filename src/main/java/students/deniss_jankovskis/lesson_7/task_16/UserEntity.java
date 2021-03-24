@@ -5,11 +5,10 @@ import java.util.UUID;
 
 class UserEntity {
 
-    private UUID id;
+    private final UUID id;
     private String name;
     private String surname;
-    private String personalCode;
-
+    private final String personalCode;
 
     public UserEntity(UUID id, String name, String surname, String personalCode) {
         this.id = id;
@@ -18,10 +17,16 @@ class UserEntity {
         this.personalCode = personalCode;
     }
 
-
-
     public UUID getId() {
         return id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     public String getName() {
@@ -49,12 +54,12 @@ class UserEntity {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, surname, personalCode);
+        return Objects.hash(id);
     }
 
     @Override
     public String toString() {
-        return  "{id = " + id +
+        return  "{ID = " + id +
                 ", name ='" + name + '\'' +
                 ", surname ='" + surname + '\'' +
                 ", personalCode ='" + personalCode + '\'' +
