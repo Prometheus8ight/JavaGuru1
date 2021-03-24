@@ -1,9 +1,9 @@
-package main.java.students.julija_katukova.lesson_8.level_7.task_31;
+package students.julija_katukova.lesson_8.level_7.task_31;
 
 import java.util.Calendar;
 import java.util.Date;
 
-class BookRepository extends Library {
+class BookRepository extends students.julija_katukova.lesson_8.level_7.task_31.Library {
 
     Book[] availableBooks = new Book[5];
     Book[] unavailableBooks = new Book[1];

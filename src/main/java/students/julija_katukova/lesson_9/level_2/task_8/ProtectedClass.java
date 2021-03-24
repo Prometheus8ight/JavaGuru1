@@ -1,4 +1,4 @@
-package main.java.students.julija_katukova.lesson_9.level_2.task_8;
+package students.julija_katukova.lesson_9.level_2.task_8;
 
 //If we are allowed to make a class protected then we can access it inside the package very easily,
 // but for accessing that class outside of the package we first need to extend that entity in which this class is defined which is its package.

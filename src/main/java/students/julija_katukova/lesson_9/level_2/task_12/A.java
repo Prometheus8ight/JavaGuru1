@@ -1,4 +1,4 @@
-package main.java.students.julija_katukova.lesson_9.level_2.task_12;
+package students.julija_katukova.lesson_9.level_2.task_12;
 
 class A {
     public A() {

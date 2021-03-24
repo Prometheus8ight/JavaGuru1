@@ -1,4 +1,4 @@
-package main.java.students.julija_katukova.lesson_9.level_1.task_6;
+package students.julija_katukova.lesson_9.level_1.task_6;
 
 class Book {
 

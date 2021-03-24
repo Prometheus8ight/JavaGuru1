@@ -1,5 +1,6 @@
 package instructor.lesson_9.repository;
 
+import java.util.Optional;
 import java.util.UUID;
 
 class UserRepository {
@@ -10,13 +11,13 @@ class UserRepository {
         return users;
     }
 
-    User findById(UUID id) {
+    Optional<User> findById(UUID id) {
         for (User user : users) {
             if (user.getId().equals(id)) {
-                return user;
+                return Optional.of(user);
             }
         }
-        return null;
+        return Optional.empty();
     }
 
     void save(User user) {

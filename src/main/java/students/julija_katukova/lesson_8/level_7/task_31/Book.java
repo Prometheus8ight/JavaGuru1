@@ -1,4 +1,4 @@
-package main.java.students.julija_katukova.lesson_8.level_7.task_31;
+package students.julija_katukova.lesson_8.level_7.task_31;
 
 import java.util.Date;
 import java.util.Objects;
