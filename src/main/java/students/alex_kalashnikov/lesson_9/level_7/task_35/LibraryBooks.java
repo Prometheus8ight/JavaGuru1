@@ -1,6 +1,7 @@
 package students.alex_kalashnikov.lesson_9.level_7.task_35;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 class LibraryBooks {
 
@@ -12,6 +13,23 @@ class LibraryBooks {
     private LocalDate dateOfHanding;
     private String userId;
     private static int count = 1;
+
+    // конструктор для теста
+    public LibraryBooks(String bookName, String authorName) {
+        this.bookId = count;
+        this.bookName = bookName;
+        this.authorName = authorName;
+        this.notAvailable = false;
+        this.isReservedForUser = "";
+        this.dateOfHanding = null;
+        this.userId = "";
+        count++;
+    }
+
+    // сеттер для теста
+    public void setBookId(int bookId) {
+        this.bookId = bookId;
+    }
 
     private LibraryBooks(LibraryBooksBuilder book) {
         this.bookId = count;
@@ -35,6 +53,20 @@ class LibraryBooks {
                 "|| Date Of Handing='" + dateOfHanding + '\'' +
                 "|| UserID='" + userId + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        LibraryBooks book = (LibraryBooks) o;
+        return Objects.equals(bookId, book.bookId)
+                && Objects.equals(bookName, book.bookName)
+                && Objects.equals(authorName, book.authorName)
+                && Objects.equals(notAvailable, book.notAvailable)
+                && Objects.equals(isReservedForUser, book.isReservedForUser)
+                && Objects.equals(dateOfHanding, book.dateOfHanding)
+                && Objects.equals(userId, book.userId);
     }
 
     static class LibraryBooksBuilder {
