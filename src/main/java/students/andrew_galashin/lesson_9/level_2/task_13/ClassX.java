@@ -1,4 +1,4 @@
-package main.java.students.andrew_galashin.lesson_9.level_2.task_13;
+package students.andrew_galashin.lesson_9.level_2.task_13;
 
 class ClassX {
     public ClassX(int i) {

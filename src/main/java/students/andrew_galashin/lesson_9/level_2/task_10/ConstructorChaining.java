@@ -1,4 +1,4 @@
-package main.java.students.andrew_galashin.lesson_9.level_2.task_10;
+package students.andrew_galashin.lesson_9.level_2.task_10;
 
 class ConstructorChaining {
 

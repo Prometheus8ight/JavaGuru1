@@ -1,4 +1,4 @@
-package main.java.students.andrew_galashin.lesson_9.level_2.task_12;
+package students.andrew_galashin.lesson_9.level_2.task_12;
 
 class A {
     public A() {

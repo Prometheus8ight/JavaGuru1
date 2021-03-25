@@ -1,4 +1,4 @@
-package main.java.students.andrew_galashin.lesson_9.level_2.task_11;
+package students.andrew_galashin.lesson_9.level_2.task_11;
 
 class Mother {
     String x;

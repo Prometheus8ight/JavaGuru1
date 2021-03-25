@@ -1,4 +1,4 @@
-package main.java.students.andrew_galashin.lesson_9.level_2.task_9;
+package students.andrew_galashin.lesson_9.level_2.task_9;
 
 class PrivateConstructor {
 private int x;

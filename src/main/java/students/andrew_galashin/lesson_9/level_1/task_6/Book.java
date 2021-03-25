@@ -1,4 +1,4 @@
-package main.java.students.andrew_galashin.lesson_9.level_1.task_6;
+package students.andrew_galashin.lesson_9.level_1.task_6;
 
 public class Book {
 

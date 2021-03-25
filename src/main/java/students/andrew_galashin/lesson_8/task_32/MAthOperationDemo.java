@@ -1,4 +1,4 @@
-package main.java.students.andrew_galashin.lesson_8.task_32;
+package students.andrew_galashin.lesson_8.task_32;
 
 class MAthOperationDemo {
 

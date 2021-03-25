@@ -1,4 +1,4 @@
-package main.java.students.andrew_galashin.lesson_9.level_3;
+package students.andrew_galashin.lesson_9.level_3;
 
 public class SuperClassConstructorInvoker {
     public SuperClassConstructorInvoker() {
