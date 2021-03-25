@@ -1,4 +1,4 @@
-package students.julija_katukova.lesson_10.level_2.task_4;
+package students.julija_katukova.lesson_10.level_2;
 
 class DayOfTheWeekDetectorArrayVersionTest {
     public static void main(String[] args) {
