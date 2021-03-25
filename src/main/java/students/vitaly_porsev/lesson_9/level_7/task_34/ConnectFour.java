@@ -21,6 +21,7 @@ class ConnectFour {
                 break;
             } else if ((connectFour.draw(gameField))) {
                 System.out.println("Ничья!");
+                break;
             }
 
             // connectFour.printFieldToConsole(gameField);
@@ -31,6 +32,7 @@ class ConnectFour {
                 break;
             } else if (connectFour.draw(gameField)) {
                 System.out.println("Ничья!");
+                break;
             }
         }
     }
