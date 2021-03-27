@@ -18,7 +18,7 @@ class FraudDetectorTest {
         FraudDetector fraudDetector = new FraudDetector(new FraudRule[]{
                 new FraudRule1("Name is not Pokemon"),
                 new FraudRule2("Amount is <= than 1,000,000"),
-                new FraudRule3("Country is not Sydney"),
+                new FraudRule3("City is not Sydney"),
                 new FraudRule4("Country is not Jamaica"),
                 new FraudRule5("Country is Germany and Amount is <= 1,000")});
 
@@ -33,7 +33,7 @@ class FraudDetectorTest {
         FraudDetector fraudDetector = new FraudDetector(new FraudRule[]{
                 new FraudRule1("Name is not Pokemon"),
                 new FraudRule2("Amount is <= than 1,000,000"),
-                new FraudRule3("Country is not Sydney"),
+                new FraudRule3("City is not Sydney"),
                 new FraudRule4("Country is not Jamaica"),
                 new FraudRule5("Country is Germany and Amount is <= 1,000")});
 
@@ -64,7 +64,7 @@ class FraudDetectorTest {
         FraudDetector fraudDetector = new FraudDetector(new FraudRule[]{
                 new FraudRule1("Name is not Pokemon"),
                 new FraudRule2("Amount is <= than 1,000,000"),
-                new FraudRule3("Country is not Sydney"),
+                new FraudRule3("City is not Sydney"),
                 new FraudRule4("Country is not Jamaica"),
                 new FraudRule5("Country is Germany and Amount is <= 1,000")});
 
@@ -79,7 +79,7 @@ class FraudDetectorTest {
         FraudDetector fraudDetector = new FraudDetector(new FraudRule[]{
                 new FraudRule1("Name is not Pokemon"),
                 new FraudRule2("Amount is <= than 1,000,000"),
-                new FraudRule3("Country is not Sydney"),
+                new FraudRule3("City is not Sydney"),
                 new FraudRule4("Country is not Jamaica"),
                 new FraudRule5("Country is Germany and Amount is <= 1,000")});
 
