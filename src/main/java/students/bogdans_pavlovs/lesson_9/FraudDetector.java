@@ -13,10 +13,13 @@ class FraudDetector {
         } else if (t.getAmount() > 1000000) {
             return true;
 
-        } else if (t.getTrader().getCity().equals("Sydney") || t.getTrader().getCity().equals("Jamaica")) {
+        } else if (t.getTrader().getCity().equals("Sydney")) {
             return true;
 
-        } else if (t.getTrader().getCity().equals("Germany") && t.getAmount() > 1000) {
+        } else if (t.getTrader().getCountry().equals("Jamaica")) {
+            return true;
+
+        } else if (t.getTrader().getCountry().equals("Germany") && t.getAmount() > 1000) {
             return true;
 
         }
