@@ -3,12 +3,14 @@ package students.bogdans_pavlovs.lesson_9.level_6;
 class Trader {
 
     private String fullName;
+    private String country;
     private String city;
 
 
-    public Trader(String fullName, String city) {
+    public Trader(String fullName, String city, String country) {
         this.fullName = fullName;
         this.city = city;
+        this.country = country;
     }
 
     public String getFullName() {
@@ -19,10 +21,14 @@ class Trader {
         return city;
     }
 
+    public String getCountry(){
+        return country;
+    }
+
 
     @Override
     public String toString() {
-        return "[Full Name = " + fullName + "], [City = " + city + "]";
+        return "[Full Name = " + fullName + "], [Country = " + country + "], [City = " + city + "]";
     }
 }
 

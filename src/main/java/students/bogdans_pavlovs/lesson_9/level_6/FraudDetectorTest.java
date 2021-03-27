@@ -22,7 +22,7 @@ class FraudDetectorTest {
                 new FraudRule4("Country is not Jamaica"),
                 new FraudRule5("Country is Germany and Amount is <= 1,000")});
 
-        Transaction transaction = new Transaction(new Trader("Pokemon", "Riga"), 10);
+        Transaction transaction = new Transaction(new Trader("Pokemon","Riga", "Latvia"), 10);
         FraudDetectionResult fraudResult = fraudDetector.isFraud(transaction);
         checkResult(fraudResult.getRuleName(), "Name is not Pokemon", "Pokemon Test");
 
@@ -37,7 +37,7 @@ class FraudDetectorTest {
                 new FraudRule4("Country is not Jamaica"),
                 new FraudRule5("Country is Germany and Amount is <= 1,000")});
 
-        Transaction transaction = new Transaction(new Trader("Not Pokemon", "Riga"), 1000001);
+        Transaction transaction = new Transaction(new Trader("Not Pokemon", "Riga", "Latvia"), 1000001);
         FraudDetectionResult fraudResult = fraudDetector.isFraud(transaction);
 
         checkResult(fraudResult.getRuleName(), "Amount is <= than 1,000,000", "1000000 or Less Test");
@@ -49,13 +49,13 @@ class FraudDetectorTest {
         FraudDetector fraudDetector = new FraudDetector(new FraudRule[]{
                 new FraudRule1("Name is not Pokemon"),
                 new FraudRule2("Amount is <= than 1,000,000"),
-                new FraudRule3("Country is not Sydney"),
+                new FraudRule3("City is not Sydney"),
                 new FraudRule4("Country is not Jamaica"),
                 new FraudRule5("Country is Germany and Amount is <= 1,000")});
 
-        Transaction transaction = new Transaction(new Trader("Not Pokemon", "Sydney"), 999999);
+        Transaction transaction = new Transaction(new Trader("Not Pokemon", "Sydney", "Australia"), 999999);
         FraudDetectionResult fraudResult = fraudDetector.isFraud(transaction);
-        checkResult(fraudResult.getRuleName(), "Country is not Sydney", "Not From Sydney Test");
+        checkResult(fraudResult.getRuleName(), "City is not Sydney", "Not From Sydney Test");
 
     }
 
@@ -68,7 +68,7 @@ class FraudDetectorTest {
                 new FraudRule4("Country is not Jamaica"),
                 new FraudRule5("Country is Germany and Amount is <= 1,000")});
 
-        Transaction transaction = new Transaction(new Trader("Not Pokemon", "Jamaica"), 100);
+        Transaction transaction = new Transaction(new Trader("Not Pokemon","Kingston", "Jamaica"), 100);
         FraudDetectionResult fraudResult = fraudDetector.isFraud(transaction);
         checkResult(fraudResult.getRuleName(), "Country is not Jamaica", "Not From Jamaica Test");
 
@@ -83,7 +83,7 @@ class FraudDetectorTest {
                 new FraudRule4("Country is not Jamaica"),
                 new FraudRule5("Country is Germany and Amount is <= 1,000")});
 
-        Transaction transaction = new Transaction(new Trader("Not Pokemon", "Germany"), 1001);
+        Transaction transaction = new Transaction(new Trader("Not Pokemon","Berlin", "Germany"), 1001);
         FraudDetectionResult fraudResult = fraudDetector.isFraud(transaction);
         checkResult(fraudResult.getRuleName(), "Country is Germany and Amount is <= 1,000", "Germany Regulations Test");
     }
