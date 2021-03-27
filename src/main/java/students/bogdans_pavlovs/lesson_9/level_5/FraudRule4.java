@@ -7,7 +7,7 @@ class FraudRule4 extends FraudRule {
     }
 
     public boolean isFraud(Transaction t) {
-        return (t.getTrader().getCity().equals("Jamaica"));
+        return (t.getTrader().getCountry().equals("Jamaica"));
     }
 
 }
