@@ -1,0 +1,3 @@
+Функциональный интерфейс в Java – это интерфейс, который содержит только 1 абстрактный метод.
+void save(Product product); абстрактный метод
+Product findByTitle(String productTitle); абстрактный метод
