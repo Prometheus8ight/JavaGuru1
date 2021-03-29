@@ -2,10 +2,10 @@ package students.deniss_jankovskis.lesson_10.level_3.task_8;
 
 class InMemoryDatabase implements ProductDatabase {
 
-    Product[] products = new Product[0];
+    Product[] products = new Product[1];
 
     private boolean firstArrayElement() {
-        return products[1] == null;
+        return products[0] == null;
     }
 
     private Product[] extendArray(Product[] products) {
