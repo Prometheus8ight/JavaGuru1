@@ -1,12 +1,11 @@
 package students.julija_katukova.lesson_8.level_7.task_31;
 
-import java.util.Calendar;
-import java.util.Date;
+import java.time.LocalDate;
 
 class BookRepository extends students.julija_katukova.lesson_8.level_7.task_31.Library {
 
-    Book[] availableBooks = new Book[5];
-    Book[] unavailableBooks = new Book[1];
+    private Book[] availableBooks = new Book[5];
+    private Book[] unavailableBooks = new Book[1];
 
     Book[] findAllAvailableBooks() {
         return availableBooks;
@@ -171,8 +170,9 @@ class BookRepository extends students.julija_katukova.lesson_8.level_7.task_31.L
         String id = book.getId();
         String title = book.getTitle();
         String author = book.getAuthor();
-        Calendar calendar = Calendar.getInstance();
-        Date currentDate = calendar.getTime();
+        //Calendar calendar = Calendar.getInstance();
+        //Date currentDate = calendar.getTime();
+        LocalDate currentDate = LocalDate.now();
         Book book1 = new Book(id, title, author, false, false, userId, currentDate);
         unavailableBooks[unavailableBooks.length - 1] = book1;
     }
@@ -191,16 +191,14 @@ class BookRepository extends students.julija_katukova.lesson_8.level_7.task_31.L
         return out;
     }
 
-    private Date getReturnDateForBorrowedBook() {
-        Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.DATE, 14); //borrowing period = 2 weeks
-        return calendar.getTime();
+    private LocalDate getReturnDateForBorrowedBook() {
+        LocalDate currentDate = LocalDate.now();
+        return currentDate.plusDays(14);//borrowing period = 2 weeks
     }
 
-    private Date getReturnDateForReservedBook() {
-        Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.DATE, 2); //borrowing period = 2 days
-        return calendar.getTime();
+    private LocalDate getReturnDateForReservedBook() {
+        LocalDate currentDate = LocalDate.now();
+        return currentDate.plusDays(2);//borrowing period = 2 weeks
     }
 
 }
