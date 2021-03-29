@@ -2,7 +2,7 @@ package students.vitaly_porsev.lesson_10.level_5.allTasks;
 
 import java.util.Arrays;
 
-public class TestFindingAuthorsByWord {
+class TestFindingAuthorsByWord {
 
     public static void main(String[] args) {
         TestFindingAuthorsByWord method = new TestFindingAuthorsByWord();

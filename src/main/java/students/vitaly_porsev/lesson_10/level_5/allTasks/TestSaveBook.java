@@ -1,6 +1,6 @@
 package students.vitaly_porsev.lesson_10.level_5.allTasks;
 
-public class TestSaveBook {
+class TestSaveBook {
 
     public static void main(String[] args) {
         TestSaveBook method = new TestSaveBook();

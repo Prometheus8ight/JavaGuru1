@@ -2,7 +2,7 @@ package students.vitaly_porsev.lesson_10.level_5.allTasks;
 
 import java.util.Arrays;
 
-public class TestAllBooksPrint {
+class TestAllBooksPrint {
 
     public static void main(String[] args) {
         TestAllBooksPrint method = new TestAllBooksPrint();
@@ -18,7 +18,7 @@ public class TestAllBooksPrint {
         bookReader.addBookToTheLibrary("The Lord of the Rings", "J.R.R. Tolkien");
         String[] expectedResult = {"All Quiet on the Western Front [Erich Maria Remarque]", "To Kill a Mockingbird [Harper Lee]",
                 "1984 [George Orwell]", "Harry Potter and the Philosopher’s Stone [J.K. Rowling]", "The Lord of the Rings [J.R.R. Tolkien]" };
-        check(expectedResult, bookReader.printAllBooks(), "checkBooksList");
+        check(expectedResult, bookReader.findAllBooks(), "checkBooksList");
     }
 
     private void check(String[] expectedResult, String[] realResult, String testName) {

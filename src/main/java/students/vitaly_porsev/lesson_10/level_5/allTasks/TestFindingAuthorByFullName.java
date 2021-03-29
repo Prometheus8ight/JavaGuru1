@@ -2,7 +2,7 @@ package students.vitaly_porsev.lesson_10.level_5.allTasks;
 
 import java.util.Arrays;
 
-public class TestFindingAuthorByFullName {
+class TestFindingAuthorByFullName {
 
     public static void main(String[] args) {
         TestFindingAuthorByFullName method = new TestFindingAuthorByFullName();

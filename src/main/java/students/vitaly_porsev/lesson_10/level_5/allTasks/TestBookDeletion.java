@@ -2,7 +2,7 @@ package students.vitaly_porsev.lesson_10.level_5.allTasks;
 
 import java.util.Arrays;
 
-public class TestBookDeletion {
+class TestBookDeletion {
     public static void main(String[] args) {
         TestBookDeletion method = new TestBookDeletion();
         method.CheckBookDeletion();
@@ -20,7 +20,7 @@ public class TestBookDeletion {
         String[] expectedResult = {"All Quiet on the Western Front [Erich Maria Remarque]", "To Kill a Mockingbird [Harper Lee]",
                 "Harry Potter and the Philosopher’s Stone [J.K. Rowling]", "The Lord of the Rings [J.R.R. Tolkien]" };
         bookReader.deleteBookByTitle("1984");
-        check(expectedResult, bookReader.printAllBooks(), "CheckBookDeletion");
+        check(expectedResult, bookReader.findAllBooks(), "CheckBookDeletion");
     }
 
     void checkBookDeletionTrue() {

@@ -1,8 +1,8 @@
 package students.vitaly_porsev.lesson_10.level_5.allTasks;
 
-public class BookReaderImpl implements BookReader {
+class BookReaderImpl implements BookReader {
 
-    Book[] library = new Book[0];
+    private Book[] library = new Book[0];
 
     @Override
     public boolean addBookToTheLibrary(String title, String author) {
@@ -12,7 +12,7 @@ public class BookReaderImpl implements BookReader {
                 return false;
             }
         }
-        if (checkTitleAndAuthor(title, author)) {
+        if (checkTitleAndAuthorOnEmptiness(title, author)) {
             return false;
         }
         library = copyArrayAndMakeNewLength();
@@ -20,8 +20,7 @@ public class BookReaderImpl implements BookReader {
         return true;
     }
 
-    @Override
-    public boolean checkTitleAndAuthor(String title, String author) {
+    private boolean checkTitleAndAuthorOnEmptiness(String title, String author) {
         return title.isEmpty() && author.isEmpty() || title.isEmpty() || author.isEmpty();
     }
 
@@ -119,7 +118,7 @@ public class BookReaderImpl implements BookReader {
     }
 
     @Override
-    public String[] printAllBooks() {
+    public String[] findAllBooks() {
         String[] libraryArray = new String[library.length];
         for (int i = 0; i < libraryArray.length; i++) {
             libraryArray[i] = String.valueOf(library[i]);
