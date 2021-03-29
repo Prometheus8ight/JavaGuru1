@@ -1,4 +1,4 @@
-package students.bogdans_pavlovs.lesson_6.level_6;
+package students.deniss_jankovskis.lesson_6.level_7.task_33;
 
 class TicTacToeDemo {
 
@@ -9,3 +9,5 @@ class TicTacToeDemo {
     }
 
 }
+
+

@@ -1,7 +1,8 @@
-package students.deniss_jankovskis.lesson_6.level_6.task_30;
+package students.deniss_jankovskis.lesson_6.level_7.task_33;
 
-import java.util.Scanner;
 import java.util.Arrays;
+import java.util.Random;
+import java.util.Scanner;
 
 
 public class TicTacToe {
@@ -21,9 +22,7 @@ public class TicTacToe {
                 break;
             }
 
-            printFieldToConsole(field);
-            Move move1 = getNextMove();
-            field[move1.getX()][move1.getY()] = 1;
+            randomMove(field, 1);
             if (isWin(field, 1)) {
                 System.out.println("Player 1 WIN!");
                 break;
@@ -57,6 +56,20 @@ public class TicTacToe {
         int y = scanner.nextInt();
         return new Move(x, y);
     }
+
+    public void randomMove(int[][] field, int player) {
+        Random random = new Random();
+        boolean isTrue = false;
+        do {
+            int x = random.nextInt(3);
+            int y = random.nextInt(3);
+            if (field[x][y] == -1) {
+                field[x][y] = player;
+                isTrue = true;
+            }
+        } while (!isTrue);
+    }
+
 
 
     public void printFieldToConsole(int[][] field) {
