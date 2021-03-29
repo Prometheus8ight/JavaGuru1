@@ -2,8 +2,8 @@ package students.julija_katukova.lesson_9.level_7.task_34;
 
 class WinningRuleForHorizontals extends WinningRule {
 
-    public WinningRuleForHorizontals(String ruleName) {
-        super(ruleName);
+    public WinningRuleForHorizontals() {
+        super("Winning Rule For Horizontals");
     }
 
     @Override

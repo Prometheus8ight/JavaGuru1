@@ -2,8 +2,8 @@ package students.julija_katukova.lesson_9.level_7.task_34;
 
 class WinningRuleForVerticals extends WinningRule {
 
-    public WinningRuleForVerticals(String ruleName) {
-        super(ruleName);
+    public WinningRuleForVerticals() {
+        super("Winning Rule For Verticals");
     }
 
     @Override
