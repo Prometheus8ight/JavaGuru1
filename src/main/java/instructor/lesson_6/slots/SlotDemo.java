@@ -5,6 +5,9 @@ public class SlotDemo {
     public static void main(String[] args) {
 
         SlotGame game = new SlotGame();
+
+        System.out.println("game.getBalance() = " + game.getBalance());
+
         game.play();
 
 //        SlotMachine slotMachine = new SlotMachine();
