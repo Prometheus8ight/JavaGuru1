@@ -1,5 +1,7 @@
 package students.julija_katukova.lesson_10.level_7.task_26;
 
+import java.util.Objects;
+
 class Object {
 
     private String title;

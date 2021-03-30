@@ -21,6 +21,16 @@ class Array implements MyList {
         Arrays.sort(objects, new ObjectComparator());
     }
 
+    @Override
+    public void clear() {
+        this.objects = new Object[0];
+    }
+
+    @Override
+    public boolean contains(Object object) {
+        return isElementInArray(object);
+    }
+
     public Object[] getObjects() {
         return objects;
     }
@@ -76,24 +86,12 @@ class Array implements MyList {
         return emptyElementIndex;
     }
 
-    private void sortElementsInArray() {
-        String[] out = convertObjectArrayToStringArray();
-        for (int i = 0; i < out.length - 1; i++) {
-            for (int j = i + 1; j < out.length; j++) {
-                if (out[i].compareTo(out[j]) > 0) {
-                    String temp = out[i];
-                    out[i] = out[j];
-                    out[j] = temp;
-                }
+    private boolean isElementInArray(Object object) {
+        for (Object value : objects) {
+            if (value.equals(object)) {
+                return true;
             }
         }
-    }
-
-    private String[] convertObjectArrayToStringArray() {
-        String[] out = new String[objects.length];
-        for (int i = 0; i < objects.length; i++) {
-            out[i] = objects[i].getTitle();
-        }
-        return out;
+        return false;
     }
 }

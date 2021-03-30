@@ -8,4 +8,8 @@ interface MyList {
 
     void sortElements(); //sort elements without loops
 
+    void clear(); // removes all of the elements
+
+    boolean contains(Object object); // This method returns true if this list contains the specified element.
+
 }
