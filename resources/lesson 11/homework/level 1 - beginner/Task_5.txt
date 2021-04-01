@@ -1,6 +1,6 @@
 Дан класс Book:
 
-public class Book {
+class Book {
     private String title;
     private String author;
 
