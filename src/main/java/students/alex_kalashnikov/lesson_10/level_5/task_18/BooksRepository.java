@@ -126,12 +126,12 @@ class BooksRepository implements BookReader {
         }
     }
 
-    public String[] splitWords(String searchWord) {
+    private String[] splitWords(String searchWord) {
         String lowerCase = searchWord.toLowerCase();
         return lowerCase.split("");
     }
 
-    public boolean compareLetters(String[] searchWord, String[] index) {
+    private boolean compareLetters(String[] searchWord, String[] index) {
         int counter = 0;
         for (int i = 0; i < searchWord.length; i++) {
             if (searchWord.length > index.length) {
