@@ -1,4 +1,4 @@
-package students.alex_kalashnikov.lesson_10.level_5.task_18;
+package students.alex_kalashnikov.lesson_10.level_6.task_20;
 
 class BooksRepository implements BookReader {
 
@@ -157,7 +157,61 @@ class BooksRepository implements BookReader {
             }
             String[] arr = new String[counter];
             for (Book book : repository) {
-                if (compareLetters(splitWords(word), splitWords(book.getAuthor()))) {
+                if (splitWords(word).length > splitWords(book.getAuthor()).length + 1) {
+                    return new String[]{};
+                } else if (compareLetters(splitWords(word), splitWords(book.getAuthor()))) {
+                    arr[counter1] = book.getName() + " [" + book.getAuthor() + "]";
+                    counter1++;
+                }
+            }
+            return arr;
+        }
+    }
+
+    private String convertToLowerCase(String name) {
+        return name.toLowerCase();
+    }
+
+    @Override
+    public String[] findBooksByName(String name) {
+        int counter = 0;
+        int counter1 = 0;
+        if (repository == null) {
+            return new String[]{};
+        } else {
+            for (Book book : repository) {
+                if (convertToLowerCase(book.getName()).equals(convertToLowerCase(name))) {
+                    counter++;
+                }
+            }
+            String[] arr = new String[counter];
+            for (Book book : repository) {
+                if (convertToLowerCase(book.getName()).equals(convertToLowerCase(name))) {
+                    arr[counter1] = book.getName() + " [" + book.getAuthor() + "]";
+                    counter1++;
+                }
+            }
+            return arr;
+        }
+    }
+
+    @Override
+    public String[] findBooksByNameLetters(String word) {
+        int counter = 0;
+        int counter1 = 0;
+        if (repository == null) {
+            return new String[]{};
+        } else {
+            for (Book book : repository) {
+                if (compareLetters(splitWords(word), splitWords(book.getName()))) {
+                    counter++;
+                }
+            }
+            String[] arr = new String[counter];
+            for (Book book : repository) {
+//                if (splitWords(word).length > splitWords(book.getName()).length + 1) {
+//                    return new String[]{};
+                 if (compareLetters(splitWords(word), splitWords(book.getName()))) {
                     arr[counter1] = book.getName() + " [" + book.getAuthor() + "]";
                     counter1++;
                 }
