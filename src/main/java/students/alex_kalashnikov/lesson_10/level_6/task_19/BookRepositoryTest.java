@@ -7,12 +7,12 @@ class BookRepositoryTest {
     public static void main(String[] args) {
 
         BookRepositoryTest victim = new BookRepositoryTest();
-        victim.testFindBookByName();
-        victim.testFindBookByName1();
-        victim.testFindBookByName2();
-        victim.testFindBookByName3();
-        victim.testFindBookByName4();
-        victim.testFindBookByName5();
+        victim.testFindByName();
+        victim.testFindByName1();
+        victim.testFindByName2();
+        victim.testFindByName3();
+        victim.testFindByName4();
+        victim.testFindByName5();
 
     }
 
@@ -24,61 +24,61 @@ class BookRepositoryTest {
         }
     }
 
-    void testFindBookByName() {
+    void testFindByName() {
         BooksRepository testRepository = new BooksRepository();
         String[] expectedResult = {"Clean Code [Robert Martin]"};
-        testRepository.addBook(new Book("Clean Code", "Robert Martin"));
-        testRepository.addBook(new Book("Head First Java", "Kathy Sierra"));
-        testRepository.addBook(new Book("Head First Design Patterns", "Eric Freeman"));
-        test(expectedResult, testRepository.findBooksByName("Clean Code"));
+        testRepository.add(new Book("Clean Code", "Robert Martin"));
+        testRepository.add(new Book("Head First Java", "Kathy Sierra"));
+        testRepository.add(new Book("Head First Design Patterns", "Eric Freeman"));
+        test(expectedResult, testRepository.findByName("Clean Code"));
     }
 
-    void testFindBookByName1() {
+    void testFindByName1() {
         BooksRepository testRepository = new BooksRepository();
         String[] expectedResult = {"Head First Design Patterns [Eric Freeman]"};
-        testRepository.addBook(new Book("Clean Code", "Robert Martin"));
-        testRepository.addBook(new Book("Head First Java", "Kathy Sierra"));
-        testRepository.addBook(new Book("Head First Design Patterns", "Eric Freeman"));
-        test(expectedResult, testRepository.findBooksByName("Head fIRst design patterns"));
+        testRepository.add(new Book("Clean Code", "Robert Martin"));
+        testRepository.add(new Book("Head First Java", "Kathy Sierra"));
+        testRepository.add(new Book("Head First Design Patterns", "Eric Freeman"));
+        test(expectedResult, testRepository.findByName("Head fIRst design patterns"));
     }
 
-    void testFindBookByName2() {
+    void testFindByName2() {
         BooksRepository testRepository = new BooksRepository();
         String[] expectedResult = {};
-        testRepository.addBook(new Book("Clean Code", "Robert Martin"));
-        testRepository.addBook(new Book("Head First Java", "Kathy Sierra"));
-        testRepository.addBook(new Book("Head First Design Patterns", "Eric Freeman"));
-        test(expectedResult, testRepository.findBooksByName("Dirty Code"));
+        testRepository.add(new Book("Clean Code", "Robert Martin"));
+        testRepository.add(new Book("Head First Java", "Kathy Sierra"));
+        testRepository.add(new Book("Head First Design Patterns", "Eric Freeman"));
+        test(expectedResult, testRepository.findByName("Dirty Code"));
     }
 
-    void testFindBookByName3() {
+    void testFindByName3() {
         BooksRepository testRepository = new BooksRepository();
         String[] expectedResult = {};
-        test(expectedResult, testRepository.findBooksByName("Dirty Code"));
+        test(expectedResult, testRepository.findByName("Dirty Code"));
     }
 
-    void testFindBookByName4() {
+    void testFindByName4() {
         BooksRepository testRepository = new BooksRepository();
         String[] expectedResult = {};
-        testRepository.addBook(new Book("Clean Code", "Robert Martin"));
-        testRepository.addBook(new Book("Head First Java", "Kathy Sierra"));
-        testRepository.addBook(new Book("Head First Design Patterns", "Eric Freeman"));
-        testRepository.addBook(new Book("Dirty Code", "Robert Martin"));
-        testRepository.deleteBook(new Book("Clean Code", "Robert Martin"));
-        testRepository.deleteBook(new Book("Head First Design Patterns", "Eric Freeman"));
-        testRepository.deleteBook(new Book("Head First Java", "Kathy Sierra"));
-        testRepository.deleteBook(new Book("Dirty Code", "Robert Martin"));
-        test(expectedResult, testRepository.findBooksByName("dirty code"));
+        testRepository.add(new Book("Clean Code", "Robert Martin"));
+        testRepository.add(new Book("Head First Java", "Kathy Sierra"));
+        testRepository.add(new Book("Head First Design Patterns", "Eric Freeman"));
+        testRepository.add(new Book("Dirty Code", "Robert Martin"));
+        testRepository.delete(new Book("Clean Code", "Robert Martin"));
+        testRepository.delete(new Book("Head First Design Patterns", "Eric Freeman"));
+        testRepository.delete(new Book("Head First Java", "Kathy Sierra"));
+        testRepository.delete(new Book("Dirty Code", "Robert Martin"));
+        test(expectedResult, testRepository.findByName("dirty code"));
     }
 
-    void testFindBookByName5() {
+    void testFindByName5() {
         BooksRepository testRepository = new BooksRepository();
         String[] expectedResult = {"Clean Code [Robert Martin]", "Clean Code [Vasily Pupkin]"};
-        testRepository.addBook(new Book("Clean Code", "Robert Martin"));
-        testRepository.addBook(new Book("Head First Java", "Kathy Sierra"));
-        testRepository.addBook(new Book("Head First Design Patterns", "Eric Freeman"));
-        testRepository.addBook(new Book("Clean Code", "Vasily Pupkin"));
-        test(expectedResult, testRepository.findBooksByName("Clean Code"));
+        testRepository.add(new Book("Clean Code", "Robert Martin"));
+        testRepository.add(new Book("Head First Java", "Kathy Sierra"));
+        testRepository.add(new Book("Head First Design Patterns", "Eric Freeman"));
+        testRepository.add(new Book("Clean Code", "Vasily Pupkin"));
+        test(expectedResult, testRepository.findByName("Clean Code"));
     }
 
 }

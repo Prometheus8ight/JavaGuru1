@@ -26,51 +26,51 @@ class BookRepositoryTest {
 
     void testMarkAsRead() {
         BooksRepository testRepository = new BooksRepository();
-        testRepository.addBook(new Book("Clean Code", "Robert Martin"));
-        testRepository.addBook(new Book("Head First Java", "Kathy Sierra"));
-        testRepository.addBook(new Book("Head First Design Patterns", "Eric Freeman"));
+        testRepository.add(new Book("Clean Code", "Robert Martin"));
+        testRepository.add(new Book("Head First Java", "Kathy Sierra"));
+        testRepository.add(new Book("Head First Design Patterns", "Eric Freeman"));
         test(true, testRepository.markAsRead(new Book("Clean Code", "Robert Martin")));
     }
 
     void testMarkAsRead1() {
         BooksRepository testRepository = new BooksRepository();
-        testRepository.addBook(new Book("Clean Code", "Robert Martin"));
-        testRepository.addBook(new Book("Head First Java", "Kathy Sierra"));
-        testRepository.addBook(new Book("Head First Design Patterns", "Eric Freeman"));
+        testRepository.add(new Book("Clean Code", "Robert Martin"));
+        testRepository.add(new Book("Head First Java", "Kathy Sierra"));
+        testRepository.add(new Book("Head First Design Patterns", "Eric Freeman"));
         testRepository.markAsRead(new Book("Clean Code", "Robert Martin"));
         test(true, testRepository.getRepository()[0].isBookIsRead());
     }
 
     void testMarkAsRead2() {
         BooksRepository testRepository = new BooksRepository();
-        testRepository.addBook(new Book("Clean Code", "Robert Martin"));
-        testRepository.addBook(new Book("Head First Java", "Kathy Sierra"));
-        testRepository.addBook(new Book("Head First Design Patterns", "Eric Freeman"));
+        testRepository.add(new Book("Clean Code", "Robert Martin"));
+        testRepository.add(new Book("Head First Java", "Kathy Sierra"));
+        testRepository.add(new Book("Head First Design Patterns", "Eric Freeman"));
         test(true, testRepository.markAsRead(new Book("Head First Design Patterns", "Eric Freeman")));
     }
 
     void testMarkAsRead3() {
         BooksRepository testRepository = new BooksRepository();
-        testRepository.addBook(new Book("Clean Code", "Robert Martin"));
-        testRepository.addBook(new Book("Head First Java", "Kathy Sierra"));
-        testRepository.addBook(new Book("Head First Design Patterns", "Eric Freeman"));
+        testRepository.add(new Book("Clean Code", "Robert Martin"));
+        testRepository.add(new Book("Head First Java", "Kathy Sierra"));
+        testRepository.add(new Book("Head First Design Patterns", "Eric Freeman"));
         testRepository.markAsRead(new Book("Head First Design Patterns", "Eric Freeman"));
         test(true, testRepository.getRepository()[2].isBookIsRead());
     }
 
     void testMarkAsRead4() {
         BooksRepository testRepository = new BooksRepository();
-        testRepository.addBook(new Book("Clean Code", "Robert Martin"));
-        testRepository.addBook(new Book("Head First Java", "Kathy Sierra"));
-        testRepository.addBook(new Book("Head First Design Patterns", "Eric Freeman"));
+        testRepository.add(new Book("Clean Code", "Robert Martin"));
+        testRepository.add(new Book("Head First Java", "Kathy Sierra"));
+        testRepository.add(new Book("Head First Design Patterns", "Eric Freeman"));
         test(false, testRepository.markAsRead(new Book("Dirty Code", "Robert Martin")));
     }
 
     void testMarkAsRead5() {
         BooksRepository testRepository = new BooksRepository();
-        testRepository.addBook(new Book("Clean Code", "Robert Martin"));
-        testRepository.addBook(new Book("Head First Java", "Kathy Sierra"));
-        testRepository.addBook(new Book("Head First Design Patterns", "Eric Freeman"));
+        testRepository.add(new Book("Clean Code", "Robert Martin"));
+        testRepository.add(new Book("Head First Java", "Kathy Sierra"));
+        testRepository.add(new Book("Head First Design Patterns", "Eric Freeman"));
         test(false, testRepository.getRepository()[1].isBookIsRead());
     }
 
@@ -81,14 +81,14 @@ class BookRepositoryTest {
 
     void testMarkAsRead7() {
         BooksRepository testRepository = new BooksRepository();
-        testRepository.addBook(new Book("Clean Code", "Robert Martin"));
-        testRepository.addBook(new Book("Head First Java", "Kathy Sierra"));
-        testRepository.addBook(new Book("Head First Design Patterns", "Eric Freeman"));
-        testRepository.addBook(new Book("Dirty Code", "Robert Martin"));
-        testRepository.deleteBook(new Book("Clean Code", "Robert Martin"));
-        testRepository.deleteBook(new Book("Head First Design Patterns", "Eric Freeman"));
-        testRepository.deleteBook(new Book("Head First Java", "Kathy Sierra"));
-        testRepository.deleteBook(new Book("Dirty Code", "Robert Martin"));
+        testRepository.add(new Book("Clean Code", "Robert Martin"));
+        testRepository.add(new Book("Head First Java", "Kathy Sierra"));
+        testRepository.add(new Book("Head First Design Patterns", "Eric Freeman"));
+        testRepository.add(new Book("Dirty Code", "Robert Martin"));
+        testRepository.delete(new Book("Clean Code", "Robert Martin"));
+        testRepository.delete(new Book("Head First Design Patterns", "Eric Freeman"));
+        testRepository.delete(new Book("Head First Java", "Kathy Sierra"));
+        testRepository.delete(new Book("Dirty Code", "Robert Martin"));
         test(false, testRepository.markAsRead(new Book("Dirty Code", "Robert Martin")));
     }
 
