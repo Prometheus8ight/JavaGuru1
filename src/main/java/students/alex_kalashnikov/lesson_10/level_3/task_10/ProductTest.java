@@ -23,7 +23,7 @@ class ProductTest {
         }
     }
 
-    void testFind(Optional expectedResult, Optional realResult) {
+    void testFind(Optional<Product> expectedResult, Optional<Product> realResult) {
         if (expectedResult.equals(realResult)) {
             System.out.println("Test is OK!");
         } else {
@@ -69,8 +69,8 @@ class ProductTest {
         testDatabase.save(new Product("Beer"));
         testDatabase.save(new Product("Cheese"));
         testDatabase.save(new Product("Meat"));
-        Optional<String> expectedResult = Optional.of("Beer");
-        Optional realResult = testDatabase.findByTitle("Beer");
+        Optional<Product> expectedResult = Optional.of(testDatabase.getArr()[2]);
+        Optional<Product> realResult = testDatabase.findByTitle("Beer");
         testFind(expectedResult, realResult);
     }
 
@@ -81,8 +81,8 @@ class ProductTest {
         testDatabase.save(new Product("Beer"));
         testDatabase.save(new Product("Cheese"));
         testDatabase.save(new Product("Meat"));
-        Optional<String> expectedResult = Optional.of("No such product!");
-        Optional realResult = testDatabase.findByTitle("Vodka");
+        Optional<Product> expectedResult = Optional.empty();
+        Optional<Product> realResult = testDatabase.findByTitle("Vodka");
         testFind(expectedResult, realResult);
     }
 
