@@ -1,4 +1,4 @@
-package students.alex_kalashnikov.lesson_10.level_6.task_19;
+package students.alex_kalashnikov.lesson_10.level_6.task_22;
 
 interface BookReader {
 
@@ -18,5 +18,11 @@ interface BookReader {
 
 
     String[] findBooksByName(String name);
+
+    String[] findBooksByNameLetters(String word);
+
+    boolean markAsRead(Book book);
+
+    boolean markAsNotRead(Book book);
 
 }

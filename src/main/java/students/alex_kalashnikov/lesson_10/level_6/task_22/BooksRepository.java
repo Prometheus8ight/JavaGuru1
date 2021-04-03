@@ -1,4 +1,4 @@
-package students.alex_kalashnikov.lesson_10.level_6.task_20;
+package students.alex_kalashnikov.lesson_10.level_6.task_22;
 
 class BooksRepository implements BookReader {
 
@@ -213,6 +213,39 @@ class BooksRepository implements BookReader {
                 }
             }
             return arr;
+        }
+    }
+
+    private int findBookIndex(Book book) {
+        for (int i = 0; i < repository.length; i++) {
+            if (repository[i].equals(book)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    @Override
+    public boolean markAsRead(Book book) {
+        if (repository == null) {
+            return false;
+        } else if (!checkContains(book)) {
+            repository[findBookIndex(book)].setBookIsRead(true);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public boolean markAsNotRead(Book book) {
+        if (repository == null) {
+            return false;
+        } else if (!checkContains(book)) {
+            repository[findBookIndex(book)].setBookIsRead(false);
+            return true;
+        } else {
+            return false;
         }
     }
 

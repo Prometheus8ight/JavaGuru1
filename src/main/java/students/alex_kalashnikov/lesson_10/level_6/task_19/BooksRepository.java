@@ -157,9 +157,7 @@ class BooksRepository implements BookReader {
             }
             String[] arr = new String[counter];
             for (Book book : repository) {
-                if (splitWords(word).length > splitWords(book.getAuthor()).length + 1) {
-                    return new String[]{};
-                } else if (compareLetters(splitWords(word), splitWords(book.getAuthor()))) {
+                if (compareLetters(splitWords(word), splitWords(book.getAuthor()))) {
                     arr[counter1] = book.getName() + " [" + book.getAuthor() + "]";
                     counter1++;
                 }
@@ -173,7 +171,7 @@ class BooksRepository implements BookReader {
     }
 
     @Override
-    public String[] findBookByName(String name) {
+    public String[] findBooksByName(String name) {
         int counter = 0;
         int counter1 = 0;
         if (repository == null) {
