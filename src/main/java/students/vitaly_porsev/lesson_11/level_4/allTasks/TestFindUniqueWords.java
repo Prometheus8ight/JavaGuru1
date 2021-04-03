@@ -19,7 +19,7 @@ public class TestFindUniqueWords {
         newSet.add("the"); newSet.add("nor"); newSet.add("not"); newSet.add("composition");
         newSet.add("even"); newSet.add("physical");
 
-        checkStrings(newSet, book.find(text),"findUniqueWordsTest");
+        checkStrings(newSet, book.findUniqueWords(text),"findUniqueWordsTest");
     }
 
     private void checkStrings(Set<String> expectedResult, Set<String> realResult, String testName) {

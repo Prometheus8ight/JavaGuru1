@@ -73,7 +73,7 @@ class BookDatabaseImpl implements BookDatabase {
     }
 
     @Override
-    public List<Book> find(SearchCriteria searchCriteria) {
+    public List<Book> findBySearchCriteria(SearchCriteria searchCriteria) {
         List<Book> newLibrary = new LinkedList<>();
         for (Book book : library) {
             if (searchCriteria.match(book)) {
@@ -117,7 +117,7 @@ class BookDatabaseImpl implements BookDatabase {
     }
 
     @Override
-    public Set<String> find(String text) {
+    public Set<String> findUniqueWords(String text) {
         String[] splitText = text.toLowerCase().split("[, . ']+");
         Set<String> textArray = new HashSet<>(Arrays.asList(splitText));
         return textArray;

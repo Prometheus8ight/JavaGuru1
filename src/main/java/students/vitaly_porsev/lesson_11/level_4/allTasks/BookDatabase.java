@@ -24,7 +24,7 @@ interface BookDatabase {
 
     void deleteByTitle(String title);
 
-    List<Book> find(SearchCriteria searchCriteria);
+    List<Book> findBySearchCriteria(SearchCriteria searchCriteria);
 
     Set<String> findUniqueAuthors();
 
@@ -34,5 +34,5 @@ interface BookDatabase {
 
     boolean contains(Book book);
 
-    Set<String> find(String text);
+    Set<String> findUniqueWords(String text);
 }
