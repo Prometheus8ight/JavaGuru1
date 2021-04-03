@@ -2,7 +2,7 @@ package students.alex_kalashnikov.lesson_10.level_5.task_15;
 
 class BooksRepository implements BookReader {
 
-    private Book[] repository;
+    private Book[] repository = {};
     private int count;
 
     public Book[] getRepository() {
@@ -13,13 +13,7 @@ class BooksRepository implements BookReader {
         return new Book[count];
     }
 
-    private void saveFirstBook(Book book) {
-        count++;
-        repository = createArr(count);
-        repository[repository.length - 1] = book;
-    }
-
-    private void saveBook(Book book) {
+    private void save(Book book) {
         count++;
         Book[] arr = createArr(count);
         for (int i = 0; i < repository.length; i++) {
@@ -29,7 +23,7 @@ class BooksRepository implements BookReader {
         repository[repository.length - 1] = book;
     }
 
-    private void removeBook(Book book) {
+    private void remove(Book book) {
         count--;
         Book[] arr = createArr(count);
         for (int i = 0; i < repository.length; i++) {
@@ -49,8 +43,7 @@ class BooksRepository implements BookReader {
         repository = arr;
     }
 
-    @Override
-    public boolean checkContains(Book book) {
+    private boolean contains(Book book) {
         if (repository == null) {
             return true;
         } else {
@@ -63,29 +56,25 @@ class BooksRepository implements BookReader {
         return true;
     }
 
-    @Override
-    public boolean checkParameters(Book book) {
+    private boolean checkParameters(Book book) {
         return !book.getName().equals("") && !book.getAuthor().equals("");
     }
 
     @Override
-    public boolean addBook(Book book) {
-        if (repository == null && checkParameters(book)) {
-            saveFirstBook(book);
-            return true;
-        } else if (checkContains(book) && checkParameters(book)) {
-            saveBook(book);
+    public boolean add(Book book) {
+        if (contains(book) && checkParameters(book)) {
+            save(book);
             return true;
         }
         return false;
     }
 
     @Override
-    public boolean deleteBook(Book book) {
-        if (repository == null || checkContains(book)) {
+    public boolean delete(Book book) {
+        if (contains(book)) {
             return false;
         } else {
-            removeBook(book);
+            remove(book);
             return true;
         }
     }

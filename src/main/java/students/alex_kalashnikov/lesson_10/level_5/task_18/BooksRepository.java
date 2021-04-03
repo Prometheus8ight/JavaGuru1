@@ -2,7 +2,7 @@ package students.alex_kalashnikov.lesson_10.level_5.task_18;
 
 class BooksRepository implements BookReader {
 
-    private Book[] repository;
+    private Book[] repository = {};
     private int count;
 
     public Book[] getRepository() {
@@ -13,13 +13,7 @@ class BooksRepository implements BookReader {
         return new Book[count];
     }
 
-    private void saveFirstBook(Book book) {
-        count++;
-        repository = createArr(count);
-        repository[repository.length - 1] = book;
-    }
-
-    private void saveBook(Book book) {
+    private void save(Book book) {
         count++;
         Book[] arr = createArr(count);
         for (int i = 0; i < repository.length; i++) {
@@ -29,7 +23,7 @@ class BooksRepository implements BookReader {
         repository[repository.length - 1] = book;
     }
 
-    private void removeBook(Book book) {
+    private void remove(Book book) {
         count--;
         Book[] arr = createArr(count);
         for (int i = 0; i < repository.length; i++) {
@@ -49,81 +43,64 @@ class BooksRepository implements BookReader {
         repository = arr;
     }
 
-    @Override
-    public boolean checkContains(Book book) {
-        if (repository == null) {
-            return true;
-        } else {
-            for (Book value : repository) {
-                if (value.equals(book)) {
-                    return false;
-                }
+    private boolean contains(Book book) {
+        for (Book value : repository) {
+            if (value.equals(book)) {
+                return false;
             }
         }
         return true;
     }
 
-    @Override
-    public boolean checkParameters(Book book) {
+    private boolean checkParameters(Book book) {
         return !book.getName().equals("") && !book.getAuthor().equals("");
     }
 
     @Override
-    public boolean addBook(Book book) {
-        if (repository == null && checkParameters(book)) {
-            saveFirstBook(book);
-            return true;
-        } else if (checkContains(book) && checkParameters(book)) {
-            saveBook(book);
+    public boolean add(Book book) {
+        if (contains(book) && checkParameters(book)) {
+            save(book);
             return true;
         }
         return false;
     }
 
     @Override
-    public boolean deleteBook(Book book) {
-        if (repository == null || checkContains(book)) {
+    public boolean delete(Book book) {
+        if (contains(book)) {
             return false;
         } else {
-            removeBook(book);
+            remove(book);
             return true;
         }
     }
 
     @Override
-    public String[] findAllBooks() {
-        if (repository != null) {
-            String[] arr = new String[repository.length];
-            for (int i = 0; i < repository.length; i++) {
-                arr[i] = repository[i].getName() + " [" + repository[i].getAuthor() + "]";
-            }
-            return arr;
-        } else {
-            return new String[]{};
+    public String[] findAll() {
+        String[] arr = new String[repository.length];
+        for (int i = 0; i < repository.length; i++) {
+            arr[i] = repository[i].getName() + " [" + repository[i].getAuthor() + "]";
         }
+        return arr;
     }
 
     @Override
-    public String[] findBooksByAuthor(String author) {
+    public String[] findByAuthor(String author) {
         int counter = 0;
         int counter1 = 0;
-        if (repository == null) {
-            return new String[]{};
-        } else {
-            for (Book book : repository) {
-                if (book.getAuthor().equals(author)) {
-                    counter++;
-                }
+        for (Book book : repository) {
+            if (book.getAuthor().equals(author)) {
+                counter++;
             }
-            String[] arr = new String[counter];
-            for (Book book : repository) {
-                if (book.getAuthor().equals(author)) {
-                    arr[counter1] = book.getName() + " [" + book.getAuthor() + "]";
-                    counter1++;
-                }
-            }
-            return arr;
         }
+        String[] arr = new String[counter];
+        for (Book book : repository) {
+            if (book.getAuthor().equals(author)) {
+                arr[counter1] = book.getName() + " [" + book.getAuthor() + "]";
+                counter1++;
+            }
+        }
+        return arr;
     }
 
     private String[] splitWords(String searchWord) {
@@ -144,26 +121,22 @@ class BooksRepository implements BookReader {
     }
 
     @Override
-    public String[] findBooksByLetters(String word) {
+    public String[] findByAuthorLetters(String word) {
         int counter = 0;
         int counter1 = 0;
-        if (repository == null) {
-            return new String[]{};
-        } else {
-            for (Book book : repository) {
-                if (compareLetters(splitWords(word), splitWords(book.getAuthor()))) {
-                    counter++;
-                }
+        for (Book book : repository) {
+            if (compareLetters(splitWords(word), splitWords(book.getAuthor()))) {
+                counter++;
             }
-            String[] arr = new String[counter];
-            for (Book book : repository) {
-                if (compareLetters(splitWords(word), splitWords(book.getAuthor()))) {
-                    arr[counter1] = book.getName() + " [" + book.getAuthor() + "]";
-                    counter1++;
-                }
-            }
-            return arr;
         }
+        String[] arr = new String[counter];
+        for (Book book : repository) {
+            if (compareLetters(splitWords(word), splitWords(book.getAuthor()))) {
+                arr[counter1] = book.getName() + " [" + book.getAuthor() + "]";
+                counter1++;
+            }
+        }
+        return arr;
     }
 
 }

@@ -7,12 +7,12 @@ class BookRepositoryTest {
     public static void main(String[] args) {
 
         BookRepositoryTest victim = new BookRepositoryTest();
-        victim.testDeleteBook();
-        victim.testDeleteBook1();
-        victim.testDeleteBook2();
-        victim.testDeleteBook3();
-        victim.testDeleteBook4();
-        victim.testAddAndDeleteBooks();
+        victim.testDelete();
+        victim.testDelete1();
+        victim.testDelete2();
+        victim.testDelete3();
+        victim.testDelete4();
+        victim.testAddAndDeletes();
 
     }
 
@@ -24,72 +24,73 @@ class BookRepositoryTest {
         }
     }
 
-    void testDeleteBook() {
+    void testDelete() {
         BooksRepository testRepository = new BooksRepository();
         Book[] expectedResult = {new Book("Clean Code", "Robert Martin"),
                 new Book("Head First Design Patterns", "Eric Freeman")};
-        testRepository.addBook(new Book("Clean Code", "Robert Martin"));
-        testRepository.addBook(new Book("Head First Java", "Kathy Sierra"));
-        testRepository.addBook(new Book("Head First Design Patterns", "Eric Freeman"));
-        testRepository.deleteBook(new Book("Head First Java", "Kathy Sierra"));
+        testRepository.add(new Book("Clean Code", "Robert Martin"));
+        testRepository.add(new Book("Head First Java", "Kathy Sierra"));
+        testRepository.add(new Book("Head First Design Patterns", "Eric Freeman"));
+        testRepository.delete(new Book("Head First Java", "Kathy Sierra"));
         test(expectedResult, testRepository.getRepository());
     }
 
-    void testDeleteBook1() {
+    void testDelete1() {
         BooksRepository testRepository = new BooksRepository();
         Book[] expectedResult = {new Book("Head First Java", "Kathy Sierra"),
                 new Book("Head First Design Patterns", "Eric Freeman")};
-        testRepository.addBook(new Book("Clean Code", "Robert Martin"));
-        testRepository.addBook(new Book("Head First Java", "Kathy Sierra"));
-        testRepository.addBook(new Book("Head First Design Patterns", "Eric Freeman"));
-        testRepository.deleteBook(new Book("Clean Code", "Robert Martin"));
+        testRepository.add(new Book("Clean Code", "Robert Martin"));
+        testRepository.add(new Book("Head First Java", "Kathy Sierra"));
+        testRepository.add(new Book("Head First Design Patterns", "Eric Freeman"));
+        testRepository.delete(new Book("Clean Code", "Robert Martin"));
         test(expectedResult, testRepository.getRepository());
     }
 
-    void testDeleteBook2() {
+    void testDelete2() {
         BooksRepository testRepository = new BooksRepository();
         Book[] expectedResult = {new Book("Clean Code", "Robert Martin"),
                 new Book("Head First Java", "Kathy Sierra"),
                 new Book("Head First Design Patterns", "Eric Freeman")};
-        testRepository.addBook(new Book("Clean Code", "Robert Martin"));
-        testRepository.addBook(new Book("Head First Java", "Kathy Sierra"));
-        testRepository.addBook(new Book("Head First Design Patterns", "Eric Freeman"));
-        testRepository.deleteBook(new Book("Modern Java in Action", "Raoul-Gabriel Urma"));
+        testRepository.add(new Book("Clean Code", "Robert Martin"));
+        testRepository.add(new Book("Head First Java", "Kathy Sierra"));
+        testRepository.add(new Book("Head First Design Patterns", "Eric Freeman"));
+        testRepository.delete(new Book("Modern Java in Action", "Raoul-Gabriel Urma"));
         test(expectedResult, testRepository.getRepository());
     }
 
-    void testDeleteBook3() {
+    void testDelete3() {
         BooksRepository testRepository = new BooksRepository();
         Book[] expectedResult = {};
-        testRepository.addBook(new Book("Clean Code", "Robert Martin"));
-        testRepository.addBook(new Book("Head First Java", "Kathy Sierra"));
-        testRepository.addBook(new Book("Head First Design Patterns", "Eric Freeman"));
-        testRepository.deleteBook(new Book("Head First Java", "Kathy Sierra"));
-        testRepository.deleteBook(new Book("Clean Code", "Robert Martin"));
-        testRepository.deleteBook(new Book("Head First Design Patterns", "Eric Freeman"));
+        testRepository.add(new Book("Clean Code", "Robert Martin"));
+        testRepository.add(new Book("Head First Java", "Kathy Sierra"));
+        testRepository.add(new Book("Head First Design Patterns", "Eric Freeman"));
+        testRepository.delete(new Book("Head First Java", "Kathy Sierra"));
+        testRepository.delete(new Book("Clean Code", "Robert Martin"));
+        testRepository.delete(new Book("Head First Design Patterns", "Eric Freeman"));
         test(expectedResult, testRepository.getRepository());
     }
 
-    void testDeleteBook4() {
+    void testDelete4() {
         BooksRepository testRepository = new BooksRepository();
-        testRepository.deleteBook(new Book("Head First Design Patterns", "Eric Freeman"));
-        test(null, testRepository.getRepository());
+        Book[] expectedResult = {};
+        testRepository.delete(new Book("Head First Design Patterns", "Eric Freeman"));
+        test(expectedResult, testRepository.getRepository());
     }
 
-    void testAddAndDeleteBooks() {
+    void testAddAndDeletes() {
         BooksRepository testRepository = new BooksRepository();
         Book[] expectedResult = {new Book("Head First Design Patterns", "Eric Freeman"),
                 new Book("Clean Code", "Robert Martin")};
-        testRepository.addBook(new Book("Clean Code", "Robert Martin"));
-        testRepository.addBook(new Book("Head First Java", "Kathy Sierra"));
-        testRepository.deleteBook(new Book("Clean Code", "Robert Martin"));
-        testRepository.addBook(new Book("Head First Design Patterns", "Eric Freeman"));
-        testRepository.addBook(new Book("Clean Code", "Robert Martin"));
-        testRepository.addBook(new Book("Head First Java", "Kathy Sierra"));
-        testRepository.deleteBook(new Book("Head First Java", "Kathy Sierra"));
-        testRepository.deleteBook(new Book("Head First Java", "Kathy Sierra"));
-        testRepository.deleteBook(new Book("Modern Java in Action", "Raoul-Gabriel Urma"));
-        testRepository.addBook(new Book("", "Kathy Sierra"));
+        testRepository.add(new Book("Clean Code", "Robert Martin"));
+        testRepository.add(new Book("Head First Java", "Kathy Sierra"));
+        testRepository.delete(new Book("Clean Code", "Robert Martin"));
+        testRepository.add(new Book("Head First Design Patterns", "Eric Freeman"));
+        testRepository.add(new Book("Clean Code", "Robert Martin"));
+        testRepository.add(new Book("Head First Java", "Kathy Sierra"));
+        testRepository.delete(new Book("Head First Java", "Kathy Sierra"));
+        testRepository.delete(new Book("Head First Java", "Kathy Sierra"));
+        testRepository.delete(new Book("Modern Java in Action", "Raoul-Gabriel Urma"));
+        testRepository.add(new Book("", "Kathy Sierra"));
         test(expectedResult, testRepository.getRepository());
     }
 

@@ -2,18 +2,14 @@ package students.alex_kalashnikov.lesson_10.level_5.task_18;
 
 interface BookReader {
 
-    boolean addBook(Book book);
+    boolean add(Book book);
 
-    boolean checkContains(Book book);
+    boolean delete(Book book);
 
-    boolean checkParameters(Book book);
+    String[] findAll();
 
-    boolean deleteBook(Book book);
+    String[] findByAuthor(String author);
 
-    String[] findAllBooks();
-
-    String[] findBooksByAuthor(String author);
-
-    String[] findBooksByLetters(String word);
+    String[] findByAuthorLetters(String word);
 
 }
