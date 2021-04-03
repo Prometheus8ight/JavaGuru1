@@ -33,6 +33,4 @@ interface BookDatabase {
     Set<Book> findUniqueBooks();
 
     boolean contains(Book book);
-
-    Set<String> findUniqueWords(String text);
 }

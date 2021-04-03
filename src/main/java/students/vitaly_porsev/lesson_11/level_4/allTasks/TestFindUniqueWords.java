@@ -10,7 +10,7 @@ public class TestFindUniqueWords {
     }
 
     void findUniqueWordsTest(){
-        BookDatabaseImpl book = new BookDatabaseImpl();
+        UniqueWordFinder method = new UniqueWordFinder();
 
         String text = "The intellectual content in a physical book need not be a composition, nor even be called a book.";
         Set<String> newSet = new HashSet<>();
@@ -19,7 +19,7 @@ public class TestFindUniqueWords {
         newSet.add("the"); newSet.add("nor"); newSet.add("not"); newSet.add("composition");
         newSet.add("even"); newSet.add("physical");
 
-        checkStrings(newSet, book.findUniqueWords(text),"findUniqueWordsTest");
+        checkStrings(newSet, method.findUniqueWords(text),"findUniqueWordsTest");
     }
 
     private void checkStrings(Set<String> expectedResult, Set<String> realResult, String testName) {

@@ -116,13 +116,6 @@ class BookDatabaseImpl implements BookDatabase {
         }return false;
     }
 
-    @Override
-    public Set<String> findUniqueWords(String text) {
-        String[] splitText = text.toLowerCase().split("[, . ']+");
-        Set<String> textArray = new HashSet<>(Arrays.asList(splitText));
-        return textArray;
-    }
-
     public List<Book> getLibrary() {
         return library;
     }
