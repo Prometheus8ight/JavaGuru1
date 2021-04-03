@@ -1,17 +1,13 @@
 package students.alex_kalashnikov.lesson_10.level_4.task_12;
 
-import java.util.Optional;
-
 class KelvinConverter implements TemperatureConverter {
 
     @Override
-    public Optional convert(double celsiusTemperature) {
-        Optional<Double> nonEmptyOptional = Optional.of(celsiusTemperature + 273.15);
-        Optional<String> emptyOptional = Optional.of("No temperature below absolute zero!");
+    public double convert(double celsiusTemperature) {
         if (celsiusTemperature >= -273.15) {
-            return nonEmptyOptional;
+            return celsiusTemperature + 273.15;
         } else {
-            return emptyOptional;
+            return 0;
         }
     }
 

@@ -1,7 +1,5 @@
 package students.alex_kalashnikov.lesson_10.level_4.task_12;
 
-import java.util.Optional;
-
 class FahrenheitConverterTest {
 
     public static void main(String[] args) {
@@ -18,8 +16,8 @@ class FahrenheitConverterTest {
 
     }
 
-    void test(Optional expectedResult, Optional realResult) {
-        if (expectedResult.equals(realResult)) {
+    void test(double expectedResult, double realResult) {
+        if (expectedResult == realResult) {
             System.out.println("Test is OK!");
         } else {
             System.out.println("Test is FAILED!");
@@ -28,57 +26,57 @@ class FahrenheitConverterTest {
 
     void testFahrenheitConverter() {
         FahrenheitConverter newFahrenheit = new FahrenheitConverter();
-        Optional<Double> expectedResult = Optional.of(68.0);
-        Optional realResult = newFahrenheit.convert(20);
+        double expectedResult = 68.0;
+        double realResult = newFahrenheit.convert(20);
         test(expectedResult, realResult);
     }
 
     void testFahrenheitConverter1() {
         FahrenheitConverter newFahrenheit = new FahrenheitConverter();
-        Optional<Double> expectedResult = Optional.of(-4.0);
-        Optional realResult = newFahrenheit.convert(-20);
+        double expectedResult = -4.0;
+        double realResult = newFahrenheit.convert(-20);
         test(expectedResult, realResult);
     }
 
     void testFahrenheitConverter2() {
         FahrenheitConverter newFahrenheit = new FahrenheitConverter();
-        Optional<Double> expectedResult = Optional.of(32.0);
-        Optional realResult = newFahrenheit.convert(0.0);
+        double expectedResult = 32.0;
+        double realResult = newFahrenheit.convert(0.0);
         test(expectedResult, realResult);
     }
 
     void testFahrenheitConverter3() {
         FahrenheitConverter newFahrenheit = new FahrenheitConverter();
-        Optional<Double> expectedResult = Optional.of(0.0);
-        Optional realResult = newFahrenheit.convert(-17.777777777777777);
+        double expectedResult = 0.0;
+        double realResult = newFahrenheit.convert(-17.777777777777777);
         test(expectedResult, realResult);
     }
 
     void testFahrenheitConverter4() {
         FahrenheitConverter newFahrenheit = new FahrenheitConverter();
-        Optional<Double> expectedResult = Optional.of(-459.66999999999996);
-        Optional realResult = newFahrenheit.convert(-273.15);
+        double expectedResult = -459.66999999999996;
+        double realResult = newFahrenheit.convert(-273.15);
         test(expectedResult, realResult);
     }
 
     void testFahrenheitConverter5() {
         FahrenheitConverter newFahrenheit = new FahrenheitConverter();
-        Optional<Double> expectedResult = Optional.of(2700032.0);
-        Optional realResult = newFahrenheit.convert(1500000.0);
+        double expectedResult = 2700032.0;
+        double realResult = newFahrenheit.convert(1500000.0);
         test(expectedResult, realResult);
     }
 
     void testFahrenheitConverter6() {
         FahrenheitConverter newFahrenheit = new FahrenheitConverter();
-        Optional<String> expectedResult = Optional.of("No temperature below absolute zero!");
-        Optional realResult = newFahrenheit.convert(-273.16);
+        double expectedResult = -459.66999999999996;
+        double realResult = newFahrenheit.convert(-273.16);
         test(expectedResult, realResult);
     }
 
     void testFahrenheitConverter7() {
         FahrenheitConverter newFahrenheit = new FahrenheitConverter();
-        Optional<String> expectedResult = Optional.of("No temperature below absolute zero!");
-        Optional realResult = newFahrenheit.convert(-500000);
+        double expectedResult = -459.66999999999996;
+        double realResult = newFahrenheit.convert(-500000);
         test(expectedResult, realResult);
     }
 
