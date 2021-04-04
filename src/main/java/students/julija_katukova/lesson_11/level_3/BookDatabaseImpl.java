@@ -7,7 +7,7 @@ import java.util.Optional;
 class BookDatabaseImpl implements BookDatabase {
 
     private final List<Book> books = new ArrayList<>();
-    private long id;
+    private long id = 0;
 
     @Override
     public Long save(Book book) {
