@@ -60,5 +60,4 @@ class GetEachAuthorBookCountTest {
             System.out.println(testName + " = FALSE");
         }
     }
-
 }

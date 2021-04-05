@@ -146,5 +146,4 @@ class BookDatabaseImpl implements BookDatabase {
     public List<Book> getBooks() {
         return books;
     }
-
 }

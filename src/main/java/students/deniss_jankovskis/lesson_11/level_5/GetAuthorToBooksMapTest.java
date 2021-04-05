@@ -63,5 +63,4 @@ class GetAuthorToBooksMapTest {
             System.out.println(testName + " = FALSE");
         }
     }
-
 }

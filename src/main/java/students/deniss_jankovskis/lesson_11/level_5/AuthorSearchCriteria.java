@@ -11,5 +11,4 @@ class AuthorSearchCriteria implements SearchCriteria {
     public boolean match(Book book) {
         return book.getAuthor().equals(this.authorToSearch);
     }
-
 }
