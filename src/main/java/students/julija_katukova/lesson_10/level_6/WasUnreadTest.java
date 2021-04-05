@@ -13,9 +13,9 @@ class WasUnreadTest {
         Book book2 = new Book("1984", "George Orwell");
         Book book3 = new Book("Pride and Prejudice", "Jane Austen");
         BookReaderImpl bookReaderImpl = new BookReaderImpl();
-        bookReaderImpl.addNewBook(book1);
-        bookReaderImpl.addNewBook(book2);
-        bookReaderImpl.addNewBook(book3);
+        bookReaderImpl.add(book1);
+        bookReaderImpl.add(book2);
+        bookReaderImpl.add(book3);
         boolean realResult = bookReaderImpl.wasUnread(book2);
         check(realResult, true, "Test1");
     }
@@ -25,9 +25,9 @@ class WasUnreadTest {
         Book book2 = new Book("1984", "George Orwell");
         Book book3 = new Book("Crime and Punishment", "Fyodor Dostoyevsky");
         BookReaderImpl bookReaderImpl = new BookReaderImpl();
-        bookReaderImpl.addNewBook(book1);
-        bookReaderImpl.addNewBook(book2);
-        bookReaderImpl.addNewBook(book3);
+        bookReaderImpl.add(book1);
+        bookReaderImpl.add(book2);
+        bookReaderImpl.add(book3);
         boolean realResult = bookReaderImpl.wasUnread(book1);
         check(realResult, true, "Test2");
     }
@@ -37,8 +37,8 @@ class WasUnreadTest {
         Book book2 = new Book("1984", "George Orwell");
         Book book3 = new Book("Crime and Punishment", "Fyodor Dostoyevsky");
         BookReaderImpl bookReaderImpl = new BookReaderImpl();
-        bookReaderImpl.addNewBook(book1);
-        bookReaderImpl.addNewBook(book2);
+        bookReaderImpl.add(book1);
+        bookReaderImpl.add(book2);
         boolean realResult = bookReaderImpl.wasUnread(book3);
         check(realResult, false, "Test3");
     }

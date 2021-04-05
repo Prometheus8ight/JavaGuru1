@@ -2,11 +2,11 @@ package students.julija_katukova.lesson_10.level_6;
 
 interface BookReader {
 
-    boolean addNewBook(Book book);
+    boolean add(Book book);
 
-    boolean deleteBook(Book book);
+    boolean delete(Book book);
 
-    String[] findAllBooks();
+    Book[] findAll();
 
     Book[] findBooksByAuthor(String author);
 
@@ -16,7 +16,7 @@ interface BookReader {
 
     boolean wasUnread(Book book);
 
-    String[] findAllReadBooks();
+    Book[] findAllReadBooks();
 
-    String[] findAllUnreadBooks();
+    Book[] findAllUnreadBooks();
 }

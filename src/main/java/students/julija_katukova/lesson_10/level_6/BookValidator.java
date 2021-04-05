@@ -1,9 +1,9 @@
 package students.julija_katukova.lesson_10.level_6;
 
-class BookValidation {
+class BookValidator {
 
     boolean validate(Book book, Book[] books) {
-        if (books[0] == null) {
+        if (books == null && books[0] == null) {
             return bookHasTitleAndAuthorForFirstBook(book);
         } else {
             return !bookIsIn(book, books) && bookHasTitleAndAuthor(book);

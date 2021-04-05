@@ -15,9 +15,9 @@ public class FindBookByTitleTest {
         Book book2 = new Book("The Brothers Karamazov", "Fyodor Dostoyevsky");
         Book book3 = new Book("Crime and Punishment", "Fyodor Dostoyevsky");
         BookReaderImpl bookReaderImpl = new BookReaderImpl();
-        bookReaderImpl.addNewBook(book1);
-        bookReaderImpl.addNewBook(book2);
-        bookReaderImpl.addNewBook(book3);
+        bookReaderImpl.add(book1);
+        bookReaderImpl.add(book2);
+        bookReaderImpl.add(book3);
         Book[] realResult = bookReaderImpl.findBooksByTitle("Pride and Prejudice");
         check(realResult, new Book[]{book1}, "Test1");
     }
@@ -27,9 +27,9 @@ public class FindBookByTitleTest {
         Book book2 = new Book("The Brothers Karamazov", "Fyodor Dostoyevsky");
         Book book3 = new Book("Crime and Punishment", "Fyodor Dostoyevsky");
         BookReaderImpl bookReaderImpl = new BookReaderImpl();
-        bookReaderImpl.addNewBook(book1);
-        bookReaderImpl.addNewBook(book2);
-        bookReaderImpl.addNewBook(book3);
+        bookReaderImpl.add(book1);
+        bookReaderImpl.add(book2);
+        bookReaderImpl.add(book3);
         Book[] realResult = bookReaderImpl.findBooksByTitle("The Brothers Karamazov");
         check(realResult, new Book[]{book2}, "Test2");
     }
@@ -40,10 +40,10 @@ public class FindBookByTitleTest {
         Book book3 = new Book("Crime and Punishment", "Fyodor Dostoyevsky");
         Book book4 = new Book("Demons", "Fyodor Dostoyevsky");
         BookReaderImpl bookReaderImpl = new BookReaderImpl();
-        bookReaderImpl.addNewBook(book1);
-        bookReaderImpl.addNewBook(book2);
-        bookReaderImpl.addNewBook(book3);
-        bookReaderImpl.addNewBook(book4);
+        bookReaderImpl.add(book1);
+        bookReaderImpl.add(book2);
+        bookReaderImpl.add(book3);
+        bookReaderImpl.add(book4);
         Book[] realResult = bookReaderImpl.findBooksByTitle("Demons");
         check(realResult, new Book[]{book4}, "Test3");
     }

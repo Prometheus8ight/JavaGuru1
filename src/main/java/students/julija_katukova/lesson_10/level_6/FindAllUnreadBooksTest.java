@@ -14,36 +14,39 @@ class FindAllUnreadBooksTest {
         Book book1 = new Book("Pride and Prejudice", "Jane Austen");
         Book book2 = new Book("1984", "George Orwell");
         BookReaderImpl bookReaderImpl = new BookReaderImpl();
-        bookReaderImpl.addNewBook(book1);
-        bookReaderImpl.addNewBook(book2);
+        bookReaderImpl.add(book1);
+        bookReaderImpl.add(book2);
         bookReaderImpl.wasUnread(book2);
-        String[] realResult = bookReaderImpl.findAllUnreadBooks();
-        check(realResult, new String[]{"1984 [George Orwell]"}, "Test1");
+        Book[] realResult = bookReaderImpl.findAllUnreadBooks();
+        Book[] expectedResult = {book2};
+        check(realResult, expectedResult, "Test1");
     }
 
     private void test2() {
         Book book1 = new Book("Pride and Prejudice", "Jane Austen");
         Book book2 = new Book("1984", "George Orwell");
         BookReaderImpl bookReaderImpl = new BookReaderImpl();
-        bookReaderImpl.addNewBook(book1);
-        bookReaderImpl.addNewBook(book2);
+        bookReaderImpl.add(book1);
+        bookReaderImpl.add(book2);
         bookReaderImpl.wasUnread(book1);
         bookReaderImpl.wasUnread(book2);
-        String[] realResult = bookReaderImpl.findAllUnreadBooks();
-        check(realResult, new String[]{"Pride and Prejudice [Jane Austen]", "1984 [George Orwell]"}, "Test2");
+        Book[] realResult = bookReaderImpl.findAllUnreadBooks();
+        Book[] expectedResult = {book1, book2};
+        check(realResult, expectedResult, "Test2");
     }
 
     private void test3() {
         Book book1 = new Book("Pride and Prejudice", "Jane Austen");
         Book book2 = new Book("1984", "George Orwell");
         BookReaderImpl bookReaderImpl = new BookReaderImpl();
-        bookReaderImpl.addNewBook(book1);
-        bookReaderImpl.addNewBook(book2);
-        String[] realResult = bookReaderImpl.findAllUnreadBooks();
-        check(realResult, new String[]{}, "Test3");
+        bookReaderImpl.add(book1);
+        bookReaderImpl.add(book2);
+        Book[] realResult = bookReaderImpl.findAllUnreadBooks();
+        Book[] expectedResult = {};
+        check(realResult, expectedResult, "Test3");
     }
 
-    private void check(String[] realResult, String[] expectedResult, String testName) {
+    private void check(Book[] realResult, Book[] expectedResult, String testName) {
         if (Arrays.equals(realResult, expectedResult)) {
             System.out.println(testName + " = OK");
         } else {

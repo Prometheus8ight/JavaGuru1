@@ -4,21 +4,26 @@ import java.util.Arrays;
 
 class BookReaderImpl implements BookReader {
 
-    private Book[] books = new Book[1];
+    private Book[] books = new Book[0];
+    private BookValidator bookValidator = new BookValidator();
+
+    public BookReaderImpl() {
+        BookValidator bookValidator = new BookValidator();
+    }
 
     @Override
-    public boolean addNewBook(Book book) {
+    public boolean add(Book book) {
         return addNewBookToArray(book);
     }
 
     @Override
-    public boolean deleteBook(Book book) {
+    public boolean delete(Book book) {
         return deleteBookFromArray(book);
     }
 
     @Override
-    public String[] findAllBooks() {
-        return findAllBooksAsStringArray();
+    public Book[] findAll() {
+        return books;
     }
 
     @Override
@@ -42,45 +47,27 @@ class BookReaderImpl implements BookReader {
     }
 
     @Override
-    public String[] findAllReadBooks() {
+    public Book[] findAllReadBooks() {
         return findAllReadBooksAsStringArray();
     }
 
     @Override
-    public String[] findAllUnreadBooks() {
+    public Book[] findAllUnreadBooks() {
         return findAllUnreadBooksAsStringArray();
     }
 
-    @Override
-    public String toString() {
-        return "BookReaderImpl{" +
-                "books=" + Arrays.toString(books) +
-                '}';
-    }
 
     private boolean addNewBookToArray(Book book) {
-        if (isFirstBook()) {
-            if (validate(book, books)) {
-                addNewBookInfoToArray(book);
-                return true;
-            }
-        } else {
-            if (validate(book, books)) {
-                this.books = extendBookArray(books);
-                addNewBookInfoToArray(book);
-                return true;
-            }
+        if (validate(book, books)) {
+            this.books = extendBookArray(books);
+            push(book);
+            return true;
         }
         return false;
     }
 
     private boolean validate(Book book, Book[] books) {
-        BookValidation bookValidation = new BookValidation();
-        return bookValidation.validate(book, books);
-    }
-
-    private boolean isFirstBook() {
-        return books[0] == null;
+        return bookValidator.validate(book, books);
     }
 
     private Book[] extendBookArray(Book[] books) {
@@ -89,23 +76,14 @@ class BookReaderImpl implements BookReader {
         return out;
     }
 
-    private String[] extendStringArray(String[] books) {
-        String[] out = new String[books.length + 1];
-        System.arraycopy(books, 0, out, 0, books.length);
-        return out;
-    }
-
-    private void addNewBookInfoToArray(Book book) {
+    private void push(Book book) {
         books[books.length - 1] = book;
     }
 
     private boolean deleteBookFromArray(Book book) {
-        BookValidation bookValidation = new BookValidation();
-        if (bookValidation.bookIsIn(book, books)) {
+        if (bookValidator.bookIsIn(book, books)) {
             deleteBookInfoFromArray(book);
-            if (!isFirstBook()) {
-                this.books = deleteEmptyElement(books);
-            }
+            this.books = deleteEmptyElement(books);
             return true;
         }
         return false;
@@ -122,7 +100,7 @@ class BookReaderImpl implements BookReader {
     private Book[] deleteEmptyElement(Book[] array) {
         Book[] out = new Book[array.length - 1];
         for (int i = 0; i < array.length - 1; i++) {
-            if (i < emptyElementIndex()) {
+            if (i < lastEmptyIndex()) {
                 out[i] = array[i];
             } else {
                 out[i] = array[i + 1];
@@ -131,7 +109,7 @@ class BookReaderImpl implements BookReader {
         return out;
     }
 
-    private int emptyElementIndex() {
+    private int lastEmptyIndex() {
         int emptyElementIndex = 0;
         for (int i = 0; i < books.length; i++) {
             if (books[i] == null) {
@@ -139,17 +117,6 @@ class BookReaderImpl implements BookReader {
             }
         }
         return emptyElementIndex;
-    }
-
-    private String[] findAllBooksAsStringArray() {
-        String[] out = new String[books.length];
-        int i = 0;
-        for (Book book : books) {
-            out[i] = book.getTitle() + " [" + book.getAuthor() + "]";
-            i++;
-
-        }
-        return out;
     }
 
     private Book[] findBooksAuthor(String author) {
@@ -181,8 +148,8 @@ class BookReaderImpl implements BookReader {
     }
 
     private boolean markAsRead(Book book) {
-        BookValidation bookValidation = new BookValidation();
-        if (bookValidation.bookIsIn(book, books)) {
+        BookValidator bookValidator = new BookValidator();
+        if (bookValidator.bookIsIn(book, books)) {
             book.setMarkAsRead(true);
             return true;
         }
@@ -190,34 +157,34 @@ class BookReaderImpl implements BookReader {
     }
 
     private boolean markAsUnread(Book book) {
-        BookValidation bookValidation = new BookValidation();
-        if (bookValidation.bookIsIn(book, books)) {
+        BookValidator bookValidator = new BookValidator();
+        if (bookValidator.bookIsIn(book, books)) {
             book.setMarkAsUnread(true);
             return true;
         }
         return false;
     }
 
-    private String[] findAllReadBooksAsStringArray() {
-        String[] out = new String[0];
+    private Book[] findAllReadBooksAsStringArray() {
+        Book[] out = new Book[0];
         int i = 0;
         for (Book book : books) {
             if (book.isMarkAsRead()) {
-                out = extendStringArray(out);
-                out[i] = book.getTitle() + " [" + book.getAuthor() + "]";
+                out = extendBookArray(out);
+                out[i] = book;
                 i++;
             }
         }
         return out;
     }
 
-    private String[] findAllUnreadBooksAsStringArray() {
-        String[] out = new String[0];
+    private Book[] findAllUnreadBooksAsStringArray() {
+        Book[] out = new Book[0];
         int i = 0;
         for (Book book : books) {
             if (book.isMarkAsUnread()) {
-                out = extendStringArray(out);
-                out[i] = book.getTitle() + " [" + book.getAuthor() + "]";
+                out = extendBookArray(out);
+                out[i] = book;
                 i++;
             }
         }
