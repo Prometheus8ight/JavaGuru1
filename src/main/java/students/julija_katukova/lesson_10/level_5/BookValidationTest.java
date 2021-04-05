@@ -12,14 +12,14 @@ class BookValidationTest {
     private void test1() {
         Book book1 = new Book("Pride and Prejudice", "Jane Austen");
         BookReaderImpl bookReaderImpl = new BookReaderImpl();
-        boolean realResult = bookReaderImpl.addNewBook(book1);
+        boolean realResult = bookReaderImpl.add(book1);
         check(realResult, true, "Test1");
     }
 
     private void test2() {
         Book book1 = new Book(" ", "Jane Austen");
         BookReaderImpl bookReaderImpl = new BookReaderImpl();
-        boolean realResult = bookReaderImpl.addNewBook(book1);
+        boolean realResult = bookReaderImpl.add(book1);
         check(realResult, false, "Test2");
     }
 
@@ -28,9 +28,9 @@ class BookValidationTest {
         Book book2 = new Book("1984", "George Orwell");
         Book book3 = new Book(null, null);
         BookReaderImpl bookReaderImpl = new BookReaderImpl();
-        bookReaderImpl.addNewBook(book1);
-        bookReaderImpl.addNewBook(book2);
-        boolean realResult = bookReaderImpl.addNewBook(book3);
+        bookReaderImpl.add(book1);
+        bookReaderImpl.add(book2);
+        boolean realResult = bookReaderImpl.add(book3);
         check(realResult, false, "Test3");
 
     }
