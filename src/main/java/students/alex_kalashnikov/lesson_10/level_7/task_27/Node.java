@@ -1,5 +1,6 @@
 package students.alex_kalashnikov.lesson_10.level_7.task_27;
 
+
 import java.util.Objects;
 
 class Node implements LinkedRepository {
@@ -9,10 +10,14 @@ class Node implements LinkedRepository {
     private Node next;
     private Node previous;
     private Node last;
-    private static int counter;
+    private int counter;
 
     public Book getBook() {
         return book;
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
     }
 
     public Node getNext() {
@@ -150,7 +155,7 @@ class Node implements LinkedRepository {
         return false;
     }
 
-    private Node findNode(Book book) {
+    Node findNode(Book book) {
         Node nodeX = current;
         Node nodeY = current;
         while (nodeX != null) {
@@ -167,38 +172,7 @@ class Node implements LinkedRepository {
                 nodeY = nodeY.getNext();
             }
         }
-        return null;
+        return new Node(null, new Node(null, null, null), new Node(null, null, null));
     }
-
-//    Node findByAuthor1(String author) {
-//        Node nodeX = current;
-//        Node nodeY = current;
-//        Node prev = null;
-//        Node cur = null;
-//        Node nex = null;
-//        Node last = null;
-//        while (nodeX != null) {
-//            if (nodeX.getBook().getAuthor().equals(author)) {
-//                cur = nodeX;
-//                cur.setPrevious(last);
-//                cur.setNext(null);
-//                last = cur;
-//
-//            }
-//            nodeX = nodeX.getPrevious();
-//        }
-//        while (nodeY != null) {
-//            if (nodeY.getBook().getAuthor().equals(author)) {
-//                cur = nodeY;
-//                cur.setPrevious(last);
-//                cur.setNext(null);
-//                last = cur;
-//
-//            }
-//            nodeY = nodeY.getNext();
-//        }
-//        return cur;
-//    }
-
 
 }

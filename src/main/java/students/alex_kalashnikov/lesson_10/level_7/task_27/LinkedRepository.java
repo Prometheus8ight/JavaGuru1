@@ -10,6 +10,4 @@ interface LinkedRepository {
 
     Book find(Book book); // возвращает значение книги, если она есть в репозитории
 
-//    Node findByAuthor(String author); // возвращает связанный список всех книг автора
-
 }
