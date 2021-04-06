@@ -1,0 +1,18 @@
+package students.vitaly_porsev.lesson_11.level_7.task_39And40.UIActionMethods;
+
+import students.vitaly_porsev.lesson_11.level_7.task_39And40.BookDatabase;
+
+public class FindUniqueBooksUIAction implements UIAction {
+
+    BookDatabase bookDatabase;
+
+    public FindUniqueBooksUIAction(BookDatabase bookDatabase) {
+        this.bookDatabase = bookDatabase;
+    }
+
+
+    @Override
+    public void execute() {
+        System.out.println(bookDatabase.findUniqueBooks());
+    }
+}
