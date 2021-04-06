@@ -1,13 +1,15 @@
 package students.alex_kalashnikov.lesson_10.level_7.task_27;
 
-class Node {
+import java.util.Objects;
+
+class Node implements LinkedRepository {
 
     private Book book;
     private Node current;
     private Node next;
     private Node previous;
     private Node last;
-    static int counter;
+    private static int counter;
 
     public Book getBook() {
         return book;
@@ -33,6 +35,10 @@ class Node {
         return current;
     }
 
+    public Node getLast() {
+        return last;
+    }
+
     public Node() {
     }
 
@@ -40,7 +46,31 @@ class Node {
         this.book = book;
     }
 
-    void add(Book book) {
+    public Node(Book book, Node next, Node previous) {
+        this.book = book;
+        this.next = next;
+        this.previous = previous;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Node node = (Node) o;
+        return Objects.equals(book, node.book) && Objects.equals(next, node.next) && Objects.equals(previous, node.previous);
+    }
+
+    @Override
+    public String toString() {
+        return "Node{" +
+                "book=" + book +
+                ", next=" + next +
+                ", previous=" + previous +
+                '}';
+    }
+
+    @Override
+    public void add(Book book) {
         if (counter == 0) {
             current = new Node(book);
             last = current;
@@ -56,20 +86,31 @@ class Node {
         }
     }
 
-    void addAfter(Book book, Book after) {
-        Node node = new Node(book);
-        node.setPrevious(findNode(after));
-        node.setNext(findNode(after).getNext());
-        findNode(after).getNext().setPrevious(node);
-        findNode(after).setNext(node);
+    @Override
+    public void addAfter(Book book, Book after) {
+        if (!checkName(book) && checkName(after)) {
+            Node node = new Node(book);
+            node.setPrevious(findNode(after));
+            node.setNext(findNode(after).getNext());
+            findNode(after).getNext().setPrevious(node);
+            findNode(after).setNext(node);
+        } else {
+            System.out.println("Wrong data");
+        }
     }
 
-    void delete(Book book) {
-        findNode(book).getPrevious().setNext(findNode(book).getNext());
-        findNode(book).getNext().setPrevious(findNode(book).getPrevious());
+    @Override
+    public void delete(Book book) {
+        if (checkName(book)) {
+            findNode(book).getPrevious().setNext(findNode(book).getNext());
+            findNode(book).getNext().setPrevious(findNode(book).getPrevious());
+        } else {
+            System.out.println("Wrong data!");
+        }
     }
 
-    Book find(Book book) {
+    @Override
+    public Book find(Book book) {
         Node nodeX = current;
         Node nodeY = current;
         while (nodeX != null) {
@@ -89,7 +130,7 @@ class Node {
         return null;
     }
 
-    boolean checkName(Book book) {
+    private boolean checkName(Book book) {
         Node nodeX = current;
         Node nodeY = current;
         while (nodeX != null) {
@@ -109,7 +150,7 @@ class Node {
         return false;
     }
 
-    Node findNode(Book book) {
+    private Node findNode(Book book) {
         Node nodeX = current;
         Node nodeY = current;
         while (nodeX != null) {
@@ -128,6 +169,36 @@ class Node {
         }
         return null;
     }
+
+//    Node findByAuthor1(String author) {
+//        Node nodeX = current;
+//        Node nodeY = current;
+//        Node prev = null;
+//        Node cur = null;
+//        Node nex = null;
+//        Node last = null;
+//        while (nodeX != null) {
+//            if (nodeX.getBook().getAuthor().equals(author)) {
+//                cur = nodeX;
+//                cur.setPrevious(last);
+//                cur.setNext(null);
+//                last = cur;
+//
+//            }
+//            nodeX = nodeX.getPrevious();
+//        }
+//        while (nodeY != null) {
+//            if (nodeY.getBook().getAuthor().equals(author)) {
+//                cur = nodeY;
+//                cur.setPrevious(last);
+//                cur.setNext(null);
+//                last = cur;
+//
+//            }
+//            nodeY = nodeY.getNext();
+//        }
+//        return cur;
+//    }
 
 
 }
