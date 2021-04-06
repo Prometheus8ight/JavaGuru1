@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class FindBookBySearchCriteriaUIAction implements UIAction {
 
-    BookDatabase bookDatabase;
+    private final BookDatabase bookDatabase;
 
     public FindBookBySearchCriteriaUIAction(BookDatabase bookDatabase) {
         this.bookDatabase = bookDatabase;

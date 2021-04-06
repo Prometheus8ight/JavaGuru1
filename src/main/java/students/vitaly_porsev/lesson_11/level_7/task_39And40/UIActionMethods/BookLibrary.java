@@ -39,26 +39,12 @@ class BookLibrary {
         Scanner sc = new Scanner(System.in);
 
         while (true) {
-            System.out.println("""
-                    0. Exit
-                    1. Save book
-                    2. Find by ID
-                    3. Find by author
-                    4. Find by title
-                    5. Delete by ID
-                    6. Delete Object
-                    7. Count all saved books
-                    8. Delete books by author
-                    9. Delete book by title
-                    10. Find book by criteria
-                    11. Find unique titles
-                    12. Find unique authors
-                    13. Find unique books
-                    14. Contains check.
-                    15. Find unique words
-                    16. Show all authors books
-                    17. Count books
-                    18. Show all books""");
+            System.out.println("0. Exit" + ("\n") + "1. Save book" + ("\n") + "2. Find by ID" + ("\n") + "3. Find by author" + ("\n")
+                    + "4. Find by title" + ("\n") + "5. Delete by ID" + ("\n") + "6. Delete Object" + ("\n") + "7. Count all saved books" + ("\n")
+                    + "8. Delete books by author" + ("\n") + "9. Delete book by title" + ("\n") + "10. Find book by criteria" + ("\n")
+                    + "11. Find unique titles" + ("\n") + "12. Find unique authors" + ("\n") + "13. Find unique books" + ("\n")
+                    + "14. Contains check" + ("\n") + "15. Find unique words" + ("\n") + "16. Show all authors books" + ("\n") + "17. Count books"
+                    + ("\n") + "18. Show all books");
             System.out.println("Please enter menu number: ");
             int userSelectedMenuNumber = Integer.parseInt(sc.nextLine());
             if (userSelectedMenuNumber == 0) {

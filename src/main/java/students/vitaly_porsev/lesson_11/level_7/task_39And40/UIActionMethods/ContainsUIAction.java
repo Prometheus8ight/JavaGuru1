@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class ContainsUIAction implements UIAction {
 
-    BookDatabase bookDatabase;
+    private final BookDatabase bookDatabase;
 
     public ContainsUIAction(BookDatabase bookDatabase) {
         this.bookDatabase = bookDatabase;

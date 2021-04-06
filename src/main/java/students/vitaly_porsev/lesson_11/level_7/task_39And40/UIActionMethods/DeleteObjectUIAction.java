@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 class DeleteObjectUIAction implements UIAction {
 
-    BookDatabase bookDatabase;
+    private final BookDatabase bookDatabase;
 
     public DeleteObjectUIAction(BookDatabase bookDatabase) {
         this.bookDatabase = bookDatabase;
