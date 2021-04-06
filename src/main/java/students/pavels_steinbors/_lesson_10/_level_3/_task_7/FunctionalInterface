@@ -1,0 +1,6 @@
+
+interface ProductDatabase - не является функциональным интерфейсом, так как содержит два абстрактных метода:
+
+    void save(Product product);
+
+    Product findByTitle(String productTitle);

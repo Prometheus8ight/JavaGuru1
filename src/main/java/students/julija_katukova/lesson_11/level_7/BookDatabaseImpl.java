@@ -1,8 +1,6 @@
-package students.julija_katukova.lesson_11.level_3;
+package students.julija_katukova.lesson_11.level_7;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 class BookDatabaseImpl implements BookDatabase {
 
@@ -59,15 +57,47 @@ class BookDatabaseImpl implements BookDatabase {
         return findBySearchCriteria(searchCriteria);
     }
 
+    @Override
+    public Set<String> findUniqueAuthors() {
+        return findUniqueBooksAuthors();
+    }
+
+    @Override
+    public Set<String> findUniqueTitles() {
+        return findUniqueBooksTitles();
+    }
+
+    @Override
+    public Set<Book> findUniqueBooks() {
+        return findAllUniqueBooks();
+    }
+
+    @Override
+    public boolean contains(Book book) {
+        return books.contains(book);
+    }
+
+    @Override
+    public Map<String, List<Book>> getAuthorToBooksMap() {
+        return getBookAuthorToBooksMap();
+    }
+
+    @Override
+    public Map<String, Integer> getEachAuthorBookCount() {
+        return getEachBookAuthorBookCount();
+    }
+
     public List<Book> getBooks() {
         return books;
     }
 
 
     private Long saveBook(Book book) {
-        id++;
-        book.setId(id);
-        books.add(book);
+        if (!IsBookAlreadyIn(book)) {
+            id++;
+            book.setId(id);
+            books.add(book);
+        }
         return id;
     }
 
@@ -139,6 +169,51 @@ class BookDatabaseImpl implements BookDatabase {
             if (searchCriteria.match(book)) {
                 out.add(book);
             }
+        }
+        return out;
+    }
+
+    private Set<String> findUniqueBooksAuthors() {
+        Set<String> out = new HashSet<>();
+        for (Book book : books) {
+            out.add(book.getAuthor());
+        }
+        return out;
+    }
+
+    private Set<String> findUniqueBooksTitles() {
+        Set<String> out = new HashSet<>();
+        for (Book book : books) {
+            out.add(book.getTitle());
+        }
+        return out;
+    }
+
+    private Set<Book> findAllUniqueBooks() {
+        return new HashSet<>(books);
+    }
+
+    private boolean IsBookAlreadyIn(Book book) {
+        for (Book book1 : books) {
+            if (book1.equals(book)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private Map<String, List<Book>> getBookAuthorToBooksMap() {
+        Map<String, List<Book>> out = new HashMap<>();
+        for (Book book : books) {
+            out.put(book.getAuthor(), findBySearchCriteria(new AuthorSearchCriteria(book.getAuthor())));
+        }
+        return out;
+    }
+
+    private Map<String, Integer> getEachBookAuthorBookCount() {
+        Map<String, Integer> out = new HashMap<>();
+        for (Book book : books) {
+            out.put(book.getAuthor(), findBySearchCriteria(new AuthorSearchCriteria(book.getAuthor())).size());
         }
         return out;
     }
