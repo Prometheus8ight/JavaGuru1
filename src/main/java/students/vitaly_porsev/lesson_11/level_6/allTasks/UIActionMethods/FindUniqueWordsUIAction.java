@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class FindUniqueWordsUIAction implements UIAction {
 
-    BookDatabase bookDatabase;
+    private final BookDatabase bookDatabase;
 
     public FindUniqueWordsUIAction(BookDatabase bookDatabase) {
         this.bookDatabase = bookDatabase;

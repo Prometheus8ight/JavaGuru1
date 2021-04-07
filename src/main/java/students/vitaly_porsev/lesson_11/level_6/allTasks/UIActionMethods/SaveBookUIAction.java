@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 class SaveBookUIAction implements UIAction {
 
-    private BookDatabase bookDatabase;
+    private final BookDatabase bookDatabase;
 
     public SaveBookUIAction(BookDatabase bookDatabase) {
         this.bookDatabase = bookDatabase;

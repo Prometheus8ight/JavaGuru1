@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 class FindByTitleUIAction implements UIAction {
 
-    BookDatabase bookDatabase;
+    private final BookDatabase bookDatabase;
 
     public FindByTitleUIAction(BookDatabase bookDatabase) {
         this.bookDatabase = bookDatabase;

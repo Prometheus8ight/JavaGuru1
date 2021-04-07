@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 class FindByIdUIAction implements UIAction {
 
-    private BookDatabase bookDatabase;
+    private final BookDatabase bookDatabase;
 
     public FindByIdUIAction(BookDatabase bookDatabase) {
         this.bookDatabase = bookDatabase;
