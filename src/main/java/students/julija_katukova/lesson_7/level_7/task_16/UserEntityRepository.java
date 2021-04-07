@@ -3,90 +3,89 @@ package students.julija_katukova.lesson_7.level_7.task_16;
 import java.util.Arrays;
 
 class UserEntityRepository {
-    UserEntity userEntity = new UserEntity("", "", "", "");
-    String[][] users = new String[1][userEntity.getNumberOfColumns()];
+    private final int COLUMN_COUNT = 4;
+    private String[][] users = new String[0][COLUMN_COUNT];
+
+
     /*
       id      name    surname     personal code (fixed number of columns)
     TS-123    john    smith       010596-12841
      */
 
-    public void addNewUser(String[][] users, String id, String name, String surname, String personalCode) {
-        if (isItFirstUser()) {
-            addFirstUser(users, id, name, surname, personalCode);
-        } else {
-            addOneMoreUser(users, id, name, surname, personalCode);
-        }
+    private final int COL_IDX_ID = 0;
+    private final int COL_IDX_NAME = 1;
+    private final int COL_IDX_SURNAME = 2;
+    private final int COL_IDX_CODE = 3;
+
+
+    public String[][] getUsers() {
+        return users;
     }
 
-    private boolean isItFirstUser() {
-        return this.users[0][0] == null;
+    public void addNewUser(UserEntity user) {
+        addUser(user);
     }
 
-    private void addFirstUser(String[][] users, String id, String name, String surname, String personalCode) { //we defined array with first empty row.
-        addNewUserInfoInLastArrayRow(users, id, name, surname, personalCode);                                  //First user will take this row. No need to extend the array users
+
+    private void addUser(UserEntity user) {
+        this.users = extendArray();
+        addNewUserInfoInLastArrayRow(user);
     }
 
-    private void addOneMoreUser(String[][] users, String id, String name, String surname, String personalCode) {
-        this.users = extendArray(users);
-        addNewUserInfoInLastArrayRow(this.users, id, name, surname, personalCode);
-    }
-
-    private String[][] extendArray(String[][] users) {
-        String[][] out = new String[users.length + 1][userEntity.getNumberOfColumns()]; // adding new user will increase #rows by one in existing array
+    private String[][] extendArray() {
+        String[][] out = new String[users.length + 1][COLUMN_COUNT]; // adding new user will increase #rows by one in existing array
         for (int i = 0; i < (users.length); i++) { //make array copy with all data
             out[i] = users[i];
         }
         return out;  // return new array with all data + one row wil default values
     }
 
-    private void addNewUserInfoInLastArrayRow(String[][] users, String id, String name, String surname, String personalCode) {
-        int column = 0;
-        users[(users.length - 1)][column++] = id;
-        users[(users.length - 1)][column++] = name;
-        users[(users.length - 1)][column++] = surname;
-        users[(users.length - 1)][column++] = personalCode;
+    private void addNewUserInfoInLastArrayRow(UserEntity user) {
+        users[(users.length - 1)][COL_IDX_ID] = user.getId();
+        users[(users.length - 1)][COL_IDX_NAME] = user.getName();
+        users[(users.length - 1)][COL_IDX_SURNAME] = user.getSurname();
+        users[(users.length - 1)][COL_IDX_CODE] = user.getPersonalCode();
     }
 
-    public String findUserById(String[][] users, String id) {
-        return convertStringArrayToString(findRowWithGivenId(users, id));
+    public String findUserById(String id) {
+        return convertStringArrayToString(findRowWithGivenId(id));
     }
 
-    private String[] findRowWithGivenId(String[][] users, String id) {
-        int i;
-        for (i = 0; i < users.length; i++) { // перебор строк
-            if (users[i][0].equals(id)) {
-                return users[i];
+    private String[] findRowWithGivenId(String id) {
+        for (String[] user : users) { // перебор строк
+            if (user[COL_IDX_ID].equals(id)) {
+                return user;
             }
         }
-        return users[i];
+        return null;
     }
 
     private String convertStringArrayToString(String[] row) {
         return Arrays.toString(row);
     }
 
-    public String findUserByName(String[][] users, String name) {
+    public String findUserByName(String name) {
         String out = null;
-        for (int i = 0; i < users.length; i++) {
-            if (users[i][1].equals(name)) {
+        for (String[] user : users) {
+            if (user[1].equals(name)) {
                 if (out == null) {
-                    out = Arrays.toString(users[i]);
+                    out = Arrays.toString(user);
                 } else {
-                    out = out + Arrays.toString(users[i]);
+                    out = out + Arrays.toString(user);
                 }
             }
         }
         return out;
     }
 
-    public String getAllUsersInfo(String[][] users) {
+    public String getAllUsersInfo() {
         return Arrays.deepToString(users);
     }
 
-    public void updateUserInfo(String[][] users, String personalCode, String outdatedInfo, String newInfo) {
+    public void updateUserInfo(String personalCode, String outdatedInfo, String newInfo) {
         for (int i = 0; i < users.length; i++) {
             if (users[i][3].equals(personalCode)) { // identify user by personal code
-                for (int j = 0; j < userEntity.getNumberOfColumns(); j++) {
+                for (int j = 0; j < COLUMN_COUNT; j++) {
                     if (users[i][j].equals(outdatedInfo)) {
                         users[i][j] = newInfo;
                     }
@@ -95,15 +94,15 @@ class UserEntityRepository {
         }
     }
 
-    public String[][] deleteUser(String[][] users, String personalCode) {
-        this.users = deleteEmptyRowFromArray(deleteUserInfoFromArray(users, personalCode));
+    public String[][] deleteUser(String personalCode) {
+        this.users = deleteEmptyRowFromArray(deleteUserInfoFromArray(personalCode));
         return this.users;
     }
 
-    private String[][] deleteUserInfoFromArray(String[][] users, String personalCode) {
+    private String[][] deleteUserInfoFromArray(String personalCode) {
         for (int i = 0; i < users.length; i++) {
             if (users[i][3].equals(personalCode)) { // identify user by personal code
-                for (int j = 0; j < userEntity.getNumberOfColumns(); j++) {
+                for (int j = 0; j < COLUMN_COUNT; j++) {
                     users[i][j] = null;
                 }
             }
@@ -112,9 +111,9 @@ class UserEntityRepository {
     }
 
     private String[][] deleteEmptyRowFromArray(String[][] users) {
-        String[][] out = new String[users.length - 1][userEntity.getNumberOfColumns()]; //new array will have less rows
+        String[][] out = new String[users.length - 1][COLUMN_COUNT]; //new array will have less rows
         for (int row = 0; row < (users.length - 1); row++) {
-            for (int j = 0; j < userEntity.getNumberOfColumns(); j++) {
+            for (int j = 0; j < COLUMN_COUNT; j++) {
                 if (row < emptyRowIndex(users)) {
                     out[row][j] = users[row][j];
                 } else {

@@ -14,10 +14,6 @@ class UserEntity {
         this.personalCode = personalCode;
     }
 
-    public int getNumberOfColumns() {
-        return getClass().getDeclaredFields().length;
-    }
-
     public String getId() {
         return id;
     }
