@@ -2,6 +2,8 @@ package students.julija_katukova.lesson_10.level_5;
 
 class DeleteBookTest {
 
+    BookValidator bookValidator = new BookValidator();
+
     public static void main(String[] args) {
         DeleteBookTest deleteBookTest = new DeleteBookTest();
         deleteBookTest.test1();
@@ -11,7 +13,7 @@ class DeleteBookTest {
 
     private void test1() {
         Book book1 = new Book("Pride and Prejudice", "Jane Austen");
-        BookReaderImpl bookReaderImpl = new BookReaderImpl();
+        BookReaderImpl bookReaderImpl = new BookReaderImpl(bookValidator);
         bookReaderImpl.add(book1);
         boolean realResult = bookReaderImpl.delete(book1);
         check(realResult, true, "Test1");
@@ -21,7 +23,7 @@ class DeleteBookTest {
         Book book1 = new Book("Pride and Prejudice", "Jane Austen");
         Book book2 = new Book("1984", "George Orwell");
         Book book3 = new Book("Crime and Punishment", "Fyodor Dostoyevsky");
-        BookReaderImpl bookReaderImpl = new BookReaderImpl();
+        BookReaderImpl bookReaderImpl = new BookReaderImpl(bookValidator);
         bookReaderImpl.add(book1);
         bookReaderImpl.add(book2);
         bookReaderImpl.add(book3);
@@ -33,7 +35,7 @@ class DeleteBookTest {
         Book book1 = new Book("Pride and Prejudice", "Jane Austen");
         Book book2 = new Book("1984", "George Orwell");
         Book book3 = new Book("Crime and Punishment", "Fyodor Dostoyevsky");
-        BookReaderImpl bookReaderImpl = new BookReaderImpl();
+        BookReaderImpl bookReaderImpl = new BookReaderImpl(bookValidator);
         bookReaderImpl.add(book1);
         bookReaderImpl.add(book3);
         boolean realResult = bookReaderImpl.delete(book2);

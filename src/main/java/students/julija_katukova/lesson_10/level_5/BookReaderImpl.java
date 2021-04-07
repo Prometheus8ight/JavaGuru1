@@ -4,10 +4,10 @@ package students.julija_katukova.lesson_10.level_5;
 class BookReaderImpl implements BookReader {
 
     private Book[] books = new Book[0];
-    private BookValidator bookValidator = new BookValidator();
+    private BookValidator bookValidator;
 
-    public BookReaderImpl() {
-        BookValidator bookValidator = new BookValidator();
+    public BookReaderImpl(BookValidator bookvalidator) {
+       this.bookValidator = new BookValidator();
     }
 
     @Override

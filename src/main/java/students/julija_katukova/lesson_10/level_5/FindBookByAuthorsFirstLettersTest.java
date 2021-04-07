@@ -4,6 +4,8 @@ import java.util.Arrays;
 
 class FindBookByAuthorsFirstLettersTest {
 
+    BookValidator bookValidator = new BookValidator();
+
     public static void main(String[] args) {
         FindBookByAuthorsFirstLettersTest addNewBookTest = new FindBookByAuthorsFirstLettersTest();
         addNewBookTest.test1();
@@ -15,7 +17,7 @@ class FindBookByAuthorsFirstLettersTest {
         Book book1 = new Book("Pride and Prejudice", "Jane Austen");
         Book book2 = new Book("The Brothers Karamazov", "Fyodor Dostoyevsky");
         Book book3 = new Book("Crime and Punishment", "Fyodor Dostoyevsky");
-        BookReaderImpl bookReaderImpl = new BookReaderImpl();
+        BookReaderImpl bookReaderImpl = new BookReaderImpl(bookValidator);
         bookReaderImpl.add(book1);
         bookReaderImpl.add(book2);
         bookReaderImpl.add(book3);
@@ -27,7 +29,7 @@ class FindBookByAuthorsFirstLettersTest {
         Book book1 = new Book("Pride and Prejudice", "Jane Austen");
         Book book2 = new Book("The Brothers Karamazov", "Fyodor Dostoyevsky");
         Book book3 = new Book("Crime and Punishment", "Fyodor Dostoyevsky");
-        BookReaderImpl bookReaderImpl = new BookReaderImpl();
+        BookReaderImpl bookReaderImpl = new BookReaderImpl(bookValidator);
         bookReaderImpl.add(book1);
         bookReaderImpl.add(book2);
         bookReaderImpl.add(book3);
@@ -40,7 +42,7 @@ class FindBookByAuthorsFirstLettersTest {
         Book book2 = new Book("The Brothers Karamazov", "Fyodor Dostoyevsky");
         Book book3 = new Book("Crime and Punishment", "Fyodor Dostoyevsky");
         Book book4 = new Book("Demons", "Fyodor Dostoyevsky");
-        BookReaderImpl bookReaderImpl = new BookReaderImpl();
+        BookReaderImpl bookReaderImpl = new BookReaderImpl(bookValidator);
         bookReaderImpl.add(book1);
         bookReaderImpl.add(book2);
         bookReaderImpl.add(book3);
