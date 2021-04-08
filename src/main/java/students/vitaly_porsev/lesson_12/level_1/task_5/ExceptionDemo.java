@@ -3,7 +3,7 @@ package students.vitaly_porsev.lesson_12.level_1.task_5;
 import java.io.File;
 import java.util.Scanner;
 
-public class ExceptionDemo extends Exception {
+class ExceptionDemo extends Exception {
     public static void main(String[] args) throws Exception {
         ExceptionDemo exceptionDemo = new ExceptionDemo();
         exceptionDemo.UserInputException();
