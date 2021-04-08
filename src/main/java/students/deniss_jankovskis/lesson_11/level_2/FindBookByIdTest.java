@@ -20,7 +20,7 @@ class FindBookByIdTest {
         Book book3 = new Book("Gustave Flaubert", "Madame Bovary");
         BookDatabaseImpl bookDatabase = new BookDatabaseImpl();
         bookDatabase.save(book1);
-        Optional<Book> realResult = bookDatabase.findById(1L);
+        Optional<Book> realResult = bookDatabase.findById(1);
         checkTestResult(realResult, Optional.of(book1), "Find Book By ID Test 1");
     }
 
@@ -31,7 +31,7 @@ class FindBookByIdTest {
         BookDatabaseImpl bookDatabase = new BookDatabaseImpl();
         bookDatabase.save(book1);
         bookDatabase.save(book2);
-        Optional<Book> realResult = bookDatabase.findById(2L);
+        Optional<Book> realResult = bookDatabase.findById(2);
         checkTestResult(realResult, Optional.of(book2), "Find Book By ID Test 2");
 
     }
@@ -44,7 +44,7 @@ class FindBookByIdTest {
         bookDatabase.save(book1);
         bookDatabase.save(book2);
         bookDatabase.save(book3);
-        Optional<Book> realResult = bookDatabase.findById(3L);
+        Optional<Book> realResult = bookDatabase.findById(3);
         checkTestResult(realResult, Optional.of(book3), "Find Book By ID Test 3");
     }
 

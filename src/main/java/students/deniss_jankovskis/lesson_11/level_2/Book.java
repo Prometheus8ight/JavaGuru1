@@ -4,7 +4,7 @@ import java.util.Objects;
 
 class Book {
 
-    private Long id;
+    private int id;
     private String title;
     private String author;
 
@@ -13,11 +13,11 @@ class Book {
         this.title = title;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public Long getId() {
+    public int getId() {
         return this.id;
     }
 
@@ -34,7 +34,7 @@ class Book {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Book book = (Book) o;
-        return id.equals(book.id) && title.equals(book.title) && author.equals(book.author);
+        return title.equals(book.title) && author.equals(book.author);
     }
 
     @Override

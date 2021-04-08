@@ -2,6 +2,7 @@ package students.deniss_jankovskis.lesson_11.level_2;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 class BookDatabaseImpl implements BookDatabase {
@@ -9,8 +10,8 @@ class BookDatabaseImpl implements BookDatabase {
     public List<Book> books = new ArrayList<>();
 
     @Override
-    public Long save(Book book) {
-        long id = books.size();
+    public int save(Book book) {
+        int id = books.size();
         id++;
         book.setId(id);
         books.add(book);
@@ -18,9 +19,9 @@ class BookDatabaseImpl implements BookDatabase {
     }
 
     @Override
-    public boolean delete(Long bookId) {
+    public boolean delete(int bookId) {
         for (Book book : books) {
-            if (book.getId().equals(bookId)) {
+            if (Objects.equals(book.getId(), bookId)) {
                 books.remove(book);
                 return true;
             }
@@ -40,9 +41,9 @@ class BookDatabaseImpl implements BookDatabase {
     }
 
     @Override
-    public Optional<Book> findById(Long bookId) {
+    public Optional<Book> findById(int bookId) {
         for (Book book : books) {
-            if (book.getId().equals(bookId)) {
+            if (Objects.equals(book.getId(), bookId)) {
                 return Optional.of(book);
             }
         }
