@@ -1,4 +1,4 @@
-package students.bogdans_pavlovs.lesson_10.task_1;
+package students.bogdans_pavlovs.lesson_10.level_1.task_1;
 
 class JavaStarLoginServiceImpl implements JavaStarLoginService {
 
