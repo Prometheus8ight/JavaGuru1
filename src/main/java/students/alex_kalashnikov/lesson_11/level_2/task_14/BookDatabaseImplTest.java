@@ -14,6 +14,7 @@ class BookDatabaseImplTest {
         victim.testDeleteByTitle5();
         victim.testDeleteByTitle6();
         victim.testDeleteByTitle7();
+        victim.testDeleteByTitle8();
 
     }
 
@@ -117,6 +118,18 @@ class BookDatabaseImplTest {
         newDataBase.deleteByTitle("B1");
         newDataBase.deleteByTitle("B2");
         newDataBase.deleteByTitle("B4");
+        Book[] expectedResult = {};
+        testArr(expectedResult, newDataBase.repository.toArray(Book[]::new));
+    }
+
+    void testDeleteByTitle8() {
+        BookDatabaseImpl newDataBase = new BookDatabaseImpl();
+        newDataBase.save(new Book("A1", "B1"));
+        newDataBase.save(new Book("A2", "B1"));
+        newDataBase.save(new Book("A3", "B1"));
+        newDataBase.save(new Book("A4", "B1"));
+        newDataBase.save(new Book("A5", "B1"));
+        newDataBase.deleteByTitle("B1");
         Book[] expectedResult = {};
         testArr(expectedResult, newDataBase.repository.toArray(Book[]::new));
     }

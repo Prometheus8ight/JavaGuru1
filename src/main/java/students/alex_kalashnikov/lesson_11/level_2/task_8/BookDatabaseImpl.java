@@ -29,13 +29,15 @@ class BookDatabaseImpl implements BookDatabase {
 
     @Override
     public boolean delete(Book book) {
+        boolean check = false;
         for (int i = 0; i < repository.size(); i++) {
             if (repository.get(i).equals(book)) {
                 repository.remove(i);
-                return true;
+                check = true;
+                i--;
             }
         }
-        return false;
+        return check;
     }
 
 }
