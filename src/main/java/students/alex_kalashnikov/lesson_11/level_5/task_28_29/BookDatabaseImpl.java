@@ -28,13 +28,15 @@ class BookDatabaseImpl implements BookDatabase {
 
     @Override
     public boolean delete(Book book) {
+        boolean check = false;
         for (int i = 0; i < repository.size(); i++) {
             if (repository.get(i).equals(book)) {
                 repository.remove(i);
-                return true;
+                check = true;
+                i--;
             }
         }
-        return false;
+        return check;
     }
 
     @Override
@@ -79,6 +81,7 @@ class BookDatabaseImpl implements BookDatabase {
         for (int i = 0; i < repository.size(); i++) {
             if (repository.get(i).getAuthor().equals(author)) {
                 repository.remove(repository.get(i));
+                i--;
             }
         }
     }
@@ -88,6 +91,7 @@ class BookDatabaseImpl implements BookDatabase {
         for (int i = 0; i < repository.size(); i++) {
             if (repository.get(i).getTitle().equals(title)) {
                 repository.remove(repository.get(i));
+                i--;
             }
         }
     }
