@@ -1,11 +1,11 @@
-package students.alex_kalashnikov.lesson_11.level_5.task_28;
+package students.alex_kalashnikov.lesson_11.level_5.task_28_29;
 
 import java.util.*;
 
 class BookDatabaseImpl implements BookDatabase {
 
-    List<Book> repository = new ArrayList<>();
-    Long idCounter = 1L;
+    private List<Book> repository = new ArrayList<>();
+    private Long idCounter = 1L;
 
     @Override
     public Long save(Book book) {
