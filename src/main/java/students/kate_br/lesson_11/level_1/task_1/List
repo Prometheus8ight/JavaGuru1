@@ -1,0 +1,3 @@
++ArrayList и LinkedList - реализации интерфейса List
++ArrayList основан на массиве
++LinkedList основан на двунаправленном списке
