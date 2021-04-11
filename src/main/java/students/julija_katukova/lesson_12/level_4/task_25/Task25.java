@@ -3,7 +3,7 @@ package students.julija_katukova.lesson_12.level_4.task_25;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Task25 {
+class Task25 {
 
     public static void main(String[] args) throws Exception {
         List<Integer> list = new ArrayList<>();
