@@ -5,13 +5,13 @@ import java.util.Optional;
 
 interface BookDatabase {
 
-    Long save(Book book);
+    int save(Book book);
 
-    boolean delete(Long bookId);
+    boolean delete(int bookId);
 
     boolean delete(Book book);
 
-    Optional<Book> findById(Long bookId);
+    Optional<Book> findById(int bookId);
 
     List<Book> findByAuthor(String author);
 

@@ -16,7 +16,7 @@ class DeleteBookIdTest {
         Book book3 = new Book("Gustave Flaubert", "Madame Bovary");
         BookDatabaseImpl bookDatabase = new BookDatabaseImpl();
         bookDatabase.save(book1);
-        boolean realResult = bookDatabase.delete(1L);
+        boolean realResult = bookDatabase.delete(1);
         checkTestResult(realResult, true, "Delete Book ID Test 1");
     }
 
@@ -27,7 +27,7 @@ class DeleteBookIdTest {
         BookDatabaseImpl bookDatabase = new BookDatabaseImpl();
         bookDatabase.save(book1);
         bookDatabase.save(book2);
-        boolean realResult = bookDatabase.delete(2L);
+        boolean realResult = bookDatabase.delete(2);
         checkTestResult(realResult, true, "Delete Book ID Test 2");
     }
 
@@ -38,7 +38,7 @@ class DeleteBookIdTest {
         BookDatabaseImpl bookDatabase = new BookDatabaseImpl();
         bookDatabase.save(book1);
         bookDatabase.save(book2);
-        boolean realResult = bookDatabase.delete(3L);
+        boolean realResult = bookDatabase.delete(3);
         checkTestResult(realResult, false, "Delete Book ID Test 3");
     }
 
