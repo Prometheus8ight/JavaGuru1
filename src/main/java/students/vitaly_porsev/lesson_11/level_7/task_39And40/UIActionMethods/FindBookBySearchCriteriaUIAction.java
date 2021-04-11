@@ -16,14 +16,13 @@ public class FindBookBySearchCriteriaUIAction implements UIAction {
     @Override
     public void execute() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("""
-                Which criteria you want to choose?
-                1. Title and Author?
-                2. Title and Year?
-                3. Author and Year?
-                4. Title or Author?
-                5. Title or Year?
-                6. Author or Year?"""
+        System.out.println("Which criteria you want to choose?\n" +
+                           "1. Title and Author?\n" +
+                           "2. Title and Year?\n" +
+                           "3. Author and Year?\n" +
+                           "4. Title or Author?\n" +
+                           "5. Title or Year?\n" +
+                           "6. Author or Year?"
         );
         chooseCriteria(scanner.nextInt());
 
