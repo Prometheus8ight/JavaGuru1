@@ -6,15 +6,18 @@ class MultiCatchExample {
 
         try {
 
-        } catch (Exception e) { //
-/*
-этот блок включает в себя Exception и все его дочерние классы
-(в том числе ArithmeticException). Поэтому отдельный блок catch для
-ArithmeticException не нужен!
-
         } catch (ArithmeticException a) {
 
-*/
+        } catch (Exception e) {
+    /*
+    Более вместительный класс исключений
+    (в данном случае Exception включает в
+    себя ArithmeticException) должен
+     находится внизу иерархии catch, иначе
+    при арифметической ошибке всегда будет
+    выдавать ошибку Exception.
+     */
+
         }
     }
 
