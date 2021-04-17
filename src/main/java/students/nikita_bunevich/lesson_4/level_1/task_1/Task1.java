@@ -1,4 +1,4 @@
-package students.nikita_bunevich.lesson_4.task_1;
+package students.nikita_bunevich.lesson_4.level_1.task_1;
 
 import java.util.Scanner;
 
