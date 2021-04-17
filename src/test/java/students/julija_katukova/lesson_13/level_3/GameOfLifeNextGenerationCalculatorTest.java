@@ -33,9 +33,7 @@ class GameOfLifeNextGenerationCalculatorTest {
         field.setAsTrue(1,1);
         field.setAsTrue(0,1);
         field.setAsTrue(2,1);
-        System.out.println(Arrays.deepToString(field.getField()));
         game.calculate(field.getField());
-        System.out.println(Arrays.deepToString(field.getField()));
         Field field2 = new Field(3, 3);
         field2.setAsTrue(0,0);
         field2.setAsTrue(0, 1);
@@ -50,9 +48,7 @@ class GameOfLifeNextGenerationCalculatorTest {
         field.setAsTrue(0,1);
         field.setAsTrue(2,1);
         field.setAsTrue(1,0);
-        System.out.println(Arrays.deepToString(field.getField()));
         game.calculate(field.getField());
-        System.out.println(Arrays.deepToString(field.getField()));
         Field field2 = new Field(3, 3);
         field2.setAsTrue(0,0);
         field2.setAsTrue(0, 1);
