@@ -2,8 +2,8 @@ package lesson_13.level_3_tests;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import students.vitaly_porsev.lesson_13.level_4.allTasks.Board;
-import students.vitaly_porsev.lesson_13.level_4.allTasks.GameOfLifeNextGenerationCalculator;
+import students.vitaly_porsev.lesson_13.level_3.allTasks.Board;
+import students.vitaly_porsev.lesson_13.level_3.allTasks.GameOfLifeNextGenerationCalculator;
 
 public class GameOfLifeNextGenerationCalculatorTest {
 
