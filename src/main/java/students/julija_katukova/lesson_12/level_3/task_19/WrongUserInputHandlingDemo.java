@@ -7,14 +7,15 @@ class WrongUserInputHandlingDemo {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-
+        System.out.println("Please enter integer number: ");
         while (true) {
-            System.out.println("Please enter integer number: ");
-            if (scanner.hasNextInt()) {
-                System.out.println("OK");
-                break;
-            } else {
-                throw new InputException();
+            try {
+                int input = Integer.parseInt(scanner.next());
+                    System.out.println("OK");
+                    break;
+            } catch (NumberFormatException e) {
+                System.out.println("ERROR");
+
             }
         }
     }
