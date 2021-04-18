@@ -1,22 +1,38 @@
 package students.alex_kalashnikov.lesson_13.level_3.task_10;
 
+import java.util.Arrays;
+
 class GameOfLifeNextGenerationCalculator {
 
     public boolean[][] calculate(boolean[][] currentGeneration) {
+        boolean[][] nextGeneration = copyTwoDimensionalArr(currentGeneration);
         for (int i = 0; i < currentGeneration.length; i++) {
             for (int j = 0; j < currentGeneration.length; j++) {
-                if (!currentGeneration[i][j]) {
-                    continue;
-                }
+//                if (!currentGeneration[i][j]) {
+//                    continue;
+//                }
                 if (!checkRuleOne(currentGeneration, i, j)) {
-                    currentGeneration[i][j] = false;
+                    nextGeneration[i][j] = false;
                 }
                 if (checkRuleTwo(currentGeneration, i, j)) {
-                    currentGeneration[i][j] = false;
+                    nextGeneration[i][j] = false;
                 }
+//                if (!currentGeneration[i][j] && checkRuleFour(currentGeneration, i, j)) {
+//                    nextGeneration[i][j] = true;
+//                }
             }
         }
-        return currentGeneration;
+        return nextGeneration;
+    }
+
+    private boolean[][] copyTwoDimensionalArr(boolean[][] currentGeneration) {
+        boolean[][] arr = new boolean[10][10];
+        for (int x = 0; x < currentGeneration.length; x++) {
+            for (int y = 0; y < currentGeneration.length; y++) {
+                arr[x][y] = currentGeneration[x][y];
+            }
+        }
+        return arr;
     }
 
     // Любая живая клетка с меньше чем двумя живыми соседями умирает в следующем поколении.
@@ -48,6 +64,22 @@ class GameOfLifeNextGenerationCalculator {
         }
         return counter > 3;
     }
+
+
+//    // Любая мёртвая клетка с тремя живыми соседями становится живой в следующем поколении.
+//    private boolean checkRuleFour(boolean[][] currentGeneration, int row, int col) {
+//        int counter = 0;
+//        for (int i = row - 1; i < row + 2; i++) {
+//            for (int j = col - 1; j < col + 2; j++) {
+//                if (i == row && j == col) {
+//                    continue;
+//                } else if (currentGeneration[shiftRow(currentGeneration, i)][shiftColumn(currentGeneration, j)]) {
+//                    counter++;
+//                }
+//            }
+//        }
+//        return counter == 3;
+//    }
 
 
     // колонки 0 и 9 - соседние!

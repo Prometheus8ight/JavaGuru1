@@ -146,6 +146,7 @@ public class GameOfLifeNextGenerationCalculatorTest {
         currentGeneration[4][4] = true;
         currentGeneration[5][4] = true;
         boolean[][] expected = new boolean[10][10];
+        expected[4][4] = true;
         assertArrayEquals(expected, victim.calculate(currentGeneration));
     }
 
@@ -225,7 +226,7 @@ public class GameOfLifeNextGenerationCalculatorTest {
         boolean[][] expected = new boolean[10][10];
         expected[3][3] = true;
         expected[3][4] = true;
-        expected[4][4] = true;
+        expected[5][3] = true;
         assertArrayEquals(expected, victim.calculate(currentGeneration));
     }
 
@@ -277,5 +278,19 @@ public class GameOfLifeNextGenerationCalculatorTest {
         expected[4][3] = true;
         assertArrayEquals(expected, victim.calculate(currentGeneration));
     }
+
+//    @Test
+//    public void shouldLiveIfEqualThree1() {
+//        GameOfLifeNextGenerationCalculator victim = new GameOfLifeNextGenerationCalculator();
+//        boolean[][] currentGeneration = new boolean[10][10];
+//        currentGeneration[3][4] = true;
+//        currentGeneration[4][4] = true;
+//        currentGeneration[5][4] = true;
+//        boolean[][] expected = new boolean[10][10];
+//        expected[4][3] = true;
+//        expected[4][4] = true;
+//        expected[4][5] = true;
+//        assertArrayEquals(expected, victim.calculate(currentGeneration));
+//    }
 
 }
