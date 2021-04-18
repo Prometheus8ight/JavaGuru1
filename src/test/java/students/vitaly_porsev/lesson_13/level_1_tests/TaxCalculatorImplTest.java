@@ -1,4 +1,4 @@
-package lesson_13.level_1_tests;
+package students.vitaly_porsev.lesson_13.level_1_tests;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;

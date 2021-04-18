@@ -1,4 +1,4 @@
-package lesson_13.level_5_allTests;
+package students.vitaly_porsev.lesson_13.level_5_allTests;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
