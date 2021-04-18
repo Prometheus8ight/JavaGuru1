@@ -1,25 +1,20 @@
 package students.alex_kalashnikov.lesson_13.level_3.task_10;
 
-import java.util.Arrays;
-
 class GameOfLifeNextGenerationCalculator {
 
     public boolean[][] calculate(boolean[][] currentGeneration) {
         boolean[][] nextGeneration = copyTwoDimensionalArr(currentGeneration);
         for (int i = 0; i < currentGeneration.length; i++) {
             for (int j = 0; j < currentGeneration.length; j++) {
-//                if (!currentGeneration[i][j]) {
-//                    continue;
-//                }
                 if (!checkRuleOne(currentGeneration, i, j)) {
                     nextGeneration[i][j] = false;
                 }
                 if (checkRuleTwo(currentGeneration, i, j)) {
                     nextGeneration[i][j] = false;
                 }
-//                if (!currentGeneration[i][j] && checkRuleFour(currentGeneration, i, j)) {
-//                    nextGeneration[i][j] = true;
-//                }
+                if (!currentGeneration[i][j] && checkRuleFour(currentGeneration, i, j)) {
+                    nextGeneration[i][j] = true;
+                }
             }
         }
         return nextGeneration;
@@ -35,7 +30,7 @@ class GameOfLifeNextGenerationCalculator {
         return arr;
     }
 
-    // Любая живая клетка с меньше чем двумя живыми соседями умирает в следующем поколении.
+    // Первое правило - любая живая клетка с меньше чем двумя живыми соседями умирает в следующем поколении.
     private boolean checkRuleOne(boolean[][] currentGeneration, int row, int col) {
         int counter = 0;
         for (int i = row - 1; i < row + 2; i++) {
@@ -50,7 +45,7 @@ class GameOfLifeNextGenerationCalculator {
         return counter >= 2;
     }
 
-    // Любая живая клетка с больше чем тремя живыми соседями умирает в следующем поколении.
+    // Второе правило - любая живая клетка с больше чем тремя живыми соседями умирает в следующем поколении.
     private boolean checkRuleTwo(boolean[][] currentGeneration, int row, int col) {
         int counter = 0;
         for (int i = row - 1; i < row + 2; i++) {
@@ -65,22 +60,26 @@ class GameOfLifeNextGenerationCalculator {
         return counter > 3;
     }
 
+    /*
+     Третье правило - любая живая клетка с двумя или тремя живыми соседями остаётся живой в следующем поколении.
+     Первое и Второе правила подразумевают Третье.
+     */
 
-//    // Любая мёртвая клетка с тремя живыми соседями становится живой в следующем поколении.
-//    private boolean checkRuleFour(boolean[][] currentGeneration, int row, int col) {
-//        int counter = 0;
-//        for (int i = row - 1; i < row + 2; i++) {
-//            for (int j = col - 1; j < col + 2; j++) {
-//                if (i == row && j == col) {
-//                    continue;
-//                } else if (currentGeneration[shiftRow(currentGeneration, i)][shiftColumn(currentGeneration, j)]) {
-//                    counter++;
-//                }
-//            }
-//        }
-//        return counter == 3;
-//    }
 
+    // Четвертое правило - любая мёртвая клетка с тремя живыми соседями становится живой в следующем поколении.
+    private boolean checkRuleFour(boolean[][] currentGeneration, int row, int col) {
+        int counter = 0;
+        for (int i = row - 1; i < row + 2; i++) {
+            for (int j = col - 1; j < col + 2; j++) {
+                if (i == row && j == col) {
+                    continue;
+                } else if (currentGeneration[shiftRow(currentGeneration, i)][shiftColumn(currentGeneration, j)]) {
+                    counter++;
+                }
+            }
+        }
+        return counter == 3;
+    }
 
     // колонки 0 и 9 - соседние!
     private int shiftColumn(boolean[][] currentGeneration, int col) {
