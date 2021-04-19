@@ -21,7 +21,7 @@ class GameOfLifeNextGenerationCalculator {
     }
 
     private boolean[][] copyTwoDimensionalArr(boolean[][] currentGeneration) {
-        boolean[][] arr = new boolean[10][10];
+        boolean[][] arr = new boolean[currentGeneration.length][currentGeneration.length];
         for (int x = 0; x < currentGeneration.length; x++) {
             for (int y = 0; y < currentGeneration.length; y++) {
                 arr[x][y] = currentGeneration[x][y];

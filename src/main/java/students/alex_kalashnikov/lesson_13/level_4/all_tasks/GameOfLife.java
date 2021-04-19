@@ -12,7 +12,7 @@ class GameOfLife {
         boolean[][] field = generator.generate(10);
         while (true) {
             ui.show(field);
-            sleepForSeconds(750);
+            sleepForSeconds(700);
             field = calculator.calculate(field);
         }
     }
