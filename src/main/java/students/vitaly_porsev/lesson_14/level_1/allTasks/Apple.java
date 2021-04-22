@@ -16,8 +16,8 @@ public class Apple {
         return color;
     }
 
-    public String getWeight() {
-        return String.valueOf(weight);
+    public int getWeight() {
+        return weight;
     }
 
     @Override

@@ -27,7 +27,7 @@ public class FruitStorage {
 
     public List<Apple> findApplesByWeight(List<Apple> apples, int weight) {
         return apples.stream()
-                .filter(apple -> Integer.parseInt(apple.getWeight()) > weight)
+                .filter(apple -> apple.getWeight() > weight)
                 .collect(Collectors.toList());
     }
 }
