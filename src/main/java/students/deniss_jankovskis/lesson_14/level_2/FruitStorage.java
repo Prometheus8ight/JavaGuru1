@@ -19,28 +19,6 @@ class FruitStorage {
         return apples;
     }
 
-
-    public List<Apple> findApplesByColor(List<Apple> inventory, String color) {
-        List<Apple> result = new ArrayList<>();
-        for (Apple apple : inventory) {
-            if (apple.getColor().equals(color)) {
-                result.add(apple);
-            }
-        }
-        return result;
-    }
-
-    public List<Apple> findApplesByWeight(List<Apple> inventory, int weight) {
-        List<Apple> result = new ArrayList<>();
-        for (Apple apple : inventory) {
-            if (apple.getWeight() > weight) {
-                result.add(apple);
-            }
-        }
-        return result;
-    }
-
-
     public List<Apple> findApples(List<Apple> inventory, ApplePredicate p) {
         return inventory.stream()
                 .filter(p::test)
