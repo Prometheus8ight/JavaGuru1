@@ -2,7 +2,7 @@ package students.vitaly_porsev.lesson_14.level_3.allTasks;
 
 import java.util.Objects;
 
-class Transaction {
+public class Transaction {
 
     private Trader trader;
     private int year;

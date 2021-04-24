@@ -6,25 +6,25 @@ import java.util.stream.Collectors;
 
 public class TransactionAnalysisService {
 
-    List<Transaction> findTransactionsByYear(List<Transaction> transactions, int year) {
+    public List<Transaction> findTransactionsByYear(List<Transaction> transactions, int year) {
         return transactions.stream()
                 .filter(transaction -> transaction.getYear() == year)
                 .collect(Collectors.toList());
     }
 
-    List<Transaction> sortByValueFromMinToMax(List<Transaction> transactions) {
+    public List<Transaction> sortByValueFromMinToMax(List<Transaction> transactions) {
         return transactions.stream()
                 .sorted(Comparator.comparingInt(Transaction::getValue))
                 .collect(Collectors.toList());
     }
 
-    List<Transaction> sortByValueFromMaxToMin(List<Transaction> transactions) {
+    public List<Transaction> sortByValueFromMaxToMin(List<Transaction> transactions) {
         return transactions.stream()
                 .sorted(Comparator.comparingInt(Transaction::getValue).reversed())
                 .collect(Collectors.toList());
     }
 
-    List<Transaction> findTransactionsByYearAndSortFromMinToMax(List<Transaction> transactions, int year) {
+    public List<Transaction> findTransactionsByYearAndSortFromMinToMax(List<Transaction> transactions, int year) {
         return transactions.stream()
                 .filter(transaction -> transaction.getYear() == year)
                 .sorted(Comparator.comparingInt(Transaction::getValue))

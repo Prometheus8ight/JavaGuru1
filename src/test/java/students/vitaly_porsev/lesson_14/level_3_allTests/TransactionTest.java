@@ -1,7 +1,11 @@
-package students.vitaly_porsev.lesson_14.level_3.allTasks;
+package students.vitaly_porsev.lesson_14.level_3_allTests;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import students.vitaly_porsev.lesson_14.level_3.allTasks.Trader;
+import students.vitaly_porsev.lesson_14.level_3.allTasks.Transaction;
+import students.vitaly_porsev.lesson_14.level_3.allTasks.TransactionAnalysisService;
+import students.vitaly_porsev.lesson_14.level_3.allTasks.TransactionTestData;
 
 import java.util.ArrayList;
 import java.util.List;

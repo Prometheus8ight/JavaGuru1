@@ -3,7 +3,7 @@ package students.vitaly_porsev.lesson_14.level_3.allTasks;
 import java.util.Arrays;
 import java.util.List;
 
-class TransactionTestData {
+public class TransactionTestData {
 
     public List<Transaction> getTransactions() {
         Trader raoul = new Trader("Raoul", "Cambridge");
