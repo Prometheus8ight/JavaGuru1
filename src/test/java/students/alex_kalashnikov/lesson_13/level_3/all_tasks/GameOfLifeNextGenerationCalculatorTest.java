@@ -1,8 +1,8 @@
 package students.alex_kalashnikov.lesson_13.level_3.task_10;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class GameOfLifeNextGenerationCalculatorTest {
 
