@@ -6,6 +6,6 @@ interface ProductDatabase {
 
     void save(Product product);
 
-    Optional findByTitle(String productTitle);
+    Optional<Product> findByTitle(String productTitle);
 
 }

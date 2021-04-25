@@ -37,14 +37,12 @@ class InMemoryDatabase implements ProductDatabase {
 
     @Override
     public Optional<Product> findByTitle(String productTitle) {
-//        Optional<Product> nonEmptyOptional = Optional.of(productTitle);
-        Optional<Product> emptyOptional = Optional.empty();
         for (Product product : arr) {
             if (product.getTitle().equals(productTitle)) {
                 return Optional.of(product);
             }
         }
-        return emptyOptional;
+        return Optional.empty();
     }
 
 }
