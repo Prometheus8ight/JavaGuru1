@@ -8,9 +8,7 @@ class Server {
     void go() {
 
         try {
-
             ServerSocket serverSocket = new ServerSocket(2500);
-
             while (true) {
                 Socket socket = serverSocket.accept();
                 InputStreamReader streamReader = new InputStreamReader(socket.getInputStream());
@@ -18,12 +16,12 @@ class Server {
                 String message = reader.readLine();
                 reader.close();
 
-                Socket socket1 = new Socket(socket.getInetAddress(), 2001);
+                Socket socket1 = new Socket(socket.getInetAddress(), 2001); // пользователь 1
                 PrintWriter writer = new PrintWriter(socket1.getOutputStream());
                 writer.println(message);
                 writer.close();
 
-                Socket socket2 = new Socket(socket.getInetAddress(), 2002);
+                Socket socket2 = new Socket(socket.getInetAddress(), 2002); // пользователь 2
                 PrintWriter writer2 = new PrintWriter(socket2.getOutputStream());
                 writer2.println(message);
                 writer2.close();

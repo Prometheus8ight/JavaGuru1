@@ -6,12 +6,12 @@ import java.awt.event.*;
 import java.io.*;
 import java.net.*;
 
-class Messenger implements ActionListener {
+class Messenger {
 
-    JTextArea text;
-    JTextArea chat;
-    String userName;
-    int port;
+    private JTextArea text;
+    private JTextArea chat;
+    private String userName;
+    private int port;
 
     public Messenger(int port, String userName) {
         this.port = port;
@@ -22,10 +22,10 @@ class Messenger implements ActionListener {
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        JPanel textPanel = new JPanel();
+        JPanel chatPanel = new JPanel();
         JLabel label = new JLabel(userName);
-        JButton button = new JButton("SEND");
-        button.addActionListener(this);
+        JButton buttonSend = new JButton("SEND");
+        buttonSend.addActionListener(new SendButton());
         chat = new JTextArea(23, 30);
         chat.setEditable(false);
         text = new JTextArea(3, 30);
@@ -39,18 +39,47 @@ class Messenger implements ActionListener {
         scrollerText.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
         scrollerText.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
-        textPanel.add(scrollerChat);
-        textPanel.add(scrollerText);
+        chatPanel.add(scrollerChat);
+        chatPanel.add(scrollerText);
+
+        JMenuBar menuBar = new JMenuBar();
+        JMenu fileMenu = new JMenu("File");
+        JMenuItem saveMenuItem = new JMenuItem("Save");
+        saveMenuItem.addActionListener(new SaveButton());
+        fileMenu.add(saveMenuItem);
+        menuBar.add(fileMenu);
+        frame.setJMenuBar(menuBar);
 
         frame.getContentPane().add(BorderLayout.NORTH, label);
-        frame.getContentPane().add(BorderLayout.CENTER, textPanel);
-        frame.getContentPane().add(BorderLayout.SOUTH, button);
-
-        frame.setSize(350, 500);
+        frame.getContentPane().add(BorderLayout.CENTER, chatPanel);
+        frame.getContentPane().add(BorderLayout.SOUTH, buttonSend);
+        frame.setSize(350, 550);
         frame.setVisible(true);
 
+        checkMessagesFromServer();
+
+    }
+
+    private class SaveButton implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            JFileChooser saveChat = new JFileChooser();
+            saveChat.add(chat);
+            saveFile(new File("C:/save.txt"));
+        }
+    }
+
+    private class SendButton implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            sendMessage(text.getText());
+            text.setText("");
+        }
+    }
+
+    private void checkMessagesFromServer() {
         try {
-        ServerSocket serverSocket = new ServerSocket(port);
+            ServerSocket serverSocket = new ServerSocket(port);
             while (true) {
                 Socket socket = serverSocket.accept();
                 InputStreamReader streamReader = new InputStreamReader(socket.getInputStream());
@@ -60,26 +89,20 @@ class Messenger implements ActionListener {
             }
         }
         catch (Exception ex) {
-                ex.printStackTrace();
-            }
+            ex.printStackTrace();
+        }
     }
 
-//    @Override
-//    public void actionPerformed(ActionEvent e) {
-//        text.append("Hello World!\n");
-//    }
-
-
-//    private void saveFile(File file) {
-//        try {
-//            BufferedWriter writer = new BufferedWriter(new FileWriter(file));
-//            writer.write(String.valueOf(text.getText()));
-//            writer.close();
-//        } catch (IOException ex) {
-//            System.out.println("Can't save!");
-//            ex.printStackTrace();
-//        }
-//    }
+    private void saveFile(File file) {
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+            writer.write(String.valueOf(chat.getText()));
+            writer.close();
+        } catch (IOException ex) {
+            System.out.println("Can't save!");
+            ex.printStackTrace();
+        }
+    }
 
     private void sendMessage(String text) {
         try {
@@ -90,13 +113,6 @@ class Messenger implements ActionListener {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-    }
-
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        sendMessage(text.getText());
-        text.setText("");
     }
 
 }
