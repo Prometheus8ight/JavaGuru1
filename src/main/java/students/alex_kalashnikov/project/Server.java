@@ -10,6 +10,7 @@ class Server {
         try {
             ServerSocket serverSocket = new ServerSocket(2500);
             while (true) {
+
                 Socket socket = serverSocket.accept();
                 InputStreamReader streamReader = new InputStreamReader(socket.getInputStream());
                 BufferedReader reader = new BufferedReader(streamReader);
@@ -25,6 +26,7 @@ class Server {
                 PrintWriter writer2 = new PrintWriter(socket2.getOutputStream());
                 writer2.println(message);
                 writer2.close();
+
             }
         } catch (IOException ex) {
             ex.printStackTrace();
