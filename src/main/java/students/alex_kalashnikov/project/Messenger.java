@@ -6,6 +6,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
 import java.net.*;
+import java.util.Objects;
 
 class Messenger {
 
@@ -17,6 +18,10 @@ class Messenger {
     public Messenger(int port, String userName) {
         this.port = port;
         this.userName = userName;
+    }
+
+    public int getPort() {
+        return port;
     }
 
     void go() {
@@ -142,6 +147,27 @@ class Messenger {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Messenger{" +
+                "userName='" + userName + '\'' +
+                ", port=" + port +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Messenger messenger = (Messenger) o;
+        return port == messenger.port && Objects.equals(userName, messenger.userName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(userName, port);
     }
 
 }
