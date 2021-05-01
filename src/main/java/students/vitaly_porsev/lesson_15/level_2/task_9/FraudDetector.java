@@ -13,6 +13,6 @@ class FraudDetector {
     }
 
     private boolean compareTraderCity(Trader trader, String tradersCity) {
-        return trader.getCity().cityName.equals(tradersCity);
+        return trader.getCity().equals(tradersCity);
     }
 }
