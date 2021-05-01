@@ -6,11 +6,14 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
 import java.net.*;
+import java.util.List;
+import java.util.stream.Collectors;
 
 class Messenger {
 
     private JTextArea text;
     private JTextArea chat;
+    private JTextArea activeUsers;
     private final User user;
 
     public Messenger(User user) {
@@ -29,13 +32,21 @@ class Messenger {
         JLabel label = new JLabel(user.getUserName());
         JButton buttonSend = new JButton("SEND");
         buttonSend.addActionListener(new SendButton());
-        chat = new JTextArea(23, 30);
+
+        activeUsers = new JTextArea(1, 25);
+        activeUsers.setLineWrap(true);
+        activeUsers.setWrapStyleWord(true);
+        activeUsers.setEditable(false);
+        activeUsers.setText("Server is not connected!");
+
+        chat = new JTextArea(23, 35);
         chat.setLineWrap(true);
         chat.setWrapStyleWord(true);
         chat.setEditable(false);
         DefaultCaret caret = (DefaultCaret) chat.getCaret();
         caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
-        text = new JTextArea(3, 30);
+
+        text = new JTextArea(3, 35);
         text.setLineWrap(true);
         text.setWrapStyleWord(true);
         text.addKeyListener(new Enter());
@@ -48,6 +59,7 @@ class Messenger {
         scrollerText.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
         scrollerText.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
+        chatPanel.add(activeUsers);
         chatPanel.add(scrollerChat);
         chatPanel.add(scrollerText);
 
@@ -62,7 +74,7 @@ class Messenger {
         frame.getContentPane().add(BorderLayout.NORTH, label);
         frame.getContentPane().add(BorderLayout.CENTER, chatPanel);
         frame.getContentPane().add(BorderLayout.SOUTH, buttonSend);
-        frame.setSize(350, 550);
+        frame.setSize(350, 600);
         frame.setVisible(true);
 
         checkMessagesFromServer();
@@ -114,12 +126,28 @@ class Messenger {
             ServerSocket serverSocket = new ServerSocket(user.getPort());
             while (true) {
                 Socket socket = serverSocket.accept();
-                InputStreamReader streamReader = new InputStreamReader(socket.getInputStream());
-                BufferedReader reader = new BufferedReader(streamReader);
-                String message = reader.readLine();
-                reader.close();
-                if (divideMessagesFromPing(message)) {
-                    chat.append(message + "\n");
+
+                try {
+                    InputStream inputStream = socket.getInputStream();
+                    ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
+                    List<User> arr = (List<User>) objectInputStream.readObject();
+                    String string = arr.stream()
+                            .map(User::getUserName)
+                            .collect(Collectors.joining(", "));
+                    activeUsers.setText(string);
+                } catch (StreamCorruptedException e) {
+                }
+
+                try {
+                    InputStreamReader streamReader = new InputStreamReader(socket.getInputStream());
+                    BufferedReader reader = new BufferedReader(streamReader);
+                    String message = reader.readLine();
+                    reader.close();
+                    if (divideMessagesFromPing(message)) {
+                        chat.append(message + "\n");
+                    }
+                } catch (NullPointerException e) {
+                    continue;
                 }
             }
         } catch (Exception ex) {
@@ -142,7 +170,7 @@ class Messenger {
         try {
             Socket socket = new Socket("127.0.0.1", 2501);
             PrintWriter writer = new PrintWriter(socket.getOutputStream());
-            writer.println("<" + user.getUserName() + ">: " + text);
+            writer.println("    <" + user.getUserName() + ">: " + text);
             writer.close();
         } catch (IOException ex) {
             ex.printStackTrace();

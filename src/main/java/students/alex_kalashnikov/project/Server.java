@@ -27,7 +27,7 @@ class Server implements Runnable {
 
                 if (!compareSender(user)) {
                     activeUserArr.add(user);
-                    sendMessageToAllActiveUsers("<SERVER>: " + user.getUserName() + " has joined conversation");
+                    sendMessageToAllActiveUsers("    <SERVER>: " + user.getUserName() + " has joined conversation");
                 }
 
                 respond();
@@ -65,15 +65,17 @@ class Server implements Runnable {
     private void respond() {
         for (int i = 0; i < activeUserArr.size(); i++) {
             try {
-                sendMessage(activeUserArr.get(i), "0");
+                sendActiveUsersList(activeUserArr.get(i));
             } catch (IOException e) {
                 String userName = activeUserArr.get(i).getUserName();
                 activeUserArr.remove(i);
                 activeUserArr.forEach(user -> {
                     try {
-                        sendMessage(user, "<SERVER>: " + userName + " has left conversation");
-                    } catch (IOException ioException) {
-                        ioException.printStackTrace();
+                        if (activeUserArr.size() != 0) {
+                            sendMessage(user, "    <SERVER>: " + userName + " has left conversation");
+                        }
+                    } catch (IOException f) {
+                        f.printStackTrace();
                     }
                 });
                 i--;
@@ -96,6 +98,14 @@ class Server implements Runnable {
         PrintWriter printWriter = new PrintWriter(socketSend.getOutputStream());
         printWriter.println(message);
         printWriter.close();
+    }
+
+    private void sendActiveUsersList(User user) throws IOException {
+        Socket socketSend = new Socket(user.getAddressIP(), user.getPort());
+        OutputStream outputStream = socketSend.getOutputStream();
+        ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
+        objectOutputStream.writeObject(activeUserArr);
+        objectOutputStream.close();
     }
 
     public static void main(String[] args) {
