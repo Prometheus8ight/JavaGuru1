@@ -1,7 +1,10 @@
 package students.alex_kalashnikov.project;
 
 import javax.swing.*;
+import javax.swing.text.BadLocationException;
 import javax.swing.text.DefaultCaret;
+import javax.swing.text.DefaultHighlighter;
+import javax.swing.text.Highlighter;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
@@ -14,6 +17,9 @@ class Messenger {
     private JTextArea text;
     private JTextArea chat;
     private JTextArea activeUsers;
+    private JTextArea searchField;
+    private Highlighter highlighter;
+    DefaultHighlighter.DefaultHighlightPainter painter;
     private final User user;
 
     public Messenger(User user) {
@@ -39,6 +45,9 @@ class Messenger {
         activeUsers.setEditable(false);
         activeUsers.setText("Server is not connected!");
 
+        searchField = new JTextArea(1, 20);
+        searchField.addKeyListener(new Search());
+
         chat = new JTextArea(23, 35);
         chat.setLineWrap(true);
         chat.setWrapStyleWord(true);
@@ -60,8 +69,13 @@ class Messenger {
         scrollerText.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
         chatPanel.add(activeUsers);
+        chatPanel.add(searchField);
         chatPanel.add(scrollerChat);
         chatPanel.add(scrollerText);
+
+        highlighter = new DefaultHighlighter();
+        painter = new DefaultHighlighter.DefaultHighlightPainter(Color.lightGray);
+        chat.setHighlighter(highlighter);
 
         JMenuBar menuBar = new JMenuBar();
         JMenu fileMenu = new JMenu("File");
@@ -117,6 +131,37 @@ class Messenger {
 
         @Override
         public void keyReleased(KeyEvent e) {
+        }
+
+    }
+
+    private class Search implements KeyListener {
+
+        @Override
+        public void keyTyped(KeyEvent e) {
+
+        }
+
+        @Override
+        public void keyPressed(KeyEvent e) {
+
+        }
+
+        @Override
+        public void keyReleased(KeyEvent e) {
+            String wordOrLetters = searchField.getText();
+            String text = chat.getText();
+            int x = text.indexOf(wordOrLetters);
+            int y = searchField.getText().length();
+            if (x != -1) {
+                try {
+                    highlighter.removeAllHighlights();
+                    highlighter.addHighlight(x, x + y, painter);
+                    chat.setCaretPosition(x);
+                } catch (BadLocationException badLocationException) {
+                    badLocationException.printStackTrace();
+                }
+            }
         }
 
     }
