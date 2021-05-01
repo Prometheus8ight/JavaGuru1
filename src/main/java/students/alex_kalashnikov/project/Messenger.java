@@ -6,7 +6,6 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
 import java.net.*;
-import java.util.Objects;
 
 class Messenger {
 
@@ -120,7 +119,9 @@ class Messenger {
                 InputStreamReader streamReader = new InputStreamReader(socket.getInputStream());
                 BufferedReader reader = new BufferedReader(streamReader);
                 String message = reader.readLine();
-                chat.append(message + "\n");
+                if (divideMessagesFromPing(message)) {
+                    chat.append(message + "\n");
+                }
             }
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -149,25 +150,8 @@ class Messenger {
         }
     }
 
-    @Override
-    public String toString() {
-        return "Messenger{" +
-                "userName='" + userName + '\'' +
-                ", port=" + port +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Messenger messenger = (Messenger) o;
-        return port == messenger.port && Objects.equals(userName, messenger.userName);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(userName, port);
+    private boolean divideMessagesFromPing(String message) {
+        return message.contains(":");
     }
 
 }
