@@ -3,6 +3,7 @@ package students.alex_kalashnikov.project;
 import java.io.*;
 import java.net.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 class Server {
@@ -25,6 +26,8 @@ class Server {
                     arr.add(message);
                 }
 
+                System.out.println(Arrays.toString(arr.toArray()));
+
                 respond(arr, socket, message);
             }
         } catch (IOException ex) {
@@ -37,20 +40,32 @@ class Server {
     }
 
     private void respond(List<String> arr, Socket socket, String message) {
-        for (String s : arr) {
+        for (int i = 0; i < arr.size(); i++) {
             try {
-                Socket socket2 = new Socket(socket.getInetAddress(), Integer.parseInt(s));
-                PrintWriter writer2 = new PrintWriter(socket2.getOutputStream());
-                writer2.println(message);
-                writer2.close();
+                sendMessage(socket, arr.get(i), message);
             } catch (IOException e) {
-                continue;
+                arr.remove(i);
+                arr.forEach(arr1 -> {
+                    try {
+                        sendMessage(socket, arr1, "<SERVER>: User left!");
+                    } catch (IOException ioException) {
+                        ioException.printStackTrace();
+                    }
+                });
+                i--;
             }
         }
     }
 
     private boolean divideMessagesFromPing(String message) {
         return message.contains(":");
+    }
+
+    private void sendMessage(Socket socket, String arr, String message) throws IOException {
+        Socket socketSend = new Socket(socket.getInetAddress(), Integer.parseInt(arr));
+        PrintWriter writer2 = new PrintWriter(socketSend.getOutputStream());
+        writer2.println(message);
+        writer2.close();
     }
 
     public static void main(String[] args) {
