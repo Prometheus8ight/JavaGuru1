@@ -3,17 +3,45 @@ package students.alex_kalashnikov.project;
 import java.io.*;
 import java.net.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-class Server {
+class Server implements Runnable {
 
-    List<String> arr = new ArrayList<>();
+    // 2500 port for ping
+    // 2501 port for messages
+
+    private static final List<User> activeUserArr = new ArrayList<>();
+
+    // Thread for ping
+    @Override
+    public void run() {
+        try {
+            ServerSocket serverSocket = new ServerSocket(2500);
+            while (true) {
+
+                Socket socket = serverSocket.accept();
+                InputStream inputStream = socket.getInputStream();
+                ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
+                User user = (User) objectInputStream.readObject();
+                objectInputStream.close();
+
+                if (!compareSender(user)) {
+                    activeUserArr.add(user);
+                    sendMessageToAllActiveUsers("<SERVER>: " + user.getUserName() + " has joined conversation");
+                }
+
+                respond();
+
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 
     void go() {
 
         try {
-            ServerSocket serverSocket = new ServerSocket(2500);
+            ServerSocket serverSocket = new ServerSocket(2501);
             while (true) {
 
                 Socket socket = serverSocket.accept();
@@ -22,32 +50,28 @@ class Server {
                 String message = reader.readLine();
                 reader.close();
 
-                if (!compareSender(arr, message) && !divideMessagesFromPing(message)) {
-                    arr.add(message);
-                }
+                sendMessageToAllActiveUsers(message);
 
-                System.out.println(Arrays.toString(arr.toArray()));
-
-                respond(arr, socket, message);
             }
         } catch (IOException ex) {
             ex.printStackTrace();
         }
     }
 
-    private boolean compareSender(List<String> arr, String message) {
-        return arr.stream().anyMatch(arr1 -> arr1.equals(message));
+    private boolean compareSender(User newUser) {
+        return activeUserArr.stream().anyMatch(user -> user.equals(newUser));
     }
 
-    private void respond(List<String> arr, Socket socket, String message) {
-        for (int i = 0; i < arr.size(); i++) {
+    private void respond() {
+        for (int i = 0; i < activeUserArr.size(); i++) {
             try {
-                sendMessage(socket, arr.get(i), message);
+                sendMessage(activeUserArr.get(i), "0");
             } catch (IOException e) {
-                arr.remove(i);
-                arr.forEach(arr1 -> {
+                String userName = activeUserArr.get(i).getUserName();
+                activeUserArr.remove(i);
+                activeUserArr.forEach(user -> {
                     try {
-                        sendMessage(socket, arr1, "<SERVER>: User left!");
+                        sendMessage(user, "<SERVER>: " + userName + " has left conversation");
                     } catch (IOException ioException) {
                         ioException.printStackTrace();
                     }
@@ -57,20 +81,28 @@ class Server {
         }
     }
 
-    private boolean divideMessagesFromPing(String message) {
-        return message.contains(":");
+    private void sendMessageToAllActiveUsers(String message) {
+        activeUserArr.forEach(user -> {
+            try {
+                sendMessage(user, message);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
     }
 
-    private void sendMessage(Socket socket, String arr, String message) throws IOException {
-        Socket socketSend = new Socket(socket.getInetAddress(), Integer.parseInt(arr));
-        PrintWriter writer2 = new PrintWriter(socketSend.getOutputStream());
-        writer2.println(message);
-        writer2.close();
+    private void sendMessage(User user, String message) throws IOException {
+        Socket socketSend = new Socket(user.getAddressIP(), user.getPort());
+        PrintWriter printWriter = new PrintWriter(socketSend.getOutputStream());
+        printWriter.println(message);
+        printWriter.close();
     }
 
     public static void main(String[] args) {
 
         Server server = new Server();
+        Thread serverPing = new Thread(new Server());
+        serverPing.start();
         server.go();
 
     }

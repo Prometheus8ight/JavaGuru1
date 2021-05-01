@@ -11,16 +11,14 @@ class Messenger {
 
     private JTextArea text;
     private JTextArea chat;
-    private String userName;
-    private int port;
+    private final User user;
 
-    public Messenger(int port, String userName) {
-        this.port = port;
-        this.userName = userName;
+    public Messenger(User user) {
+        this.user = user;
     }
 
-    public int getPort() {
-        return port;
+    public User getUser() {
+        return user;
     }
 
     void go() {
@@ -28,7 +26,7 @@ class Messenger {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JPanel chatPanel = new JPanel();
-        JLabel label = new JLabel(userName);
+        JLabel label = new JLabel(user.getUserName());
         JButton buttonSend = new JButton("SEND");
         buttonSend.addActionListener(new SendButton());
         chat = new JTextArea(23, 30);
@@ -113,12 +111,13 @@ class Messenger {
 
     private void checkMessagesFromServer() {
         try {
-            ServerSocket serverSocket = new ServerSocket(port);
+            ServerSocket serverSocket = new ServerSocket(user.getPort());
             while (true) {
                 Socket socket = serverSocket.accept();
                 InputStreamReader streamReader = new InputStreamReader(socket.getInputStream());
                 BufferedReader reader = new BufferedReader(streamReader);
                 String message = reader.readLine();
+                reader.close();
                 if (divideMessagesFromPing(message)) {
                     chat.append(message + "\n");
                 }
@@ -141,9 +140,9 @@ class Messenger {
 
     private void sendMessage(String text) {
         try {
-            Socket socket = new Socket("127.0.0.1", 2500);
+            Socket socket = new Socket("127.0.0.1", 2501);
             PrintWriter writer = new PrintWriter(socket.getOutputStream());
-            writer.println(userName + ": " + text);
+            writer.println("<" + user.getUserName() + ">: " + text);
             writer.close();
         } catch (IOException ex) {
             ex.printStackTrace();

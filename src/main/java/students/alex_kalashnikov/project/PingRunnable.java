@@ -1,34 +1,41 @@
 package students.alex_kalashnikov.project;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.NotSerializableException;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
 import java.net.Socket;
 
 class PingRunnable implements Runnable {
 
-    private final int port;
+    private User user;
 
-    public PingRunnable(int port) {
-        this.port = port;
+    public PingRunnable(User user) {
+        this.user = user;
     }
 
     @Override
     public void run() {
         while (true) {
             try {
-                try {
-                    Thread.sleep(5000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+
                 Socket socket = new Socket("127.0.0.1", 2500);
-                PrintWriter writer = new PrintWriter(socket.getOutputStream());
-                writer.println(port);
-                writer.close();
+                OutputStream outputStream = socket.getOutputStream();
+                ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
+                objectOutputStream.writeObject(user);
+                objectOutputStream.close();
+
+            } catch (NotSerializableException e) {
 
             } catch (IOException e) {
+                System.out.println("Server is down!");;
+            }
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+
         }
     }
 
