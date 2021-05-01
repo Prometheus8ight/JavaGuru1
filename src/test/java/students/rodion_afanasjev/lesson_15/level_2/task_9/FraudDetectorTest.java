@@ -10,7 +10,7 @@ public class FraudDetectorTest {
         FraudDetector fraudDetector = new FraudDetector();
         Trader trader = new Trader("Pokemon","Sidney");
 
-        Assertions.assertTrue(fraudDetector.isFraud(trader,"Pokemon","Sidney"));
+        Assertions.assertTrue(fraudDetector.isFraud(trader));
     }
 
 
