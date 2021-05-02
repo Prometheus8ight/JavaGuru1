@@ -19,15 +19,22 @@ class Messenger {
     private JTextArea activeUsers;
     private JTextArea searchField;
     private Highlighter highlighter;
-    DefaultHighlighter.DefaultHighlightPainter painter;
-    private final User user;
+    private DefaultHighlighter.DefaultHighlightPainter painter;
 
-    public Messenger(User user) {
+    private final User user;
+    private final String serverAddressIP;
+
+    public Messenger(User user, String serverAddressIP) {
         this.user = user;
+        this.serverAddressIP = serverAddressIP;
     }
 
     public User getUser() {
         return user;
+    }
+
+    public String getServerAddressIP() {
+        return serverAddressIP;
     }
 
     void go() {
@@ -36,6 +43,11 @@ class Messenger {
 
         JPanel chatPanel = new JPanel();
         JLabel label = new JLabel(user.getUserName());
+        JLabel label1 = new JLabel();
+        JLabel label2 = new JLabel();
+        label1.setText("enter text to find");
+        label2.setText("users online");
+
         JButton buttonSend = new JButton("SEND");
         buttonSend.addActionListener(new SendButton());
 
@@ -69,7 +81,9 @@ class Messenger {
         scrollerText.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
         chatPanel.add(activeUsers);
+        chatPanel.add(label2);
         chatPanel.add(searchField);
+        chatPanel.add(label1);
         chatPanel.add(scrollerChat);
         chatPanel.add(scrollerText);
 
@@ -153,9 +167,9 @@ class Messenger {
             String text = chat.getText();
             int x = text.indexOf(wordOrLetters);
             int y = searchField.getText().length();
+            highlighter.removeAllHighlights();
             if (x != -1) {
                 try {
-                    highlighter.removeAllHighlights();
                     highlighter.addHighlight(x, x + y, painter);
                     chat.setCaretPosition(x);
                 } catch (BadLocationException badLocationException) {
@@ -171,6 +185,7 @@ class Messenger {
             ServerSocket serverSocket = new ServerSocket(user.getPort());
             while (true) {
                 Socket socket = serverSocket.accept();
+                socket.setSoTimeout(3000);
 
                 try {
                     InputStream inputStream = socket.getInputStream();
@@ -195,7 +210,12 @@ class Messenger {
                     continue;
                 }
             }
-        } catch (Exception ex) {
+        }
+        catch (SocketTimeoutException e) {
+            activeUsers.setText("Server is not connected!");
+        }
+        catch (Exception ex) {
+            activeUsers.setText("Server is not connected!");
             ex.printStackTrace();
         }
     }
@@ -213,12 +233,13 @@ class Messenger {
 
     private void sendMessage(String text) {
         try {
-            Socket socket = new Socket("127.0.0.1", 2501);
+            Socket socket = new Socket(serverAddressIP, 2501);
             PrintWriter writer = new PrintWriter(socket.getOutputStream());
             writer.println("    <" + user.getUserName() + ">: " + text);
             writer.close();
         } catch (IOException ex) {
             ex.printStackTrace();
+            activeUsers.setText("Server is not connected!");
         }
     }
 

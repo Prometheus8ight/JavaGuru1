@@ -8,10 +8,12 @@ import java.net.Socket;
 
 class PingRunnable implements Runnable {
 
-    private User user;
+    private final User user;
+    private final String serverAddressIP;
 
-    public PingRunnable(User user) {
+    public PingRunnable(User user, String serverAddressIP) {
         this.user = user;
+        this.serverAddressIP = serverAddressIP;
     }
 
     @Override
@@ -19,7 +21,7 @@ class PingRunnable implements Runnable {
         while (true) {
             try {
 
-                Socket socket = new Socket("127.0.0.1", 2500);
+                Socket socket = new Socket(serverAddressIP, 2500);
                 OutputStream outputStream = socket.getOutputStream();
                 ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
                 objectOutputStream.writeObject(user);
@@ -28,7 +30,7 @@ class PingRunnable implements Runnable {
             } catch (NotSerializableException e) {
 
             } catch (IOException e) {
-                System.out.println("Server is down!");;
+                System.out.println("Server is down!");
             }
             try {
                 Thread.sleep(1000);

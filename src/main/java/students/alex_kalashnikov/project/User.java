@@ -35,13 +35,4 @@ class User implements Serializable {
         return port == user.port && Objects.equals(userName, user.userName) && Objects.equals(addressIP, user.addressIP);
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "userName='" + userName + '\'' +
-                ", addressIP='" + addressIP + '\'' +
-                ", port=" + port +
-                '}';
-    }
-
 }
