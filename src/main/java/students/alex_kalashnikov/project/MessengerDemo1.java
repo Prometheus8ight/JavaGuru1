@@ -6,9 +6,8 @@ class MessengerDemo1 {
 
         User user1 = new User("Alexander", "127.0.0.1", 2001);
         Messenger messenger1 = new Messenger(user1, "127.0.0.1");
-        Thread threadPing = new Thread(new PingRunnable(user1, messenger1.getServerAddressIP()));
-        threadPing.start();
-
+        Thread messengerPing = new Thread(messenger1);
+        messengerPing.start();
         messenger1.go();
 
     }

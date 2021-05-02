@@ -12,7 +12,7 @@ import java.net.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
-class Messenger {
+class Messenger implements Runnable {
 
     private JTextArea text;
     private JTextArea chat;
@@ -33,8 +33,31 @@ class Messenger {
         return user;
     }
 
-    public String getServerAddressIP() {
-        return serverAddressIP;
+    //Thread for ping
+    @Override
+    public void run() {
+        while (true) {
+            try {
+
+                Socket socket = new Socket(serverAddressIP, 2500);
+                OutputStream outputStream = socket.getOutputStream();
+                ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
+                objectOutputStream.writeObject(user);
+                objectOutputStream.close();
+
+            } catch (NotSerializableException e) {
+
+            } catch (IOException e) {
+                System.out.println("Server is down!");
+                activeUsers.setText("Server is not connected!");
+            }
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+        }
     }
 
     void go() {
@@ -210,11 +233,9 @@ class Messenger {
                     continue;
                 }
             }
-        }
-        catch (SocketTimeoutException e) {
+        } catch (SocketTimeoutException e) {
             activeUsers.setText("Server is not connected!");
-        }
-        catch (Exception ex) {
+        } catch (Exception ex) {
             activeUsers.setText("Server is not connected!");
             ex.printStackTrace();
         }
