@@ -39,35 +39,37 @@ class TransactionAnalysisService {
     }
 
     List<Integer> getYearsOfAllTransactions(List<Transaction> transactions) {
-        List<Integer> arr = new ArrayList<>();
-        transactions.forEach(transaction -> arr.add(transaction.getYear()));
-        return arr;
+        return transactions.stream()
+                .map(Transaction::getYear)
+                .collect(Collectors.toList());
     }
 
     Set<Integer> getUniqueYearsOfAllTransactions(List<Transaction> transactions) {
-        Set<Integer> arr = new HashSet<>();
-        transactions.forEach(transaction -> arr.add(transaction.getYear()));
-        return arr;
+        return transactions.stream()
+                .map(Transaction::getYear)
+                .collect(Collectors.toSet());
     }
 
     Set<String> getAllTradersNames(List<Transaction> transactions) {
-        Set<String> arr = new HashSet<>();
-        transactions.forEach(transaction -> arr.add(transaction.getTrader().getName()));
-        return arr;
+        return transactions.stream()
+                .map(Transaction::getTrader)
+                .map(Trader::getName)
+                .collect(Collectors.toSet());
     }
 
     Set<String> getAllTradersCities(List<Transaction> transactions) {
-        Set<String> arr = new HashSet<>();
-        transactions.forEach(transaction -> arr.add(transaction.getTrader().getCity()));
-        return arr;
+        return transactions.stream()
+                .map(Transaction::getTrader)
+                .map(Trader::getCity)
+                .collect(Collectors.toSet());
     }
 
     Set<String> getAllTradersNamesFromCity(List<Transaction> transactions, String city) {
-        Set<String> arr = new HashSet<>();
-        transactions.stream()
-                .filter(transaction -> transaction.getTrader().getCity().equals(city))
-                .forEach(transaction -> arr.add(transaction.getTrader().getName()));
-        return arr;
+        return transactions.stream()
+                .map(Transaction::getTrader)
+                .filter(trader -> trader.getCity().equals(city))
+                .map(Trader::getName)
+                .collect(Collectors.toSet());
     }
 
 }
