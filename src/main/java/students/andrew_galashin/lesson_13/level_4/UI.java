@@ -5,11 +5,10 @@ public class UI {
         for (boolean[] boolean1 : board) {
             for (boolean a : boolean1) {
                 if (!a) {
-                    System.out.println(".");
+                    System.out.print(".");
                 } else {
-                    System.out.println("*");
+                    System.out.print("*");
                 }
-                System.out.println();
             }
             System.out.println();
         }

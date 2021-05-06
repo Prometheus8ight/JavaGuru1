@@ -11,8 +11,6 @@ class Board {
         return board;
     }
 
-    public void ttrue(int x, int y) {
-        board[x][y] = true;
-    }
+
 
 }

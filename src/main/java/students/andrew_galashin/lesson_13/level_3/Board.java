@@ -7,7 +7,7 @@ class Board {
         this.board = new boolean[height][width];
     }
 
-    public boolean[][] getBoard() {
+    private boolean[][] getBoard() {
         return board;
     }
     public void ttrue(int x, int y){

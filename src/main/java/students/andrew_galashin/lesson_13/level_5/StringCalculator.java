@@ -4,17 +4,17 @@ import java.util.Arrays;
 
 public class StringCalculator {
     int add(String numbers) {
-        int x = 0;
+        int sum = 0;
         if (numbers.equals("") || numbers.isEmpty() || numbers.endsWith("\n")) {
-            return x;
+            return sum;
         } else {
             String[] number = numbers.replaceAll("[^0-9]", "").split("");
             System.out.println(Arrays.toString(number));
 
             for (String cleanNumber : number) {
-                x += Integer.parseInt(cleanNumber);
+                sum += Integer.parseInt(cleanNumber);
             }
         }
-        return x;
+        return sum;
     }
 }
