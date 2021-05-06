@@ -1,150 +1,88 @@
 package students.julija_katukova.lesson_15.level_3;
 
+import java.util.List;
+
 class TennisGameImpl implements TennisGame {
 
-    private String gameScore = "Love - Love";
+    private int player1Score = 0;
+    private int player2Score = 0;
 
-    public void setGameScore(String gameScore) {
-        this.gameScore = gameScore;
+    public void setPlayer1Score(int player1Score) {
+        this.player1Score = player1Score;
+    }
+
+    public void setPlayer2Score(int player2Score) {
+        this.player2Score = player2Score;
     }
 
     @Override
     public void wonPoint(String playerName) {
-        switch (score()) {
-            case "Love - Love" -> {
-                if (playerName.equals("player1")) {
-                    gameScore = "Fifteen - Love";
-                }
-                if (playerName.equals("player2")) {
-                    gameScore = "Love - Fifteen";
-                }
-            }
-            case "Fifteen - Love" -> {
-                if (playerName.equals("player1")) {
-                    gameScore = "Thirty - Love";
-                }
-                if (playerName.equals("player2")) {
-                    gameScore = "Fifteen - Fifteen";
-                }
-            }
-            case "Love - Fifteen" -> {
-                if (playerName.equals("player1")) {
-                    gameScore = "Fifteen - Fifteen";
-                }
-                if (playerName.equals("player2")) {
-                    gameScore = "Love - Thirty";
-                }
-            }
-            case "Thirty - Love" -> {
-                if (playerName.equals("player1")) {
-                    gameScore = "Forty - Love";
-                }
-                if (playerName.equals("player2")) {
-                    gameScore = "Thirty - Fifteen";
-                }
-            }
-            case "Fifteen - Fifteen" -> {
-                if (playerName.equals("player1")) {
-                    gameScore = "Thirty - Fifteen";
-                }
-                if (playerName.equals("player2")) {
-                    gameScore = "Fifteen - Thirty";
-                }
-            }
-            case "Love - Thirty" -> {
-                if (playerName.equals("player1")) {
-                    gameScore = "Fifteen - Thirty";
-                }
-                if (playerName.equals("player2")) {
-                    gameScore = "Love - Forty";
-                }
-            }
-            case "Forty - Love" -> {
-                if (playerName.equals("player1")) {
-                    gameScore = "Win player1";
-                }
-                if (playerName.equals("player2")) {
-                    gameScore = "Forty - Fifteen";
-                }
-            }
-            case "Thirty - Fifteen" -> {
-                if (playerName.equals("player1")) {
-                    gameScore = "Forty - Fifteen";
-                }
-                if (playerName.equals("player2")) {
-                    gameScore = "Thirty - Thirty";
-                }
-            }
-            case "Fifteen - Thirty" -> {
-                if (playerName.equals("player1")) {
-                    gameScore = "Thirty - Thirty";
-                }
-                if (playerName.equals("player2")) {
-                    gameScore = "Fifteen - Forty";
-                }
-            }
-            case "Love - Forty" -> {
-                if (playerName.equals("player1")) {
-                    gameScore = "Fifteen - Forty";
-                }
-                if (playerName.equals("player2")) {
-                    gameScore = "Win player2";
-                }
-            }
-            case "Forty - Fifteen" -> {
-                if (playerName.equals("player1")) {
-                    gameScore = "Win player1";
-                }
-                if (playerName.equals("player2")) {
-                    gameScore = "Forty - Thirty";
-                }
-            }
-            case "Thirty - Thirty" -> {
-                if (playerName.equals("player1")) {
-                    gameScore = "Forty - Thirty";
-                }
-                if (playerName.equals("player2")) {
-                    gameScore = "Thirty - Forty";
-                }
-            }
-            case "Fifteen - Forty" -> {
-                if (playerName.equals("player1")) {
-                    gameScore = "Thirty - Forty";
-                }
-                if (playerName.equals("player2")) {
-                    gameScore = "Win player2";
-                }
-            }
-            case "Forty - Thirty", "Advantage player1" -> {
-                if (playerName.equals("player1")) {
-                    gameScore = "Win player1";
-                }
-                if (playerName.equals("player2")) {
-                    gameScore = "Deuce";
-                }
-            }
-            case "Thirty - Forty", "Advantage player2" -> {
-                if (playerName.equals("player1")) {
-                    gameScore = "Deuce";
-                }
-                if (playerName.equals("player2")) {
-                    gameScore = "Win player2";
-                }
-            }
-            case "Deuce" -> {
-                if (playerName.equals("player1")) {
-                    gameScore = "Advantage player1";
-                }
-                if (playerName.equals("player2")) {
-                    gameScore = "Advantage player2";
-                }
-            }
+
+        List<ScoreProcessor> processors = List.of(
+                new Score03Processor(),
+                new Score34Processor(),
+                new Score43Processor()
+        );
+
+        if(processors.get(0).canProcess(player1Score, player2Score)) {
+            this.player1Score = processors.get(0).processPlayer1(player1Score, player2Score, playerName);
+            this.player2Score = processors.get(0).processPlayer2(player1Score, player2Score, playerName);
         }
+
+        if(processors.get(1).canProcess(player1Score, player2Score)) {
+            this.player2Score = processors.get(1).processPlayer1(player1Score, player2Score, playerName);
+            this.player2Score = processors.get(1).processPlayer1(player1Score, player2Score, playerName);
+        }
+
+        if(processors.get(2).canProcess(player1Score, player2Score)) {
+            this.player1Score = processors.get(2).processPlayer1(player1Score, player2Score, playerName);
+            this.player1Score = processors.get(2).processPlayer1(player1Score, player2Score, playerName);
+        }
+
     }
 
-
     @Override
-        public String score() {
-            return gameScore;
+    public String score() {
+        String gameScorePlayer1 = null;
+        String gameScorePlayer2 = null;
+        System.out.println(player1Score + " - " + player2Score);
+
+        if (player1Score == 4 && player2Score == 0 ||
+                player1Score == 4 && player2Score == 1 ||
+                player1Score == 4 &&  player2Score == 2 ||
+                player1Score == 5 && player2Score == 3) {
+                return "Win player1";
         }
+        else if (player2Score == 4 && player1Score == 0 ||
+                player2Score == 4 && player1Score == 1 ||
+                player2Score == 4 && player1Score == 2 ||
+                player2Score == 5 && player1Score == 3) {
+            return "Win player2";
+        }
+        else if (player1Score == 3 && player2Score == 3) {
+            return "Deuce";
+        }
+        else if (player1Score == 4 && player2Score == 3) {
+            return "Advantage player1";
+        }
+        else if (player1Score == 3 && player2Score == 4) {
+            return "Advantage player2";
+        }
+        else {
+            switch (player1Score) {
+                case 0 -> gameScorePlayer1 = "Love";
+                case 1 -> gameScorePlayer1 = "Fifteen";
+                case 2 -> gameScorePlayer1 = "Thirty";
+                case 3 -> gameScorePlayer1 = "Forty";
+            }
+            switch (player2Score) {
+                case 0 -> gameScorePlayer2 = "Love";
+                case 1 -> gameScorePlayer2 = "Fifteen";
+                case 2 -> gameScorePlayer2 = "Thirty";
+                case 3 -> gameScorePlayer2 = "Forty";
+            }
+
+            return gameScorePlayer1 + " - " + gameScorePlayer2;
+        }
+    }
 }
