@@ -58,6 +58,7 @@ Please, follow next steps in order to publish your homework for personal review:
 * [Lesson 13](https://www.youtube.com/watch?v=ZoUXC_CGnM4)
 * [Lesson 14](https://www.youtube.com/watch?v=XxKnmqVACak)
 * [Lesson 15](https://www.youtube.com/watch?v=nF48Y66rH2o)
+* [Lesson 16](https://www.youtube.com/watch?v=Y0RnPViSC1k)
 
 ## Books
 
@@ -81,4 +82,5 @@ Please, follow next steps in order to publish your homework for personal review:
 
 ## Feedback
 
-* [Course Feedback](https://forms.gle/31RFvegLiFakVDbh6)
+* [Course Feedback - Midcourse](https://forms.gle/31RFvegLiFakVDbh6)
+* [Course Feedback - Final](https://forms.gle/xiETGNzkoqzPmEWE6)
