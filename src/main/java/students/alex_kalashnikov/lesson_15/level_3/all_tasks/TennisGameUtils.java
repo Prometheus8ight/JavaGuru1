@@ -9,12 +9,12 @@ class TennisGameUtils implements TennisGame {
     private int playerOneScore;
     private int playerTwoScore;
     private final List<String> scores = List.of(
-            "Love",      //0 очков
-            "Fifteen",   //1 очко
-            "Thirty",    //2 очка
-            "Forty",     //3 очка
-            "Advantage", //4 очка
-            "Win"        //5 очков
+            "Love",
+            "Fifteen",
+            "Thirty",
+            "Forty",
+            "Advantage",
+            "Win"
     );
 
     public TennisGameUtils(String playerOne, String playerTwo) {
