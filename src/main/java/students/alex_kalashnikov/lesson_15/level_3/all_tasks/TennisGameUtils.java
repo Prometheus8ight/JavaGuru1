@@ -55,30 +55,4 @@ class TennisGameUtils implements TennisGame {
         return scores.get(playerOneScore) + " - " + scores.get(playerTwoScore);
     }
 
-    public static void main(String[] args) {
-
-        TennisGame game = new TennisGameUtils("player1", "player2");
-//        game.score();
-        game.wonPoint("player1");
-//        game.score();
-        game.wonPoint("player1");
-//        game.score();
-        game.wonPoint("player1");
-////        game.score();
-        game.wonPoint("player2");
-////        game.score();
-        game.wonPoint("player1");
-////        game.score();
-//        game.wonPoint("player1");
-////        game.score();
-//        game.wonPoint("player1");
-////        game.score();
-//        game.wonPoint("player2");
-////        game.score();
-//        game.wonPoint("player1");
-
-        System.out.println(game.score());
-
-    }
-
 }
