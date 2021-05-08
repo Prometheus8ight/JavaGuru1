@@ -22,14 +22,6 @@ class TennisGameUtils implements TennisGame {
         this.playerTwo = playerTwo;
     }
 
-    public String getPlayerOne() {
-        return playerOne;
-    }
-
-    public String getPlayerTwo() {
-        return playerTwo;
-    }
-
     @Override
     public void wonPoint(String playerName) {
         if (playerName.equals(playerOne)) {
