@@ -12,9 +12,7 @@ class TennisGameUtils implements TennisGame {
             "Love",
             "Fifteen",
             "Thirty",
-            "Forty",
-            "Advantage",
-            "Win"
+            "Forty"
     );
 
     public TennisGameUtils(String playerOne, String playerTwo) {
@@ -33,18 +31,22 @@ class TennisGameUtils implements TennisGame {
 
     @Override
     public String score() {
-        if (playerOneScore > 3 && playerOneScore - playerTwoScore > 1) {
+        if (playerOneScore > 3 && scoreDifference() > 1) {
             return "Win " + playerOne;
-        } else if (playerTwoScore > 3 && playerTwoScore - playerOneScore > 1) {
+        } else if (playerTwoScore > 3 && scoreDifference() < -1) {
             return "Win " + playerTwo;
         } else if (playerOneScore == playerTwoScore && playerOneScore > 2) {
             return "Deuce";
-        } else if (playerOneScore > 3 && playerOneScore - playerTwoScore == 1) {
+        } else if (playerOneScore > 3 && scoreDifference() == 1) {
             return "Advantage " + playerOne;
-        } else if (playerTwoScore > 3 && playerTwoScore - playerOneScore == 1) {
+        } else if (playerTwoScore > 3 && scoreDifference() == -1) {
             return "Advantage " + playerTwo;
         }
         return scores.get(playerOneScore) + " - " + scores.get(playerTwoScore);
+    }
+
+    private int scoreDifference() {
+        return playerOneScore - playerTwoScore;
     }
 
 }
