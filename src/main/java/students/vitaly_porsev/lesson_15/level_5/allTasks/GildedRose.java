@@ -7,8 +7,12 @@ import java.util.List;
 public class GildedRose {
 
     public void updateQuality(List<Item> items) {
-        ItemProcessor[] itemProcessor = {new NormalItemProcessor(), new AgedBrieProcessor(),
-                new BackStagePassProcessor(), new SulfurasProcessor(), new ConjuredProcessor()};
+        ItemProcessor[] itemProcessor = {
+                new NormalItemProcessor(new ItemNameChecker()),
+                new AgedBrieProcessor(new ItemNameChecker()),
+                new BackStagePassProcessor(new ItemNameChecker()),
+                new SulfurasProcessor(new ItemNameChecker()),
+                new ConjuredProcessor(new ItemNameChecker())};
 
         for (Item item : items) {
             for (ItemProcessor processor : itemProcessor) {

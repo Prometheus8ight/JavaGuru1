@@ -6,9 +6,14 @@ import students.vitaly_porsev.lesson_15.level_5.allTasks.ItemProcessor;
 
 public class NormalItemProcessor implements ItemProcessor {
 
+    private final ItemNameChecker checker;
+
+    public NormalItemProcessor(ItemNameChecker checker) {
+        this.checker = checker;
+    }
+
     @Override
     public boolean canProcess(Item item) {
-        ItemNameChecker checker = new ItemNameChecker();
         return !checker.checkItemName(item.getName(), "brie")
                 && !checker.checkItemName(item.getName(), "sulfuras")
                 && !checker.checkItemName(item.getName(), "passes")
