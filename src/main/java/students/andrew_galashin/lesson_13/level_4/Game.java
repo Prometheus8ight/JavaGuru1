@@ -21,7 +21,7 @@ class Game {
             TimeUnit.SECONDS.sleep(sec);
         } catch (InterruptedException x) {
             System.out.println("Exception occurred");
-            System.out.println(1);
+            System.exit(1);
         }
 
     }

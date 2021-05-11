@@ -4,66 +4,64 @@ import java.util.Arrays;
 
 class GameOfLifeNextGenerationCalculator {
     public boolean[][] calculate(boolean[][] currentGeneration) {
-        boolean[][] nextGeneration = Arrays.copyOf(currentGeneration, currentGeneration.length);
-        for (int row = 0; row < currentGeneration.length; ++row) {
-            for (int col = 0; col < currentGeneration[row].length; ++col) {
-                int numNeighbors = calculateGenerate(currentGeneration, row, col);
-                if ((numNeighbors < 2) || (numNeighbors > 3)) {
-                    nextGeneration[row][col] = false;
-                }
-                if (numNeighbors == 2 || numNeighbors == 3) {
-                    nextGeneration[row][col] = true;
+        for (int i = 0; i < currentGeneration.length; i++) {
+            for (int a = 0; a < currentGeneration[i].length; a++) {
+                if (currentGeneration[i][a]) {
+                    int alive = calculateGenerater(currentGeneration, i, a);
+                    {
+                        if (alive < 2) {
+                            currentGeneration[i][a] = false;
+                        } else currentGeneration[i][a] = alive == 2 || alive == 3;
+                    }
+                } else if (!currentGeneration[i][a]) {
+                    int alive = calculateGenerater(currentGeneration, i, a);
+                    {
+                        if (alive == 3) {
+                            currentGeneration[i][a] = true;
+                        }
+                    }
                 }
             }
         }
-
-        return nextGeneration;
+        return currentGeneration;
     }
 
 
-    private int calculateGenerate(boolean[][] board, int x, int y) {
-        int a = 0;
+    private int calculateGenerater(boolean[][] board, int x, int y) {
+        int count = 0;
 
-        if ((x - 1 >= 0) && (y - 1 >= 0)) {
-            if (board[x - 1][y - 1]) {
-                a++;
-            }
+        if (arrIndex(board, x - 1, y - 1) && board[x - 1][y - 1]) {
+            count++;
         }
-        if ((x >= 0) && (y - 1 >= 0)) {
-            if (board[x][y - 1]) {
-                a++;
-            }
+        if (arrIndex(board, x, y - 1) && board[x][y - 1]) {
+            count++;
         }
-        if ((x + 1 < board.length) && (y - 1 >= 0)) {
-            if (board[x + 1][y - 1]) {
-                a++;
-            }
+        if (arrIndex(board, x + 1, y - 1) && board[x + 1][y - 1]) {
+            count++;
         }
-        if ((x + 1 < board.length) && (y < board[0].length)) {
-            if (board[x + 1][y]) {
-                a++;
-            }
+
+        if (arrIndex(board, x - 1, y) && board[x - 1][y]) {
+            count++;
         }
-        if ((x + 1 < board.length) && (y + 1 < board[0].length)) {
-            if (board[x + 1][y + 1]) {
-                a++;
-            }
+        if (arrIndex(board, x + 1, y) && board[x + 1][y]) {
+            count++;
         }
-        if ((x < board.length) && (y + 1 < board[0].length)) {
-            if (board[x][y + 1]) {
-                a++;
-            }
+
+        if (arrIndex(board, x - 1, y + 1) && board[x - 1][y + 1]) {
+            count++;
         }
-        if ((x - 1 >= 0) && (y + 1 < board[0].length)) {
-            if (board[x - 1][y + 1]) {
-                a++;
-            }
+        if (arrIndex(board, x, y + 1) && board[x][y + 1]) {
+            count++;
         }
-        if ((x - 1 >= 0) && (y < board[0].length)) {
-            if (board[x - 1][y]) {
-                a++;
-            }
+        if (arrIndex(board, x + 1, y + 1) && board[x + 1][y + 1]) {
+            count++;
         }
-        return a;
+        return count;
+    }
+    private boolean arrIndex(boolean[][] board, int x, int y) {
+        if (x < 0 || x >= board.length) {
+            return false;
+        }
+        return y >= 0 && y < board[x].length;
     }
 }
